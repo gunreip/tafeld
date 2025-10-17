@@ -1,0 +1,43 @@
+gunreip@DESKTOP-I7C75P2:~/code/tafeld$ npm install -g npm@10
+hash -r
+npx tailwindcss init -p
+npm error code EACCES
+npm error syscall rename
+npm error path /usr/lib/node_modules/npm
+npm error dest /usr/lib/node_modules/.npm-qUIFSsiV
+npm error errno -13
+npm error Error: EACCES: permission denied, rename '/usr/lib/node_modules/npm' -> '/usr/lib/node_modules/.npm-qUIFSsiV'
+npm error     at async Object.rename (node:internal/fs/promises:786:10)
+npm error     at async moveFile (/usr/lib/node_modules/npm/node_modules/@npmcli/fs/lib/move-file.js:30:5)
+npm error     at async Promise.allSettled (index 0)
+npm error     at async [reifyPackages] (/usr/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/reify.js:326:11)
+npm error     at async Arborist.reify (/usr/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/reify.js:128:5)
+npm error     at async Install.exec (/usr/lib/node_modules/npm/lib/commands/install.js:150:5)
+npm error     at async Npm.exec (/usr/lib/node_modules/npm/lib/npm.js:208:9)
+npm error     at async module.exports (/usr/lib/node_modules/npm/lib/cli/entry.js:67:5) {
+npm error   errno: -13,
+npm error   code: 'EACCES',
+npm error   syscall: 'rename',
+npm error   path: '/usr/lib/node_modules/npm',
+npm error   dest: '/usr/lib/node_modules/.npm-qUIFSsiV'
+npm error }
+npm error
+npm error The operation was rejected by your operating system.
+npm error It is likely you do not have the permissions to access this file as the current user
+npm error
+npm error If you believe this might be a permissions issue, please double-check the
+npm error permissions of the file and its containing directories, or try running
+npm error the command again as root/Administrator.
+npm error A complete log of this run can be found in: /home/gunreip/.npm/_logs/2025-10-16T19_17_47_809Z-debug-0.log
+npm error could not determine executable to run
+npm error A complete log of this run can be found in: /home/gunreip/.npm/_logs/2025-10-16T19_17_55_226Z-debug-0.log
+gunreip@DESKTOP-I7C75P2:~/code/tafeld$ sudo npm install -g npm@10
+hash -r
+npx tailwindcss init -p
+
+removed 19 packages, and changed 78 packages in 11s
+
+25 packages are looking for funding
+  run `npm fund` for details
+npm error could not determine executable to run
+npm error A complete log of this run can be found in: /home/gunreip/.npm/_logs/2025-10-16T19_18_31_518Z-debug-0.log
