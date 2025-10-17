@@ -1,0 +1,34 @@
+<div class="min-h-screen bg-base-100">
+    <header class="navbar bg-base-200 shadow">
+        <div class="flex-1 px-4 text-xl font-bold text-primary">
+            <a href="{{ route('dashboard') }}">tafeld</a>
+        </div>
+        <nav class="flex-none">
+            <ul class="menu menu-horizontal px-1">
+                <li>
+                    <a wire:navigate href="{{ route('dashboard') }}" class="{{ request()->routeIs('dashboard') ? 'active font-bold' : '' }}">Dashboard</a>
+                </li>
+                <li>
+                    <a wire:navigate href="{{ route('personal.index') }}" class="{{ request()->routeIs('personal.*') ? 'active font-bold' : '' }}">Personal</a>
+                </li>
+                <li>
+                    <a wire:navigate href="{{ route('kunden.index') }}" class="{{ request()->routeIs('kunden.*') ? 'active font-bold' : '' }}">Kunden</a>
+                </li>
+                <li>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="btn btn-sm btn-error text-white ml-4">Logout</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="p-6">
+        {{ $slot }}
+    </main>
+
+    <footer class="footer footer-center p-4 bg-base-200 text-base-content/60">
+        <p>© {{ date('Y') }} tafeld</p>
+    </footer>
+</div>

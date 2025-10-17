@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Livewire\Personal\Index as PersonalIndex;
 
 Route::view('/', 'welcome');
 
@@ -12,4 +13,9 @@ Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
-require __DIR__.'/auth.php';
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', fn() => view('dashboard'))->name('dashboard');
+    Route::get('/personal', \App\Livewire\Personal\Index::class)->name('personal.index');
+});
+
+require __DIR__ . '/auth.php';
