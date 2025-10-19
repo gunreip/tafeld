@@ -68,6 +68,7 @@ class ProjectAuditMain extends Command
     {
         $head = '<!DOCTYPE html><html lang="de"><head><meta charset="UTF-8">'
             . '<title>Tafeld Audit Übersicht</title>'
+            . '<link rel="stylesheet" href="./audits-base.css">'
             . '<link rel="stylesheet" href="./audits-main.css">'
             . '<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>'
             . '<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>'
@@ -109,7 +110,7 @@ class ProjectAuditMain extends Command
     protected function defaultCss(): string
     {
         return <<<CSS
-:root {
+/* :root {
     --bg: #0f1115;
     --fg: #e6e6e6;
     --muted: #9aa;
@@ -147,7 +148,7 @@ summary {
 summary:hover {
     color: #fff;
     text-shadow: 0 0 4px #6cf;
-}
+} */
 
 ul {
     list-style: none;
@@ -224,11 +225,11 @@ span.file-format {
     margin-left: 3rem;
 }
 
-.doc-footer {
+/* .doc-footer {
     margin-top: 16px;
     color: #9aa;
     text-align: right;
-}
+} */
 CSS;
     }
 }

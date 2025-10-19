@@ -41,7 +41,7 @@ class ProjectGitPush extends Command
 
     protected function ensureGitInitialized(string $base, string $branch, string $remote, string $repoUrl): void
     {
-        if (!File::exists($base.'/.git')) {
+        if (!File::exists($base . '/.git')) {
             $this->shellPassthru('git init');
             $this->shellPassthru("git branch -M " . escapeshellarg($branch));
             $this->shellPassthru("git remote add " . escapeshellarg($remote) . ' ' . escapeshellarg($repoUrl));
@@ -77,7 +77,7 @@ class ProjectGitPush extends Command
 
     protected function mapAction(string $code): ?string
     {
-        return match(true) {
+        return match (true) {
             $code === '??' => 'new',
             str_contains($code, 'D') => 'delete',
             str_contains($code, 'R') => 'rename',
@@ -116,60 +116,70 @@ class ProjectGitPush extends Command
 
         $html = $dir . '/git.html';
         $json = $dir . '/git.jsonl';
-        File::append($json, json_encode(['meta'=>$meta,'files'=>$files], JSON_UNESCAPED_SLASHES)."\n");
+        File::append($json, json_encode(['meta' => $meta, 'files' => $files], JSON_UNESCAPED_SLASHES) . "\n");
 
         if (!File::exists($html)) {
-            $head = '<!DOCTYPE html><html><head><meta charset="utf-8"><title>Git Audits</title>'.
-                    '<link rel="stylesheet" href="../../audits-git.css">'.
-                    '<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>'.
-                    '<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>'.
-                    '</head><body><h1>Git Audits</h1>';
-            File::put($html,$head);
+            $head = '<!DOCTYPE html><html><head><meta charset="utf-8"><title>Git Audits</title>' .
+                '<link rel="stylesheet" href="../../audits-base.css">' .
+                '<link rel="stylesheet" href="../../audits-git.css">' .
+                '<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>' .
+                '<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>' .
+                '</head><body><h1>Git Audits</h1>';
+            File::put($html, $head);
         }
-        File::append($html, $this->renderRunHtml($meta,$files)."\n");
+        File::append($html, $this->renderRunHtml($meta, $files) . "\n");
     }
 
-    protected function renderRunHtml(array $m,array $files):string
+    protected function renderRunHtml(array $m, array $files): string
     {
         $id = $m['run_id'];
-        $header = 'Run-ID: '.$m['run_id_human'];
-        $metaTable = "<tr><th>Date</th><td class='value-date'>{$m['date']}</td></tr>".
-                     "<tr><th>Time</th><td class='value-time'>{$m['time']}</td></tr>".
-                     "<tr><th>Project</th><td class='value-project'>{$m['project']}</td></tr>".
-                     "<tr><th>@source</th><td class='value-source'>{$m['@source']}</td></tr>".
-                     "<tr><th>@target</th><td class='value-target'>{$m['@target']}</td></tr>".
-                     "<tr><th>Files</th><td class='value-counts'>{$m['files_count']}</td></tr>".
-                     "<tr><th>Comment</th><td class='value-comment'>{$m['comment']}</td></tr>";
-        $summary = "<tr><th>Summary</th><td class='git-okay'>".nl2br(htmlspecialchars($m['summary'],ENT_QUOTES))."</td></tr>";
-        $rows='';
-        foreach($files as $f){
-            $cls='git-'.$f['action'];$icon=$this->actionIcon($f['action']);
-            $rows.="<tr class='{$cls}'><td>{$icon} ".htmlspecialchars($f['file'],ENT_QUOTES)."</td></tr>";
+        $header = 'Run-ID: ' . $m['run_id_human'];
+        $metaTable = "<tr><th>Date</th><td class='value-date'>{$m['date']}</td></tr>" .
+            "<tr><th>Time</th><td class='value-time'>{$m['time']}</td></tr>" .
+            "<tr><th>Project</th><td class='value-project'>{$m['project']}</td></tr>" .
+            "<tr><th>@source</th><td class='value-source'>{$m['@source']}</td></tr>" .
+            "<tr><th>@target</th><td class='value-target'>{$m['@target']}</td></tr>" .
+            "<tr><th>Files</th><td class='value-counts'>{$m['files_count']}</td></tr>" .
+            "<tr><th>Comment</th><td class='value-comment'>{$m['comment']}</td></tr>";
+        $summary = "<tr><th>Summary</th><td class='git-okay'>" . nl2br(htmlspecialchars($m['summary'], ENT_QUOTES)) . "</td></tr>";
+        $rows = '';
+        foreach ($files as $f) {
+            $cls = 'git-' . $f['action'];
+            $icon = $this->actionIcon($f['action']);
+            $rows .= "<tr class='{$cls}'><td>{$icon} " . htmlspecialchars($f['file'], ENT_QUOTES) . "</td></tr>";
         }
-        return "<details id='run-{$id}'><summary>{$header}</summary>".
-               "<table class='meta'>{$metaTable}</table>".
-               "<details class='summary'><summary>Summary</summary><table class='summary-table'>{$summary}</table></details>".
-               "<details class='files'><summary>Files</summary><table class='files'>{$rows}</table></details></details>";
+        return "<details id='run-{$id}'><summary>{$header}</summary>" .
+            "<table class='meta'>{$metaTable}</table>" .
+            "<details class='summary'><summary>Summary</summary><table class='summary-table'>{$summary}</table></details>" .
+            "<details class='files'><summary>Files</summary><table class='files'>{$rows}</table></details></details>";
     }
 
-    protected function actionIcon(string $a):string
+    protected function actionIcon(string $a): string
     {
-        $m=['add'=>'cloud-upload-outline','new'=>'cloud-upload-outline','modify'=>'sync-outline','update'=>'sync-outline','rename'=>'shuffle-outline','delete'=>'trash-outline'];
-        $n=$m[$a]??'information-circle-outline';
+        $m = ['add' => 'cloud-upload-outline', 'new' => 'cloud-upload-outline', 'modify' => 'sync-outline', 'update' => 'sync-outline', 'rename' => 'shuffle-outline', 'delete' => 'trash-outline'];
+        $n = $m[$a] ?? 'information-circle-outline';
         return "<ion-icon name='{$n}'></ion-icon>";
     }
 
-    protected function defaultCss():string
+    protected function defaultCss(): string
     {
-        return ':root{--bg:#0f1115;--fg:#e6e6e6;--border:#2a2f3a;--accent:#7cc;}body{background:var(--bg);color:var(--fg);font:14px monospace;padding:16px;}h1{color:var(--accent);}details{border:1px solid var(--border);border-radius:8px;margin:12px 0;padding:8px 12px;background:#131722;}summary{cursor:pointer;color:var(--accent);}summary:hover{color:#fff;text-shadow:0 0 4px #6cf;}th,td{border:1px solid var(--border);padding:6px 8px;}th{background:#171b26;text-align:left;width:180px;}ion-icon{font-size:16px;vertical-align:middle;margin-right:6px;transition:filter .2s;}ion-icon:hover{filter:drop-shadow(0 0 4px currentColor);} .git-add ion-icon,.git-new ion-icon{color:#5f5;} .git-delete ion-icon{color:#f66;} .git-modify ion-icon,.git-update ion-icon{color:#ff9;} .git-rename ion-icon{color:#9cf;} .git-okay{color:#7f7;} .value-date{color:#9fc;} .value-time{color:#9cf;} .value-comment{color:#fc9;}';
+        return 'th,td{border:1px solid var(--border);padding:6px 8px;}th{background:#171b26;text-align:left;width:180px;}ion-icon{font-size:16px;vertical-align:middle;margin-right:6px;transition:filter .2s;}ion-icon:hover{filter:drop-shadow(0 0 4px currentColor);} .git-add ion-icon,.git-new ion-icon{color:#5f5;} .git-delete ion-icon{color:#f66;} .git-modify ion-icon,.git-update ion-icon{color:#ff9;} .git-rename ion-icon{color:#9cf;} .git-okay{color:#7f7;} .value-date{color:#9fc;} .value-time{color:#9cf;} .value-comment{color:#fc9;}';
     }
 
-    protected function appendChangelog(array $meta):void
+    protected function appendChangelog(array $meta): void
     {
-        $f=base_path('docs/changelog.md');if(!File::exists($f))return;
-        File::append($f,"- Git Push [{$meta['run_id_human']}](.logs/audits/git/git.html#run-{$meta['run_id']}) → {$meta['@target']} : {$meta['comment']}\n");
+        $f = base_path('docs/changelog.md');
+        if (!File::exists($f)) return;
+        File::append($f, "- Git Push [{$meta['run_id_human']}](.logs/audits/git/git.html#run-{$meta['run_id']}) → {$meta['@target']} : {$meta['comment']}\n");
     }
 
-    protected function shell(string $c):string{return trim((string)@shell_exec($c.' 2>&1'));}
-    protected function shellPassthru(string $c):void{$this->line('$ '.$c);passthru($c);}
+    protected function shell(string $c): string
+    {
+        return trim((string)@shell_exec($c . ' 2>&1'));
+    }
+    protected function shellPassthru(string $c): void
+    {
+        $this->line('$ ' . $c);
+        passthru($c);
+    }
 }
