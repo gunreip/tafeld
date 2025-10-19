@@ -1,23 +1,12 @@
-gunreip@DESKTOP-I7C75P2:~/code/tafeld$ php artisan project:artisan-docs
-
-   TypeError 
-
-  Unsupported operand types: string + string
-
-  at app/Console/Commands/ProjectArtisanDocs.php:104
-    100▕                          '<tr><td class="value-option">—</td><td class="value-desc">—</td><td class="value-default">—</td></tr>'.
-    101▕                          '</tbody></table></details>'.
-    102▕                          '<details class="examples"><summary><ion-icon name="bulb-outline"></ion-icon> Examples</summary>'.
-    103▕                          '<table class="examples-table"><thead><tr><th>Example</th></tr></thead><tbody>'.
-  ➜ 104▕                          '<tr><td class="value-example">php artisan '+htmlspecialchars($cmd, ENT_QUOTES)+'</td></tr>'.
-    105▕                          '</tbody></table></details>'.
-    106▕                          '</details>';
-    107▕             }
-    108▕             $body .= '</details>';
-
-  1   app/Console/Commands/ProjectArtisanDocs.php:38
-      App\Console\Commands\ProjectArtisanDocs::renderHtml()
-      +13 vendor frames 
-
-  15  artisan:16
-      Illuminate\Foundation\Application::handleCommand()
+gunreip@DESKTOP-I7C75P2:~/code/tafeld$ php artisan project:git --message="ProjectArtisanDocs integration"
+$ git add -A
+$ git push 'origin' 'main'
+To https://github.com/gunreip/tafeld.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/gunreip/tafeld.git'
+hint: Updates were rejected because the remote contains work that you do not
+hint: have locally. This is usually caused by another repository pushing to
+hint: the same ref. If you want to integrate the remote changes, use
+hint: 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+✓ Git-Push und Audit abgeschlossen.
