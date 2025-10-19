@@ -1,0 +1,23 @@
+[{
+	"resource": "/home/gunreip/code/tafeld/app/Console/Commands/ProjectArtisanDocs.php",
+	"owner": "_generated_diagnostic_collection_name_#5",
+	"severity": 8,
+	"message": "syntax error, unexpected variable \"$body\"",
+	"startLineNumber": 87,
+	"startColumn": 1,
+	"endLineNumber": 87,
+	"endColumn": 2147483648,
+	"origin": "extHost2"
+},{
+	"resource": "/home/gunreip/code/tafeld/app/Console/Commands/ProjectArtisanDocs.php",
+	"owner": "_generated_diagnostic_collection_name_#6",
+	"code": "P1001",
+	"severity": 8,
+	"message": "Unexpected 'VariableName'. Expected ';'.",
+	"source": "intelephense",
+	"startLineNumber": 87,
+	"startColumn": 1,
+	"endLineNumber": 87,
+	"endColumn": 6,
+	"origin": "extHost2"
+}]
