@@ -17,6 +17,7 @@ class Kernel extends ConsoleKernel
         \App\Console\Commands\ProjectStructure::class,
         \App\Console\Commands\ProjectGitPush::class,
         \App\Console\Commands\ProjectArtisanDocs::class,
+        \App\Console\Commands\ProjectAuditMain::class,
 
     ];
 
