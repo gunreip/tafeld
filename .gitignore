@@ -24,3 +24,5 @@ yarn-error.log
 /.logs
 /.help
 /.transfer
+.ausgabe-terminal.txt
+.ausgabe-problems.txt
