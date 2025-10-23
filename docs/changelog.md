@@ -61,7 +61,7 @@
 
 ## [0.6.0] – Erweiterter Audit mit Paket- und Systemanalyse
 - Audit erweitert um:
-  - Alle Datenbankverbindungen und Versionen (über `psql --version`, `mysql --version`, etc.).
+  - Alle Datenbankverbindungen und Versionen (über `pgsql --version`, `mysql --version`, etc.).
   - PHP-Erweiterungen.
   - Composer- und Node-Abhängigkeiten (Frontend- und Core-Bereich).
   - Automatische Referenzierung in `docs/structure.md`.
@@ -72,7 +72,7 @@
 ## [0.7.0] – System-Enhanced Audit
 - `project:audit` neu implementiert mit direkter System- und Servererkennung:
   - OS, Kernel, PHP, Node, Composer-Version.
-  - Datenbankerkennung über CLI (`psql`, `mysql`, `sqlite3`, `redis-server`, `mongod`).
+  - Datenbankerkennung über CLI (`pgsql`, `mysql`, `sqlite3`, `redis-server`, `mongod`).
   - Webserver-Erkennung (`apache2`, `nginx`, `caddy`).
 - Einheitliche JSON-, HTML- und Markdown-Ausgabe.
 - Ziel: präziser Status-Quo-Abgleich mit produktiver Infrastruktur.
@@ -118,3 +118,4 @@
 - Git Push [2025-10-19 16:03:11](.logs/audits/git/git.html#run-20251019-160311) → https://github.com/gunreip/tafeld.git [main] : Automated commit
 - Git Push [2025-10-19 16:05:30](.logs/audits/git/git.html#run-20251019-160530) → https://github.com/gunreip/tafeld.git [main] : ProjectArtisanDocs integration
 - Git Push [2025-10-19 20:41:47](.logs/audits/git/git.html#run-20251019-204147) → https://github.com/gunreip/tafeld.git [main] : Automated commit
+- Git Push [2025-10-19 21:18:41](.logs/audits/git/git.html#run-20251019-211841) → https://github.com/gunreip/tafeld.git [main] : Automated commit

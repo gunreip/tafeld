@@ -83,19 +83,37 @@ class ProjectArtisanDocs extends Command
 
     protected function renderHtml(array $byCat): string
     {
+        $basePath = base_path();
+        $laravelVersion = app()->version();
+        $phpVersion = PHP_VERSION;
+
+        // Untertitel aus audit-main-desc.txt (wenn vorhanden) roh einbinden
+        $subtitlePath = $basePath . '/.logs/audits/artisan/audit-main-desc.txt';
+        $subtitleHtml = '';
+        if (File::exists($subtitlePath)) {
+            $subtitleHtml = trim(File::get($subtitlePath)); // NICHT escapen, darf HTML enthalten
+        }
+
         $head = '<!DOCTYPE html><html lang="de"><head><meta charset="UTF-8">'
-              . '<title>Laravel Artisan Command Reference</title>'
-              . '<link rel="stylesheet" href="../../audits-artisan.css">'
-              . '<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>'
-              . '<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>'
-              . '</head><body><h1>Laravel Artisan Command Reference</h1>';
+            . '<title>Laravel Artisan Command Reference</title>'
+            . '<link rel="stylesheet" href="../../audits-base.css">'
+            . '<link rel="stylesheet" href="../../audits-artisan.css">'
+            . '<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>'
+            . '<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>'
+            . '</head><body><h1>Laravel Artisan Command Reference</h1>';
 
         $body = '';
 
+        if ($subtitleHtml !== '') {
+            $body .= '<p class="subtitle">' . $subtitleHtml . '</p>'; // bewusst unescaped
+        }
+
+        $body .= '<a href="../../audits-main.html" class="backlink">← zurück zur Audit-Übersicht</a>';
+
         foreach ($byCat as $cat => $list) {
             $catId = 'cat-' . htmlspecialchars($cat, ENT_QUOTES);
-            $body .= '<details class="category artisan-category" id="'.$catId.'">'
-                   . '<summary><ion-icon name="folder-outline"></ion-icon> '.htmlspecialchars($cat, ENT_QUOTES).'</summary>';
+            $body .= '<details class="category artisan-category" id="' . $catId . '">'
+                . '<summary><ion-icon name="folder-outline"></ion-icon> ' . htmlspecialchars($cat, ENT_QUOTES) . '</summary>';
 
             foreach ($list as $entry) {
                 $cmd = $entry['name'];
@@ -106,25 +124,26 @@ class ProjectArtisanDocs extends Command
                 $helpEsc = htmlspecialchars($helpRaw, ENT_QUOTES);
                 $helpEsc = preg_replace('/(^|\n)Arguments:/mi', '$1<span class="pre-arguments">Arguments:</span>', $helpEsc);
                 $helpEsc = preg_replace('/(^|\n)Options:/mi', '$1<span class="pre-options">Options:</span>', $helpEsc);
-                $helpEsc = preg_replace('/(^|\n)Usage:/mi', '$1<span class="pre-usage">Usage:</span>', $helpEsc);
-                $helpEsc = preg_replace('/(^|\n)Description:/mi', '$1<span class="pre-description">Description:</span>', $helpEsc);
 
-                $metaRows  = '<tr><th>Command</th><td class="value-command">php artisan '.htmlspecialchars($cmd, ENT_QUOTES).'</td></tr>';
-                $metaRows .= '<tr><th>Description</th><td class="value-desc">'.nl2br(htmlspecialchars($desc, ENT_QUOTES)).'</td></tr>';
-                $metaRows .= '<tr><th>Help</th><td class="value-help"><pre>'.$helpEsc.'</pre></td></tr>';
+                $metaRows  = '<tr><th>Command</th><td class="value-command">php artisan ' . htmlspecialchars($cmd, ENT_QUOTES) . '</td></tr>';
+                $metaRows .= '<tr><th>Description</th><td class="value-desc">' . nl2br(htmlspecialchars($desc, ENT_QUOTES)) . '</td></tr>';
+                $metaRows .= '<tr><th>Help</th><td class="value-help"><pre>' . $helpEsc . '</pre></td></tr>';
 
-                $body .= '<details class="command artisan-command" id="'.$cmdId.'">'
-                       . '<summary><ion-icon name="terminal-outline"></ion-icon> '
-                       . '<span class="cmd-name">'.htmlspecialchars($cmd, ENT_QUOTES).'</span>'
-                       . '<span class="cmd-desc">'.htmlspecialchars($desc, ENT_QUOTES).'</span>'
-                       . '</summary>'
-                       . '<table class="meta">'.$metaRows.'</table>'
-                       . '</details>';
+                $body .= '<details class="command artisan-command" id="' . $cmdId . '">'
+                    . '<summary><ion-icon name="terminal-outline"></ion-icon> '
+                    . '<span class="cmd-name">' . htmlspecialchars($cmd, ENT_QUOTES) . '</span>'
+                    . '<span class="cmd-desc">' . htmlspecialchars($desc, ENT_QUOTES) . '</span>'
+                    . '</summary>'
+                    . '<table class="meta">' . $metaRows . '</table>'
+                    . '</details>';
             }
             $body .= '</details>';
         }
 
-        $footer = '<footer class="doc-footer">Generated on '.date('Y-m-d H:i:s').'</footer>';
+        $body .= '<a href="../../audits-main.html" class="backlink">← zurück zur Audit-Übersicht</a>';
+
+        $footer = '<footer class="doc-footer">Generated on ' . date('Y-m-d H:i:s') .
+            ' | Laravel ' . $laravelVersion . ' | PHP ' . $phpVersion . '</footer>';
         return $head . $body . $footer . '</body></html>';
     }
 
@@ -132,13 +151,10 @@ class ProjectArtisanDocs extends Command
     {
         return <<<CSS
 :root { --bg:#0f1115; --fg:#e6e6e6; --muted:#9aa; --accent:#7cc; --border:#2a2f3a; }
-
 body { background:var(--bg); color:var(--fg); font:14px/1.5 monospace; padding:16px; }
-
 h1 { color:var(--accent); font-size:18px; margin:0 0 12px; }
 
 details { border:1px solid var(--border); border-radius:8px; padding:8px 12px; margin:12px 0; background:#131722; }
-
 summary { cursor:pointer; color:var(--accent); transition:color .2s; }
 summary:hover { color:#fff; text-shadow:0 0 4px #6cf; }
 
@@ -146,26 +162,18 @@ table { width:100%; border-collapse:collapse; margin:8px 0; }
 th, td { border:1px solid var(--border); padding:6px 8px; vertical-align:top; }
 th { background:#171b26; text-align:left; width:220px; color:var(--muted); }
 
-.artisan-category > summary ion-icon,
-.artisan-command > summary ion-icon {
-    color:#7cc; font-size:16px; margin-right:6px; position:relative; top:-2px; vertical-align:middle;
-}
+.artisan-category > summary ion-icon { color:#7cc; font-size:16px; margin-right:6px; position:relative; top:-2px; vertical-align:middle; }
+.artisan-command > summary ion-icon { color:#7f7; font-size:16px; margin-right:6px; position:relative; top:-2px; vertical-align:middle; }
 
 .cmd-name { width:30rem; font-weight:600; letter-spacing:0.5px; color:#fff; display:inline-block; }
 .cmd-desc { color:#aaa; font-size:.9em; margin-left:8px; opacity:.8; }
 
 .value-command { color:#fff; }
 .value-desc { color:#ddd; }
-
-.value-help pre {
-    color:#aaa; white-space:pre-wrap; background:#0c0f16;
-    padding:8px; border-radius:6px; border:1px solid var(--border);
-}
+.value-help pre { color:#aaa; white-space:pre-wrap; background:#0c0f16; padding:8px; border-radius:6px; border:1px solid var(--border); }
 
 .pre-arguments { color:#7cf; font-weight:600; }
 .pre-options { color:#fc6; font-weight:600; }
-.pre-description { color:#9cf; font-weight:600; }
-.pre-usage { color:#9f7; font-weight:600; }
 
 .doc-footer { margin-top:16px; color:#9aa; text-align:right; }
 CSS;

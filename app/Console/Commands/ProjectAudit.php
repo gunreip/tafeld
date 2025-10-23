@@ -77,7 +77,7 @@ class ProjectAudit extends Command
     protected function collectDatabaseInfo(): array
     {
         return [
-            'PostgreSQL' => $this->shell('psql --version'),
+            'PostgreSQL' => $this->shell('pgsql --version'),
             'MySQL' => $this->shell('mysql --version'),
             'SQLite' => $this->shell('sqlite3 --version'),
             'Redis' => $this->shell('redis-server --version'),
