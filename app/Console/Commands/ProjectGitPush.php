@@ -136,20 +136,21 @@ CSS;
                 $headerHtml[] = "</head><body>";
                 $headerHtml[] = "<h1 class=\"git-header\">Git Audit Log — {$project}</h1>";
                 $headerHtml[] = "<div class=\"git-subheader\">{$desc}</div>";
-                $headerHtml[] = "<a class=\"backlink\" href=\"../../audits-main.html\">Back to Audits-Main</a>";
+                $headerHtml[] = "<div class=\"backlink\"><a href=\"../../audits-main.html\">Back to Audits-Main</a></div>";
                 $headerHtml[] = implode(PHP_EOL, $htmlRun);
-                $headerHtml[] = "<a class=\"backlink\" href=\"../../audits-main.html\">Back to Audits-Main</a>";
+                $headerHtml[] = "<div class=\"backlink\"><a href=\"../../audits-main.html\">Back to Audits-Main</a></div>";
                 $headerHtml[] = "<footer class=\"git-footer\">";
                 $headerHtml[] = "Generated: " . now()->format('Y-m-d H:i:s') . " | Laravel {$laravel} | PHP {$php}";
                 $headerHtml[] = "</footer></body></html>";
                 File::put($htmlLog, implode(PHP_EOL, $headerHtml) . PHP_EOL);
             } else {
                 $html = File::get($htmlLog);
-                // Insert before last backlink/footer
-                $insertPos = strrpos($html, '<div class="backlink">');
-                if ($insertPos === false) {
-                    $insertPos = strrpos($html, '</footer>');
-                }
+
+                // --- find insertion point BEFORE last backlink above footer ---
+                $footerPos   = strrpos($html, '<footer');
+                $backlinkPos = strrpos(substr($html, 0, $footerPos), '<div class="backlink">');
+                $insertPos   = $backlinkPos !== false ? $backlinkPos : $footerPos;
+
                 if ($insertPos !== false) {
                     $newHtml = substr($html, 0, $insertPos)
                         . implode(PHP_EOL, $htmlRun) . PHP_EOL
