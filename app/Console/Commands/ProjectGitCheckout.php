@@ -178,7 +178,7 @@ CSS;
                 $headerHtml[] = "    <script nomodule src=\"https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js\"></script>";
                 $headerHtml[] = "</head><body>";
                 $headerHtml[] = "<h1 class=\"git-header\">Git Audit Log — {$project}</h1>";
-                $headerHtml[] = "<div class=\"git-subheader\">{$desc}</div>";
+                $headerHtml[] = "<div class=\"subtitle\">{$desc}</div>";
                 $headerHtml[] = "<div class=\"backlink\"><a href=\"../../audits-main.html\">Back to Audits-Main</a></div>";
                 $headerHtml[] = implode(PHP_EOL, $htmlRun);
                 $headerHtml[] = "<div class=\"backlink\"><a href=\"../../audits-main.html\">Back to Audits-Main</a></div>";

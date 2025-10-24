@@ -12,6 +12,22 @@ class ProjectArtisanDocs extends Command
 
     public function handle(): int
     {
+        // === Spinner starten ===============================================
+        // $spinner = '/home/gunreip/code/_spinner-arrow.sh';
+        // $spinner = '/home/gunreip/code/_spinner-braille.sh';
+        // $spinner = '/home/gunreip/code/_spinner-circle.sh';
+        $spinner = '/home/gunreip/code/_spinner-lines.sh';
+        // $spinner = '/home/gunreip/code/_spinner-moon.sh';
+        // $spinner = '/home/gunreip/code/_spinner-square.sh';
+        $spinnerPid = null;
+        if (is_file($spinner) && is_executable($spinner)) {
+            // Schreibe die Ausgabe des Spinners direkt auf das Terminal device
+            $tty = '/dev/tty';
+            $cmd = "bash " . escapeshellarg($spinner) . " >" . escapeshellarg($tty) . " 2>" . escapeshellarg($tty) . " <" . escapeshellarg($tty) . " & echo $!";
+            $spinnerPid = trim(shell_exec($cmd));
+        }
+        // ====================================================================
+
         $outDir = base_path('.logs/audits/artisan');
         File::ensureDirectoryExists($outDir);
 
@@ -39,6 +55,15 @@ class ProjectArtisanDocs extends Command
         $html = $this->renderHtml($commands);
         $htmlPath = $outDir . '/artisan-commands.html';
         File::put($htmlPath, $html);
+
+        // === Spinner stoppen ===============================================
+        if ($spinnerPid) {
+            // SIGTERM geben; Trap im Skript stellt Cursor wieder her
+            shell_exec("kill -0 " . (int)$spinnerPid . " >/dev/null 2>&1 && kill " . (int)$spinnerPid);
+            // Fallback: sicherstellen, dass Cursor sichtbar ist
+            echo "\e[?25h\n";
+        }
+        // ====================================================================
 
         $this->info('✓ Artisan-Command-Dokumentation aktualisiert.');
         return Command::SUCCESS;
@@ -87,34 +112,35 @@ class ProjectArtisanDocs extends Command
         $laravelVersion = app()->version();
         $phpVersion = PHP_VERSION;
 
-        // Untertitel aus audit-main-desc.txt (wenn vorhanden) roh einbinden
-        $subtitlePath = $basePath . '/.logs/audits/artisan/audit-main-desc.txt';
-        $subtitleHtml = '';
-        if (File::exists($subtitlePath)) {
-            $subtitleHtml = trim(File::get($subtitlePath)); // NICHT escapen, darf HTML enthalten
-        }
+        $descFile = base_path('.logs/audits/git/audit-main-desc.txt');
+        $desc = \Illuminate\Support\Facades\File::exists($descFile)
+            ? \Illuminate\Support\Facades\File::get($descFile)
+            : 'No description available.';
+        $desc = preg_replace_callback('/<[^>]+>/', function ($m) {
+            return stripos($m[0], '<span') === 0 || stripos($m[0], '</span') === 0 ? $m[0] : htmlspecialchars($m[0], ENT_QUOTES);
+        }, $desc);
 
-        $head = '<!DOCTYPE html><html lang="de"><head><meta charset="UTF-8">'
-            . '<title>Laravel Artisan Command Reference</title>'
-            . '<link rel="stylesheet" href="../../audits-base.css">'
-            . '<link rel="stylesheet" href="../../audits-artisan.css">'
-            . '<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>'
-            . '<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>'
-            . '</head><body><h1>Laravel Artisan Command Reference</h1>';
+        $head = <<<HTML
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Artisan Commands</title>
+<link rel="stylesheet" href="../../audits-base.css">
+<link rel="stylesheet" href="../../audits-artisan.css">
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+<h1>Artisan Command Reference — tafeld</h1>
+<div class="subtitle">{$desc}</div>
+<div class="backlink"><a href="../../audits-main.html">Back to Audits-Main</a></div>
+HTML;
 
         $body = '';
-
-        if ($subtitleHtml !== '') {
-            $body .= '<p class="subtitle">' . $subtitleHtml . '</p>'; // bewusst unescaped
-        }
-
-        $body .= '<a href="../../audits-main.html" class="backlink">← zurück zur Audit-Übersicht</a>';
-
         foreach ($byCat as $cat => $list) {
-            $catId = 'cat-' . htmlspecialchars($cat, ENT_QUOTES);
-            $body .= '<details class="category artisan-category" id="' . $catId . '">'
-                . '<summary><ion-icon name="folder-outline"></ion-icon> ' . htmlspecialchars($cat, ENT_QUOTES) . '</summary>';
-
+            $body .= '<details class="category"><summary><ion-icon name="folder-outline"></ion-icon> ' .
+                htmlspecialchars($cat, ENT_QUOTES) . '</summary>';
             foreach ($list as $entry) {
                 $cmd = $entry['name'];
                 $desc = $entry['description'] ?? '';
@@ -140,7 +166,7 @@ class ProjectArtisanDocs extends Command
             $body .= '</details>';
         }
 
-        $body .= '<a href="../../audits-main.html" class="backlink">← zurück zur Audit-Übersicht</a>';
+        $body .= '<div class="backlink"><a href="../../audits-main.html">Back to Audits-Main</a></div>';
 
         $footer = '<footer class="doc-footer">Generated on ' . date('Y-m-d H:i:s') .
             ' | Laravel ' . $laravelVersion . ' | PHP ' . $phpVersion . '</footer>';
@@ -162,20 +188,13 @@ table { width:100%; border-collapse:collapse; margin:8px 0; }
 th, td { border:1px solid var(--border); padding:6px 8px; vertical-align:top; }
 th { background:#171b26; text-align:left; width:220px; color:var(--muted); }
 
-.artisan-category > summary ion-icon { color:#7cc; font-size:16px; margin-right:6px; position:relative; top:-2px; vertical-align:middle; }
-.artisan-command > summary ion-icon { color:#7f7; font-size:16px; margin-right:6px; position:relative; top:-2px; vertical-align:middle; }
+pre { white-space:pre-wrap; background:#0f121a; padding:8px; border-radius:6px; }
 
-.cmd-name { width:30rem; font-weight:600; letter-spacing:0.5px; color:#fff; display:inline-block; }
-.cmd-desc { color:#aaa; font-size:.9em; margin-left:8px; opacity:.8; }
+.backlink { text-align:center; margin:20px 0; }
+.backlink a { color:var(--accent); text-decoration:none; }
+.backlink a:hover { text-decoration:underline; }
 
-.value-command { color:#fff; }
-.value-desc { color:#ddd; }
-.value-help pre { color:#aaa; white-space:pre-wrap; background:#0c0f16; padding:8px; border-radius:6px; border:1px solid var(--border); }
-
-.pre-arguments { color:#7cf; font-weight:600; }
-.pre-options { color:#fc6; font-weight:600; }
-
-.doc-footer { margin-top:16px; color:#9aa; text-align:right; }
+footer { margin-top:20px; text-align:center; color:var(--muted); font-size:12px; }
 CSS;
     }
 }

@@ -191,14 +191,14 @@ class ProjectStructure extends Command
         $html[] = '</head><body>';
         $html[] = "<h1>Projektstruktur – $projectName</h1>";
         if ($subtitleHtml !== '') {
-            $html[] = '<p class="subtitle">' . $subtitleHtml . '</p>'; // bewusst unescaped
+            $html[] = '<div class="subtitle">' . $subtitleHtml . '</div>'; // bewusst unescaped
         }
-        $html[] = '<a href="../audits-main.html" class="backlink">← zurück zur Audit-Übersicht</a>';
+        $html[] = '<div class="backlink"><a href="../audits-main.html">Back to Audits_Main</a></div>';
         $html[] = '<section class="project-structure">';
         $html[] = '<p class="project-path">' . htmlspecialchars($basePath) . '</p>';
         $html[] = $this->renderTree($tree, true);
         $html[] = '</section>';
-        $html[] = '<a href="../audits-main.html" class="backlink">← zurück zur Audit-Übersicht</a>';
+        $html[] = '<div class="backlink"><a href="../audits-main.html">Back to Audits_Main</a></div>';
         $html[] = $this->renderSummary();
         $html[] = '<footer class="doc-footer">Generated on ' . date('Y-m-d H:i:s') .
             ' | Laravel ' . $laravelVersion . ' | PHP ' . $phpVersion . '</footer>';
@@ -229,9 +229,9 @@ class ProjectStructure extends Command
         $html = '<section id="summary">';
         $html .= '<h2>Zusammenfassung</h2>';
         $html .= '<ul>';
-        $html .= '<li>Verzeichnisse: ' . number_format($this->dirCount, 0, ',', '.') . '</li>';
-        $html .= '<li>Dateien: ' . number_format($this->fileCount, 0, ',', '.') . '</li>';
-        $html .= '<li>Gesamtgröße: ' . $this->formatSize($this->totalSize) . '</li>';
+        $html .= '<li><span class="list-desc-title">Verzeichnisse:</span> ' . number_format($this->dirCount, 0, ',', '.') . '</li>';
+        $html .= '<li><span class="list-desc-title">Dateien:</span> ' . number_format($this->fileCount, 0, ',', '.') . '</li>';
+        $html .= '<li><span class="list-desc-title">Gesamtgröße:</span> ' . $this->formatSize($this->totalSize) . '</li>';
         $html .= '</ul></section>';
         return $html;
     }
