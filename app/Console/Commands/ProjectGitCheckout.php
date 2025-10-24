@@ -119,47 +119,21 @@ CSS;
             return Command::SUCCESS;
         }
 
-        // --- Build meta & files (ProjectGitPush-compatible) ---
-        $meta = [
-            'run_id'        => now()->format('Ymd-His'),
-            'run_id_human'  => $runId,
-            'project'       => $project,
-            'date'          => now()->format('Y-m-d'),
-            'time'          => now()->format('H:i:s'),
-            '@source'       => 'project:git-checkout',
-            '@target'       => 'git.jsonl',
-            'action'        => $action,
-            'branch'        => $branch ?? '',
-            'tag'           => $tag ?? '',
-            'user'          => $userName,
-            'php'           => $php,
-            'laravel'       => $laravel,
-            'result'        => 'ok',
-            'files_count'   => count($output),
-            'comment'       => $message ?: '',
-            'summary'       => "Git {$action} executed for project {$project}"
-        ];
-
-        $files = [];
-        foreach ($output as $key => $val) {
-            $files[] = [
-                'file'     => $key,
-                'action'   => $action,
-                'info'     => is_array($val) ? implode("\n", $val) : $val,
-                'cmd'      => '',
-                'exitcode' => 0,
-                'duration' => '',
-                'stage'    => '',
-                'mode'     => $dryRun ? 'dry-run' : 'exec',
-            ];
-        }
-
         // --- JSONL log ---
         if (!$dryRun) {
-            File::append($jsonLog, json_encode(['meta' => $meta, 'files' => $files], JSON_UNESCAPED_SLASHES) . "\n");
+            $result = [
+                'timestamp' => now()->toIso8601String(),
+                'run_id'    => $runId,
+                'project'   => $project,
+                'user'      => $userName,
+                'action'    => $action,
+                'result'    => 'ok',
+                'output'    => $output,
+            ];
+            File::append($jsonLog, json_encode($result, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . PHP_EOL);
         }
 
-        // --- HTML audit (unchanged logic) ---
+        // --- HTML run block ---
         $htmlRun = [];
         $htmlRun[] = "<details>";
         $htmlRun[] = "<summary class=\"git-checkout\">Run-ID: {$runId}</summary>";
@@ -168,8 +142,6 @@ CSS;
         $htmlRun[] = "<tr><td class=\"git-key\">Project</td><td class=\"git-value\">{$project}</td></tr>";
         $htmlRun[] = "<tr><td class=\"git-key\">User</td><td class=\"git-value\">{$userName}</td></tr>";
         $htmlRun[] = "<tr><td class=\"git-key\">Action</td><td class=\"git-value\">{$action}</td></tr>";
-        $htmlRun[] = "<tr><td class=\"git-key\">Branch</td><td class=\"git-value\">" . ($branch ?? '-') . "</td></tr>";
-        $htmlRun[] = "<tr><td class=\"git-key\">Tag</td><td class=\"git-value\">" . ($tag ?? '-') . "</td></tr>";
         $htmlRun[] = "<tr><td class=\"git-key\">Result</td><td class=\"git-value\">ok</td></tr>";
         $htmlRun[] = "</table></details>";
         $htmlRun[] = "<details><summary>Files</summary>";
@@ -183,6 +155,7 @@ CSS;
         $htmlRun[] = "</table></details>";
         $htmlRun[] = "</details>";
 
+        // --- HTML write/append ---
         if (!$dryRun) {
             if (!File::exists($htmlLog)) {
                 $desc = File::exists($descFile)
@@ -206,19 +179,21 @@ CSS;
                 $headerHtml[] = "</head><body>";
                 $headerHtml[] = "<h1 class=\"git-header\">Git Audit Log — {$project}</h1>";
                 $headerHtml[] = "<div class=\"git-subheader\">{$desc}</div>";
-                $headerHtml[] = "<a class=\"backlink\" href=\"../../audits-main.html\">Back to Audits-Main</a>";
+                $headerHtml[] = "<div class=\"backlink\"><a href=\"../../audits-main.html\">Back to Audits-Main</a></div>";
                 $headerHtml[] = implode(PHP_EOL, $htmlRun);
-                $headerHtml[] = "<a class=\"backlink\" href=\"../../audits-main.html\">Back to Audits-Main</a>";
+                $headerHtml[] = "<div class=\"backlink\"><a href=\"../../audits-main.html\">Back to Audits-Main</a></div>";
                 $headerHtml[] = "<footer class=\"git-footer\">";
                 $headerHtml[] = "Generated: " . now()->format('Y-m-d H:i:s') . " | Laravel {$laravel} | PHP {$php}";
                 $headerHtml[] = "</footer></body></html>";
                 File::put($htmlLog, implode(PHP_EOL, $headerHtml) . PHP_EOL);
             } else {
                 $html = File::get($htmlLog);
-                $insertPos = strrpos($html, '<div class="backlink">');
-                if ($insertPos === false) {
-                    $insertPos = strrpos($html, '</footer>');
-                }
+
+                // --- find insertion point BEFORE last backlink above footer ---
+                $footerPos   = strrpos($html, '<footer');
+                $backlinkPos = strrpos(substr($html, 0, $footerPos), '<div class="backlink">');
+                $insertPos   = $backlinkPos !== false ? $backlinkPos : $footerPos;
+
                 if ($insertPos !== false) {
                     $newHtml = substr($html, 0, $insertPos)
                         . implode(PHP_EOL, $htmlRun) . PHP_EOL
