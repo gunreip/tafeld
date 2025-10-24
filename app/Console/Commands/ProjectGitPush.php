@@ -4,182 +4,100 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
+use Symfony\Component\Process\Process;
 
 class ProjectGitPush extends Command
 {
-    protected $signature = 'project:git {--message=Automated commit} {--branch=main} {--remote=origin}';
-    protected $description = 'Commit und Push des Projekts mit farbcodiertem HTML/JSONL-Git-Audit.';
+    protected $signature = 'project:git-push {--dry-run : Simulate actions only}';
+    protected $description = 'Push git changes with tafeld audit output (HTML + JSONL).';
 
     public function handle(): int
     {
-        $project = env('PROJ_NAME', basename(base_path()));
-        $repoUrl = "https://github.com/gunreip/{$project}.git";
+        $dryRun = $this->option('dry-run');
         $base = base_path();
-        $branch = $this->option('branch');
-        $remote = $this->option('remote');
-        $message = $this->option('message');
+        $envProj = env('PROJ_NAME');
+        $project = $envProj ?: basename($base);
+        $logDir = "$base/.logs/audits/git";
+        $jsonLog = "$logDir/git.jsonl";
+        $htmlLog = "$logDir/git.html";
+        $cssPath = "$base/.logs/audits-git.css";
 
-        $this->ensureGitInitialized($base, $branch, $remote, $repoUrl);
-        $this->ensureGitignore($base);
+        File::ensureDirectoryExists($logDir);
 
-        $status = $this->shell('git status --porcelain -z');
-        $files = $this->parseGitStatus($status);
-        $summaryBefore = $this->shell('git diff --shortstat');
+        $runId = now()->format('Y-m-d H:i:s');
+        $userName = trim(shell_exec('git config user.name')) ?: 'unknown';
 
-        $this->shellPassthru('git add -A');
-        $this->shell('git commit -m ' . escapeshellarg($message));
-        $this->shellPassthru("git push " . escapeshellarg($remote) . ' ' . escapeshellarg($branch));
+        $this->info("Run-ID: $runId");
+        $this->line("Dry run: " . ($dryRun ? 'yes' : 'no'));
 
-        $summaryAfter = $this->shell('git show --stat --oneline -1');
-        $meta = $this->buildMeta($project, $base, "{$repoUrl} [{$branch}]", $message, $files, $summaryBefore, $summaryAfter);
-        $this->appendAudit($meta, $files);
-        $this->appendChangelog($meta);
-
-        $this->info('✓ Git-Push und Audit abgeschlossen.');
-        return Command::SUCCESS;
-    }
-
-    protected function ensureGitInitialized(string $base, string $branch, string $remote, string $repoUrl): void
-    {
-        if (!File::exists($base . '/.git')) {
-            $this->shellPassthru('git init');
-            $this->shellPassthru("git branch -M " . escapeshellarg($branch));
-            $this->shellPassthru("git remote add " . escapeshellarg($remote) . ' ' . escapeshellarg($repoUrl));
-        } else {
-            $remotes = trim($this->shell('git remote'));
-            if (strpos($remotes, $remote) === false) {
-                $this->shellPassthru("git remote add " . escapeshellarg($remote) . ' ' . escapeshellarg($repoUrl));
-            }
+        if (!is_dir("$base/.git")) {
+            $this->error("No .git repository found in $base");
+            return Command::FAILURE;
         }
-    }
 
-    protected function ensureGitignore(string $base): void
-    {
-        $path = $base . '/.gitignore';
-        if (!File::exists($path)) {
-            $content = "/vendor/\n/node_modules/\n/.env\n/.idea/\n/.vscode/\n/storage/*.key\n/storage/*.log\n/.logs/\n/logs/\n*.bak\n*.zip\n*.tar.gz\n";
-            File::put($path, $content);
-        }
-    }
-
-    protected function parseGitStatus(string $porcelainZ): array
-    {
-        $entries = [];
-        $parts = array_filter(explode("\0", $porcelainZ));
-        foreach ($parts as $line) {
-            $code = substr($line, 0, 2);
-            $path = trim(substr($line, 3));
-            $action = $this->mapAction($code);
-            if ($action) $entries[] = ['file' => $path, 'action' => $action];
-        }
-        return $entries;
-    }
-
-    protected function mapAction(string $code): ?string
-    {
-        return match (true) {
-            $code === '??' => 'new',
-            str_contains($code, 'D') => 'delete',
-            str_contains($code, 'R') => 'rename',
-            str_contains($code, 'A') => 'add',
-            str_contains($code, 'M') => 'modify',
-            str_contains($code, 'U') => 'update',
-            default => null,
+        $exec = function (string $cmd) use ($dryRun) {
+            $process = Process::fromShellCommandline($cmd, base_path());
+            if ($dryRun) return "[dry-run] $cmd";
+            $process->run();
+            return trim($process->getOutput());
         };
-    }
 
-    protected function buildMeta(string $project, string $source, string $target, string $comment, array $files, string $sumBefore, string $sumAfter): array
-    {
-        $runAt = now();
-        $runId = $runAt->format('Ymd-His');
-        $summary = trim($sumAfter) ?: $sumBefore;
-        return [
-            'run_id' => $runId,
-            'run_id_human' => $runAt->format('Y-m-d H:i:s'),
-            'project' => $project,
-            'date' => $runAt->format('Y-m-d'),
-            'time' => $runAt->format('H:i:s'),
-            '@source' => $source,
-            '@target' => $target,
-            'files_count' => count($files),
-            'comment' => $comment,
-            'summary' => $summary,
+        $result = [
+            'timestamp' => now()->toIso8601String(),
+            'run_id'    => $runId,
+            'project'   => $project,
+            'user'      => $userName,
+            'result'    => 'ok',
+            'output'    => [],
         ];
-    }
 
-    protected function appendAudit(array $meta, array $files): void
-    {
-        $dir = base_path('.logs/audits/git');
-        File::ensureDirectoryExists($dir);
-        $css = base_path('.logs/audits-git.css');
-        if (!File::exists($css)) File::put($css, $this->defaultCss());
+        $result['output']['status'] = $exec('git status -s');
+        $result['output']['add'] = $exec('git add .');
+        $result['output']['commit'] = $exec('git commit -m "auto push"');
+        $result['output']['push'] = $exec('git push');
 
-        $html = $dir . '/git.html';
-        $json = $dir . '/git.jsonl';
-        File::append($json, json_encode(['meta' => $meta, 'files' => $files], JSON_UNESCAPED_SLASHES) . "\n");
-
-        if (!File::exists($html)) {
-            $head = '<!DOCTYPE html><html><head><meta charset="utf-8"><title>Git Audits</title>' .
-                '<link rel="stylesheet" href="../../audits-base.css">' .
-                '<link rel="stylesheet" href="../../audits-git.css">' .
-                '<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>' .
-                '<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>' .
-                '</head><body><h1>Git Audits</h1>';
-            File::put($html, $head);
+        if (!$dryRun) {
+            File::append($jsonLog, json_encode($result, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . PHP_EOL);
         }
-        File::append($html, $this->renderRunHtml($meta, $files) . "\n");
-    }
 
-    protected function renderRunHtml(array $m, array $files): string
-    {
-        $id = $m['run_id'];
-        $header = 'Run-ID: ' . $m['run_id_human'];
-        $metaTable = "<tr><th>Date</th><td class='value-date'>{$m['date']}</td></tr>" .
-            "<tr><th>Time</th><td class='value-time'>{$m['time']}</td></tr>" .
-            "<tr><th>Project</th><td class='value-project'>{$m['project']}</td></tr>" .
-            "<tr><th>@source</th><td class='value-source'>{$m['@source']}</td></tr>" .
-            "<tr><th>@target</th><td class='value-target'>{$m['@target']}</td></tr>" .
-            "<tr><th>Files</th><td class='value-counts'>{$m['files_count']}</td></tr>" .
-            "<tr><th>Comment</th><td class='value-comment'>{$m['comment']}</td></tr>";
-        $summary = "<tr><th>Summary</th><td class='git-okay'>" . nl2br(htmlspecialchars($m['summary'], ENT_QUOTES)) . "</td></tr>";
-        $rows = '';
-        foreach ($files as $f) {
-            $cls = 'git-' . $f['action'];
-            $icon = $this->actionIcon($f['action']);
-            $rows .= "<tr class='{$cls}'><td>{$icon} " . htmlspecialchars($f['file'], ENT_QUOTES) . "</td></tr>";
+        $htmlRun = [];
+        $htmlRun[] = "<details>";
+        $htmlRun[] = "<summary class=\"git-push\">Run-ID: {$runId}</summary>";
+        $htmlRun[] = "<details><summary>Summary</summary>";
+        $htmlRun[] = "<table class=\"value-table\">";
+        $htmlRun[] = "<tr><td class=\"git-key\">Project</td><td class=\"git-value\">{$project}</td></tr>";
+        $htmlRun[] = "<tr><td class=\"git-key\">User</td><td class=\"git-value\">{$userName}</td></tr>";
+        $htmlRun[] = "<tr><td class=\"git-key\">Result</td><td class=\"git-value\">ok</td></tr>";
+        $htmlRun[] = "</table></details>";
+        $htmlRun[] = "<details><summary>Files</summary>";
+        $htmlRun[] = "<table class=\"git-table\">";
+        foreach ($result['output'] as $key => $value) {
+            $display = htmlspecialchars($value);
+            $htmlRun[] = "<tr><td class=\"git-key\">$key</td><td class=\"git-value\">{$display}</td></tr>";
         }
-        return "<details id='run-{$id}'><summary>{$header}</summary>" .
-            "<table class='meta'>{$metaTable}</table>" .
-            "<details class='summary'><summary>Summary</summary><table class='summary-table'>{$summary}</table></details>" .
-            "<details class='files'><summary>Files</summary><table class='files'>{$rows}</table></details></details>";
-    }
+        $htmlRun[] = "</table></details>";
+        $htmlRun[] = "</details>";
 
-    protected function actionIcon(string $a): string
-    {
-        $m = ['add' => 'cloud-upload-outline', 'new' => 'cloud-upload-outline', 'modify' => 'sync-outline', 'update' => 'sync-outline', 'rename' => 'shuffle-outline', 'delete' => 'trash-outline'];
-        $n = $m[$a] ?? 'information-circle-outline';
-        return "<ion-icon name='{$n}'></ion-icon>";
-    }
+        if (!File::exists($htmlLog)) {
+            $headerHtml = [];
+            $headerHtml[] = "<!DOCTYPE html><html lang=\"de\">";
+            $headerHtml[] = "<head>";
+            $headerHtml[] = "    <meta charset=\"UTF-8\">";
+            $headerHtml[] = "    <title>Git Audits — {$project}</title>";
+            $headerHtml[] = "    <link rel=\"stylesheet\" href=\"../../audits-base.css\">";
+            $headerHtml[] = "    <link rel=\"stylesheet\" href=\"../../audits-git.css\">";
+            $headerHtml[] = "    <script type=\"module\" src=\"https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js\"></script>";
+            $headerHtml[] = "    <script nomodule src=\"https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js\"></script>";
+            $headerHtml[] = "</head><body>";
+            $headerHtml[] = "<h1 class=\"git-header\">Git Audit Log — {$project}</h1>";
+            $headerHtml[] = implode(PHP_EOL, $htmlRun);
+            $headerHtml[] = "</body></html>";
+            File::put($htmlLog, implode(PHP_EOL, $headerHtml) . PHP_EOL);
+        } else {
+            File::append($htmlLog, implode(PHP_EOL, $htmlRun) . PHP_EOL);
+        }
 
-    protected function defaultCss(): string
-    {
-        return 'th,td{border:1px solid var(--border);padding:6px 8px;}th{background:#171b26;text-align:left;width:180px;}ion-icon{font-size:16px;vertical-align:middle;margin-right:6px;transition:filter .2s;}ion-icon:hover{filter:drop-shadow(0 0 4px currentColor);} .git-add ion-icon,.git-new ion-icon{color:#5f5;} .git-delete ion-icon{color:#f66;} .git-modify ion-icon,.git-update ion-icon{color:#ff9;} .git-rename ion-icon{color:#9cf;} .git-okay{color:#7f7;} .value-date{color:#9fc;} .value-time{color:#9cf;} .value-comment{color:#fc9;}';
-    }
-
-    protected function appendChangelog(array $meta): void
-    {
-        $f = base_path('docs/changelog.md');
-        if (!File::exists($f)) return;
-        File::append($f, "- Git Push [{$meta['run_id_human']}](.logs/audits/git/git.html#run-{$meta['run_id']}) → {$meta['@target']} : {$meta['comment']}\n");
-    }
-
-    protected function shell(string $c): string
-    {
-        return trim((string)@shell_exec($c . ' 2>&1'));
-    }
-    protected function shellPassthru(string $c): void
-    {
-        $this->line('$ ' . $c);
-        passthru($c);
+        $this->info("Audit updated: $htmlLog");
+        return Command::SUCCESS;
     }
 }
