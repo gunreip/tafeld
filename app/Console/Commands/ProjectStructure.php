@@ -144,11 +144,11 @@ class ProjectStructure extends Command
 
     private function formatSize(float $bytes): string
     {
-        if ($bytes <= 0) return '0,0 B';
+        if ($bytes <= 0) return '0,0</span><span class="size-units">B';
         $units = ['B', 'KB', 'MB', 'GB', 'TB'];
         $exp = floor(log($bytes, 1024));
         $size = $bytes / pow(1024, $exp);
-        return number_format($size, 1, ',', ' ') . ' ' . $units[$exp];
+        return number_format($size, 1, ',', ' ') . '</span><span class="size-units">' . $units[$exp] . "</span>";
     }
 
     private function directorySize(array $tree): float
@@ -195,43 +195,64 @@ class ProjectStructure extends Command
         }
         $html[] = '<div class="backlink"><a href="../audits-main.html">Back to Audits_Main</a></div>';
         $html[] = '<section class="project-structure">';
-        $html[] = '<p class="project-path">' . htmlspecialchars($basePath) . '</p>';
-        $html[] = $this->renderTree($tree, true);
+        // einziges Rendering der Tree-UL (renderTree erzeugt ul.tree mit erstem li.project-path-item)
+        $html[] = $this->renderTree($tree, true, $basePath);
         $html[] = '</section>';
         $html[] = '<div class="backlink"><a href="../audits-main.html">Back to Audits_Main</a></div>';
-        $html[] = $this->renderSummary();
         $html[] = '<footer class="doc-footer">Generated on ' . date('Y-m-d H:i:s') .
             ' | Laravel ' . $laravelVersion . ' | PHP ' . $phpVersion . '</footer>';
         $html[] = '</body></html>';
         file_put_contents($target, implode('', $html));
     }
 
-    private function renderTree(array $tree, bool $isRoot = false): string
+    /**
+     * Render tree: beim Root erzeugt ul.tree, fügt als erstes Element
+     * <li class="project-path-item">[voller Pfad]</li>, danach die Einträge.
+     * Zeitstempel werden unverändert vor der size-Span ausgegeben.
+     */
+    private function renderTree(array $tree, bool $isRoot = false, string $currentPath = ''): string
     {
-        $html = $isRoot ? '<ul class="tree">' : '<ul>';
+        $html = $isRoot ? '<ul class="tree">' : '<ul class="nested">';
+        // Root: erstes li mit vollständigem Pfad
+        if ($isRoot) {
+            $html .= '<li class="project-path-item"><span>' . htmlspecialchars($currentPath) . '<span></li><ul class="nested">';
+        }
+
         foreach ($tree as $name => $children) {
             $isDir = is_array($children);
             $icon = $isDir ? 'folder-outline' : 'document-text-outline';
+            $fullPath = rtrim($currentPath, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . $name;
             $size = $isDir ? $this->directorySize($children) : (float)$children;
-            $html .= '<li class="' . ($isDir ? 'dir' : 'file') . '"><ion-icon name="' . $icon . '"></ion-icon>' . $name;
-            $html .= ' <span class="size">[' . $this->formatSize($size) . ']</span>';
+
+            $createdTs = @filectime($fullPath) ?: 0;
+            $modifiedTs = @filemtime($fullPath) ?: 0;
+            $created = $createdTs ? date('d.m.Y - H:i:s', $createdTs) : 'n/a';
+            $modified = $modifiedTs ? date('d.m.Y - H:i:s', $modifiedTs) : 'n/a';
+
+            $html .= '<li class="' . ($isDir ? 'dir' : 'file') . '">';
+            $html .= '<div class="left-group"><ion-icon name="' . $icon . '"></ion-icon><span class="dir-file-name">' . htmlspecialchars($name) . '</span></div>';
+            $html .= '<div class="right-group"><span class="created">' . htmlspecialchars($created) . '</span>';
+            $html .= '<span class="changed">' . htmlspecialchars($modified) . '</span>';
+            $html .= '<span class="file-size">' . $this->formatSize($size) . '</span></div>';
+
             if ($isDir && !empty($children)) {
-                $html .= $this->renderTree($children);
+                $html .= $this->renderTree($children, false, $fullPath);
             }
             $html .= '</li>';
         }
+
         $html .= '</ul>';
         return $html;
     }
 
     private function renderSummary(): string
     {
-        $html = '<section id="summary">';
+        $html = '</ul><section id="summary">';
         $html .= '<h2>Zusammenfassung</h2>';
         $html .= '<ul>';
-        $html .= '<li><span class="list-desc-title">Verzeichnisse:</span> ' . number_format($this->dirCount, 0, ',', '.') . '</li>';
-        $html .= '<li><span class="list-desc-title">Dateien:</span> ' . number_format($this->fileCount, 0, ',', '.') . '</li>';
-        $html .= '<li><span class="list-desc-title">Gesamtgröße:</span> ' . $this->formatSize($this->totalSize) . '</li>';
+        $html .= '<li><span class="list-desc-title">Verzeichnisse:</span>' . number_format($this->dirCount, 0, ',', '.') . '</li>';
+        $html .= '<li><span class="list-desc-title">Dateien:</span>' . number_format($this->fileCount, 0, ',', '.') . '</li>';
+        $html .= '<li><span class="list-desc-title">Gesamtgröße:</span>' . $this->formatSize($this->totalSize) . '</li>';
         $html .= '</ul></section>';
         return $html;
     }

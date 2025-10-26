@@ -1,0 +1,11 @@
+{
+    "exclude": [
+        "node_modules",
+        "vendor"
+    ],
+    "truncate": {
+        ".git/objects": 10,
+        "storage/framework/views": 5,
+        "some/large/dir": 20
+    }
+}
