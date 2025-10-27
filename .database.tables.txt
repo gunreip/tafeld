@@ -1,0 +1,22 @@
+                  List of tables
+ Schema |         Name          | Type  |  Owner  
+--------+-----------------------+-------+---------
+ public | cache                 | table | gunreip
+ public | cache_locks           | table | gunreip
+ public | cashbook_entries      | table | gunreip
+ public | customers             | table | gunreip
+ public | documents             | table | gunreip
+ public | employees             | table | gunreip
+ public | failed_jobs           | table | gunreip
+ public | inventory_items       | table | gunreip
+ public | job_batches           | table | gunreip
+ public | jobs                  | table | gunreip
+ public | migrations            | table | gunreip
+ public | password_reset_tokens | table | gunreip
+ public | sessions              | table | gunreip
+ public | stock_movements       | table | gunreip
+ public | users                 | table | gunreip
+ public | vehicles              | table | gunreip
+ public | work_schedules        | table | gunreip
+(17 rows)
+

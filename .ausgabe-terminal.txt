@@ -1,23 +1,4 @@
-gunreip@DESKTOP-I7C75P2:~/code/tafeld$ php artisan project:artisan-docs
-
-   TypeError 
-
-  htmlspecialchars(): Argument #1 ($string) must be of type string, array given
-
-  at app/Console/Commands/ProjectArtisanDocs.php:80
-     76▕             }
-     77▕             if (isset($command['definition']) && is_array($command['definition'])) {
-     78▕                 $html[] = '<ul class="options">';
-     79▕                 foreach ($command['definition'] as $option) {
-  ➜  80▕                     $html[] = '<li><span class="opt-name">' . htmlspecialchars($option['name'] ?? '') . '</span>';
-     81▕                     if (!empty($option['description'])) {
-     82▕                         $html[] = ' – <span class="opt-desc">' . htmlspecialchars($option['description']) . '</span>';
-     83▕                     }
-     84▕                     $html[] = '</li>';
-
-  1   app/Console/Commands/ProjectArtisanDocs.php:80
-
-  2   app/Console/Commands/ProjectArtisanDocs.php:23
-      App\Console\Commands\ProjectArtisanDocs::saveHtml()
-
-gunreip@DESKTOP-I7C75P2:~/code/tafeld$ 
+gunreip@DESKTOP-I7C75P2:~/code/tafeld$ $file = storage_path('logs/audit/' . now()->format('Ymd') . '.jsonl');
+echo file_exists($file) ? file_get_contents($file) : 'keine Audit-Einträge';
+bash: syntax error near unexpected token `('
+bash: syntax error near unexpected token `('

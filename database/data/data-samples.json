@@ -1,0 +1,234 @@
+{
+    "employees": [
+        {
+            "id": 1,
+            "ulid": "01K8KDQMSTZ11DJ1YYY6K6RPQB",
+            "encrypted_data": {
+                "name": "Max Mustermann",
+                "role": "Leitung",
+                "department": "Verwaltung"
+            },
+            "created_at": "2025-10-27T18:08:52.000000Z",
+            "updated_at": "2025-10-27T18:08:52.000000Z",
+            "deleted_at": null
+        },
+        {
+            "id": 2,
+            "ulid": "01K8KDQMSZN1VQVHMAZ3VR1Q33",
+            "encrypted_data": {
+                "name": "Erika Beispiel",
+                "role": "Sachbearbeitung",
+                "department": "Finanzen"
+            },
+            "created_at": "2025-10-27T18:08:52.000000Z",
+            "updated_at": "2025-10-27T18:08:52.000000Z",
+            "deleted_at": null
+        },
+        {
+            "id": 3,
+            "ulid": "01K8KDQMT1PMRD200P99AKZ2WM",
+            "encrypted_data": {
+                "name": "Jonas Meyer",
+                "role": "Technik",
+                "department": "Produktion"
+            },
+            "created_at": "2025-10-27T18:08:52.000000Z",
+            "updated_at": "2025-10-27T18:08:52.000000Z",
+            "deleted_at": null
+        }
+    ],
+    "customers": [
+        {
+            "id": 1,
+            "ulid": "01K8KDQMT3879N8QT68NAY2QKH",
+            "encrypted_data": {
+                "name": "Beispielkunde GmbH",
+                "email": "info@beispielkunde.de",
+                "phone": "+49 123 456789"
+            },
+            "created_at": "2025-10-27T18:08:52.000000Z",
+            "updated_at": "2025-10-27T18:08:52.000000Z",
+            "deleted_at": null
+        },
+        {
+            "id": 2,
+            "ulid": "01K8KDQMT6PC7Y7BYDRHT0FZ25",
+            "encrypted_data": {
+                "name": "Demo AG",
+                "email": "kontakt@demo-ag.de",
+                "phone": "+49 987 654321"
+            },
+            "created_at": "2025-10-27T18:08:52.000000Z",
+            "updated_at": "2025-10-27T18:08:52.000000Z",
+            "deleted_at": null
+        }
+    ],
+    "inventory_items": [
+        {
+            "id": 1,
+            "ulid": "01K8KDQMT93QJHQ46GPTPMWB3C",
+            "encrypted_data": {
+                "name": "Notebook Pro 15",
+                "sku": "NB-1500",
+                "quantity": 10,
+                "price": 1299.99
+            },
+            "created_at": "2025-10-27T18:08:52.000000Z",
+            "updated_at": "2025-10-27T18:08:52.000000Z",
+            "deleted_at": null
+        },
+        {
+            "id": 2,
+            "ulid": "01K8KDQMTBXG448YRK726JZY06",
+            "encrypted_data": {
+                "name": "Monitor 27\"",
+                "sku": "MON-27FHD",
+                "quantity": 25,
+                "price": 229
+            },
+            "created_at": "2025-10-27T18:08:52.000000Z",
+            "updated_at": "2025-10-27T18:08:52.000000Z",
+            "deleted_at": null
+        }
+    ],
+    "stock_movements": [
+        {
+            "id": 1,
+            "ulid": "01K8KDQMTD2AD3MMHFFAVS6G73",
+            "encrypted_data": {
+                "inventory_item": "NB-1500",
+                "type": "in",
+                "quantity": 10,
+                "note": "Erstlieferung"
+            },
+            "created_at": "2025-10-27T18:08:52.000000Z",
+            "updated_at": "2025-10-27T18:08:52.000000Z",
+            "deleted_at": null
+        },
+        {
+            "id": 2,
+            "ulid": "01K8KDQMTTGFMW42Z873EG4K56",
+            "encrypted_data": {
+                "inventory_item": "MON-27FHD",
+                "type": "out",
+                "quantity": 5,
+                "note": "Verkauf Filiale A"
+            },
+            "created_at": "2025-10-27T18:08:52.000000Z",
+            "updated_at": "2025-10-27T18:08:52.000000Z",
+            "deleted_at": null
+        }
+    ],
+    "cashbook_entries": [
+        {
+            "id": 1,
+            "ulid": "01K8KDQMTXNJZZAFSYEM00697K",
+            "encrypted_data": {
+                "entry_date": "2025-10-27",
+                "amount": 1000,
+                "type": "income",
+                "category": "Startkapital"
+            },
+            "created_at": "2025-10-27T18:08:52.000000Z",
+            "updated_at": "2025-10-27T18:08:52.000000Z",
+            "deleted_at": null
+        },
+        {
+            "id": 2,
+            "ulid": "01K8KDQMV0GSPM6QKWEFDHDHSY",
+            "encrypted_data": {
+                "entry_date": "2025-10-27",
+                "amount": 230.4,
+                "type": "expense",
+                "category": "Büromaterial"
+            },
+            "created_at": "2025-10-27T18:08:52.000000Z",
+            "updated_at": "2025-10-27T18:08:52.000000Z",
+            "deleted_at": null
+        }
+    ],
+    "vehicles": [
+        {
+            "id": 1,
+            "ulid": "01K8KDQMV3RGJ0ECPRPXCGA48X",
+            "encrypted_data": {
+                "identifier": "B-TAF 123",
+                "model": "Transporter T6",
+                "mileage": 102340,
+                "active": true
+            },
+            "created_at": "2025-10-27T18:08:52.000000Z",
+            "updated_at": "2025-10-27T18:08:52.000000Z",
+            "deleted_at": null
+        },
+        {
+            "id": 2,
+            "ulid": "01K8KDQMV6F14N1RM48K6KBB2K",
+            "encrypted_data": {
+                "identifier": "B-TAF 456",
+                "model": "Caddy Cargo",
+                "mileage": 80210,
+                "active": true
+            },
+            "created_at": "2025-10-27T18:08:52.000000Z",
+            "updated_at": "2025-10-27T18:08:52.000000Z",
+            "deleted_at": null
+        }
+    ],
+    "work_schedules": [
+        {
+            "id": 1,
+            "ulid": "01K8KDQMV8T2281G38GXYC8D9Y",
+            "encrypted_data": {
+                "employee": "Max Mustermann",
+                "work_date": "2025-10-27",
+                "start_time": "08:00",
+                "end_time": "16:30",
+                "break_minutes": 30
+            },
+            "created_at": "2025-10-27T18:08:52.000000Z",
+            "updated_at": "2025-10-27T18:08:52.000000Z",
+            "deleted_at": null
+        },
+        {
+            "id": 2,
+            "ulid": "01K8KDQMVCEYZJ38D0DTDZTPE5",
+            "encrypted_data": {
+                "employee": "Erika Beispiel",
+                "work_date": "2025-10-28",
+                "start_time": "09:00",
+                "end_time": "17:00",
+                "break_minutes": 45
+            },
+            "created_at": "2025-10-27T18:08:52.000000Z",
+            "updated_at": "2025-10-27T18:08:52.000000Z",
+            "deleted_at": null
+        }
+    ],
+    "documents": [
+        {
+            "id": 1,
+            "ulid": "01K8KDQMVE2ZBFD01WHA441BD0",
+            "encrypted_data": {
+                "title": "Arbeitsvertrag Max",
+                "path": "storage\/private\/contracts\/vertrag-max.pdf",
+                "category": "Personal"
+            },
+            "created_at": "2025-10-27T18:08:52.000000Z",
+            "updated_at": "2025-10-27T18:08:52.000000Z",
+            "deleted_at": null
+        },
+        {
+            "id": 2,
+            "ulid": "01K8KDQMVH8VVQ5ZGJMQW0N5QW",
+            "encrypted_data": {
+                "title": "Fahrzeugbrief B-TAF 123",
+                "path": "storage\/private\/vehicles\/brief-123.pdf",
+                "category": "Fahrzeuge"
+            },
+            "created_at": "2025-10-27T18:08:52.000000Z",
+            "updated_at": "2025-10-27T18:08:52.000000Z",
+            "deleted_at": null
+        }
+    ]
+}

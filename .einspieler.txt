@@ -1,0 +1,4 @@
+20251026-205133: _install.tafeld-models.sh -> Models & Migrations erstellt
+20251026-210401: _install.tafeld-models.sh -> Models & Migrations erstellt
+20251026-211243: _install.tafeld-audit-demo.sh -> AuditService + AuditSeeder erstellt
+20251026-213819: _install.tafeld-demo-data.v3.sh -> Seeder ersetzt & validiert

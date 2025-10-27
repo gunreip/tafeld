@@ -100,6 +100,10 @@ CSS;
             $action = 'restore';
             $output['restore'] = $exec("git checkout $restore");
         } elseif ($tag) {
+            if (preg_match('/\s/', $tag)) {
+                $this->warn("Warning: Tag name contains spaces. Use '-' or '_' instead.");
+                return Command::FAILURE;
+            }
             $action = 'create_tag';
             $exec("git add .");
             $exec("git commit -m \"" . addslashes($message ?: "Tagged $tag") . "\"");

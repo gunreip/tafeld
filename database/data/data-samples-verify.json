@@ -1,0 +1,42 @@
+{
+    "employees": {
+        "expected_count": 3,
+        "current_count": 3,
+        "hash_match": false
+    },
+    "customers": {
+        "expected_count": 2,
+        "current_count": 2,
+        "hash_match": false
+    },
+    "inventory_items": {
+        "expected_count": 2,
+        "current_count": 2,
+        "hash_match": false
+    },
+    "stock_movements": {
+        "expected_count": 2,
+        "current_count": 2,
+        "hash_match": false
+    },
+    "cashbook_entries": {
+        "expected_count": 2,
+        "current_count": 2,
+        "hash_match": false
+    },
+    "vehicles": {
+        "expected_count": 2,
+        "current_count": 2,
+        "hash_match": false
+    },
+    "work_schedules": {
+        "expected_count": 2,
+        "current_count": 2,
+        "hash_match": false
+    },
+    "documents": {
+        "expected_count": 2,
+        "current_count": 2,
+        "hash_match": false
+    }
+}
