@@ -36,9 +36,11 @@ class ProjectGitPush extends Command
         // Template-Dateien einlesen
         $headerTemplate = base_path('.logs/template-header.html');
         $footerTemplate = base_path('.logs/template-footer.html');
-        $descFile       = base_path('.logs/audit-main-desc.txt');
 
+        // --- Beschreibungsdatei auslesen (kontextabhängig) ---
+        $descFile = base_path(".logs/audits/{$context}/audit-main-desc.txt");
         $subtitleContent = File::exists($descFile) ? File::get($descFile) : '(no description)';
+
         $header = File::exists($headerTemplate) ? File::get($headerTemplate) : '';
         $footer = File::exists($footerTemplate) ? File::get($footerTemplate) : '';
 
@@ -53,7 +55,22 @@ class ProjectGitPush extends Command
                 $header
             );
 
-            // --- Platzhalter ---
+            // --- Backlink-Pfade korrigieren ---
+            $header = str_replace('../../audits-main.html', '../../../audits-main.html', $header);
+            $footer = str_replace('../../audits-main.html', '../../../audits-main.html', $footer);
+
+            // --- Oberen Backlink nach Subtitle einfügen ---
+            $insertPos = strpos($header, '</span>');
+            if ($insertPos !== false) {
+                $header = substr_replace(
+                    $header,
+                    "\n<div class=\"backlink\"><a href=\"../../../audits-main.html\">Back to Audits-Main</a></div>\n",
+                    $insertPos + 7,
+                    0
+                );
+            }
+
+            // --- Platzhalter ersetzen ---
             $header = str_replace(
                 ['{{project}}', '{{laravel_version}}', '{{php_version}}', '{{generated_at}}', '{{subtitle}}'],
                 [$project, $laravel, $php, now()->format('Y-m-d H:i:s'), $subtitleContent],
