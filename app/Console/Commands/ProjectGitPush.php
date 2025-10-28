@@ -8,7 +8,11 @@ use Symfony\Component\Process\Process;
 
 class ProjectGitPush extends Command
 {
-    protected $signature = 'project:git-push {--tag=} {--message=} {--dry-run : Nur Simulation, keine echten Git-Befehle}';
+    protected $signature = 'project:git-push
+    {--tag=}
+    {--message=}
+    {--dry-run : Nur Simulation, keine echten Git-Befehle}
+    {--tag-list : Listet vorhandene Git-Tags und protokolliert sie im Audit}';
     protected $description = 'Commit, Push oder Tag für das aktuelle Projekt erstellen, mit Monatsrotation und HTML/JSON-Audit-Output.';
 
     public function handle(): int
@@ -114,6 +118,62 @@ class ProjectGitPush extends Command
         if ($tag) {
             $exec("git tag -a $tag -m \"" . addslashes($message ?: 'Checkpoint') . "\"");
             $tagOut = $exec("git push origin $tag");
+        }
+
+        // -------------------------------------------
+        // 2a. Git-Tag-Liste ausgeben (optional)
+        // -------------------------------------------
+        if ($this->option('tag-list')) {
+            $this->info("[$runId] (php artisan project:git-push --tag-list)");
+
+            $exec = function (string $cmd) use ($dryRun) {
+                if ($dryRun) {
+                    return "[dry-run] $cmd";
+                }
+                $p = Process::fromShellCommandline($cmd);
+                $p->setTimeout(300);
+                $p->run();
+                return trim($p->getOutput() . $p->getErrorOutput());
+            };
+
+            // git tag list mit details
+            $tagListOut = $exec("git tag --list --format='%(creatordate:iso) | %(tag) | %(subject) | %(taggername)'");
+
+            // audit-block aufbauen
+            $htmlRun = [];
+            $htmlRun[] = "<details>";
+            $htmlRun[] = "<summary class=\"git-push\">Run-ID: {$runId} (Tag List)</summary>";
+            $htmlRun[] = "<details><summary>Tags</summary><pre>" .
+                htmlspecialchars($this->formatNumbered($tagListOut)) .
+                "</pre></details>";
+            $htmlRun[] = "</details>";
+
+            $newBlock = implode(PHP_EOL, $htmlRun) . PHP_EOL;
+
+            // audit-html aktualisieren (vor backlink)
+            if (!$dryRun) {
+                $existing = File::get($htmlFile);
+                $pos = strrpos($existing, '<div class="backlink">');
+                if ($pos !== false) {
+                    $updated = substr($existing, 0, $pos) . $newBlock . substr($existing, $pos);
+                    File::put($htmlFile, $updated);
+                } else {
+                    File::append($htmlFile, $newBlock);
+                }
+
+                // jsonl-eintrag
+                $jsonEntry = [
+                    'run_id'  => $runId,
+                    'project' => $project,
+                    'user'    => $userName,
+                    'mode'    => 'tag-list',
+                    'tags'    => preg_split("/\r\n|\n|\r/", trim($tagListOut)),
+                ];
+                File::append($jsonFile, json_encode($jsonEntry, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . PHP_EOL);
+            }
+
+            $this->info("Tag-Liste ins Audit eingetragen: {$htmlFile}");
+            return Command::SUCCESS;
         }
 
         // -------------------------------------------
