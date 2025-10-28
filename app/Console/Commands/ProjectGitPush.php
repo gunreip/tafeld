@@ -145,18 +145,18 @@ class ProjectGitPush extends Command
                 [$date, $tagName, $subject, $author] = array_map('trim', explode('|', $ln, 4)) + ['', '', '', ''];
                 $rowsHtml[] =
                     '<tr>'
-                    . '<td class="git-tag-counter">' . ($i + 1) . '</td>'
-                    . '<td class="git-tag-date">'    . htmlspecialchars($date,    ENT_QUOTES, 'UTF-8') . '</td>'
-                    . '<td class="git-tag-tag">'     . htmlspecialchars($tagName, ENT_QUOTES, 'UTF-8') . '</td>'
-                    . '<td class="git-tag-message">' . htmlspecialchars($subject, ENT_QUOTES, 'UTF-8') . '</td>'
-                    . '<td class="git-tag-author">'  . htmlspecialchars($author,  ENT_QUOTES, 'UTF-8') . '</td>'
+                    . '<td class="git-tags-counter">' . ($i + 1) . '</td>'
+                    . '<td class="git-tags-date">'    . htmlspecialchars($date,    ENT_QUOTES, 'UTF-8') . '</td>'
+                    . '<td class="git-tags-tag">'     . htmlspecialchars($tagName, ENT_QUOTES, 'UTF-8') . '</td>'
+                    . '<td class="git-tags-message">' . htmlspecialchars($subject, ENT_QUOTES, 'UTF-8') . '</td>'
+                    . '<td class="git-tags-author">'  . htmlspecialchars($author,  ENT_QUOTES, 'UTF-8') . '</td>'
                     . '</tr>';
 
                 $jsonTags[] = ['date' => $date, 'tag' => $tagName, 'subject' => $subject, 'author' => $author];
             }
 
             $tableHtml = [];
-            $tableHtml[] = '<table class="git-table">';
+            $tableHtml[] = '<table class="git-tags-table">';
             $tableHtml[] = '<thead><tr><th>#</th><th>Datum</th><th>Tag</th><th>Message</th><th>Autor</th></tr></thead>';
             $tableHtml[] = '<tbody>';
             $tableHtml[] = $rowsHtml ? implode(PHP_EOL, $rowsHtml) : '<tr><td colspan="5">(keine Tags gefunden)</td></tr>';
