@@ -21,14 +21,15 @@ class ProjectGitPush extends Command
         $runId    = now()->format('Y-m-d H:i:s');
         $laravel  = app()->version();
         $php      = PHP_VERSION;
+        $context  = 'git'; // dynamischer Audit-Kontext
 
         // -------------------------------------------
         // 1. Monatsrotation und Datei-Struktur prüfen
         // -------------------------------------------
-        $yearDir   = base_path('.logs/audits/git/' . now()->format('Y'));
+        $yearDir   = base_path('.logs/audits/' . $context . '/' . now()->format('Y'));
         $monthFile = now()->format('Y-m');
-        $htmlFile  = "{$yearDir}/{$monthFile}-git.html";
-        $jsonFile  = "{$yearDir}/{$monthFile}-git.jsonl";
+        $htmlFile  = "{$yearDir}/{$monthFile}-{$context}.html";
+        $jsonFile  = "{$yearDir}/{$monthFile}-{$context}.jsonl";
 
         File::ensureDirectoryExists($yearDir);
 
@@ -41,8 +42,18 @@ class ProjectGitPush extends Command
         $header = File::exists($headerTemplate) ? File::get($headerTemplate) : '';
         $footer = File::exists($footerTemplate) ? File::get($footerTemplate) : '';
 
-        // Platzhalter ersetzen, falls Datei neu erstellt wird
+        // Platzhalter und CSS-Pfade ersetzen, falls Datei neu erstellt wird
         if (!File::exists($htmlFile)) {
+            // --- dynamische CSS-Links ---
+            $baseCss = '../../../audits-base.css';
+            $ctxCss  = "../../../audits-{$context}.css";
+            $header = str_replace(
+                ['../../audits-base.css', '../../audits-git.css'],
+                [$baseCss, $ctxCss],
+                $header
+            );
+
+            // --- Platzhalter ---
             $header = str_replace(
                 ['{{project}}', '{{laravel_version}}', '{{php_version}}', '{{generated_at}}', '{{subtitle}}'],
                 [$project, $laravel, $php, now()->format('Y-m-d H:i:s'), $subtitleContent],
@@ -56,7 +67,7 @@ class ProjectGitPush extends Command
 
             if (!$dryRun) {
                 File::put($htmlFile, $header . $footer);
-                File::put($jsonFile, ''); // leere JSONL-Datei für neuen Monat
+                File::put($jsonFile, '');
             }
             $this->info("Neue Monats-Auditdateien erstellt: {$htmlFile}, {$jsonFile}");
         }
@@ -139,7 +150,7 @@ class ProjectGitPush extends Command
                 File::append($htmlFile, $newBlock);
             }
 
-            // JSONL-Eintrag schreiben
+            // JSONL-Eintrag
             $jsonEntry = [
                 'run_id'  => $runId,
                 'project' => $project,
@@ -155,9 +166,6 @@ class ProjectGitPush extends Command
         return Command::SUCCESS;
     }
 
-    /**
-     * Nummeriert Git-Ausgaben zeilenweise.
-     */
     protected function formatNumbered(string $text): string
     {
         $lines = preg_split("/\r\n|\n|\r/", trim($text));
