@@ -4,107 +4,140 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
+use Symfony\Component\Process\Process;
 
 class ProjectGitPush extends Command
 {
-    protected $signature = 'project:git-push {--tag=}';
-    protected $description = 'Commit, push oder Tag für das aktuelle Projekt erstellen.';
+    protected $signature = 'project:git-push {--tag=} {--message=} {--dry-run : Nur Simulation, keine echten Git-Befehle}';
+    protected $description = 'Commit, push oder Tag für das aktuelle Projekt erstellen, mit Audit-Ausgabe.';
 
-    public function handle()
+    public function handle(): int
     {
-        $project = basename(base_path());
-        $user = trim(shell_exec('whoami'));
-        $tag = $this->option('tag');
-        $timestamp = now()->format('Y-m-d H:i:s');
-        $output = [
-            'summary' => [
-                'project' => $project,
-                'user'    => $user,
-                'result'  => 'ok',
-            ],
-            'files' => [],
-        ];
+        $dryRun   = (bool)$this->option('dry-run');
+        $tag      = $this->option('tag');
+        $message  = $this->option('message') ?: ('auto push ' . now()->format('Y-m-d H:i:s'));
+        $project  = basename(base_path());
+        $userName = trim(shell_exec('whoami')) ?: 'unknown';
+        $runId    = now()->format('Y-m-d H:i:s');
 
-        $exec = function ($cmd) {
-            return trim(shell_exec($cmd . ' 2>&1'));
+        // --- Pfade ---
+        $auditDir = base_path('.logs/audits/git');
+        File::ensureDirectoryExists($auditDir);
+        $htmlFile = $auditDir . '/git.html';
+
+        $this->info("[$runId] (php artisan project:git-push)");
+
+        // --- Helper: exec wrapper ---
+        $exec = function (string $cmd) use ($dryRun) {
+            if ($dryRun) {
+                return "[dry-run] $cmd";
+            }
+            $p = Process::fromShellCommandline($cmd);
+            $p->setTimeout(300);
+            $p->run();
+            return trim($p->getOutput() . $p->getErrorOutput());
         };
 
-        $this->info("[$timestamp] (php artisan project:git-push)");
-
-        // Git status
-        $status = $exec('git status -s');
-        $output['files']['status'] = $this->formatFileList(explode("\n", $status));
-
-        // Git add
+        // --- Git status / add / commit / push ---
+        $statusOut = $exec('git status -s');
         $exec('git add -A');
-        $added = $exec('git diff --cached --name-only');
-        $output['files']['add'] = $this->formatFileList(explode("\n", $added));
+        $addedOut  = $exec('git diff --cached --name-only');
+        $commitOut = $exec('git commit -m "' . addslashes($message) . '"');
+        $pushOut   = $exec('git push');
 
-        // Git commit
-        $commitMessage = "auto push " . now()->format('Y-m-d H:i:s');
-        $commit = $exec("git commit -m \"$commitMessage\"");
-        $output['files']['commit'] = $this->formatFileList(explode("\n", $commit));
-
-        // Git push
-        $push = $exec('git push');
-        $output['files']['push'] = $this->formatFileList(explode("\n", $push));
-
-        // Optional Tagging
+        // --- Optional: Tag ---
+        $tagOut = '';
         if ($tag) {
-            $exec("git tag -a $tag -m \"Checkpoint\"");
-            $exec("git push origin $tag");
+            $exec("git tag -a $tag -m \"" . addslashes($message ?: 'Checkpoint') . "\"");
+            $tagOut = $exec("git push origin $tag");
         }
 
-        // Audit-HTML schreiben
-        $auditDir = base_path('logs/audits/git');
-        File::ensureDirectoryExists($auditDir);
-        $html = $this->buildHtml($timestamp, $output);
-        File::put("$auditDir/git.html", $html);
+        // --- Audit vorbereiten ---
+        $sections = [
+            'status' => $statusOut,
+            'add'    => $addedOut,
+            'commit' => $commitOut,
+            'push'   => $pushOut,
+        ];
+        if ($tag) {
+            $sections['tag'] = $tagOut ?: '(kein Tag-Output)';
+        }
 
-        $this->info("Git push abgeschlossen und Audit aktualisiert.");
+        $htmlRun = [];
+        $htmlRun[] = "<details>";
+        $htmlRun[] = "<summary class=\"git-push\">Run-ID: {$runId}</summary>";
+
+        $htmlRun[] = "<details><summary>Summary</summary>";
+        $htmlRun[] = "<table class=\"value-table\">";
+        $htmlRun[] = "<tr><td class=\"git-key\">Project</td><td class=\"git-value\">{$project}</td></tr>";
+        $htmlRun[] = "<tr><td class=\"git-key\">User</td><td class=\"git-value\">{$userName}</td></tr>";
+        $htmlRun[] = "<tr><td class=\"git-key\">Message</td><td class=\"git-value\">" . htmlspecialchars($message) . "</td></tr>";
+        if ($tag) {
+            $htmlRun[] = "<tr><td class=\"git-key\">Tag</td><td class=\"git-value\">" . htmlspecialchars($tag) . "</td></tr>";
+        }
+        $htmlRun[] = "</table></details>";
+
+        $htmlRun[] = "<details><summary>Files</summary><table class=\"git-table\">";
+        foreach ($sections as $key => $text) {
+            $display = nl2br(htmlspecialchars($this->formatNumbered($text)));
+            $htmlRun[] = "<tr><td class=\"git-key\">$key</td><td class=\"git-value\">{$display}</td></tr>";
+        }
+        $htmlRun[] = "</table></details>";
+        $htmlRun[] = "</details>";
+
+        $newBlock = implode(PHP_EOL, $htmlRun) . PHP_EOL;
+
+        // --- HTML schreiben: Einfügen vor dem Backlink-Block ---
+        if (!$dryRun) {
+            if (!File::exists($htmlFile)) {
+                // initiales audit anlegen
+                $header = <<<HTML
+<!DOCTYPE html><html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Git Audits — {$project}</title>
+<link rel="stylesheet" href="../../audits-git.css">
+</head>
+<body>
+<h1 class="git-header">Git Audit Log — {$project}</h1>
+HTML;
+                $footer = <<<HTML
+<div class="backlink"><a href="../../audits-main.html">Back to Audits-Main</a></div>
+</body></html>
+HTML;
+                File::put($htmlFile, $header . $newBlock . $footer);
+            } else {
+                $existing = File::get($htmlFile);
+
+                $pos = strrpos($existing, '<div class="backlink">');
+                if ($pos !== false) {
+                    $updated = substr($existing, 0, $pos) . $newBlock . substr($existing, $pos);
+                    File::put($htmlFile, $updated);
+                } else {
+                    File::append($htmlFile, $newBlock);
+                }
+            }
+        }
+
+        $this->info("Audit aktualisiert: $htmlFile");
+        return Command::SUCCESS;
     }
 
     /**
-     * Formatiert Dateilisten nummeriert und übersichtlich.
+     * Formatiert Git-Ausgabe nummeriert.
      */
-    protected function formatFileList(array $lines): string
+    protected function formatNumbered(string $text): string
     {
-        $lines = array_filter(array_map('trim', $lines));
+        $lines = preg_split("/\r\n|\n|\r/", trim($text));
+        $lines = array_filter($lines, fn($l) => trim($l) !== '');
         if (empty($lines)) {
             return '(keine Dateien)';
         }
         $out = [];
         $i = 1;
-        foreach ($lines as $line) {
-            if ($line === '') continue;
-            $out[] = sprintf('%2d. %s', $i++, $line);
+        foreach ($lines as $ln) {
+            $out[] = sprintf('%2d. %s', $i++, trim($ln));
         }
         return implode("\n", $out);
-    }
-
-    /**
-     * Baut eine einfache HTML-Audit-Ausgabe.
-     */
-    protected function buildHtml(string $timestamp, array $output): string
-    {
-        $html = [];
-        $html[] = "<details open><summary>Run-ID: {$timestamp}</summary>";
-        $html[] = "<h4>(php artisan project:git-push)</h4>";
-
-        $html[] = "<details><summary>Summary</summary><pre>" .
-            htmlspecialchars(json_encode($output['summary'], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE)) .
-            "</pre></details>";
-
-        $html[] = "<details><summary>Files</summary>";
-
-        foreach (['status', 'add', 'commit', 'push'] as $section) {
-            $html[] = "<details><summary>{$section}</summary><pre>" .
-                htmlspecialchars($output['files'][$section] ?? '(keine Daten)') .
-                "</pre></details>";
-        }
-
-        $html[] = "</details></details>";
-
-        return implode("\n", $html);
     }
 }
