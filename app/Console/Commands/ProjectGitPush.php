@@ -145,11 +145,11 @@ class ProjectGitPush extends Command
                 [$date, $tagName, $subject, $author] = array_map('trim', explode('|', $ln, 4)) + ['', '', '', ''];
                 $rowsHtml[] =
                     '<tr>'
-                    . '<td class="git-counter">' . ($i + 1) . '</td>'
-                    . '<td class="git-date">'    . htmlspecialchars($date,    ENT_QUOTES, 'UTF-8') . '</td>'
-                    . '<td class="git-tag">'     . htmlspecialchars($tagName, ENT_QUOTES, 'UTF-8') . '</td>'
-                    . '<td class="git-message">' . htmlspecialchars($subject, ENT_QUOTES, 'UTF-8') . '</td>'
-                    . '<td class="git-author">'  . htmlspecialchars($author,  ENT_QUOTES, 'UTF-8') . '</td>'
+                    . '<td class="git-tag-counter">' . ($i + 1) . '</td>'
+                    . '<td class="git-tag-date">'    . htmlspecialchars($date,    ENT_QUOTES, 'UTF-8') . '</td>'
+                    . '<td class="git-tag-tag">'     . htmlspecialchars($tagName, ENT_QUOTES, 'UTF-8') . '</td>'
+                    . '<td class="git-tag-message">' . htmlspecialchars($subject, ENT_QUOTES, 'UTF-8') . '</td>'
+                    . '<td class="git-tag-author">'  . htmlspecialchars($author,  ENT_QUOTES, 'UTF-8') . '</td>'
                     . '</tr>';
 
                 $jsonTags[] = ['date' => $date, 'tag' => $tagName, 'subject' => $subject, 'author' => $author];
