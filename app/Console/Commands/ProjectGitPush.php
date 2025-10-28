@@ -48,8 +48,8 @@ class ProjectGitPush extends Command
             $baseCss = '../../../audits-base.css';
             $ctxCss  = "../../../audits-{$context}.css";
             $header = str_replace(
-                ['../../audits-base.css', '../../audits-git.css'],
-                [$baseCss, $ctxCss],
+                ['../../audits-base.css', '../../audits-git.css', '../../../../audits-base.css', '../../../../audits-git.css'],
+                [$baseCss, $ctxCss, $baseCss, $ctxCss],
                 $header
             );
 
