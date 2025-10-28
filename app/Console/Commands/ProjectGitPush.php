@@ -157,7 +157,7 @@ class ProjectGitPush extends Command
 
             $tableHtml = [];
             $tableHtml[] = '<table class="git-tags-table">';
-            $tableHtml[] = '<thead><tr><th>#</th><th>Datum</th><th>Tag</th><th>Message</th><th>Autor</th></tr></thead>';
+            $tableHtml[] = '<thead><tr><thclass="git-tags-counter">#</th><th class="git-tags-date">Datum</th><th class="git-tags-tag">Tag</th><th class="git-tags-message">Message</th><th class="git-tags-author">Autor</th></tr></thead>';
             $tableHtml[] = '<tbody>';
             $tableHtml[] = $rowsHtml ? implode(PHP_EOL, $rowsHtml) : '<tr><td colspan="5">(keine Tags gefunden)</td></tr>';
             $tableHtml[] = '</tbody></table>';
