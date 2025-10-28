@@ -135,7 +135,7 @@ class ProjectGitPush extends Command
             };
 
             // Tags mit Datum | Tag | Subject | Author
-            $raw   = $exec("git tag --list --sort=creatordate --format='%(creatordate:iso) | %(tag) | %(subject) | %(taggername)'");
+            $raw   = $exec("git tag --list --sort=-creatordate --format='%(creatordate:iso) | %(tag) | %(subject) | %(taggername)'");
             $lines = array_values(array_filter(preg_split("/\r\n|\n|\r/", $raw), fn($l) => trim($l) !== ''));
 
             // Tabelle bauen
