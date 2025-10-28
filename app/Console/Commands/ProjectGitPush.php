@@ -136,64 +136,22 @@ class ProjectGitPush extends Command
                 return trim($p->getOutput() . $p->getErrorOutput());
             };
 
-            // Tags mit Datum, Name, Message, Autor (stabile Pipe-Trennung)
-            $raw = $exec("git tag --list --format='%(creatordate:iso) | %(tag) | %(subject) | %(taggername)'");
-            $lines = array_filter(preg_split("/\r\n|\n|\r/", $raw), fn($l) => trim($l) !== '');
+            // git tag list mit details
+            $tagListOut = $exec("git tag --list --format='%(creatordate:iso) | %(tag) | %(subject) | %(taggername)'");
 
-            // HTML-Tabelle aufbauen
-            $rowsHtml = [];
-            $jsonTags = [];
-            $counter = 1;
-
-            foreach ($lines as $ln) {
-                // Erwartetes Format: DATE | TAG | SUBJECT | AUTHOR
-                $parts = array_map('trim', explode('|', $ln, 4));
-                $date    = $parts[0] ?? '';
-                $tagName = $parts[1] ?? '';
-                $subject = $parts[2] ?? '';
-                $author  = $parts[3] ?? '';
-
-                $rowsHtml[] = sprintf(
-                    '<tr>' .
-                        '<td class="git-counter">%d</td>' .
-                        '<td class="git-date">%s</td>' .
-                        '<td class="git-tag">%s</td>' .
-                        '<td class="git-message">%s</td>' .
-                        '<td class="git-author">%s</td>' .
-                        '</tr>',
-                    $counter++,
-                    htmlspecialchars($date, ENT_QUOTES, 'UTF-8'),
-                    htmlspecialchars($tagName, ENT_QUOTES, 'UTF-8'),
-                    htmlspecialchars($subject, ENT_QUOTES, 'UTF-8'),
-                    htmlspecialchars($author, ENT_QUOTES, 'UTF-8')
-                );
-
-                $jsonTags[] = [
-                    'date'    => $date,
-                    'tag'     => $tagName,
-                    'subject' => $subject,
-                    'author'  => $author,
-                ];
-            }
-
-            $tableHtml = []
-                + ["<table class=\"git-table\">"]
-                + ["<thead><tr><th>#</th><th>Datum</th><th>Tag</th><th>Message</th><th>Autor</th></tr></thead>"]
-                + ["<tbody>"]
-                + [$rowsHtml ? implode(PHP_EOL, $rowsHtml) : '<tr><td colspan="5">(keine Tags gefunden)</td></tr>']
-                + ["</tbody></table>"];
-
-            // Audit-Block
+            // audit-block aufbauen
             $htmlRun = [];
             $htmlRun[] = "<details>";
             $htmlRun[] = "<summary class=\"git-push\">Run-ID: {$runId} (Tag List)</summary>";
-            $htmlRun[] = "<details><summary>Tags</summary>" . implode(PHP_EOL, $tableHtml) . "</details>";
+            $htmlRun[] = "<details><summary>Tags</summary><pre>" .
+                htmlspecialchars($this->formatNumbered($tagListOut)) .
+                "</pre></details>";
             $htmlRun[] = "</details>";
 
             $newBlock = implode(PHP_EOL, $htmlRun) . PHP_EOL;
 
+            // audit-html aktualisieren (vor backlink)
             if (!$dryRun) {
-                // HTML einfügen: vor dem oberen Backlink-Block
                 $existing = File::get($htmlFile);
                 $pos = strrpos($existing, '<div class="backlink">');
                 if ($pos !== false) {
@@ -203,18 +161,18 @@ class ProjectGitPush extends Command
                     File::append($htmlFile, $newBlock);
                 }
 
-                // JSONL schreiben
+                // jsonl-eintrag
                 $jsonEntry = [
                     'run_id'  => $runId,
                     'project' => $project,
                     'user'    => $userName,
                     'mode'    => 'tag-list',
-                    'tags'    => $jsonTags,
+                    'tags'    => preg_split("/\r\n|\n|\r/", trim($tagListOut)),
                 ];
                 File::append($jsonFile, json_encode($jsonEntry, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . PHP_EOL);
             }
 
-            $this->info("Tag-Liste (Tabelle) ins Audit eingetragen: {$htmlFile}");
+            $this->info("Tag-Liste ins Audit eingetragen: {$htmlFile}");
             return Command::SUCCESS;
         }
 
