@@ -83,7 +83,6 @@ class ProjectGitPush extends Command
                 File::put($jsonFile, '');
             }
             $this->info("Neue Monats-Auditdateien erstellt: {$htmlFile}, {$jsonFile}");
-            return Command::SUCCESS;
         }
 
         // -------------------------------------------
@@ -314,6 +313,8 @@ class ProjectGitPush extends Command
             $this->info("Audit aktualisiert: {$htmlFile}");
             return Command::SUCCESS;
         }
+
+        return Command::SUCCESS;
     }
 
     protected function formatNumbered(string $text): string
