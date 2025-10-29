@@ -8,12 +8,12 @@ use Symfony\Component\Process\Process;
 
 class ProjectGitPush extends Command
 {
-    protected $signature = 'project:git-push 
-        {--tag=} 
-        {--message=} 
-        {--dry-run : Nur Simulation, keine echten Git-Befehle}
-        {--tag-list : Listet vorhandene Git-Tags und protokolliert sie im Audit}
-        {--tag-delete= : Löscht einen oder mehrere Tags (kommagetrennt, lokal + remote)}';
+    protected $signature = 'project:git-push
+        {--tag= : Annotated Git-Tag erstellen und pushen}
+        {--message= : Commit-/Tag-Message}
+        {--dry-run : Nur simulieren, keine Git-Änderungen}
+        {--tag-list : Alle Git-Tags tabellarisch ins Audit schreiben}
+        {--tag-delete= : Tags löschen (kommagetrennt), lokal+remote, Dry-Run unterstützt}';
 
     protected $description = 'Commit, Push oder Tag-Verwaltung für das aktuelle Projekt mit Monatsrotation und HTML/JSON-Audit-Output.';
 
@@ -83,6 +83,7 @@ class ProjectGitPush extends Command
                 File::put($jsonFile, '');
             }
             $this->info("Neue Monats-Auditdateien erstellt: {$htmlFile}, {$jsonFile}");
+            return Command::SUCCESS;
         }
 
         // -------------------------------------------
