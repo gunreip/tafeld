@@ -263,7 +263,7 @@ class ProjectGitPush extends Command
             // --- HTML-Ausgabe zusammenbauen ---
             $htmlRun = [];
             $htmlRun[] = "<details>";
-            $htmlRun[] = "<summary class=\"git-push\">Run-ID: {$runId}</summary>";
+            $htmlRun[] = "<summary class=\"git-push\"><span class='run-id'>Run-ID: {$runId}</span><span class='run-id-context'>(Push/Commit)</span></summary>";
 
             // --- Summary ---
             $htmlRun[] = "<details><summary>Summary</summary>";
