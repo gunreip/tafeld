@@ -27,12 +27,91 @@ class ProjectGitCheckout extends Command
         $restore    = $this->option('restore');
         $message    = $this->option('message');
 
+        // ---------------------------------------------------------
+        // 1. Audit-Setup (identisch zu ProjectGitPush)
+        // ---------------------------------------------------------
+
+        $project  = basename(base_path());
+        $userName = trim(shell_exec('whoami')) ?: 'unknown';
+        $laravel  = app()->version();
+        $php      = PHP_VERSION;
+        $runId    = now()->format('Y-m-d H:i:s');
+        $context  = 'git';
+
+        // Monats-Rotation und Verzeichnisstruktur
+        $yearDir   = base_path(".logs/audits/{$context}/" . now()->format('Y'));
+        $monthFile = now()->format('Y-m');
+        $htmlFile  = "{$yearDir}/{$monthFile}-{$context}.html";
+        $jsonFile  = "{$yearDir}/{$monthFile}-{$context}.jsonl";
+
+        File::ensureDirectoryExists($yearDir);
+
+        // Templates laden
+        $headerTemplate = base_path('.logs/template-header.html');
+        $footerTemplate = base_path('.logs/template-footer.html');
+        $descFile       = base_path(".logs/audits/{$context}/audit-main-desc.txt");
+
+        // Beschreibung (subtitle) lesen
+        $subtitleContent = File::exists($descFile) ? File::get($descFile) : '(no description)';
+
+        $header = File::exists($headerTemplate) ? File::get($headerTemplate) : '';
+        $footer = File::exists($footerTemplate) ? File::get($footerTemplate) : '';
+
+        // Datei neu erstellen, wenn sie noch nicht existiert
+        if (!File::exists($htmlFile)) {
+            // dynamische CSS-Pfade
+            $baseCss = '../../../audits-base.css';
+            $ctxCss  = "../../../audits-{$context}.css";
+            $header = str_replace(
+                ['../../audits-base.css', '../../audits-git.css', '../../../../audits-base.css', '../../../../audits-git.css'],
+                [$baseCss, $ctxCss, $baseCss, $ctxCss],
+                $header
+            );
+
+            // Backlink-Pfade anpassen
+            $header = str_replace('../../audits-main.html', '../../../audits-main.html', $header);
+            $footer = str_replace('../../audits-main.html', '../../../audits-main.html', $footer);
+
+            // oberen Backlink nach Subtitle einfügen
+            $insertPos = strpos($header, '</span>');
+            if ($insertPos !== false) {
+                $header = substr_replace(
+                    $header,
+                    "\n<div class=\"backlink\"><a href=\"../../../audits-main.html\">Back to Audits-Main</a></div>\n",
+                    $insertPos + 7,
+                    0
+                );
+            }
+
+            // Platzhalter ersetzen
+            $header = str_replace(
+                ['{{project}}', '{{laravel_version}}', '{{php_version}}', '{{generated_at}}', '{{subtitle}}'],
+                [$project, $laravel, $php, now()->format('Y-m-d H:i:s'), $subtitleContent],
+                $header
+            );
+            $footer = str_replace(
+                ['{{project}}', '{{laravel_version}}', '{{php_version}}', '{{generated_at}}'],
+                [$project, $laravel, $php, now()->format('Y-m-d H:i:s')],
+                $footer
+            );
+
+            // neue Audit-Dateien schreiben
+            File::put($htmlFile, $header . $footer);
+            File::put($jsonFile, '');
+
+            $this->info("Neue Monats-Auditdateien erstellt: {$htmlFile}, {$jsonFile}");
+        }
+
+        // ---------------------------------------------------------
+        // ab hier folgt deine bestehende Git-Checkout-Logik
+        // ---------------------------------------------------------
+
         $base     = base_path();
         $envProj  = env('PROJ_NAME');
         $project  = $envProj ?: basename($base);
         $logDir   = "$base/.logs/audits/git";
-        $jsonLog  = "$logDir/git.jsonl";
-        $htmlLog  = "$logDir/git.html";
+        // $jsonFile  = "$logDir/git.jsonl";
+        // $htmlFile  = "$logDir/git.html";
         $descFile = "$logDir/audit-main-desc.txt";
         $cssPath  = "$base/.logs/audits-git.css";
 
@@ -134,13 +213,13 @@ CSS;
                 'result'    => 'ok',
                 'output'    => $output,
             ];
-            File::append($jsonLog, json_encode($result, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . PHP_EOL);
+            File::append($jsonFile, json_encode($result, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . PHP_EOL);
         }
 
         // --- HTML run block ---
         $htmlRun = [];
         $htmlRun[] = "<details>";
-        $htmlRun[] = "<summary class=\"git-checkout\">Run-ID: {$runId}</summary>";
+        $htmlRun[] = "<summary class=\"git-checkout\"><span class='run-id'>Run-ID: {$runId}</span><span class='run-id-context'>(Checkout)</span></summary>";
         $htmlRun[] = "<details><summary>Summary</summary>";
         $htmlRun[] = "<table class=\"value-table\">";
         $htmlRun[] = "<tr><td class=\"git-key\">Project</td><td class=\"git-value\">{$project}</td></tr>";
@@ -161,7 +240,7 @@ CSS;
 
         // --- HTML write/append ---
         if (!$dryRun) {
-            if (!File::exists($htmlLog)) {
+            if (!File::exists($htmlFile)) {
                 $desc = File::exists($descFile)
                     ? File::get($descFile)
                     : 'No description available.';
@@ -189,9 +268,9 @@ CSS;
                 $headerHtml[] = "<footer class=\"git-footer\">";
                 $headerHtml[] = "Generated: " . now()->format('Y-m-d H:i:s') . " | Laravel {$laravel} | PHP {$php}";
                 $headerHtml[] = "</footer></body></html>";
-                File::put($htmlLog, implode(PHP_EOL, $headerHtml) . PHP_EOL);
+                File::put($htmlFile, implode(PHP_EOL, $headerHtml) . PHP_EOL);
             } else {
-                $html = File::get($htmlLog);
+                $html = File::get($htmlFile);
 
                 // --- find insertion point BEFORE last backlink above footer ---
                 $footerPos   = strrpos($html, '<footer');
@@ -202,14 +281,14 @@ CSS;
                     $newHtml = substr($html, 0, $insertPos)
                         . implode(PHP_EOL, $htmlRun) . PHP_EOL
                         . substr($html, $insertPos);
-                    File::put($htmlLog, $newHtml);
+                    File::put($htmlFile, $newHtml);
                 } else {
-                    File::append($htmlLog, implode(PHP_EOL, $htmlRun) . PHP_EOL);
+                    File::append($htmlFile, implode(PHP_EOL, $htmlRun) . PHP_EOL);
                 }
             }
         }
 
-        $this->info("Audit updated: $htmlLog");
+        $this->info("Audit updated: $htmlFile");
         return Command::SUCCESS;
     }
 }
