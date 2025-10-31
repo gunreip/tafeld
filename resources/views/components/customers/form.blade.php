@@ -24,8 +24,19 @@
             </div>
         </section>
 
-        {{-- Abschnitt: Ausweis und Familiendaten (folgt später) --}}
-        {{-- Platzhalter für weitere Feldgruppen --}}
+        {{-- Abschnitt: Ausweis- und Familiendaten --}}
+        <section class="bg-gray-900 p-4 rounded-lg border border-gray-800">
+            <h2 class="text-lg font-semibold text-gray-100 mb-4">Ausweis- und Familiendaten</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <x-customers.inputs.identity-document :value="old('identity_document', $customer->identity_document ?? '')" />
+                <x-customers.inputs.family-status :value="old('family_status', $customer->family_status ?? '')" />
+                <x-customers.inputs.religion :value="old('religion', $customer->religion ?? '')" />
+                <x-customers.inputs.household-number :value="old('household_number', $customer->household_number ?? '')" />
+                <x-customers.inputs.responsible-office :value="old('responsible_office', $customer->responsible_office ?? '')" />
+                <x-customers.inputs.household-person-count :value="old('household_person_count', $customer->household_person_count ?? '')" />
+            </div>
+        </section>
 
         {{-- Buttons --}}
         <div class="flex justify-end gap-3 pt-4">
