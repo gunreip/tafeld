@@ -38,6 +38,19 @@
             </div>
         </section>
 
+        {{-- Abschnitt: Status & Verwaltung --}}
+        <section class="bg-gray-900 p-4 rounded-lg border border-gray-800">
+            <h2 class="text-lg font-semibold text-gray-100 mb-4">Status & Verwaltung</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <x-customers.inputs.valid-until :value="old('valid_until', $customer->valid_until ?? '')" />
+                <x-customers.inputs.customer-day :value="old('customer_day', $customer->customer_day ?? '')" />
+                <x-customers.inputs.customer-day-preferred :value="old('customer_day_preferred', $customer->customer_day_preferred ?? '')" />
+                <x-customers.inputs.income :value="old('income', $customer->income ?? '')" />
+                <x-customers.inputs.customer-category :value="old('customer_category', $customer->customer_category ?? '')" />
+            </div>
+        </section>
+
         {{-- Buttons --}}
         <div class="flex justify-end gap-3 pt-4">
             <button type="submit" class="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-md shadow">
