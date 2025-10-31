@@ -31,4 +31,6 @@ Route::middleware(['auth'])->group(function () {
         ->name('two-factor.show');
 });
 
-require __DIR__.'/auth.php';
+Route::resource('customers', \App\Http\Controllers\CustomerController::class);
+
+require __DIR__ . '/auth.php';
