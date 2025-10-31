@@ -2,7 +2,7 @@
     @props([
         'value' => '',
         'label' => 'Familienstand',
-        'name' => 'family_status',
+        'name' => 'family-status',
         'icon' => 'people',
         'options' => [
             '' => 'Bitte wählen …',

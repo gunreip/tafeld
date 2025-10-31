@@ -1,3 +1,30 @@
 <div>
-    <!-- Life is available only in the present moment. - Thich Nhat Hanh -->
+    @props([
+        'value' => '',
+        'label' => 'Kundennummer',
+        'name' => 'customer_number',
+        'icon' => 'hash',
+    ])
+
+    <div class="flex flex-col mb-3">
+        <label for="{{ $name }}" class="flex items-center gap-2 text-sm font-semibold text-gray-200">
+            <ion-icon name="{{ $icon }}" class="w-4 h-4 text-gray-400"></ion-icon>
+            {{ __($label) }}
+        </label>
+
+        <input type="text" id="{{ $name }}" name="{{ $name }}" value="{{ old($name, $value) }}" readonly
+            class="rounded-md bg-gray-700 text-gray-300 border border-gray-600 px-3 py-2 cursor-not-allowed">
+
+        @error($name)
+            <p class="text-red-400 text-xs mt-1">{{ $message }}</p>
+            <script>
+                window.dispatchEvent(new CustomEvent('toast', {
+                    detail: {
+                        type: 'error',
+                        message: @js($message)
+                    }
+                }));
+            </script>
+        @enderror
+    </div>
 </div>
