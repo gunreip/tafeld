@@ -1,17 +1,48 @@
+@props(['title' => config('app.name', 'Tafeld')])
+
 <!DOCTYPE html>
-<html lang="de">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full bg-gray-900 text-gray-100">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Kundenerfassung</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ $title }}</title>
+
+    {{-- Fonts + Favicon --}}
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
+
+    {{-- Styles + Scripts --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @livewireStyles
 </head>
 
-<body class="bg-gray-950 text-gray-100">
-    <div class="max-w-5xl mx-auto py-8 px-6">
-        <x-customers.alerts />
-        <x-customers.form :action="route('customers.store')" method="POST" />
+<body class="font-sans antialiased min-h-screen bg-gray-900 text-gray-100">
+    <div class="min-h-screen">
+        {{-- Navigation --}}
+        @include('layouts.navigation')
+
+        {{-- Page Heading --}}
+        @if (isset($header))
+            <header class="bg-gray-800 shadow">
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    {{ $header }}
+                </div>
+            </header>
+        @endif
+
+        {{-- Page Content --}}
+        <main class="py-8">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                {{ $slot }}
+            </div>
+        </main>
     </div>
+
+    @livewireScripts
 </body>
 
 </html>
