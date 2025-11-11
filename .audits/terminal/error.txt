@@ -1,15 +1,19 @@
-gunreip@DESKTOP-I7C75P2:~/code/tafeld$ npm run build
+gunreip@DESKTOP-I7C75P2:~/code/tafeld$ php artisan make:livewire Pages/Auth/Register
 
-> build
-> vite build
+   ErrorException 
 
-vite v7.2.2 building client environment for production...
-✓ 2 modules transformed.
-✗ Build failed in 261ms
-error during build:
-Could not resolve "./bootstrap" from "resources/js/app.js"
-file: /home/gunreip/code/tafeld/resources/js/app.js
-    at getRollupError (file:///home/gunreip/code/tafeld/node_modules/rollup/dist/es/shared/parseAst.js:401:41)
-    at error (file:///home/gunreip/code/tafeld/node_modules/rollup/dist/es/shared/parseAst.js:397:42)
-    at ModuleLoader.handleInvalidResolvedId (file:///home/gunreip/code/tafeld/node_modules/rollup/dist/es/shared/node-entry.js:21576:24)
-    at file:///home/gunreip/code/tafeld/node_modules/rollup/dist/es/shared/node-entry.js:21536:26
+  require(/home/gunreip/code/tafeld/routes/auth.php): Failed to open stream: No such file or directory
+
+  at routes/web.php:14
+     10▕ Route::get('/login', Login::class)
+     11▕     ->middleware('guest')
+     12▕     ->name('login');
+     13▕ 
+  ➜  14▕ require __DIR__ . '/auth.php';
+     15▕ 
+
+  1   routes/web.php:14
+      +20 vendor frames 
+
+  22  [internal]:0
+      Illuminate\Foundation\Application::Illuminate\Foundation\{closure}()

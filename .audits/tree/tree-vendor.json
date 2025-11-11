@@ -1,0 +1,256 @@
+{
+    "root": "vendor",
+    "path": "\/home\/gunreip\/code\/tafeld\/vendor",
+    "items": [
+        {
+            "type": "dir",
+            "name": "bin",
+            "version": null,
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "blade-ui-kit",
+            "version": null,
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "brick",
+            "version": null,
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "carbonphp",
+            "version": null,
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "composer",
+            "version": null,
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "dflydev",
+            "version": null,
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "doctrine",
+            "version": null,
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "dragonmantank",
+            "version": null,
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "egulias",
+            "version": null,
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "fakerphp",
+            "version": null,
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "filp",
+            "version": null,
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "fruitcake",
+            "version": null,
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "graham-campbell",
+            "version": null,
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "guzzlehttp",
+            "version": null,
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "hamcrest",
+            "version": null,
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "laravel",
+            "version": null,
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "league",
+            "version": null,
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "livewire",
+            "version": "v3.6.4",
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "mockery",
+            "version": null,
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "monolog",
+            "version": "3.9.0",
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "myclabs",
+            "version": null,
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "nesbot",
+            "version": null,
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "nette",
+            "version": null,
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "nikic",
+            "version": null,
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "nunomaduro",
+            "version": null,
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "owen-it",
+            "version": null,
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "phar-io",
+            "version": null,
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "phpoption",
+            "version": "1.9.4",
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "phpunit",
+            "version": null,
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "psr",
+            "version": null,
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "psy",
+            "version": null,
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "ralouphie",
+            "version": null,
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "ramsey",
+            "version": null,
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "sebastian",
+            "version": null,
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "spatie",
+            "version": null,
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "staabm",
+            "version": null,
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "symfony",
+            "version": null,
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "theseer",
+            "version": null,
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "tijsverkoyen",
+            "version": null,
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "vlucas",
+            "version": null,
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "voku",
+            "version": null,
+            "items": []
+        },
+        {
+            "type": "file",
+            "name": "autoload.php"
+        }
+    ]
+}

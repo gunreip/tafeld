@@ -1,0 +1,101 @@
+{
+    "root": "tafeld",
+    "path": "\/home\/gunreip\/code\/tafeld",
+    "items": [
+        {
+            "type": "dir",
+            "name": "app",
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "bootstrap",
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "config",
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "database",
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "node_modules",
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "public",
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "resources",
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "routes",
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "storage",
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "tests",
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "vendor",
+            "items": []
+        },
+        {
+            "type": "file",
+            "name": "README.md"
+        },
+        {
+            "type": "file",
+            "name": "artisan"
+        },
+        {
+            "type": "file",
+            "name": "composer.json"
+        },
+        {
+            "type": "file",
+            "name": "composer.lock"
+        },
+        {
+            "type": "file",
+            "name": "package-lock.json"
+        },
+        {
+            "type": "file",
+            "name": "package.json"
+        },
+        {
+            "type": "file",
+            "name": "phpunit.xml"
+        },
+        {
+            "type": "file",
+            "name": "postcss.config.js"
+        },
+        {
+            "type": "file",
+            "name": "tailwind.config.js"
+        },
+        {
+            "type": "file",
+            "name": "vite.config.js"
+        }
+    ]
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="mPZLvs1hYSWU01MNE9rzEUNt6OPwSNowwyT1P4xb">
+
+    <title>Laravel</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net/">
+    <link href="tafeld.test-dashboard-Dateien/css.css" rel="stylesheet">
+    <!-- tafeld/resources/views/layouts/app.blade.php -->
+    <!-- Livewire Styles --><style>[wire\:loading][wire\:loading], [wire\:loading\.delay][wire\:loading\.delay], [wire\:loading\.inline-block][wire\:loading\.inline-block], [wire\:loading\.inline][wire\:loading\.inline], [wire\:loading\.block][wire\:loading\.block], [wire\:loading\.flex][wire\:loading\.flex], [wire\:loading\.table][wire\:loading\.table], [wire\:loading\.grid][wire\:loading\.grid], [wire\:loading\.inline-flex][wire\:loading\.inline-flex] {display: none;}[wire\:loading\.delay\.none][wire\:loading\.delay\.none], [wire\:loading\.delay\.shortest][wire\:loading\.delay\.shortest], [wire\:loading\.delay\.shorter][wire\:loading\.delay\.shorter], [wire\:loading\.delay\.short][wire\:loading\.delay\.short], [wire\:loading\.delay\.default][wire\:loading\.delay\.default], [wire\:loading\.delay\.long][wire\:loading\.delay\.long], [wire\:loading\.delay\.longer][wire\:loading\.delay\.longer], [wire\:loading\.delay\.longest][wire\:loading\.delay\.longest] {display: none;}[wire\:offline][wire\:offline] {display: none;}[wire\:dirty]:not(textarea):not(input):not(select) {display: none;}:root {--livewire-progress-bar-color: #2299dd;}[x-cloak] {display: none !important;}[wire\:cloak] {display: none !important;}</style>
+
+    <!-- Scripts -->
+    <link rel="preload" as="style" href="tafeld.test-dashboard-Dateien/app-XgnHLZd0.css"><link rel="modulepreload" as="script" href="tafeld.test-dashboard-Dateien/app-l0sNRNKZ.js"><link rel="stylesheet" href="tafeld.test-dashboard-Dateien/app-XgnHLZd0.css" data-navigate-track="reload"><script type="module" src="tafeld.test-dashboard-Dateien/app-l0sNRNKZ.js" data-navigate-track="reload"></script>    <!-- tafeld/resources/views/layouts/app.blade.php -->
+    <!-- Livewire Scripts -->
+<script src="tafeld.test-dashboard-Dateien/livewire.js" data-csrf="mPZLvs1hYSWU01MNE9rzEUNt6OPwSNowwyT1P4xb" data-update-uri="/livewire/update" data-navigate-once="true"></script><style>/* Make clicks pass-through */
+
+    #nprogress {
+      pointer-events: none;
+    }
+
+    #nprogress .bar {
+      background: var(--livewire-progress-bar-color, #29d);
+
+      position: fixed;
+      z-index: 1031;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 2px;
+    }
+
+    /* Fancy blur effect */
+    #nprogress .peg {
+      display: block;
+      position: absolute;
+      right: 0px;
+      width: 100px;
+      height: 100%;
+      box-shadow: 0 0 10px var(--livewire-progress-bar-color, #29d), 0 0 5px var(--livewire-progress-bar-color, #29d);
+      opacity: 1.0;
+
+      -webkit-transform: rotate(3deg) translate(0px, -4px);
+          -ms-transform: rotate(3deg) translate(0px, -4px);
+              transform: rotate(3deg) translate(0px, -4px);
+    }
+
+    /* Remove these to get rid of the spinner */
+    #nprogress .spinner {
+      display: block;
+      position: fixed;
+      z-index: 1031;
+      top: 15px;
+      right: 15px;
+    }
+
+    #nprogress .spinner-icon {
+      width: 18px;
+      height: 18px;
+      box-sizing: border-box;
+
+      border: solid 2px transparent;
+      border-top-color: var(--livewire-progress-bar-color, #29d);
+      border-left-color: var(--livewire-progress-bar-color, #29d);
+      border-radius: 50%;
+
+      -webkit-animation: nprogress-spinner 400ms linear infinite;
+              animation: nprogress-spinner 400ms linear infinite;
+    }
+
+    .nprogress-custom-parent {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .nprogress-custom-parent #nprogress .spinner,
+    .nprogress-custom-parent #nprogress .bar {
+      position: absolute;
+    }
+
+    @-webkit-keyframes nprogress-spinner {
+      0%   { -webkit-transform: rotate(0deg); }
+      100% { -webkit-transform: rotate(360deg); }
+    }
+    @keyframes nprogress-spinner {
+      0%   { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    </style>
+<script type="text/javascript" async="">window.addEventListener("load",checkForCmp,!1);let dataframeForPingReturn={type:"FROM_MINIMAL_CONSENT"},checkForCmpCounter=0,maxTimeoutForResearch=200,maxRetryForSearch=25;function checkForCmp(){this.__cmp?this.__cmp("ping",2,sendMessage):this.__tcfapi?this.__tcfapi("ping",2,sendMessage):this.frames&&this.frames.length&&this.frames.__tcfapiLocator?this.__tcfapi("ping",2,sendMessage):checkForCmpCounter<maxRetryForSearch?(setTimeout(checkForCmp,maxTimeoutForResearch),checkForCmpCounter++):window.removeEventListener("load",checkForCmp,!1)}function sendMessage(e,t){t&&(dataframeForPingReturn.cmp=JSON.stringify(e),window.postMessage(dataframeForPingReturn,"*"),window.removeEventListener("load",checkForCmp,!1))}</script></head>
+
+<body class="font-sans antialiased bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100" cz-shortcut-listen="true">
+    <div class="min-h-screen bg-gray-100">
+        
+        <nav class="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+        <a href="https://tafeld.test/" class="text-xl font-semibold text-gray-900 dark:text-gray-100">
+            Tafeld
+        </a>
+
+        <div class="flex items-center gap-4">
+            <a href="https://tafeld.test/" class="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100">
+                Startseite
+            </a>
+
+                            <a href="https://tafeld.test/dashboard" class="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100">
+                    Dashboard
+                </a>
+
+                <form method="POST" action="https://tafeld.test/logout">
+                    <input type="hidden" name="_token" value="mPZLvs1hYSWU01MNE9rzEUNt6OPwSNowwyT1P4xb" autocomplete="off">                    <button class="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100">
+                        Logout
+                    </button>
+                </form>
+            
+            <button @click="document.documentElement.classList.toggle('dark')" class="px-2 py-1 rounded border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300">
+                Theme
+            </button>
+        </div>
+    </div>
+</nav>
+        <!-- Page Heading -->
+                    <header class="bg-white shadow">
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            Dashboard
+        </h2>
+                </div>
+            </header>
+        
+        <!-- Page Content -->
+        <main>
+            <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900">
+                    You're logged in!
+                </div>
+            </div>
+        </div>
+    </div>
+        </main>
+    </div>
+
+
+
+<deepl-input-controller translate="no"></deepl-input-controller></body></html>

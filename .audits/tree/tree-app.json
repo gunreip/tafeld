@@ -1,0 +1,346 @@
+{
+    "root": "app",
+    "path": "\/home\/gunreip\/code\/tafeld\/app",
+    "items": [
+        {
+            "type": "dir",
+            "name": "Console",
+            "items": [
+                {
+                    "type": "dir",
+                    "name": "Commands",
+                    "items": [
+                        {
+                            "type": "file",
+                            "name": "ProjectTreeCommand.php",
+                            "extension": "php",
+                            "size": 3678,
+                            "modified_at": 1762706690,
+                            "modified_at_iso": "2025-11-09T16:44:50+00:00",
+                            "created_at": 1762706690,
+                            "created_at_iso": "2025-11-09T16:44:50+00:00"
+                        },
+                        {
+                            "type": "file",
+                            "name": "ProjectWireNavigateCheck.php",
+                            "extension": "php",
+                            "size": 4777,
+                            "modified_at": 1762783566,
+                            "modified_at_iso": "2025-11-10T14:06:06+00:00",
+                            "created_at": 1762783566,
+                            "created_at_iso": "2025-11-10T14:06:06+00:00"
+                        },
+                        {
+                            "type": "file",
+                            "name": "ProjectWireNavigateFixer.php",
+                            "extension": "php",
+                            "size": 7004,
+                            "modified_at": 1762787671,
+                            "modified_at_iso": "2025-11-10T15:14:31+00:00",
+                            "created_at": 1762787671,
+                            "created_at_iso": "2025-11-10T15:14:31+00:00"
+                        }
+                    ]
+                },
+                {
+                    "type": "file",
+                    "name": "Kernel.php",
+                    "extension": "php",
+                    "size": 285,
+                    "modified_at": 1762779091,
+                    "modified_at_iso": "2025-11-10T12:51:31+00:00",
+                    "created_at": 1762779091,
+                    "created_at_iso": "2025-11-10T12:51:31+00:00"
+                }
+            ]
+        },
+        {
+            "type": "dir",
+            "name": "Http",
+            "items": [
+                {
+                    "type": "dir",
+                    "name": "Controllers",
+                    "items": [
+                        {
+                            "type": "dir",
+                            "name": "Auth",
+                            "items": [
+                                {
+                                    "type": "file",
+                                    "name": "VerifyEmailController.php",
+                                    "extension": "php",
+                                    "size": 800,
+                                    "modified_at": 1762700747,
+                                    "modified_at_iso": "2025-11-09T15:05:47+00:00",
+                                    "created_at": 1762700747,
+                                    "created_at_iso": "2025-11-09T15:05:47+00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "file",
+                            "name": "Controller.php",
+                            "extension": "php",
+                            "size": 77,
+                            "modified_at": 1762268421,
+                            "modified_at_iso": "2025-11-04T15:00:21+00:00",
+                            "created_at": 1762680789,
+                            "created_at_iso": "2025-11-09T09:33:09+00:00"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "dir",
+            "name": "Livewire",
+            "items": [
+                {
+                    "type": "dir",
+                    "name": "Actions",
+                    "items": [
+                        {
+                            "type": "file",
+                            "name": "Logout.php",
+                            "extension": "php",
+                            "size": 358,
+                            "modified_at": 1762700747,
+                            "modified_at_iso": "2025-11-09T15:05:47+00:00",
+                            "created_at": 1762700747,
+                            "created_at_iso": "2025-11-09T15:05:47+00:00"
+                        }
+                    ]
+                },
+                {
+                    "type": "dir",
+                    "name": "Forms",
+                    "items": [
+                        {
+                            "type": "file",
+                            "name": "LoginForm.php",
+                            "extension": "php",
+                            "size": 1867,
+                            "modified_at": 1762700747,
+                            "modified_at_iso": "2025-11-09T15:05:47+00:00",
+                            "created_at": 1762700747,
+                            "created_at_iso": "2025-11-09T15:05:47+00:00"
+                        }
+                    ]
+                },
+                {
+                    "type": "dir",
+                    "name": "Layout",
+                    "items": [
+                        {
+                            "type": "file",
+                            "name": "Footer.php",
+                            "extension": "php",
+                            "size": 187,
+                            "modified_at": 1762697831,
+                            "modified_at_iso": "2025-11-09T14:17:11+00:00",
+                            "created_at": 1762697831,
+                            "created_at_iso": "2025-11-09T14:17:11+00:00"
+                        },
+                        {
+                            "type": "file",
+                            "name": "Nav.php",
+                            "extension": "php",
+                            "size": 181,
+                            "modified_at": 1762697818,
+                            "modified_at_iso": "2025-11-09T14:16:58+00:00",
+                            "created_at": 1762697818,
+                            "created_at_iso": "2025-11-09T14:16:58+00:00"
+                        }
+                    ]
+                },
+                {
+                    "type": "dir",
+                    "name": "Pages",
+                    "items": [
+                        {
+                            "type": "dir",
+                            "name": "Auth",
+                            "items": [
+                                {
+                                    "type": "file",
+                                    "name": "ConfirmPassword.php",
+                                    "extension": "php",
+                                    "size": 794,
+                                    "modified_at": 1762797230,
+                                    "modified_at_iso": "2025-11-10T17:53:50+00:00",
+                                    "created_at": 1762797230,
+                                    "created_at_iso": "2025-11-10T17:53:50+00:00"
+                                },
+                                {
+                                    "type": "file",
+                                    "name": "ForgotPassword.php",
+                                    "extension": "php",
+                                    "size": 577,
+                                    "modified_at": 1762796088,
+                                    "modified_at_iso": "2025-11-10T17:34:48+00:00",
+                                    "created_at": 1762796088,
+                                    "created_at_iso": "2025-11-10T17:34:48+00:00"
+                                },
+                                {
+                                    "type": "file",
+                                    "name": "Login.php",
+                                    "extension": "php",
+                                    "size": 848,
+                                    "modified_at": 1762794569,
+                                    "modified_at_iso": "2025-11-10T17:09:29+00:00",
+                                    "created_at": 1762794569,
+                                    "created_at_iso": "2025-11-10T17:09:29+00:00"
+                                },
+                                {
+                                    "type": "file",
+                                    "name": "Register.php",
+                                    "extension": "php",
+                                    "size": 996,
+                                    "modified_at": 1762795871,
+                                    "modified_at_iso": "2025-11-10T17:31:11+00:00",
+                                    "created_at": 1762795871,
+                                    "created_at_iso": "2025-11-10T17:31:11+00:00"
+                                },
+                                {
+                                    "type": "file",
+                                    "name": "ResetPassword.php",
+                                    "extension": "php",
+                                    "size": 1410,
+                                    "modified_at": 1762796421,
+                                    "modified_at_iso": "2025-11-10T17:40:21+00:00",
+                                    "created_at": 1762796421,
+                                    "created_at_iso": "2025-11-10T17:40:21+00:00"
+                                },
+                                {
+                                    "type": "file",
+                                    "name": "VerifyEmail.php",
+                                    "extension": "php",
+                                    "size": 776,
+                                    "modified_at": 1762797091,
+                                    "modified_at_iso": "2025-11-10T17:51:31+00:00",
+                                    "created_at": 1762797091,
+                                    "created_at_iso": "2025-11-10T17:51:31+00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "file",
+                            "name": "Home.php",
+                            "extension": "php",
+                            "size": 269,
+                            "modified_at": 1762698473,
+                            "modified_at_iso": "2025-11-09T14:27:53+00:00",
+                            "created_at": 1762698473,
+                            "created_at_iso": "2025-11-09T14:27:53+00:00"
+                        },
+                        {
+                            "type": "file",
+                            "name": "Welcome.php",
+                            "extension": "php",
+                            "size": 225,
+                            "modified_at": 1762803791,
+                            "modified_at_iso": "2025-11-10T19:43:11+00:00",
+                            "created_at": 1762803791,
+                            "created_at_iso": "2025-11-10T19:43:11+00:00"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "dir",
+            "name": "Models",
+            "items": [
+                {
+                    "type": "file",
+                    "name": "User.php",
+                    "extension": "php",
+                    "size": 1009,
+                    "modified_at": 1762268421,
+                    "modified_at_iso": "2025-11-04T15:00:21+00:00",
+                    "created_at": 1762680789,
+                    "created_at_iso": "2025-11-09T09:33:09+00:00"
+                }
+            ]
+        },
+        {
+            "type": "dir",
+            "name": "Providers",
+            "items": [
+                {
+                    "type": "file",
+                    "name": "AppServiceProvider.php",
+                    "extension": "php",
+                    "size": 361,
+                    "modified_at": 1762268421,
+                    "modified_at_iso": "2025-11-04T15:00:21+00:00",
+                    "created_at": 1762680789,
+                    "created_at_iso": "2025-11-09T09:33:09+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "TelescopeServiceProvider.php",
+                    "extension": "php",
+                    "size": 1638,
+                    "modified_at": 1762687886,
+                    "modified_at_iso": "2025-11-09T11:31:26+00:00",
+                    "created_at": 1762687886,
+                    "created_at_iso": "2025-11-09T11:31:26+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "VoltServiceProvider.php",
+                    "extension": "php",
+                    "size": 494,
+                    "modified_at": 1762700747,
+                    "modified_at_iso": "2025-11-09T15:05:47+00:00",
+                    "created_at": 1762700747,
+                    "created_at_iso": "2025-11-09T15:05:47+00:00"
+                }
+            ]
+        },
+        {
+            "type": "dir",
+            "name": "View",
+            "items": [
+                {
+                    "type": "dir",
+                    "name": "Components",
+                    "items": [
+                        {
+                            "type": "file",
+                            "name": "AppLayout.php",
+                            "extension": "php",
+                            "size": 341,
+                            "modified_at": 1762773526,
+                            "modified_at_iso": "2025-11-10T11:18:46+00:00",
+                            "created_at": 1762773526,
+                            "created_at_iso": "2025-11-10T11:18:46+00:00"
+                        },
+                        {
+                            "type": "file",
+                            "name": "GuestLayout.php",
+                            "extension": "php",
+                            "size": 347,
+                            "modified_at": 1762773549,
+                            "modified_at_iso": "2025-11-10T11:19:09+00:00",
+                            "created_at": 1762773549,
+                            "created_at_iso": "2025-11-10T11:19:09+00:00"
+                        },
+                        {
+                            "type": "file",
+                            "name": "PasswordInput.php",
+                            "extension": "php",
+                            "size": 465,
+                            "modified_at": 1762701615,
+                            "modified_at_iso": "2025-11-09T15:20:15+00:00",
+                            "created_at": 1762701615,
+                            "created_at_iso": "2025-11-09T15:20:15+00:00"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

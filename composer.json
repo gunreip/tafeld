@@ -14,12 +14,15 @@
         "laravel/framework": "^12.0",
         "laravel/telescope": "^5.15",
         "laravel/tinker": "^2.10.1",
-        "livewire/livewire": "^3.6",
+        "livewire/livewire": "^3.6.4",
+        "livewire/volt": "^1.7.0",
         "owen-it/laravel-auditing": "^14.0",
-        "spatie/laravel-activitylog": "^4.10"
+        "spatie/laravel-activitylog": "^4.10",
+        "spatie/laravel-ignition": "^2.9"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
+        "laravel/breeze": "^2.3",
         "laravel/pail": "^1.2.2",
         "laravel/pint": "^1.24",
         "laravel/sail": "^1.41",

@@ -1,0 +1,220 @@
+{
+    "root": "resources",
+    "path": "\/home\/gunreip\/code\/tafeld\/resources",
+    "items": [
+        {
+            "type": "dir",
+            "name": "css",
+            "items": [
+                {
+                    "type": "file",
+                    "name": "app.css",
+                    "extension": "css",
+                    "size": 59,
+                    "modified_at": 1762700747,
+                    "modified_at_iso": "2025-11-09T15:05:47+00:00",
+                    "created_at": 1762700747,
+                    "created_at_iso": "2025-11-09T15:05:47+00:00"
+                }
+            ]
+        },
+        {
+            "type": "dir",
+            "name": "js",
+            "items": [
+                {
+                    "type": "file",
+                    "name": "app.js",
+                    "extension": "js",
+                    "size": 22,
+                    "modified_at": 1762800577,
+                    "modified_at_iso": "2025-11-10T18:49:37+00:00",
+                    "created_at": 1762800577,
+                    "created_at_iso": "2025-11-10T18:49:37+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "bootstrap.js",
+                    "extension": "js",
+                    "size": 82,
+                    "modified_at": 1762789747,
+                    "modified_at_iso": "2025-11-10T15:49:07+00:00",
+                    "created_at": 1762789747,
+                    "created_at_iso": "2025-11-10T15:49:07+00:00"
+                }
+            ]
+        },
+        {
+            "type": "dir",
+            "name": "views",
+            "items": [
+                {
+                    "type": "dir",
+                    "name": "layouts",
+                    "items": [
+                        {
+                            "type": "file",
+                            "name": "app.blade.php",
+                            "extension": "php",
+                            "size": 1330,
+                            "modified_at": 1762804696,
+                            "modified_at_iso": "2025-11-10T19:58:16+00:00",
+                            "created_at": 1762804696,
+                            "created_at_iso": "2025-11-10T19:58:16+00:00"
+                        },
+                        {
+                            "type": "file",
+                            "name": "guest.blade.php",
+                            "extension": "php",
+                            "size": 1288,
+                            "modified_at": 1762804832,
+                            "modified_at_iso": "2025-11-10T20:00:32+00:00",
+                            "created_at": 1762804832,
+                            "created_at_iso": "2025-11-10T20:00:32+00:00"
+                        }
+                    ]
+                },
+                {
+                    "type": "dir",
+                    "name": "livewire",
+                    "items": [
+                        {
+                            "type": "dir",
+                            "name": "layout",
+                            "items": [
+                                {
+                                    "type": "file",
+                                    "name": "navigation.blade.php",
+                                    "extension": "php",
+                                    "size": 1876,
+                                    "modified_at": 1762801676,
+                                    "modified_at_iso": "2025-11-10T19:07:56+00:00",
+                                    "created_at": 1762801676,
+                                    "created_at_iso": "2025-11-10T19:07:56+00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "dir",
+                            "name": "pages",
+                            "items": [
+                                {
+                                    "type": "dir",
+                                    "name": "auth",
+                                    "items": [
+                                        {
+                                            "type": "file",
+                                            "name": "confirm-password.blade.php",
+                                            "extension": "php",
+                                            "size": 1348,
+                                            "modified_at": 1762797261,
+                                            "modified_at_iso": "2025-11-10T17:54:21+00:00",
+                                            "created_at": 1762797261,
+                                            "created_at_iso": "2025-11-10T17:54:21+00:00"
+                                        },
+                                        {
+                                            "type": "file",
+                                            "name": "forgot-password.blade.php",
+                                            "extension": "php",
+                                            "size": 1986,
+                                            "modified_at": 1762789861,
+                                            "modified_at_iso": "2025-11-10T15:51:01+00:00",
+                                            "created_at": 1762789861,
+                                            "created_at_iso": "2025-11-10T15:51:01+00:00"
+                                        },
+                                        {
+                                            "type": "file",
+                                            "name": "login.blade.php",
+                                            "extension": "php",
+                                            "size": 2606,
+                                            "modified_at": 1762794624,
+                                            "modified_at_iso": "2025-11-10T17:10:24+00:00",
+                                            "created_at": 1762794624,
+                                            "created_at_iso": "2025-11-10T17:10:24+00:00"
+                                        },
+                                        {
+                                            "type": "file",
+                                            "name": "register.blade.php",
+                                            "extension": "php",
+                                            "size": 3113,
+                                            "modified_at": 1762795919,
+                                            "modified_at_iso": "2025-11-10T17:31:59+00:00",
+                                            "created_at": 1762795919,
+                                            "created_at_iso": "2025-11-10T17:31:59+00:00"
+                                        },
+                                        {
+                                            "type": "file",
+                                            "name": "reset-password.blade.php",
+                                            "extension": "php",
+                                            "size": 2447,
+                                            "modified_at": 1762796448,
+                                            "modified_at_iso": "2025-11-10T17:40:48+00:00",
+                                            "created_at": 1762796448,
+                                            "created_at_iso": "2025-11-10T17:40:48+00:00"
+                                        },
+                                        {
+                                            "type": "file",
+                                            "name": "verify-email.blade.php",
+                                            "extension": "php",
+                                            "size": 1451,
+                                            "modified_at": 1762797114,
+                                            "modified_at_iso": "2025-11-10T17:51:54+00:00",
+                                            "created_at": 1762797114,
+                                            "created_at_iso": "2025-11-10T17:51:54+00:00"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "file",
+                                    "name": "welcome.blade.php",
+                                    "extension": "php",
+                                    "size": 1306,
+                                    "modified_at": 1762803953,
+                                    "modified_at_iso": "2025-11-10T19:45:53+00:00",
+                                    "created_at": 1762803953,
+                                    "created_at_iso": "2025-11-10T19:45:53+00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "dir",
+                            "name": "profile",
+                            "items": [
+                                {
+                                    "type": "file",
+                                    "name": "delete-user-form.blade.php",
+                                    "extension": "php",
+                                    "size": 2592,
+                                    "modified_at": 1762700747,
+                                    "modified_at_iso": "2025-11-09T15:05:47+00:00",
+                                    "created_at": 1762700747,
+                                    "created_at_iso": "2025-11-09T15:05:47+00:00"
+                                },
+                                {
+                                    "type": "file",
+                                    "name": "update-password-form.blade.php",
+                                    "extension": "php",
+                                    "size": 2995,
+                                    "modified_at": 1762700747,
+                                    "modified_at_iso": "2025-11-09T15:05:47+00:00",
+                                    "created_at": 1762700747,
+                                    "created_at_iso": "2025-11-09T15:05:47+00:00"
+                                },
+                                {
+                                    "type": "file",
+                                    "name": "update-profile-information-form.blade.php",
+                                    "extension": "php",
+                                    "size": 3794,
+                                    "modified_at": 1762700747,
+                                    "modified_at_iso": "2025-11-09T15:05:47+00:00",
+                                    "created_at": 1762700747,
+                                    "created_at_iso": "2025-11-09T15:05:47+00:00"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
