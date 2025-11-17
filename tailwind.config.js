@@ -29,6 +29,10 @@ export default {
                     950: 'var(--brand-950)',
                 },
             },
+            maxWidth: {
+                'content': '85rem',   // ≈ 1360px
+                'content-lg': '95rem' // ≈ 1520px
+            },
         },
     },
     plugins: [],

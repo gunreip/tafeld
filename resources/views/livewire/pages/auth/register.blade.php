@@ -11,11 +11,11 @@
 
         {{-- Name --}}
         <div>
-            <label class="block text-sm font-medium text-default mb-1">
+            <label class="block font-medium text-default mb-1">
                 Name
             </label>
             <input type="text" wire:model="name" required
-                class="w-full rounded-md bg-card text-default border border-default
+                class="w-full rounded px-3 py-2 bg-card text-default border border-default
                        focus:ring-brand-500 focus:border-brand-500" />
             @error('name')
                 <p class="text-danger text-sm mt-1">{{ $message }}</p>
@@ -24,11 +24,11 @@
 
         {{-- Email --}}
         <div>
-            <label class="block text-sm font-medium text-default mb-1">
+            <label class="block font-medium text-default mb-1">
                 E-Mail
             </label>
             <input type="email" wire:model="email" required
-                class="w-full rounded-md bg-card text-default border border-default
+                class="w-full rounded px-3 py-2 bg-card text-default border border-default
                        focus:ring-brand-500 focus:border-brand-500" />
             @error('email')
                 <p class="text-danger text-sm mt-1">{{ $message }}</p>
@@ -37,11 +37,11 @@
 
         {{-- Password --}}
         <div>
-            <label class="block text-sm font-medium text-default mb-1">
+            <label class="block font-medium text-default mb-1">
                 Passwort
             </label>
             <input type="password" wire:model="password" required
-                class="w-full rounded-md bg-card text-default border border-default
+                class="w-full rounded px-3 py-2 bg-card text-default border border-default
                        focus:ring-brand-500 focus:border-brand-500" />
             @error('password')
                 <p class="text-danger text-sm mt-1">{{ $message }}</p>
@@ -50,21 +50,23 @@
 
         {{-- Password Confirmation --}}
         <div>
-            <label class="block text-sm font-medium text-default mb-1">
+            <label class="block font-medium text-default mb-1">
                 Passwort bestätigen
             </label>
             <input type="password" wire:model="password_confirmation" required
-                class="w-full rounded-md bg-card text-default border border-default
+                class="w-full rounded px-3 py-2 bg-card text-default border border-default
                        focus:ring-brand-500 focus:border-brand-500" />
         </div>
 
+        {{-- Submit Button --}}
         <div>
             <button type="submit" class="w-full py-2 flex justify-center rounded-md btn-brand">
                 Registrieren
             </button>
         </div>
 
-        <p class="text-sm text-muted text-center">
+        {{-- Link zu Login --}}
+        <p class="text-sm text-center text-muted">
             Bereits registriert?
             <a href="{{ route('login') }}" wire:navigate class="text-brand-500 hover:underline">
                 Anmelden

@@ -32,6 +32,14 @@
 
 <body class="bg-surface text-default">
 
+    <!-- Livewire Navigate Darkmode Sync -->
+    <script>
+        document.addEventListener("livewire:navigated", () => {
+            const isDark = localStorage.getItem('dark-mode') === 'true';
+            document.documentElement.classList.toggle('dark', isDark);
+        });
+    </script>
+
     <div class="min-h-screen flex flex-col items-center justify-center px-4">
         <div class="w-full max-w-md space-y-6">
 

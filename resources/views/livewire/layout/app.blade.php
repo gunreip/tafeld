@@ -96,7 +96,9 @@
             @endif
 
             <main class="flex-1 overflow-y-auto p-4 lg:p-6">
-                {{ $slot }}
+                <div class="max-w-content mx-auto w-full">
+                    {{ $slot }}
+                </div>
             </main>
 
             @include('livewire.layout.partials.footer')

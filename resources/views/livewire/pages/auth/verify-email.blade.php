@@ -1,7 +1,8 @@
 <!-- tafeld/resources/views/livewire/pages/auth/verify-email.blade.php -->
 
 <div
-    class="w-full sm:max-w-md mx-auto mt-10 px-6 py-8 bg-card text-default shadow-sm rounded-lg border border-default space-y-6">
+    class="w-full sm:max-w-md mx-auto mt-10 px-6 py-8 bg-card text-default
+           shadow-sm rounded-lg border border-default space-y-6">
 
     <h1 class="text-2xl font-semibold text-default">
         E-Mail bestätigen
