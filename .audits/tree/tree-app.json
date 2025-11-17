@@ -12,6 +12,36 @@
                     "items": [
                         {
                             "type": "file",
+                            "name": "ProjectBreezeKill.php",
+                            "extension": "php",
+                            "size": 8886,
+                            "modified_at": 1763123492,
+                            "modified_at_iso": "2025-11-14T12:31:32+00:00",
+                            "created_at": 1763123492,
+                            "created_at_iso": "2025-11-14T12:31:32+00:00"
+                        },
+                        {
+                            "type": "file",
+                            "name": "ProjectDatabase.php",
+                            "extension": "php",
+                            "size": 1563,
+                            "modified_at": 1762972122,
+                            "modified_at_iso": "2025-11-12T18:28:42+00:00",
+                            "created_at": 1762972122,
+                            "created_at_iso": "2025-11-12T18:28:42+00:00"
+                        },
+                        {
+                            "type": "file",
+                            "name": "ProjectGit.php",
+                            "extension": "php",
+                            "size": 3038,
+                            "modified_at": 1762865148,
+                            "modified_at_iso": "2025-11-11T12:45:48+00:00",
+                            "created_at": 1762865148,
+                            "created_at_iso": "2025-11-11T12:45:48+00:00"
+                        },
+                        {
+                            "type": "file",
                             "name": "ProjectTreeCommand.php",
                             "extension": "php",
                             "size": 3678,
@@ -46,11 +76,11 @@
                     "type": "file",
                     "name": "Kernel.php",
                     "extension": "php",
-                    "size": 285,
-                    "modified_at": 1762779091,
-                    "modified_at_iso": "2025-11-10T12:51:31+00:00",
-                    "created_at": 1762779091,
-                    "created_at_iso": "2025-11-10T12:51:31+00:00"
+                    "size": 444,
+                    "modified_at": 1763122033,
+                    "modified_at_iso": "2025-11-14T12:07:13+00:00",
+                    "created_at": 1763122033,
+                    "created_at_iso": "2025-11-14T12:07:13+00:00"
                 }
             ]
         },
@@ -68,13 +98,13 @@
                             "items": [
                                 {
                                     "type": "file",
-                                    "name": "VerifyEmailController.php",
-                                    "extension": "php",
+                                    "name": "VerifyEmailController.php.xxx",
+                                    "extension": "xxx",
                                     "size": 800,
                                     "modified_at": 1762700747,
                                     "modified_at_iso": "2025-11-09T15:05:47+00:00",
-                                    "created_at": 1762700747,
-                                    "created_at_iso": "2025-11-09T15:05:47+00:00"
+                                    "created_at": 1763286056,
+                                    "created_at_iso": "2025-11-16T09:40:56+00:00"
                                 }
                             ]
                         },
@@ -166,63 +196,109 @@
                                     "type": "file",
                                     "name": "ConfirmPassword.php",
                                     "extension": "php",
-                                    "size": 794,
-                                    "modified_at": 1762797230,
-                                    "modified_at_iso": "2025-11-10T17:53:50+00:00",
-                                    "created_at": 1762797230,
-                                    "created_at_iso": "2025-11-10T17:53:50+00:00"
+                                    "size": 802,
+                                    "modified_at": 1763147382,
+                                    "modified_at_iso": "2025-11-14T19:09:42+00:00",
+                                    "created_at": 1763147382,
+                                    "created_at_iso": "2025-11-14T19:09:42+00:00"
                                 },
                                 {
                                     "type": "file",
                                     "name": "ForgotPassword.php",
                                     "extension": "php",
-                                    "size": 577,
-                                    "modified_at": 1762796088,
-                                    "modified_at_iso": "2025-11-10T17:34:48+00:00",
-                                    "created_at": 1762796088,
-                                    "created_at_iso": "2025-11-10T17:34:48+00:00"
+                                    "size": 585,
+                                    "modified_at": 1763147357,
+                                    "modified_at_iso": "2025-11-14T19:09:17+00:00",
+                                    "created_at": 1763147357,
+                                    "created_at_iso": "2025-11-14T19:09:17+00:00"
                                 },
                                 {
                                     "type": "file",
                                     "name": "Login.php",
                                     "extension": "php",
-                                    "size": 848,
-                                    "modified_at": 1762794569,
-                                    "modified_at_iso": "2025-11-10T17:09:29+00:00",
-                                    "created_at": 1762794569,
-                                    "created_at_iso": "2025-11-10T17:09:29+00:00"
+                                    "size": 920,
+                                    "modified_at": 1763189766,
+                                    "modified_at_iso": "2025-11-15T06:56:06+00:00",
+                                    "created_at": 1763189766,
+                                    "created_at_iso": "2025-11-15T06:56:06+00:00"
                                 },
                                 {
                                     "type": "file",
                                     "name": "Register.php",
                                     "extension": "php",
-                                    "size": 996,
-                                    "modified_at": 1762795871,
-                                    "modified_at_iso": "2025-11-10T17:31:11+00:00",
-                                    "created_at": 1762795871,
-                                    "created_at_iso": "2025-11-10T17:31:11+00:00"
+                                    "size": 1004,
+                                    "modified_at": 1763147357,
+                                    "modified_at_iso": "2025-11-14T19:09:17+00:00",
+                                    "created_at": 1763147357,
+                                    "created_at_iso": "2025-11-14T19:09:17+00:00"
                                 },
                                 {
                                     "type": "file",
                                     "name": "ResetPassword.php",
                                     "extension": "php",
-                                    "size": 1410,
-                                    "modified_at": 1762796421,
-                                    "modified_at_iso": "2025-11-10T17:40:21+00:00",
-                                    "created_at": 1762796421,
-                                    "created_at_iso": "2025-11-10T17:40:21+00:00"
+                                    "size": 1418,
+                                    "modified_at": 1763147357,
+                                    "modified_at_iso": "2025-11-14T19:09:17+00:00",
+                                    "created_at": 1763147357,
+                                    "created_at_iso": "2025-11-14T19:09:17+00:00"
                                 },
                                 {
                                     "type": "file",
                                     "name": "VerifyEmail.php",
                                     "extension": "php",
-                                    "size": 776,
-                                    "modified_at": 1762797091,
-                                    "modified_at_iso": "2025-11-10T17:51:31+00:00",
-                                    "created_at": 1762797091,
-                                    "created_at_iso": "2025-11-10T17:51:31+00:00"
+                                    "size": 784,
+                                    "modified_at": 1763147357,
+                                    "modified_at_iso": "2025-11-14T19:09:17+00:00",
+                                    "created_at": 1763147357,
+                                    "created_at_iso": "2025-11-14T19:09:17+00:00"
                                 }
                             ]
+                        },
+                        {
+                            "type": "dir",
+                            "name": "Persons",
+                            "items": [
+                                {
+                                    "type": "file",
+                                    "name": "Create.php",
+                                    "extension": "php",
+                                    "size": 1050,
+                                    "modified_at": 1763273171,
+                                    "modified_at_iso": "2025-11-16T06:06:11+00:00",
+                                    "created_at": 1763273171,
+                                    "created_at_iso": "2025-11-16T06:06:11+00:00"
+                                },
+                                {
+                                    "type": "file",
+                                    "name": "Edit.php",
+                                    "extension": "php",
+                                    "size": 1153,
+                                    "modified_at": 1763191047,
+                                    "modified_at_iso": "2025-11-15T07:17:27+00:00",
+                                    "created_at": 1763191047,
+                                    "created_at_iso": "2025-11-15T07:17:27+00:00"
+                                },
+                                {
+                                    "type": "file",
+                                    "name": "Index.php",
+                                    "extension": "php",
+                                    "size": 2006,
+                                    "modified_at": 1763190981,
+                                    "modified_at_iso": "2025-11-15T07:16:21+00:00",
+                                    "created_at": 1763190981,
+                                    "created_at_iso": "2025-11-15T07:16:21+00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "file",
+                            "name": "Dashboard.php",
+                            "extension": "php",
+                            "size": 235,
+                            "modified_at": 1763190838,
+                            "modified_at_iso": "2025-11-15T07:13:58+00:00",
+                            "created_at": 1763190838,
+                            "created_at_iso": "2025-11-15T07:13:58+00:00"
                         },
                         {
                             "type": "file",
@@ -238,11 +314,11 @@
                             "type": "file",
                             "name": "Welcome.php",
                             "extension": "php",
-                            "size": 225,
-                            "modified_at": 1762803791,
-                            "modified_at_iso": "2025-11-10T19:43:11+00:00",
-                            "created_at": 1762803791,
-                            "created_at_iso": "2025-11-10T19:43:11+00:00"
+                            "size": 233,
+                            "modified_at": 1763185199,
+                            "modified_at_iso": "2025-11-15T05:39:59+00:00",
+                            "created_at": 1763185199,
+                            "created_at_iso": "2025-11-15T05:39:59+00:00"
                         }
                     ]
                 }
@@ -254,13 +330,33 @@
             "items": [
                 {
                     "type": "file",
+                    "name": "Country.php",
+                    "extension": "php",
+                    "size": 377,
+                    "modified_at": 1762968749,
+                    "modified_at_iso": "2025-11-12T17:32:29+00:00",
+                    "created_at": 1762968749,
+                    "created_at_iso": "2025-11-12T17:32:29+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "Person.php",
+                    "extension": "php",
+                    "size": 1192,
+                    "modified_at": 1763060671,
+                    "modified_at_iso": "2025-11-13T19:04:31+00:00",
+                    "created_at": 1763060671,
+                    "created_at_iso": "2025-11-13T19:04:31+00:00"
+                },
+                {
+                    "type": "file",
                     "name": "User.php",
                     "extension": "php",
-                    "size": 1009,
-                    "modified_at": 1762268421,
-                    "modified_at_iso": "2025-11-04T15:00:21+00:00",
-                    "created_at": 1762680789,
-                    "created_at_iso": "2025-11-09T09:33:09+00:00"
+                    "size": 1307,
+                    "modified_at": 1763190445,
+                    "modified_at_iso": "2025-11-15T07:07:25+00:00",
+                    "created_at": 1763190445,
+                    "created_at_iso": "2025-11-15T07:07:25+00:00"
                 }
             ]
         },
@@ -272,11 +368,11 @@
                     "type": "file",
                     "name": "AppServiceProvider.php",
                     "extension": "php",
-                    "size": 361,
-                    "modified_at": 1762268421,
-                    "modified_at_iso": "2025-11-04T15:00:21+00:00",
-                    "created_at": 1762680789,
-                    "created_at_iso": "2025-11-09T09:33:09+00:00"
+                    "size": 973,
+                    "modified_at": 1763058983,
+                    "modified_at_iso": "2025-11-13T18:36:23+00:00",
+                    "created_at": 1763058983,
+                    "created_at_iso": "2025-11-13T18:36:23+00:00"
                 },
                 {
                     "type": "file",
@@ -302,6 +398,32 @@
         },
         {
             "type": "dir",
+            "name": "Support",
+            "items": [
+                {
+                    "type": "file",
+                    "name": "Breadcrumbs.php",
+                    "extension": "php",
+                    "size": 845,
+                    "modified_at": 1763272915,
+                    "modified_at_iso": "2025-11-16T06:01:55+00:00",
+                    "created_at": 1763272915,
+                    "created_at_iso": "2025-11-16T06:01:55+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "RouteAudit.php",
+                    "extension": "php",
+                    "size": 1114,
+                    "modified_at": 1762889575,
+                    "modified_at_iso": "2025-11-11T19:32:55+00:00",
+                    "created_at": 1762889575,
+                    "created_at_iso": "2025-11-11T19:32:55+00:00"
+                }
+            ]
+        },
+        {
+            "type": "dir",
             "name": "View",
             "items": [
                 {
@@ -310,33 +432,23 @@
                     "items": [
                         {
                             "type": "file",
-                            "name": "AppLayout.php",
+                            "name": "Breadcrumbs.php",
                             "extension": "php",
-                            "size": 341,
-                            "modified_at": 1762773526,
-                            "modified_at_iso": "2025-11-10T11:18:46+00:00",
-                            "created_at": 1762773526,
-                            "created_at_iso": "2025-11-10T11:18:46+00:00"
+                            "size": 584,
+                            "modified_at": 1763229586,
+                            "modified_at_iso": "2025-11-15T17:59:46+00:00",
+                            "created_at": 1763229586,
+                            "created_at_iso": "2025-11-15T17:59:46+00:00"
                         },
                         {
                             "type": "file",
-                            "name": "GuestLayout.php",
+                            "name": "Logo.php",
                             "extension": "php",
-                            "size": 347,
-                            "modified_at": 1762773549,
-                            "modified_at_iso": "2025-11-10T11:19:09+00:00",
-                            "created_at": 1762773549,
-                            "created_at_iso": "2025-11-10T11:19:09+00:00"
-                        },
-                        {
-                            "type": "file",
-                            "name": "PasswordInput.php",
-                            "extension": "php",
-                            "size": 465,
-                            "modified_at": 1762701615,
-                            "modified_at_iso": "2025-11-09T15:20:15+00:00",
-                            "created_at": 1762701615,
-                            "created_at_iso": "2025-11-09T15:20:15+00:00"
+                            "size": 594,
+                            "modified_at": 1763212838,
+                            "modified_at_iso": "2025-11-15T13:20:38+00:00",
+                            "created_at": 1763212838,
+                            "created_at_iso": "2025-11-15T13:20:38+00:00"
                         }
                     ]
                 }

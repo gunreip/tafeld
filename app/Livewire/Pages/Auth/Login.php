@@ -14,7 +14,7 @@ class Login extends Component
     public function render()
     {
         return view('livewire.pages.auth.login')
-            ->layout('layouts.guest');
+            ->layout('livewire.layout.guest');
     }
 
     public function login()
@@ -24,15 +24,17 @@ class Login extends Component
             'password' => ['required'],
         ]);
 
-        if (Auth::attempt([
+        if (! Auth::attempt([
             'email' => $this->email,
             'password' => $this->password,
         ], $this->remember)) {
-
-            session()->regenerate();
-            return redirect()->intended('/dashboard');
+            session()->flash('error', __('Diese Zugangsdaten sind ungültig.'));
+            return;
         }
 
-        $this->addError('email', 'Die Zugangsdaten sind ungültig.');
+        // Sitzung sicher regenerieren
+        session()->regenerate();
+
+        return redirect()->intended('/dashboard');
     }
 }

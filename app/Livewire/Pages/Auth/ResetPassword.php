@@ -21,7 +21,7 @@ class ResetPassword extends Component
     public function render()
     {
         return view('livewire.pages.auth.reset-password')
-            ->layout('layouts.guest');
+            ->layout('livewire.layout.guest');
     }
 
     public function resetPassword()

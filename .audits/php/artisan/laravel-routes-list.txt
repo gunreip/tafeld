@@ -1,0 +1,3 @@
+  GET|HEAD  persons ................................... persons.index › App\Livewire\Pages\Persons\Index
+  GET|HEAD  persons/persons/create .................. persons.create › App\Livewire\Pages\Persons\Create
+  GET|HEAD  persons/{person}/edit ....................... persons.edit › App\Livewire\Pages\Persons\Edit

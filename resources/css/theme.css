@@ -1,0 +1,67 @@
+/* resources/css/theme.css */
+
+
+@layer base {
+
+    /* ============
+       BRAND COLORS
+       ============ */
+
+    :root {
+        --brand-orange: #ef7f01;
+        --brand-orange-light: #ff9d33;
+        --brand-orange-dark: #c96e00;
+
+        --brand-gray: #1e1e1e;
+        --brand-gray-light: #2a2a2a;
+        --brand-gray-dark: #141414;
+
+        --brand-50: #fff7e8;
+        --brand-100: #ffe9c5;
+        --brand-200: #ffd290;
+        --brand-300: #ffb45a;
+        --brand-400: #ff962b;
+        /* deine Farbe */
+        --brand-500: #ef7f01;
+        --brand-600: #d86f01;
+        --brand-700: #b35b03;
+        --brand-800: #8a4606;
+        --brand-900: #6b3607;
+        --brand-950: #3c1e02;
+
+    }
+
+    /* DARK MODE OVERRIDES */
+    .dark {
+        --brand-orange: #ef7f01;
+        /* gleiche Farbe wie hell */
+        --brand-orange-light: #ff9d33;
+        --brand-orange-dark: #c96e00;
+    }
+}
+
+/* =======================
+   OPTIONAL UTILITY ALIASES
+   ======================= */
+
+@layer utilities {
+    .text-brand {
+        color: var(--brand-orange);
+    }
+
+    .bg-brand {
+        background-color: var(--brand-orange);
+    }
+
+    .border-brand {
+        border-color: var(--brand-orange);
+    }
+
+    .text-brand-light {
+        color: var(--brand-orange-light);
+    }
+
+    .text-brand-dark {
+        color: var(--brand-orange-dark);
+    }
+}

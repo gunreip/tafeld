@@ -1,0 +1,109 @@
+<html><head>
+            <meta charset='utf-8'>
+            <title>Breeze-Kill Audit</title>
+            <style>
+                body { font-family: monospace; background: #111; color: #eee; padding: 20px; }
+                h1 { color: #9cf; }
+                h2 { color: #fc9; margin-top: 30px; }
+                details { margin-bottom: 20px; }
+                summary { cursor: pointer; font-size: 16px; margin-bottom: 8px; }
+                table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+                td, th { border: 1px solid #555; padding: 6px; vertical-align: top; }
+                th { background: #333; color: #fff; }
+                tr:nth-child(even) { background: #1a1a1a; }
+                code { color: #afa; }
+                .badge { padding: 2px 6px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+                .badge-breeze { background: #5b21b6; color: #fff; }
+                .badge-livewire { background: #2563eb; color: #fff; }
+                .badge-neutral { background: #4b5563; color: #e5e7eb; }
+            </style>
+        </head><body><h1>Breeze-Kill Audit</h1><h2>Summary</h2><table>
+            <tr><th>Key</th><th>Value</th></tr>
+            <tr><td>Total Blade Files</td><td>21</td></tr>
+            <tr><td>Total Components</td><td>6</td></tr>
+            <tr><td>Total Matches</td><td>10</td></tr>
+            <tr><td>Breeze Files</td><td>0</td></tr>
+            <tr><td>Livewire Files</td><td>6</td></tr>
+            <tr><td>Neutral Files</td><td>15</td></tr>
+            <tr><td>Generated At</td><td>2025-11-16 09:42:34</td></tr>
+        </table><h2>Breeze / Livewire Component Usage (by component)</h2><details><summary>&lt;x-dynamic-component&gt; (2)</summary><table><tr><th>File</th><th>Line</th><th>Code</th></tr><tr>
+                            <td>/home/gunreip/code/tafeld/resources/views/components/breadcrumbs.blade.php</td>
+                            <td>25</td>
+                            <td><code>                            &lt;x-dynamic-component :component=&quot;&#039;heroicon-o-&#039; . $icon&quot; class=&quot;w-3 h-3&quot; /&gt;</code></td>
+                          </tr><tr>
+                            <td>/home/gunreip/code/tafeld/resources/views/components/breadcrumbs.blade.php</td>
+                            <td>39</td>
+                            <td><code>                            &lt;x-dynamic-component :component=&quot;&#039;heroicon-o-&#039; . $icon&quot; class=&quot;w-3 h-3&quot; /&gt;</code></td>
+                          </tr></table></details><details><summary>&lt;x-heroicon-o-chevron-right&gt; (1)</summary><table><tr><th>File</th><th>Line</th><th>Code</th></tr><tr>
+                            <td>/home/gunreip/code/tafeld/resources/views/components/breadcrumbs.blade.php</td>
+                            <td>48</td>
+                            <td><code>                    &lt;x-heroicon-o-chevron-right class=&quot;w-4 h-4 text-gray-500 dark:text-gray-500 mx-1&quot; /&gt;</code></td>
+                          </tr></table></details><details><summary>&lt;x-breadcrumbs&gt; (1)</summary><table><tr><th>File</th><th>Line</th><th>Code</th></tr><tr>
+                            <td>/home/gunreip/code/tafeld/resources/views/livewire/layout/app.blade.php</td>
+                            <td>95</td>
+                            <td><code>                    &lt;x-breadcrumbs :items=&quot;$breadcrumbs&quot; /&gt;</code></td>
+                          </tr></table></details><details><summary>&lt;x-heroicon-o-moon&gt; (2)</summary><table><tr><th>File</th><th>Line</th><th>Code</th></tr><tr>
+                            <td>/home/gunreip/code/tafeld/resources/views/livewire/layout/guest.blade.php</td>
+                            <td>63</td>
+                            <td><code>                    &lt;x-heroicon-o-moon class=&quot;w-5 h-5&quot; x-show=&quot;!isDark&quot; /&gt;</code></td>
+                          </tr><tr>
+                            <td>/home/gunreip/code/tafeld/resources/views/livewire/layout/partials/header.blade.php</td>
+                            <td>26</td>
+                            <td><code>            &lt;x-heroicon-o-moon class=&quot;w-5 h-5&quot; x-show=&quot;!isDark&quot; /&gt;</code></td>
+                          </tr></table></details><details><summary>&lt;x-heroicon-o-sun&gt; (2)</summary><table><tr><th>File</th><th>Line</th><th>Code</th></tr><tr>
+                            <td>/home/gunreip/code/tafeld/resources/views/livewire/layout/guest.blade.php</td>
+                            <td>64</td>
+                            <td><code>                    &lt;x-heroicon-o-sun class=&quot;w-5 h-5&quot; x-show=&quot;isDark&quot; /&gt;</code></td>
+                          </tr><tr>
+                            <td>/home/gunreip/code/tafeld/resources/views/livewire/layout/partials/header.blade.php</td>
+                            <td>27</td>
+                            <td><code>            &lt;x-heroicon-o-sun class=&quot;w-5 h-5&quot; x-show=&quot;isDark&quot; /&gt;</code></td>
+                          </tr></table></details><details><summary>&lt;x-logo&gt; (2)</summary><table><tr><th>File</th><th>Line</th><th>Code</th></tr><tr>
+                            <td>/home/gunreip/code/tafeld/resources/views/livewire/layout/partials/navigation.blade.php</td>
+                            <td>31</td>
+                            <td><code>            &lt;x-logo variant=&quot;die-tafeln&quot; width=&quot;160&quot; /&gt;</code></td>
+                          </tr><tr>
+                            <td>/home/gunreip/code/tafeld/resources/views/livewire/pages/auth/login.blade.php</td>
+                            <td>4</td>
+                            <td><code>    &lt;x-logo variant=&quot;die-tafeln&quot; width=&quot;200&quot; class=&quot;mx-auto&quot; /&gt;</code></td>
+                          </tr></table></details><h2>File Overview (by file)</h2><details><summary>/home/gunreip/code/tafeld/resources/views/components/breadcrumbs.blade.php — <span class='badge badge-livewire'>Livewire</span> (3)</summary><table><tr><th>Line</th><th>Component</th><th>Code</th></tr><tr>
+                            <td>25</td>
+                            <td>dynamic-component</td>
+                            <td><code>                            &lt;x-dynamic-component :component=&quot;&#039;heroicon-o-&#039; . $icon&quot; class=&quot;w-3 h-3&quot; /&gt;</code></td>
+                          </tr><tr>
+                            <td>39</td>
+                            <td>dynamic-component</td>
+                            <td><code>                            &lt;x-dynamic-component :component=&quot;&#039;heroicon-o-&#039; . $icon&quot; class=&quot;w-3 h-3&quot; /&gt;</code></td>
+                          </tr><tr>
+                            <td>48</td>
+                            <td>heroicon-o-chevron-right</td>
+                            <td><code>                    &lt;x-heroicon-o-chevron-right class=&quot;w-4 h-4 text-gray-500 dark:text-gray-500 mx-1&quot; /&gt;</code></td>
+                          </tr></table></details><details><summary>/home/gunreip/code/tafeld/resources/views/components/logo.blade.php — <span class='badge badge-neutral'>neutral</span> (0)</summary><table><tr><th>Line</th><th>Component</th><th>Code</th></tr></table></details><details><summary>/home/gunreip/code/tafeld/resources/views/livewire/layout/app.blade.php — <span class='badge badge-livewire'>Livewire</span> (1)</summary><table><tr><th>Line</th><th>Component</th><th>Code</th></tr><tr>
+                            <td>95</td>
+                            <td>breadcrumbs</td>
+                            <td><code>                    &lt;x-breadcrumbs :items=&quot;$breadcrumbs&quot; /&gt;</code></td>
+                          </tr></table></details><details><summary>/home/gunreip/code/tafeld/resources/views/livewire/layout/guest.blade.php — <span class='badge badge-livewire'>Livewire</span> (2)</summary><table><tr><th>Line</th><th>Component</th><th>Code</th></tr><tr>
+                            <td>63</td>
+                            <td>heroicon-o-moon</td>
+                            <td><code>                    &lt;x-heroicon-o-moon class=&quot;w-5 h-5&quot; x-show=&quot;!isDark&quot; /&gt;</code></td>
+                          </tr><tr>
+                            <td>64</td>
+                            <td>heroicon-o-sun</td>
+                            <td><code>                    &lt;x-heroicon-o-sun class=&quot;w-5 h-5&quot; x-show=&quot;isDark&quot; /&gt;</code></td>
+                          </tr></table></details><details><summary>/home/gunreip/code/tafeld/resources/views/livewire/layout/partials/footer.blade.php — <span class='badge badge-neutral'>neutral</span> (0)</summary><table><tr><th>Line</th><th>Component</th><th>Code</th></tr></table></details><details><summary>/home/gunreip/code/tafeld/resources/views/livewire/layout/partials/header.blade.php — <span class='badge badge-livewire'>Livewire</span> (2)</summary><table><tr><th>Line</th><th>Component</th><th>Code</th></tr><tr>
+                            <td>26</td>
+                            <td>heroicon-o-moon</td>
+                            <td><code>            &lt;x-heroicon-o-moon class=&quot;w-5 h-5&quot; x-show=&quot;!isDark&quot; /&gt;</code></td>
+                          </tr><tr>
+                            <td>27</td>
+                            <td>heroicon-o-sun</td>
+                            <td><code>            &lt;x-heroicon-o-sun class=&quot;w-5 h-5&quot; x-show=&quot;isDark&quot; /&gt;</code></td>
+                          </tr></table></details><details><summary>/home/gunreip/code/tafeld/resources/views/livewire/layout/partials/navigation.blade.php — <span class='badge badge-livewire'>Livewire</span> (1)</summary><table><tr><th>Line</th><th>Component</th><th>Code</th></tr><tr>
+                            <td>31</td>
+                            <td>logo</td>
+                            <td><code>            &lt;x-logo variant=&quot;die-tafeln&quot; width=&quot;160&quot; /&gt;</code></td>
+                          </tr></table></details><details><summary>/home/gunreip/code/tafeld/resources/views/livewire/pages/auth/confirm-password.blade.php — <span class='badge badge-neutral'>neutral</span> (0)</summary><table><tr><th>Line</th><th>Component</th><th>Code</th></tr></table></details><details><summary>/home/gunreip/code/tafeld/resources/views/livewire/pages/auth/forgot-password.blade.php — <span class='badge badge-neutral'>neutral</span> (0)</summary><table><tr><th>Line</th><th>Component</th><th>Code</th></tr></table></details><details><summary>/home/gunreip/code/tafeld/resources/views/livewire/pages/auth/login.blade.php — <span class='badge badge-livewire'>Livewire</span> (1)</summary><table><tr><th>Line</th><th>Component</th><th>Code</th></tr><tr>
+                            <td>4</td>
+                            <td>logo</td>
+                            <td><code>    &lt;x-logo variant=&quot;die-tafeln&quot; width=&quot;200&quot; class=&quot;mx-auto&quot; /&gt;</code></td>
+                          </tr></table></details><details><summary>/home/gunreip/code/tafeld/resources/views/livewire/pages/auth/register.blade.php — <span class='badge badge-neutral'>neutral</span> (0)</summary><table><tr><th>Line</th><th>Component</th><th>Code</th></tr></table></details><details><summary>/home/gunreip/code/tafeld/resources/views/livewire/pages/auth/reset-password.blade.php — <span class='badge badge-neutral'>neutral</span> (0)</summary><table><tr><th>Line</th><th>Component</th><th>Code</th></tr></table></details><details><summary>/home/gunreip/code/tafeld/resources/views/livewire/pages/auth/verify-email.blade.php — <span class='badge badge-neutral'>neutral</span> (0)</summary><table><tr><th>Line</th><th>Component</th><th>Code</th></tr></table></details><details><summary>/home/gunreip/code/tafeld/resources/views/livewire/pages/dashboard.blade.php — <span class='badge badge-neutral'>neutral</span> (0)</summary><table><tr><th>Line</th><th>Component</th><th>Code</th></tr></table></details><details><summary>/home/gunreip/code/tafeld/resources/views/livewire/pages/persons/create.blade.php — <span class='badge badge-neutral'>neutral</span> (0)</summary><table><tr><th>Line</th><th>Component</th><th>Code</th></tr></table></details><details><summary>/home/gunreip/code/tafeld/resources/views/livewire/pages/persons/edit.blade.php — <span class='badge badge-neutral'>neutral</span> (0)</summary><table><tr><th>Line</th><th>Component</th><th>Code</th></tr></table></details><details><summary>/home/gunreip/code/tafeld/resources/views/livewire/pages/persons/index.blade.php — <span class='badge badge-neutral'>neutral</span> (0)</summary><table><tr><th>Line</th><th>Component</th><th>Code</th></tr></table></details><details><summary>/home/gunreip/code/tafeld/resources/views/livewire/pages/welcome.blade.php — <span class='badge badge-neutral'>neutral</span> (0)</summary><table><tr><th>Line</th><th>Component</th><th>Code</th></tr></table></details><details><summary>/home/gunreip/code/tafeld/resources/views/livewire/profile-xxx/delete-user-form.blade.php — <span class='badge badge-neutral'>neutral</span> (0)</summary><table><tr><th>Line</th><th>Component</th><th>Code</th></tr></table></details><details><summary>/home/gunreip/code/tafeld/resources/views/livewire/profile-xxx/update-password-form.blade.php — <span class='badge badge-neutral'>neutral</span> (0)</summary><table><tr><th>Line</th><th>Component</th><th>Code</th></tr></table></details><details><summary>/home/gunreip/code/tafeld/resources/views/livewire/profile-xxx/update-profile-information-form.blade.php — <span class='badge badge-neutral'>neutral</span> (0)</summary><table><tr><th>Line</th><th>Component</th><th>Code</th></tr></table></details></body></html>

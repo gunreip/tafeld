@@ -1,0 +1,22 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Concerns\HasUlids;
+
+class Country extends Model
+{
+    use HasUlids;
+
+    protected $fillable = [
+        'iso_3166_2',
+        'iso_3166_3',
+        'name_en',
+        'name_de',
+        'region',
+        'subregion',
+        'currency_code',
+        'phone_code',
+    ];
+}

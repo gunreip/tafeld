@@ -14,7 +14,7 @@ class ConfirmPassword extends Component
     public function render()
     {
         return view('livewire.pages.auth.confirm-password')
-            ->layout('layouts.guest');
+            ->layout('livewire.layout.guest');
     }
 
     public function confirm()

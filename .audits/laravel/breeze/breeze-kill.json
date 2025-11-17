@@ -1,0 +1,238 @@
+{
+    "summary": {
+        "total_blade_files": 21,
+        "total_components": 6,
+        "total_matches": 10,
+        "breeze_files": 0,
+        "livewire_files": 6,
+        "neutral_files": 15,
+        "generated_at": "2025-11-16 09:42:34"
+    },
+    "components": {
+        "dynamic-component": [
+            {
+                "file": "/home/gunreip/code/tafeld/resources/views/components/breadcrumbs.blade.php",
+                "line": 25,
+                "code": "                            <x-dynamic-component :component=\"'heroicon-o-' . $icon\" class=\"w-3 h-3\" />"
+            },
+            {
+                "file": "/home/gunreip/code/tafeld/resources/views/components/breadcrumbs.blade.php",
+                "line": 39,
+                "code": "                            <x-dynamic-component :component=\"'heroicon-o-' . $icon\" class=\"w-3 h-3\" />"
+            }
+        ],
+        "heroicon-o-chevron-right": [
+            {
+                "file": "/home/gunreip/code/tafeld/resources/views/components/breadcrumbs.blade.php",
+                "line": 48,
+                "code": "                    <x-heroicon-o-chevron-right class=\"w-4 h-4 text-gray-500 dark:text-gray-500 mx-1\" />"
+            }
+        ],
+        "breadcrumbs": [
+            {
+                "file": "/home/gunreip/code/tafeld/resources/views/livewire/layout/app.blade.php",
+                "line": 95,
+                "code": "                    <x-breadcrumbs :items=\"$breadcrumbs\" />"
+            }
+        ],
+        "heroicon-o-moon": [
+            {
+                "file": "/home/gunreip/code/tafeld/resources/views/livewire/layout/guest.blade.php",
+                "line": 63,
+                "code": "                    <x-heroicon-o-moon class=\"w-5 h-5\" x-show=\"!isDark\" />"
+            },
+            {
+                "file": "/home/gunreip/code/tafeld/resources/views/livewire/layout/partials/header.blade.php",
+                "line": 26,
+                "code": "            <x-heroicon-o-moon class=\"w-5 h-5\" x-show=\"!isDark\" />"
+            }
+        ],
+        "heroicon-o-sun": [
+            {
+                "file": "/home/gunreip/code/tafeld/resources/views/livewire/layout/guest.blade.php",
+                "line": 64,
+                "code": "                    <x-heroicon-o-sun class=\"w-5 h-5\" x-show=\"isDark\" />"
+            },
+            {
+                "file": "/home/gunreip/code/tafeld/resources/views/livewire/layout/partials/header.blade.php",
+                "line": 27,
+                "code": "            <x-heroicon-o-sun class=\"w-5 h-5\" x-show=\"isDark\" />"
+            }
+        ],
+        "logo": [
+            {
+                "file": "/home/gunreip/code/tafeld/resources/views/livewire/layout/partials/navigation.blade.php",
+                "line": 31,
+                "code": "            <x-logo variant=\"die-tafeln\" width=\"160\" />"
+            },
+            {
+                "file": "/home/gunreip/code/tafeld/resources/views/livewire/pages/auth/login.blade.php",
+                "line": 4,
+                "code": "    <x-logo variant=\"die-tafeln\" width=\"200\" class=\"mx-auto\" />"
+            }
+        ]
+    },
+    "files": [
+        {
+            "file": "/home/gunreip/code/tafeld/resources/views/components/breadcrumbs.blade.php",
+            "classification": "Livewire",
+            "matches": [
+                {
+                    "line": 25,
+                    "code": "                            <x-dynamic-component :component=\"'heroicon-o-' . $icon\" class=\"w-3 h-3\" />",
+                    "component": "dynamic-component"
+                },
+                {
+                    "line": 39,
+                    "code": "                            <x-dynamic-component :component=\"'heroicon-o-' . $icon\" class=\"w-3 h-3\" />",
+                    "component": "dynamic-component"
+                },
+                {
+                    "line": 48,
+                    "code": "                    <x-heroicon-o-chevron-right class=\"w-4 h-4 text-gray-500 dark:text-gray-500 mx-1\" />",
+                    "component": "heroicon-o-chevron-right"
+                }
+            ]
+        },
+        {
+            "file": "/home/gunreip/code/tafeld/resources/views/components/logo.blade.php",
+            "classification": "neutral",
+            "matches": []
+        },
+        {
+            "file": "/home/gunreip/code/tafeld/resources/views/livewire/layout/app.blade.php",
+            "classification": "Livewire",
+            "matches": [
+                {
+                    "line": 95,
+                    "code": "                    <x-breadcrumbs :items=\"$breadcrumbs\" />",
+                    "component": "breadcrumbs"
+                }
+            ]
+        },
+        {
+            "file": "/home/gunreip/code/tafeld/resources/views/livewire/layout/guest.blade.php",
+            "classification": "Livewire",
+            "matches": [
+                {
+                    "line": 63,
+                    "code": "                    <x-heroicon-o-moon class=\"w-5 h-5\" x-show=\"!isDark\" />",
+                    "component": "heroicon-o-moon"
+                },
+                {
+                    "line": 64,
+                    "code": "                    <x-heroicon-o-sun class=\"w-5 h-5\" x-show=\"isDark\" />",
+                    "component": "heroicon-o-sun"
+                }
+            ]
+        },
+        {
+            "file": "/home/gunreip/code/tafeld/resources/views/livewire/layout/partials/footer.blade.php",
+            "classification": "neutral",
+            "matches": []
+        },
+        {
+            "file": "/home/gunreip/code/tafeld/resources/views/livewire/layout/partials/header.blade.php",
+            "classification": "Livewire",
+            "matches": [
+                {
+                    "line": 26,
+                    "code": "            <x-heroicon-o-moon class=\"w-5 h-5\" x-show=\"!isDark\" />",
+                    "component": "heroicon-o-moon"
+                },
+                {
+                    "line": 27,
+                    "code": "            <x-heroicon-o-sun class=\"w-5 h-5\" x-show=\"isDark\" />",
+                    "component": "heroicon-o-sun"
+                }
+            ]
+        },
+        {
+            "file": "/home/gunreip/code/tafeld/resources/views/livewire/layout/partials/navigation.blade.php",
+            "classification": "Livewire",
+            "matches": [
+                {
+                    "line": 31,
+                    "code": "            <x-logo variant=\"die-tafeln\" width=\"160\" />",
+                    "component": "logo"
+                }
+            ]
+        },
+        {
+            "file": "/home/gunreip/code/tafeld/resources/views/livewire/pages/auth/confirm-password.blade.php",
+            "classification": "neutral",
+            "matches": []
+        },
+        {
+            "file": "/home/gunreip/code/tafeld/resources/views/livewire/pages/auth/forgot-password.blade.php",
+            "classification": "neutral",
+            "matches": []
+        },
+        {
+            "file": "/home/gunreip/code/tafeld/resources/views/livewire/pages/auth/login.blade.php",
+            "classification": "Livewire",
+            "matches": [
+                {
+                    "line": 4,
+                    "code": "    <x-logo variant=\"die-tafeln\" width=\"200\" class=\"mx-auto\" />",
+                    "component": "logo"
+                }
+            ]
+        },
+        {
+            "file": "/home/gunreip/code/tafeld/resources/views/livewire/pages/auth/register.blade.php",
+            "classification": "neutral",
+            "matches": []
+        },
+        {
+            "file": "/home/gunreip/code/tafeld/resources/views/livewire/pages/auth/reset-password.blade.php",
+            "classification": "neutral",
+            "matches": []
+        },
+        {
+            "file": "/home/gunreip/code/tafeld/resources/views/livewire/pages/auth/verify-email.blade.php",
+            "classification": "neutral",
+            "matches": []
+        },
+        {
+            "file": "/home/gunreip/code/tafeld/resources/views/livewire/pages/dashboard.blade.php",
+            "classification": "neutral",
+            "matches": []
+        },
+        {
+            "file": "/home/gunreip/code/tafeld/resources/views/livewire/pages/persons/create.blade.php",
+            "classification": "neutral",
+            "matches": []
+        },
+        {
+            "file": "/home/gunreip/code/tafeld/resources/views/livewire/pages/persons/edit.blade.php",
+            "classification": "neutral",
+            "matches": []
+        },
+        {
+            "file": "/home/gunreip/code/tafeld/resources/views/livewire/pages/persons/index.blade.php",
+            "classification": "neutral",
+            "matches": []
+        },
+        {
+            "file": "/home/gunreip/code/tafeld/resources/views/livewire/pages/welcome.blade.php",
+            "classification": "neutral",
+            "matches": []
+        },
+        {
+            "file": "/home/gunreip/code/tafeld/resources/views/livewire/profile-xxx/delete-user-form.blade.php",
+            "classification": "neutral",
+            "matches": []
+        },
+        {
+            "file": "/home/gunreip/code/tafeld/resources/views/livewire/profile-xxx/update-password-form.blade.php",
+            "classification": "neutral",
+            "matches": []
+        },
+        {
+            "file": "/home/gunreip/code/tafeld/resources/views/livewire/profile-xxx/update-profile-information-form.blade.php",
+            "classification": "neutral",
+            "matches": []
+        }
+    ]
+}

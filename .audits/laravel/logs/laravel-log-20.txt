@@ -1,0 +1,20 @@
+#0 /home/gunreip/code/tafeld/vendor/symfony/console/Application.php(723): Symfony\\Component\\Console\\Application->findNamespace()
+#1 /home/gunreip/code/tafeld/vendor/symfony/console/Application.php(298): Symfony\\Component\\Console\\Application->find()
+#2 /home/gunreip/code/tafeld/vendor/symfony/console/Application.php(195): Symfony\\Component\\Console\\Application->doRun()
+#3 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(197): Symfony\\Component\\Console\\Application->run()
+#4 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 /home/gunreip/code/tafeld/artisan(16): Illuminate\\Foundation\\Application->handleCommand()
+#6 {main}
+"} 
+[2025-11-12 12:15:09] local.ERROR: Class App\Models\Person contains 1 abstract method and must therefore be declared abstract or implement the remaining methods (App\Models\Person::getActivitylogOptions) {"userId":1,"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Class App\\Models\\Person contains 1 abstract method and must therefore be declared abstract or implement the remaining methods (App\\Models\\Person::getActivitylogOptions) at /home/gunreip/code/tafeld/app/Models/Person.php:9)
+[stacktrace]
+#0 {main}
+"} 
+[2025-11-12 12:18:16] local.ERROR: Class App\Models\Person contains 1 abstract method and must therefore be declared abstract or implement the remaining methods (App\Models\Person::getActivitylogOptions) {"userId":1,"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Class App\\Models\\Person contains 1 abstract method and must therefore be declared abstract or implement the remaining methods (App\\Models\\Person::getActivitylogOptions) at /home/gunreip/code/tafeld/app/Models/Person.php:9)
+[stacktrace]
+#0 {main}
+"} 
+[2025-11-12 12:25:53] local.ERROR: Class App\Models\Person contains 1 abstract method and must therefore be declared abstract or implement the remaining methods (App\Models\Person::getActivitylogOptions) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Class App\\Models\\Person contains 1 abstract method and must therefore be declared abstract or implement the remaining methods (App\\Models\\Person::getActivitylogOptions) at /home/gunreip/code/tafeld/app/Models/Person.php:9)
+[stacktrace]
+#0 {main}
+"} 

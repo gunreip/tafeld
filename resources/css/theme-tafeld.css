@@ -1,0 +1,105 @@
+/* resources/css/theme-tafeld.css */
+
+@layer base {
+    /* ============
+       BRAND COLORS
+       ============ */
+
+    :root {
+        /* Orange-Skala (Tafeln-Brand), an Tailwind angebunden über tailwind.config.js */
+        --brand-orange: #ef7f01;
+        --brand-orange-light: #ff9d33;
+        --brand-orange-dark: #c96e00;
+
+        --brand-gray: #1e1e1e;
+        --brand-gray-light: #2a2a2a;
+        --brand-gray-dark: #141414;
+
+        --brand-50: #fff7e8;
+        --brand-100: #ffe9c5;
+        --brand-200: #ffd290;
+        --brand-300: #ffb45a;
+        --brand-400: #ff962b;
+        /* Hauptfarbe */
+        --brand-500: #ef7f01;
+        --brand-600: #d86f01;
+        --brand-700: #b35b03;
+        --brand-800: #8a4606;
+        --brand-900: #6b3607;
+        --brand-950: #3c1e02;
+
+        /* Semantische Brand-Akzente auf CSS-Variablen-Basis */
+        --color-brand-primary: 239 127 1;
+        /* #ef7f01 */
+        --color-brand-primary-soft: 255 232 204;
+        --color-brand-primary-strong: 180 70 0;
+    }
+
+    .dark {
+        /* Brand bleibt in Dark i. d. R. gleich, ggf. leicht angepasst */
+        --brand-orange: #ef7f01;
+        --brand-orange-light: #ffb15c;
+        --brand-orange-dark: #c96e00;
+
+        --color-brand-primary: 255 184 102;
+        /* etwas heller im Dark-Mode */
+        --color-brand-primary-soft: 80 40 0;
+        /* dunkler Hintergrund */
+        --color-brand-primary-strong: 255 158 64;
+        /* kräftiger Akzent */
+    }
+}
+
+/* =======================
+   BRAND UTILITIES
+   ======================= */
+
+@layer utilities {
+    .text-brand {
+        color: var(--brand-orange);
+    }
+
+    .bg-brand {
+        background-color: var(--brand-orange);
+    }
+
+    .border-brand {
+        border-color: var(--brand-orange);
+    }
+
+    .text-brand-light {
+        color: var(--brand-orange-light);
+    }
+
+    .text-brand-dark {
+        color: var(--brand-orange-dark);
+    }
+
+    /* Semantische Brand-Utilities (auf den neuen CSS-Variablen) */
+    .text-brand-primary {
+        color: rgb(var(--color-brand-primary));
+    }
+
+    .bg-brand-soft {
+        background-color: rgb(var(--color-brand-primary-soft));
+    }
+
+    .bg-brand-strong {
+        background-color: rgb(var(--color-brand-primary-strong));
+    }
+
+    /* Beispiel: Brand-Primary-Button */
+    .btn-brand {
+        background-color: rgb(var(--color-brand-primary));
+        color: rgb(var(--color-text-inverted));
+    }
+
+    .btn-brand:hover {
+        background-color: rgb(var(--color-brand-primary-strong));
+    }
+
+    .btn-brand:focus-visible {
+        outline: 2px solid rgb(var(--color-focus-ring));
+        outline-offset: 2px;
+    }
+}

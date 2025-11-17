@@ -1,0 +1,10 @@
+{
+    "timestamp": "2025-11-11 12:33:34",
+    "project": "tafeld",
+    "cwd": "\/home\/gunreip\/code\/tafeld",
+    "command": "git status --porcelain",
+    "success": true,
+    "exit_code": 0,
+    "output": " M app\/Console\/Kernel.php\n?? app\/Console\/Commands\/ProjectGit.php\n",
+    "errors": ""
+}

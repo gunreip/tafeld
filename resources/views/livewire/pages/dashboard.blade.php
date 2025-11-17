@@ -1,9 +1,13 @@
-<div class="max-w-4xl mx-auto py-10 px-6">
-    <h1 class="text-3xl font-semibold mb-6 text-gray-900 dark:text-gray-100">
+<!-- tafeld/resources/views/livewire/pages/dashboard.blade.php -->
+
+<section class="max-w-4xl mx-auto py-10 px-6 bg-surface text-default space-y-4">
+
+    <h1 class="text-3xl font-semibold text-brand-500">
         Dashboard
     </h1>
 
-    <p class="text-gray-700 dark:text-gray-300">
+    <p class="text-base text-default">
         Willkommen im Dashboard.
     </p>
-</div>
+
+</section>

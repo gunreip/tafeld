@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="de" x-data="appLayout()" x-init="init()" x-bind:class="{ 'dark': isDark }" class="dark"><!-- tafeld/resources/views/livewire/layout/app.blade.php --><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preload" as="style" href="tafeld.test-persons-create-Dateien/app-HDjbGgUi.css"><link rel="modulepreload" as="script" href="tafeld.test-persons-create-Dateien/app-l0sNRNKZ.js"><link rel="stylesheet" href="tafeld.test-persons-create-Dateien/app-HDjbGgUi.css" data-navigate-track="reload"><script type="module" src="tafeld.test-persons-create-Dateien/app-l0sNRNKZ.js" data-navigate-track="reload"></script>    <title>Laravel</title>
+
+    <script>
+        function appLayout() {
+            return {
+                sidebarOpen: false,
+                isDark: false,
+
+                init() {
+                    const storedTheme = localStorage.getItem('theme');
+                    if (storedTheme === 'dark') {
+                        this.isDark = true;
+                    } else if (storedTheme === 'light') {
+                        this.isDark = false;
+                    } else {
+                        this.isDark = window.matchMedia &&
+                            window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    }
+
+                    document.documentElement.classList.toggle('dark', this.isDark);
+                },
+
+                toggleSidebar() {
+                    this.sidebarOpen = !this.sidebarOpen;
+                },
+
+                closeSidebar() {
+                    this.sidebarOpen = false;
+                },
+
+                toggleDark() {
+                    this.isDark = !this.isDark;
+                    localStorage.setItem('theme', this.isDark ? 'dark' : 'light');
+                    document.documentElement.classList.toggle('dark', this.isDark);
+                },
+            }
+        }
+    </script>
+<!-- Livewire Styles --><style>[wire\:loading][wire\:loading], [wire\:loading\.delay][wire\:loading\.delay], [wire\:loading\.inline-block][wire\:loading\.inline-block], [wire\:loading\.inline][wire\:loading\.inline], [wire\:loading\.block][wire\:loading\.block], [wire\:loading\.flex][wire\:loading\.flex], [wire\:loading\.table][wire\:loading\.table], [wire\:loading\.grid][wire\:loading\.grid], [wire\:loading\.inline-flex][wire\:loading\.inline-flex] {display: none;}[wire\:loading\.delay\.none][wire\:loading\.delay\.none], [wire\:loading\.delay\.shortest][wire\:loading\.delay\.shortest], [wire\:loading\.delay\.shorter][wire\:loading\.delay\.shorter], [wire\:loading\.delay\.short][wire\:loading\.delay\.short], [wire\:loading\.delay\.default][wire\:loading\.delay\.default], [wire\:loading\.delay\.long][wire\:loading\.delay\.long], [wire\:loading\.delay\.longer][wire\:loading\.delay\.longer], [wire\:loading\.delay\.longest][wire\:loading\.delay\.longest] {display: none;}[wire\:offline][wire\:offline] {display: none;}[wire\:dirty]:not(textarea):not(input):not(select) {display: none;}:root {--livewire-progress-bar-color: #2299dd;}[x-cloak] {display: none !important;}[wire\:cloak] {display: none !important;}</style>
+<style>/* Make clicks pass-through */
+
+    #nprogress {
+      pointer-events: none;
+    }
+
+    #nprogress .bar {
+      background: var(--livewire-progress-bar-color, #29d);
+
+      position: fixed;
+      z-index: 1031;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 2px;
+    }
+
+    /* Fancy blur effect */
+    #nprogress .peg {
+      display: block;
+      position: absolute;
+      right: 0px;
+      width: 100px;
+      height: 100%;
+      box-shadow: 0 0 10px var(--livewire-progress-bar-color, #29d), 0 0 5px var(--livewire-progress-bar-color, #29d);
+      opacity: 1.0;
+
+      -webkit-transform: rotate(3deg) translate(0px, -4px);
+          -ms-transform: rotate(3deg) translate(0px, -4px);
+              transform: rotate(3deg) translate(0px, -4px);
+    }
+
+    /* Remove these to get rid of the spinner */
+    #nprogress .spinner {
+      display: block;
+      position: fixed;
+      z-index: 1031;
+      top: 15px;
+      right: 15px;
+    }
+
+    #nprogress .spinner-icon {
+      width: 18px;
+      height: 18px;
+      box-sizing: border-box;
+
+      border: solid 2px transparent;
+      border-top-color: var(--livewire-progress-bar-color, #29d);
+      border-left-color: var(--livewire-progress-bar-color, #29d);
+      border-radius: 50%;
+
+      -webkit-animation: nprogress-spinner 400ms linear infinite;
+              animation: nprogress-spinner 400ms linear infinite;
+    }
+
+    .nprogress-custom-parent {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .nprogress-custom-parent #nprogress .spinner,
+    .nprogress-custom-parent #nprogress .bar {
+      position: absolute;
+    }
+
+    @-webkit-keyframes nprogress-spinner {
+      0%   { -webkit-transform: rotate(0deg); }
+      100% { -webkit-transform: rotate(360deg); }
+    }
+    @keyframes nprogress-spinner {
+      0%   { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    </style><script type="text/javascript" async="">window.addEventListener("load",checkForCmp,!1);let dataframeForPingReturn={type:"FROM_MINIMAL_CONSENT"},checkForCmpCounter=0,maxTimeoutForResearch=200,maxRetryForSearch=25;function checkForCmp(){this.__cmp?this.__cmp("ping",2,sendMessage):this.__tcfapi?this.__tcfapi("ping",2,sendMessage):this.frames&&this.frames.length&&this.frames.__tcfapiLocator?this.__tcfapi("ping",2,sendMessage):checkForCmpCounter<maxRetryForSearch?(setTimeout(checkForCmp,maxTimeoutForResearch),checkForCmpCounter++):window.removeEventListener("load",checkForCmp,!1)}function sendMessage(e,t){t&&(dataframeForPingReturn.cmp=JSON.stringify(e),window.postMessage(dataframeForPingReturn,"*"),window.removeEventListener("load",checkForCmp,!1))}</script></head>
+
+<body class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100" cz-shortcut-listen="true">
+    
+
+    <div class="flex h-screen">
+
+        <!-- DEBUG LAYOUT: breadcrumbs=NULL -->
+
+        <!-- Mobile Sidebar -->
+        <div class="relative z-40 lg:hidden" x-show="sidebarOpen" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" @keydown.window.escape="closeSidebar()" style="display: none;">
+
+            <div class="fixed inset-0 bg-black/50" @click="closeSidebar()"></div>
+
+            <div class="fixed inset-y-0 left-0 flex max-w-full">
+                <div class="w-64 bg-gray-900 shadow-xl">
+                    <!-- tafeld/resources/views/livewire/layout/partials/navigation.blade.php -->
+<!-- NAVIGATION LOADED -->
+
+<nav class="flex flex-col h-full">
+    <!-- Brand -->
+    <div class="flex items-center px-4 py-4 border-b border-brand-200 dark:border-brand-800">
+        <a href="https://tafeld.test/dashboard" class="flex items-center gap-2 m-4 text-lg font-semibold">
+            <!-- tafeld/resources/views/components/logo.blade.php -->
+
+
+    <picture>
+        <source srcset="tafeld.test-persons-create-Dateien/die-tafeln-dark.svg 1x" media="(prefers-color-scheme: dark)">
+        <img src="tafeld.test-persons-create-Dateien/die-tafeln-light.svg" width="160" class=" " alt="tafeld logo">
+    </picture>
+
+    
+        </a>
+    </div>
+
+    <!-- Navigation -->
+    <div class="flex-1 overflow-y-auto py-4">
+        <ul class="space-y-1 px-2">
+                            
+                <li>
+                    <a href="https://tafeld.test/dashboard" wire:navigate="" class="group flex items-center gap-3 px-3 py-2 rounded-lg text-sm
+                              text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-white">
+                                                        <svg class="w-5 h-5
+                                    text-gray-400 group-hover:text-gray-500 dark:text-gray-500 dark:group-hover:text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+  <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"></path>
+</svg>                            
+                        <span class="truncate">Dashboard</span>
+                    </a>
+                </li>
+                            
+                <li>
+                    <a href="https://tafeld.test/persons" wire:navigate="" class="group flex items-center gap-3 px-3 py-2 rounded-lg text-sm
+                              text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-white">
+                                                        <svg class="w-5 h-5
+                                    text-gray-400 group-hover:text-gray-500 dark:text-gray-500 dark:group-hover:text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"></path>
+</svg>                            
+                        <span class="truncate">Personen</span>
+                    </a>
+                </li>
+                            
+                <li>
+                    <a href="https://tafeld.test/persons/create" wire:navigate="" class="group flex items-center gap-3 px-3 py-2 rounded-lg text-sm
+                              bg-indigo-50 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-200">
+                                                        <svg class="w-5 h-5
+                                    text-indigo-600 dark:text-indigo-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z"></path>
+</svg>                            
+                        <span class="truncate">Person anlegen</span>
+                    </a>
+                </li>
+                    </ul>
+    </div>
+
+    <!-- Logout -->
+    <div class="border-t border-brand-200 dark:border-brand-800 px-2 py-3">
+        <form method="POST" action="https://tafeld.test/logout">
+            <input type="hidden" name="_token" value="x4ogqH4Ecwu1VDUpvOw9N1oDZNnqGZYc4O4nphbm" autocomplete="off">            <button type="submit" class="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm
+                           text-gray-700 hover:bg-gray-100 hover:text-gray-900
+                           dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-white">
+                <svg class="w-5 h-5 text-gray-400 group-hover:text-gray-500 dark:text-gray-500 dark:group-hover:text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75"></path>
+</svg>                <span>Abmelden</span>
+            </button>
+        </form>
+    </div>
+</nav>                </div>
+            </div>
+        </div>
+
+        <!-- Desktop Sidebar -->
+        <aside class="hidden lg:flex lg:flex-col w-64 shrink-0 bg-gray-900 border-r border-brand-200 dark:border-brand-800">
+            <!-- tafeld/resources/views/livewire/layout/partials/navigation.blade.php -->
+<!-- NAVIGATION LOADED -->
+
+<nav class="flex flex-col h-full">
+    <!-- Brand -->
+    <div class="flex items-center px-4 py-4 border-b border-brand-200 dark:border-brand-800">
+        <a href="https://tafeld.test/dashboard" class="flex items-center gap-2 m-4 text-lg font-semibold">
+            <!-- tafeld/resources/views/components/logo.blade.php -->
+
+
+    <picture>
+        <source srcset="tafeld.test-persons-create-Dateien/die-tafeln-dark.svg 1x" media="(prefers-color-scheme: dark)">
+        <img src="tafeld.test-persons-create-Dateien/die-tafeln-light.svg" width="160" class=" " alt="tafeld logo">
+    </picture>
+
+    
+        </a>
+    </div>
+
+    <!-- Navigation -->
+    <div class="flex-1 overflow-y-auto py-4">
+        <ul class="space-y-1 px-2">
+                            
+                <li>
+                    <a href="https://tafeld.test/dashboard" wire:navigate="" class="group flex items-center gap-3 px-3 py-2 rounded-lg text-sm
+                              text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-white">
+                                                        <svg class="w-5 h-5
+                                    text-gray-400 group-hover:text-gray-500 dark:text-gray-500 dark:group-hover:text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+  <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"></path>
+</svg>                            
+                        <span class="truncate">Dashboard</span>
+                    </a>
+                </li>
+                            
+                <li>
+                    <a href="https://tafeld.test/persons" wire:navigate="" class="group flex items-center gap-3 px-3 py-2 rounded-lg text-sm
+                              text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-white">
+                                                        <svg class="w-5 h-5
+                                    text-gray-400 group-hover:text-gray-500 dark:text-gray-500 dark:group-hover:text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"></path>
+</svg>                            
+                        <span class="truncate">Personen</span>
+                    </a>
+                </li>
+                            
+                <li>
+                    <a href="https://tafeld.test/persons/create" wire:navigate="" class="group flex items-center gap-3 px-3 py-2 rounded-lg text-sm
+                              bg-indigo-50 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-200">
+                                                        <svg class="w-5 h-5
+                                    text-indigo-600 dark:text-indigo-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z"></path>
+</svg>                            
+                        <span class="truncate">Person anlegen</span>
+                    </a>
+                </li>
+                    </ul>
+    </div>
+
+    <!-- Logout -->
+    <div class="border-t border-brand-200 dark:border-brand-800 px-2 py-3">
+        <form method="POST" action="https://tafeld.test/logout">
+            <input type="hidden" name="_token" value="x4ogqH4Ecwu1VDUpvOw9N1oDZNnqGZYc4O4nphbm" autocomplete="off">            <button type="submit" class="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm
+                           text-gray-700 hover:bg-gray-100 hover:text-gray-900
+                           dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-white">
+                <svg class="w-5 h-5 text-gray-400 group-hover:text-gray-500 dark:text-gray-500 dark:group-hover:text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75"></path>
+</svg>                <span>Abmelden</span>
+            </button>
+        </form>
+    </div>
+</nav>        </aside>
+
+        <!-- Main Content -->
+        <div class="flex flex-1 flex-col min-w-0">
+
+            <!-- Header (mit Breadcrumbs) -->
+            <!-- tafeld/resources/views/livewire/layout/partials/header.blade.php -->
+<!-- resources/views/livewire/layout/partials/header.blade.php -->
+
+<header class="h-16 flex items-center justify-between px-4 lg:px-6
+               border-b border-brand-200 dark:border-brand-800 bg-gray-900/80 dark:bg-gray-900/80 backdrop-blur">
+
+    <!-- LEFT SIDE: Standort + Breadcrumbs -->
+    <div class="flex flex-col justify-center leading-tight select-none">
+
+        <!-- Standortname (kommt später aus DB) -->
+        <span class="text-sm font-semibold text-brand-500 uppercase tracking-wide">
+            Tafel-Standort
+        </span>
+
+        <!-- Breadcrumbs -->
+            </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="flex items-center gap-4">
+
+        <!-- DARK MODE TOGGLE -->
+        <button x-on:click="toggleDark()" class="p-2 rounded-full bg-gray-800/60 hover:bg-gray-700
+                       text-gray-400 hover:text-gray-200 transition">
+
+            <svg x-show="!isDark" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon" style="display: none;">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"></path>
+</svg>            <svg x-show="isDark" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"></path>
+</svg>        </button>
+
+        <!-- USER INFORMATION -->
+        <div class="flex items-center gap-2">
+
+            <!-- Avatar (Foto / Gender / Fallback) -->
+            <img src="tafeld.test-persons-create-Dateien/default-user.svg" alt="avatar" class="w-8 h-8 rounded-full object-cover bg-gray-700">
+
+            <!-- User Name -->
+            <span class="hidden md:inline text-sm font-medium text-gray-300 dark:text-gray-200">
+                Gunter Reinhard
+            </span>
+
+        </div>
+
+    </div>
+
+</header>            <main class="flex-1 overflow-y-auto p-4 lg:p-6">
+                <!-- DEBUG PAGE-VIEW: breadcrumbs=[{&quot;label&quot;:&quot;Dashboard&quot;,&quot;url&quot;:&quot;https:\/\/tafeld.test\/dashboard&quot;},{&quot;label&quot;:&quot;Personen&quot;,&quot;url&quot;:&quot;https:\/\/tafeld.test\/persons&quot;},{&quot;label&quot;:&quot;Neu&quot;}] -->
+
+<div wire:snapshot="{&quot;data&quot;:{&quot;first_name&quot;:&quot;&quot;,&quot;last_name&quot;:&quot;&quot;,&quot;email&quot;:&quot;&quot;,&quot;phone&quot;:&quot;&quot;},&quot;memo&quot;:{&quot;id&quot;:&quot;ThrK4aSvaToGV6OBhlop&quot;,&quot;name&quot;:&quot;pages.persons.create&quot;,&quot;path&quot;:&quot;persons\/create&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;children&quot;:[],&quot;scripts&quot;:[],&quot;assets&quot;:[],&quot;errors&quot;:[],&quot;locale&quot;:&quot;de&quot;},&quot;checksum&quot;:&quot;b3118c9f0b2d5e64a09e7837bc553c427cb81acd71984be021990aa50da6c439&quot;}" wire:effects="[]" wire:id="ThrK4aSvaToGV6OBhlop" class="max-w-3xl mx-auto py-10 px-6">
+
+    <h1 class="text-3xl font-semibold mb-6">Neue Person anlegen</h1>
+
+    <form wire:submit.prevent="save" class="space-y-4">
+
+        
+        <div>
+            <label class="block mb-1 text-gray-700 dark:text-gray-300">Vorname</label>
+            <input type="text" wire:model="first_name" class="w-full border rounded px-3 py-2 dark:bg-gray-800 dark:text-gray-100">
+        </div>
+
+        
+        <div>
+            <label class="block mb-1 text-gray-700 dark:text-gray-300">Nachname</label>
+            <input type="text" wire:model="last_name" class="w-full border rounded px-3 py-2 dark:bg-gray-800 dark:text-gray-100">
+        </div>
+
+        
+        <div>
+            <label class="block mb-1 text-gray-700 dark:text-gray-300">E-Mail</label>
+            <input type="email" wire:model="email" class="w-full border rounded px-3 py-2 dark:bg-gray-800 dark:text-gray-100">
+        </div>
+
+        
+        <div>
+            <label class="block mb-1 text-gray-700 dark:text-gray-300">Telefon</label>
+            <input type="text" wire:model="phone" class="w-full border rounded px-3 py-2 dark:bg-gray-800 dark:text-gray-100">
+        </div>
+
+        
+        <div class="">
+            <label for="country_id" class="block mb-1 text-gray-700 dark:text-gray-300">
+                Land
+            </label>
+            <div class="mt-1">
+                <select id="country_id" wire:model="country_id" class="w-full border rounded px-3 py-2 dark:border-brand-700 focus:border-blue-500 focus:ring-blue-500">
+                    <option value="" disabled="disabled">– bitte wählen –</option>
+                    <!--[if BLOCK]><![endif]-->                        <option value="135" selected="selected">
+                            Afghanistan
+                        </option>
+                                            <option value="1">
+                            Albanien
+                        </option>
+                                            <option value="81">
+                            Algerien
+                        </option>
+                                            <option value="185">
+                            Amerikanisch-Samoa
+                        </option>
+                                            <option value="2">
+                            Andorra
+                        </option>
+                                            <option value="82">
+                            Angola
+                        </option>
+                                            <option value="206">
+                            Antarktis
+                        </option>
+                                            <option value="46">
+                            Antigua und Barbuda
+                        </option>
+                                            <option value="47">
+                            Argentinien
+                        </option>
+                                            <option value="136">
+                            Armenien
+                        </option>
+                                            <option value="137">
+                            Aserbaidschan
+                        </option>
+                                            <option value="186">
+                            Australien
+                        </option>
+                                            <option value="48">
+                            Bahamas
+                        </option>
+                                            <option value="138">
+                            Bahrain
+                        </option>
+                                            <option value="139">
+                            Bangladesch
+                        </option>
+                                            <option value="49">
+                            Barbados
+                        </option>
+                                            <option value="4">
+                            Belarus
+                        </option>
+                                            <option value="5">
+                            Belgien
+                        </option>
+                                            <option value="50">
+                            Belize
+                        </option>
+                                            <option value="83">
+                            Benin
+                        </option>
+                                            <option value="140">
+                            Bhutan
+                        </option>
+                                            <option value="51">
+                            Bolivien
+                        </option>
+                                            <option value="6">
+                            Bosnien und Herzegowina
+                        </option>
+                                            <option value="84">
+                            Botswana
+                        </option>
+                                            <option value="207">
+                            Bouvetinsel
+                        </option>
+                                            <option value="52">
+                            Brasilien
+                        </option>
+                                            <option value="141">
+                            Brunei
+                        </option>
+                                            <option value="7">
+                            Bulgarien
+                        </option>
+                                            <option value="85">
+                            Burkina Faso
+                        </option>
+                                            <option value="86">
+                            Burundi
+                        </option>
+                                            <option value="54">
+                            Chile
+                        </option>
+                                            <option value="143">
+                            China
+                        </option>
+                                            <option value="187">
+                            Cookinseln
+                        </option>
+                                            <option value="56">
+                            Costa Rica
+                        </option>
+                                            <option value="15">
+                            Deutschland
+                        </option>
+                                            <option value="58">
+                            Dominica
+                        </option>
+                                            <option value="59">
+                            Dominikanische Republik
+                        </option>
+                                            <option value="95">
+                            Dschibuti
+                        </option>
+                                            <option value="11">
+                            Dänemark
+                        </option>
+                                            <option value="60">
+                            Ecuador
+                        </option>
+                                            <option value="61">
+                            El Salvador
+                        </option>
+                                            <option value="94">
+                            Elfenbeinküste
+                        </option>
+                                            <option value="98">
+                            Eritrea
+                        </option>
+                                            <option value="12">
+                            Estland
+                        </option>
+                                            <option value="99">
+                            Eswatini
+                        </option>
+                                            <option value="188">
+                            Fidschi
+                        </option>
+                                            <option value="13">
+                            Finnland
+                        </option>
+                                            <option value="14">
+                            Frankreich
+                        </option>
+                                            <option value="189">
+                            Französisch-Polynesien
+                        </option>
+                                            <option value="208">
+                            Französische Südgebiete
+                        </option>
+                                            <option value="101">
+                            Gabun
+                        </option>
+                                            <option value="102">
+                            Gambia
+                        </option>
+                                            <option value="144">
+                            Georgien
+                        </option>
+                                            <option value="103">
+                            Ghana
+                        </option>
+                                            <option value="62">
+                            Grenada
+                        </option>
+                                            <option value="16">
+                            Griechenland
+                        </option>
+                                            <option value="190">
+                            Guam
+                        </option>
+                                            <option value="63">
+                            Guatemala
+                        </option>
+                                            <option value="104">
+                            Guinea
+                        </option>
+                                            <option value="105">
+                            Guinea-Bissau
+                        </option>
+                                            <option value="64">
+                            Guyana
+                        </option>
+                                            <option value="65">
+                            Haiti
+                        </option>
+                                            <option value="209">
+                            Heard und McDonaldinseln
+                        </option>
+                                            <option value="66">
+                            Honduras
+                        </option>
+                                            <option value="145">
+                            Hongkong
+                        </option>
+                                            <option value="146">
+                            Indien
+                        </option>
+                                            <option value="147">
+                            Indonesien
+                        </option>
+                                            <option value="149">
+                            Irak
+                        </option>
+                                            <option value="148">
+                            Iran
+                        </option>
+                                            <option value="19">
+                            Irland
+                        </option>
+                                            <option value="18">
+                            Island
+                        </option>
+                                            <option value="150">
+                            Israel
+                        </option>
+                                            <option value="20">
+                            Italien
+                        </option>
+                                            <option value="67">
+                            Jamaika
+                        </option>
+                                            <option value="151">
+                            Japan
+                        </option>
+                                            <option value="184">
+                            Jemen
+                        </option>
+                                            <option value="152">
+                            Jordanien
+                        </option>
+                                            <option value="142">
+                            Kambodscha
+                        </option>
+                                            <option value="87">
+                            Kamerun
+                        </option>
+                                            <option value="53">
+                            Kanada
+                        </option>
+                                            <option value="88">
+                            Kap Verde
+                        </option>
+                                            <option value="153">
+                            Kasachstan
+                        </option>
+                                            <option value="169">
+                            Katar
+                        </option>
+                                            <option value="106">
+                            Kenia
+                        </option>
+                                            <option value="155">
+                            Kirgisistan
+                        </option>
+                                            <option value="191">
+                            Kiribati
+                        </option>
+                                            <option value="55">
+                            Kolumbien
+                        </option>
+                                            <option value="91">
+                            Komoren
+                        </option>
+                                            <option value="93">
+                            Kongo (Demokratische Republik)
+                        </option>
+                                            <option value="92">
+                            Kongo (Republik)
+                        </option>
+                                            <option value="8">
+                            Kroatien
+                        </option>
+                                            <option value="57">
+                            Kuba
+                        </option>
+                                            <option value="154">
+                            Kuwait
+                        </option>
+                                            <option value="156">
+                            Laos
+                        </option>
+                                            <option value="107">
+                            Lesotho
+                        </option>
+                                            <option value="21">
+                            Lettland
+                        </option>
+                                            <option value="157">
+                            Libanon
+                        </option>
+                                            <option value="108">
+                            Liberia
+                        </option>
+                                            <option value="109">
+                            Libyen
+                        </option>
+                                            <option value="22">
+                            Liechtenstein
+                        </option>
+                                            <option value="23">
+                            Litauen
+                        </option>
+                                            <option value="24">
+                            Luxemburg
+                        </option>
+                                            <option value="158">
+                            Macau
+                        </option>
+                                            <option value="110">
+                            Madagaskar
+                        </option>
+                                            <option value="111">
+                            Malawi
+                        </option>
+                                            <option value="159">
+                            Malaysia
+                        </option>
+                                            <option value="160">
+                            Malediven
+                        </option>
+                                            <option value="112">
+                            Mali
+                        </option>
+                                            <option value="25">
+                            Malta
+                        </option>
+                                            <option value="115">
+                            Marokko
+                        </option>
+                                            <option value="192">
+                            Marshallinseln
+                        </option>
+                                            <option value="113">
+                            Mauretanien
+                        </option>
+                                            <option value="114">
+                            Mauritius
+                        </option>
+                                            <option value="68">
+                            Mexiko
+                        </option>
+                                            <option value="193">
+                            Mikronesien
+                        </option>
+                                            <option value="26">
+                            Moldau
+                        </option>
+                                            <option value="27">
+                            Monaco
+                        </option>
+                                            <option value="161">
+                            Mongolei
+                        </option>
+                                            <option value="28">
+                            Montenegro
+                        </option>
+                                            <option value="116">
+                            Mosambik
+                        </option>
+                                            <option value="162">
+                            Myanmar
+                        </option>
+                                            <option value="117">
+                            Namibia
+                        </option>
+                                            <option value="194">
+                            Nauru
+                        </option>
+                                            <option value="163">
+                            Nepal
+                        </option>
+                                            <option value="195">
+                            Neukaledonien
+                        </option>
+                                            <option value="196">
+                            Neuseeland
+                        </option>
+                                            <option value="69">
+                            Nicaragua
+                        </option>
+                                            <option value="29">
+                            Niederlande
+                        </option>
+                                            <option value="118">
+                            Niger
+                        </option>
+                                            <option value="119">
+                            Nigeria
+                        </option>
+                                            <option value="197">
+                            Niue
+                        </option>
+                                            <option value="164">
+                            Nordkorea
+                        </option>
+                                            <option value="30">
+                            Nordmazedonien
+                        </option>
+                                            <option value="31">
+                            Norwegen
+                        </option>
+                                            <option value="198">
+                            Nördliche Marianen
+                        </option>
+                                            <option value="165">
+                            Oman
+                        </option>
+                                            <option value="178">
+                            Osttimor
+                        </option>
+                                            <option value="166">
+                            Pakistan
+                        </option>
+                                            <option value="199">
+                            Palau
+                        </option>
+                                            <option value="167">
+                            Palästina
+                        </option>
+                                            <option value="70">
+                            Panama
+                        </option>
+                                            <option value="200">
+                            Papua-Neuguinea
+                        </option>
+                                            <option value="71">
+                            Paraguay
+                        </option>
+                                            <option value="72">
+                            Peru
+                        </option>
+                                            <option value="168">
+                            Philippinen
+                        </option>
+                                            <option value="32">
+                            Polen
+                        </option>
+                                            <option value="33">
+                            Portugal
+                        </option>
+                                            <option value="120">
+                            Ruanda
+                        </option>
+                                            <option value="34">
+                            Rumänien
+                        </option>
+                                            <option value="35">
+                            Russland
+                        </option>
+                                            <option value="202">
+                            Salomonen
+                        </option>
+                                            <option value="201">
+                            Samoa
+                        </option>
+                                            <option value="36">
+                            San Marino
+                        </option>
+                                            <option value="170">
+                            Saudi-Arabien
+                        </option>
+                                            <option value="41">
+                            Schweden
+                        </option>
+                                            <option value="42">
+                            Schweiz
+                        </option>
+                                            <option value="122">
+                            Senegal
+                        </option>
+                                            <option value="37">
+                            Serbien
+                        </option>
+                                            <option value="123">
+                            Seychellen
+                        </option>
+                                            <option value="124">
+                            Sierra Leone
+                        </option>
+                                            <option value="171">
+                            Singapur
+                        </option>
+                                            <option value="38">
+                            Slowakei
+                        </option>
+                                            <option value="39">
+                            Slowenien
+                        </option>
+                                            <option value="125">
+                            Somalia
+                        </option>
+                                            <option value="40">
+                            Spanien
+                        </option>
+                                            <option value="173">
+                            Sri Lanka
+                        </option>
+                                            <option value="73">
+                            St. Kitts und Nevis
+                        </option>
+                                            <option value="74">
+                            St. Lucia
+                        </option>
+                                            <option value="75">
+                            St. Vincent und die Grenadinen
+                        </option>
+                                            <option value="128">
+                            Sudan
+                        </option>
+                                            <option value="76">
+                            Suriname
+                        </option>
+                                            <option value="174">
+                            Syrien
+                        </option>
+                                            <option value="121">
+                            São Tomé und Príncipe
+                        </option>
+                                            <option value="126">
+                            Südafrika
+                        </option>
+                                            <option value="172">
+                            Südkorea
+                        </option>
+                                            <option value="127">
+                            Südsudan
+                        </option>
+                                            <option value="176">
+                            Tadschikistan
+                        </option>
+                                            <option value="175">
+                            Taiwan
+                        </option>
+                                            <option value="129">
+                            Tansania
+                        </option>
+                                            <option value="177">
+                            Thailand
+                        </option>
+                                            <option value="130">
+                            Togo
+                        </option>
+                                            <option value="203">
+                            Tonga
+                        </option>
+                                            <option value="77">
+                            Trinidad und Tobago
+                        </option>
+                                            <option value="90">
+                            Tschad
+                        </option>
+                                            <option value="10">
+                            Tschechien
+                        </option>
+                                            <option value="131">
+                            Tunesien
+                        </option>
+                                            <option value="180">
+                            Turkmenistan
+                        </option>
+                                            <option value="204">
+                            Tuvalu
+                        </option>
+                                            <option value="179">
+                            Türkei
+                        </option>
+                                            <option value="132">
+                            Uganda
+                        </option>
+                                            <option value="43">
+                            Ukraine
+                        </option>
+                                            <option value="17">
+                            Ungarn
+                        </option>
+                                            <option value="78">
+                            Uruguay
+                        </option>
+                                            <option value="182">
+                            Usbekistan
+                        </option>
+                                            <option value="205">
+                            Vanuatu
+                        </option>
+                                            <option value="45">
+                            Vatikanstadt
+                        </option>
+                                            <option value="79">
+                            Venezuela
+                        </option>
+                                            <option value="181">
+                            Vereinigte Arabische Emirate
+                        </option>
+                                            <option value="80">
+                            Vereinigte Staaten
+                        </option>
+                                            <option value="44">
+                            Vereinigtes Königreich
+                        </option>
+                                            <option value="183">
+                            Vietnam
+                        </option>
+                                            <option value="133">
+                            Zambia
+                        </option>
+                                            <option value="89">
+                            Zentralafrikanische Republik
+                        </option>
+                                            <option value="134">
+                            Zimbabwe
+                        </option>
+                                            <option value="9">
+                            Zypern
+                        </option>
+                                            <option value="96">
+                            Ägypten
+                        </option>
+                                            <option value="97">
+                            Äquatorialguinea
+                        </option>
+                                            <option value="100">
+                            Äthiopien
+                        </option>
+                                            <option value="3">
+                            Österreich
+                        </option>
+                    <!--[if ENDBLOCK]><![endif]-->
+                </select>
+            </div>
+        </div>
+
+        
+        <div class="flex justify-end space-x-2 mt-6">
+            
+            <a href="https://tafeld.test/persons" class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200">
+                Abbrechen
+            </a>
+
+            
+            <button type="submit" class="px-4 py-2 text-sm font-medium text-gray-700 bg-blue-600 rounded-lg hover:bg-blue-700">
+                Speichern
+            </button>
+        </div>
+    </form>
+
+</div>
+            </main>
+
+            <!-- tafeld/resources/views/livewire/layout/partials/footer.blade.php -->
+<footer class="border-t border-brand-200 dark:border-brand-800 bg-white/80 dark:bg-gray-900/80 backdrop-blur">
+    <div class="px-4 lg:px-6 py-3 flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
+        <span>© 2025 Laravel</span>
+        <span class="inline-flex items-center gap-1">
+            <span class="hidden sm:inline text-brand-300">Status:</span>
+            <span class="font-mono">livewire</span>
+        </span>
+    </div>
+</footer>
+        </div>
+
+    </div>
+<!-- Livewire Scripts -->
+<script src="tafeld.test-persons-create-Dateien/livewire.js" data-csrf="x4ogqH4Ecwu1VDUpvOw9N1oDZNnqGZYc4O4nphbm" data-update-uri="/livewire/update" data-navigate-once="true"></script>
+
+
+<deepl-input-controller translate="no"></deepl-input-controller></body></html>

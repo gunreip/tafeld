@@ -1,25 +1,31 @@
-<div class="max-w-3xl mx-auto py-16 px-6">
-    <h1 class="text-4xl font-bold text-gray-900 dark:text-gray-100">
+<!-- tafeld/resources/views/livewire/pages/welcome.blade.php -->
+
+<div class="max-w-3xl mx-auto py-16 px-6 bg-surface text-default">
+
+    <h1 class="text-4xl font-bold text-default">
         Tafeld
     </h1>
 
-    <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
+    <p class="mt-4 text-lg text-muted">
         Übersichtliche lokale Anwendung. Bitte melden Sie sich an.
     </p>
 
     <div class="mt-8 grid sm:grid-cols-2 gap-6">
+
         {{-- Login --}}
         <a href="{{ route('login') }}" wire:navigate
-            class="block rounded-lg border border-gray-300 dark:border-gray-700 p-6 hover:bg-gray-100 dark:hover:bg-gray-800">
-            <h2 class="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-200">Login</h2>
-            <p class="text-gray-600 dark:text-gray-400 text-sm">Bestehendes Konto verwenden.</p>
+            class="block rounded-lg border border-default bg-card p-6 hover:bg-hover transition">
+            <h2 class="text-xl font-semibold mb-2 text-default">Login</h2>
+            <p class="text-muted text-sm">Bestehendes Konto verwenden.</p>
         </a>
 
         {{-- Registrieren --}}
         <a href="{{ route('register') }}" wire:navigate
-            class="block rounded-lg border border-gray-300 dark:border-gray-700 p-6 hover:bg-gray-100 dark:hover:bg-gray-800">
-            <h2 class="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-200">Registrieren</h2>
-            <p class="text-gray-600 dark:text-gray-400 text-sm">Neues Benutzerkonto erstellen.</p>
+            class="block rounded-lg border border-default bg-card p-6 hover:bg-hover transition">
+            <h2 class="text-xl font-semibold mb-2 text-default">Registrieren</h2>
+            <p class="text-muted text-sm">Neues Benutzerkonto erstellen.</p>
         </a>
+
     </div>
+
 </div>

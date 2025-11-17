@@ -1,0 +1,202 @@
+/* resources/css/theme-neutral.css */
+
+@layer base {
+    :root {
+        /* Oberflächen / Hintergründe – LIGHT */
+        --color-bg-surface: 248 250 252;
+        /* slate-50 */
+        --color-bg-elevated: 241 245 249;
+        /* slate-100 */
+        --color-bg-card: 255 255 255;
+        /* white */
+        --color-bg-hover: 241 245 249;
+        /* slate-100 */
+        --color-bg-active: 226 232 240;
+        /* slate-200 */
+
+        /* Text – LIGHT */
+        --color-text-default: 15 23 42;
+        /* slate-900 */
+        --color-text-muted: 100 116 139;
+        /* slate-500 */
+        --color-text-inverted: 248 250 252;
+        /* slate-50 */
+
+        /* Border / Divider – LIGHT */
+        --color-border-default: 226 232 240;
+        /* slate-200 */
+        --color-border-muted: 203 213 225;
+        /* slate-300 */
+
+        /* Status / Semantic – LIGHT */
+        --color-success: 22 163 74;
+        /* green-600 */
+        --color-success-bg: 220 252 231;
+        /* green-100 */
+        --color-warning: 202 138 4;
+        /* yellow-600 */
+        --color-warning-bg: 254 243 199;
+        /* yellow-100 */
+        --color-danger: 220 38 38;
+        /* red-600 */
+        --color-danger-bg: 254 226 226;
+        /* red-100 */
+        --color-info: 37 99 235;
+        /* blue-600 */
+        --color-info-bg: 219 234 254;
+        /* blue-100 */
+
+        /* Focus / Auswahl – LIGHT */
+        --color-focus-ring: 59 130 246;
+        /* blue-500 */
+        --color-selection-bg: 191 219 254;
+        /* blue-200 */
+        --color-selection-text: 30 64 175;
+        /* blue-800 */
+    }
+
+    .dark {
+        /* Oberflächen / Hintergründe – DARK */
+        --color-bg-surface: 15 23 42;
+        /* slate-900 */
+        --color-bg-elevated: 15 23 42;
+        /* slate-900 */
+        --color-bg-card: 30 41 59;
+        /* slate-800 */
+        --color-bg-hover: 30 41 59;
+        /* slate-800 */
+        --color-bg-active: 51 65 85;
+        /* slate-700 */
+
+        /* Text – DARK */
+        --color-text-default: 241 245 249;
+        /* slate-100 */
+        --color-text-muted: 148 163 184;
+        /* slate-400 */
+        --color-text-inverted: 15 23 42;
+        /* slate-900 */
+
+        /* Border / Divider – DARK */
+        --color-border-default: 51 65 85;
+        /* slate-700 */
+        --color-border-muted: 30 41 59;
+        /* slate-800 */
+
+        /* Status / Semantic – DARK (leicht angepasst) */
+        --color-success: 34 197 94;
+        /* green-500 */
+        --color-success-bg: 22 101 52;
+        /* green-800 */
+        --color-warning: 234 179 8;
+        /* yellow-500 */
+        --color-warning-bg: 113 63 18;
+        /* amber-800 */
+        --color-danger: 248 113 113;
+        /* red-400 */
+        --color-danger-bg: 127 29 29;
+        /* red-800 */
+        --color-info: 96 165 250;
+        /* blue-400 */
+        --color-info-bg: 30 64 175;
+        /* blue-800 */
+
+        /* Focus / Auswahl – DARK */
+        --color-focus-ring: 96 165 250;
+        /* blue-400 */
+        --color-selection-bg: 30 64 175;
+        /* blue-800 */
+        --color-selection-text: 219 234 254;
+        /* blue-100 */
+    }
+
+    ::selection {
+        background-color: rgb(var(--color-selection-bg));
+        color: rgb(var(--color-selection-text));
+    }
+}
+
+/* Utility-Klassen auf Basis der Variablen */
+@layer utilities {
+
+    /* Oberflächen */
+    .bg-surface {
+        background-color: rgb(var(--color-bg-surface));
+    }
+
+    .bg-elevated {
+        background-color: rgb(var(--color-bg-elevated));
+    }
+
+    .bg-card {
+        background-color: rgb(var(--color-bg-card));
+    }
+
+    .bg-hover {
+        background-color: rgb(var(--color-bg-hover));
+    }
+
+    .bg-active {
+        background-color: rgb(var(--color-bg-active));
+    }
+
+    /* Text */
+    .text-default {
+        color: rgb(var(--color-text-default));
+    }
+
+    .text-muted {
+        color: rgb(var(--color-text-muted));
+    }
+
+    .text-inverted {
+        color: rgb(var(--color-text-inverted));
+    }
+
+    /* Borders */
+    .border-default {
+        border-color: rgb(var(--color-border-default));
+    }
+
+    .border-muted {
+        border-color: rgb(var(--color-border-muted));
+    }
+
+    /* Status / Semantic (Text + Hintergrund) */
+    .text-success {
+        color: rgb(var(--color-success));
+    }
+
+    .bg-success-soft {
+        background-color: rgb(var(--color-success-bg));
+    }
+
+    .text-warning {
+        color: rgb(var(--color-warning));
+    }
+
+    .bg-warning-soft {
+        background-color: rgb(var(--color-warning-bg));
+    }
+
+    .text-danger {
+        color: rgb(var(--color-danger));
+    }
+
+    .bg-danger-soft {
+        background-color: rgb(var(--color-danger-bg));
+    }
+
+    .text-info {
+        color: rgb(var(--color-info));
+    }
+
+    .bg-info-soft {
+        background-color: rgb(var(--color-info-bg));
+    }
+
+    /* Focus-Ring (für :focus-visible via @apply in Komponenten) */
+    .focus-ring {
+        outline: 2px solid rgb(var(--color-focus-ring));
+        outline-offset: 2px;
+    }
+}

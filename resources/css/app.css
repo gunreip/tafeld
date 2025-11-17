@@ -1,3 +1,8 @@
+/* tafeld/resources/css/app.css */
+
+@import './theme-neutral.css';
+@import './theme-tafeld.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

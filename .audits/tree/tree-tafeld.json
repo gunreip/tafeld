@@ -24,6 +24,11 @@
         },
         {
             "type": "dir",
+            "name": "docs",
+            "items": []
+        },
+        {
+            "type": "dir",
             "name": "node_modules",
             "items": []
         },
@@ -59,43 +64,103 @@
         },
         {
             "type": "file",
-            "name": "README.md"
+            "name": "README.md",
+            "extension": "md",
+            "size": 3911,
+            "modified_at": 1762268421,
+            "modified_at_iso": "2025-11-04T15:00:21+00:00",
+            "created_at": 1762680789,
+            "created_at_iso": "2025-11-09T09:33:09+00:00"
         },
         {
             "type": "file",
-            "name": "artisan"
+            "name": "artisan",
+            "extension": "",
+            "size": 425,
+            "modified_at": 1762268421,
+            "modified_at_iso": "2025-11-04T15:00:21+00:00",
+            "created_at": 1762680789,
+            "created_at_iso": "2025-11-09T09:33:09+00:00"
         },
         {
             "type": "file",
-            "name": "composer.json"
+            "name": "composer.json",
+            "extension": "json",
+            "size": 3234,
+            "modified_at": 1763142226,
+            "modified_at_iso": "2025-11-14T17:43:46+00:00",
+            "created_at": 1763142226,
+            "created_at_iso": "2025-11-14T17:43:46+00:00"
         },
         {
             "type": "file",
-            "name": "composer.lock"
+            "name": "composer.lock",
+            "extension": "lock",
+            "size": 349378,
+            "modified_at": 1763142226,
+            "modified_at_iso": "2025-11-14T17:43:46+00:00",
+            "created_at": 1763142226,
+            "created_at_iso": "2025-11-14T17:43:46+00:00"
         },
         {
             "type": "file",
-            "name": "package-lock.json"
+            "name": "package-lock.json",
+            "extension": "json",
+            "size": 151828,
+            "modified_at": 1762968449,
+            "modified_at_iso": "2025-11-12T17:27:29+00:00",
+            "created_at": 1762968449,
+            "created_at_iso": "2025-11-12T17:27:29+00:00"
         },
         {
             "type": "file",
-            "name": "package.json"
+            "name": "package.json",
+            "extension": "json",
+            "size": 620,
+            "modified_at": 1762968449,
+            "modified_at_iso": "2025-11-12T17:27:29+00:00",
+            "created_at": 1762968449,
+            "created_at_iso": "2025-11-12T17:27:29+00:00"
         },
         {
             "type": "file",
-            "name": "phpunit.xml"
+            "name": "phpunit.xml",
+            "extension": "xml",
+            "size": 1284,
+            "modified_at": 1762268421,
+            "modified_at_iso": "2025-11-04T15:00:21+00:00",
+            "created_at": 1762680789,
+            "created_at_iso": "2025-11-09T09:33:09+00:00"
         },
         {
             "type": "file",
-            "name": "postcss.config.js"
+            "name": "postcss.config.js",
+            "extension": "js",
+            "size": 93,
+            "modified_at": 1762700747,
+            "modified_at_iso": "2025-11-09T15:05:47+00:00",
+            "created_at": 1762700747,
+            "created_at_iso": "2025-11-09T15:05:47+00:00"
         },
         {
             "type": "file",
-            "name": "tailwind.config.js"
+            "name": "tailwind.config.js",
+            "extension": "js",
+            "size": 1133,
+            "modified_at": 1763223195,
+            "modified_at_iso": "2025-11-15T16:13:15+00:00",
+            "created_at": 1763223195,
+            "created_at_iso": "2025-11-15T16:13:15+00:00"
         },
         {
             "type": "file",
-            "name": "vite.config.js"
+            "name": "vite.config.js",
+            "extension": "js",
+            "size": 263,
+            "modified_at": 1762700747,
+            "modified_at_iso": "2025-11-09T15:05:47+00:00",
+            "created_at": 1762700747,
+            "created_at_iso": "2025-11-09T15:05:47+00:00"
         }
     ]
 }
