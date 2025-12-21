@@ -3,7 +3,7 @@
 <div class="py-10 px-6 bg-card rounded-lg shadow-sm border border-default text-default space-y-6">
 
     <h1 class="text-3xl font-semibold text-default">
-        Person bearbeiten
+        Personal bearbeiten
     </h1>
 
     <form wire:submit.prevent="save" class="space-y-4">

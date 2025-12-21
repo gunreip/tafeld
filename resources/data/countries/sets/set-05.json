@@ -1,0 +1,92 @@
+[
+    {
+        "iso_3166_2": "VC",
+        "iso_3166_3": "VCT",
+        "name_en": "Saint Vincent and the Grenadines",
+        "name_de": "St. Vincent und die Grenadinen",
+        "region": "Americas",
+        "subregion": "Caribbean",
+        "currency_code": "XCD",
+        "phone_code": "+1-784"
+    },
+    {
+        "iso_3166_2": "VE",
+        "iso_3166_3": "VEN",
+        "name_en": "Venezuela",
+        "name_de": "Venezuela",
+        "region": "Americas",
+        "subregion": "South America",
+        "currency_code": "VES",
+        "phone_code": "+58"
+    },
+    {
+        "iso_3166_2": "VN",
+        "iso_3166_3": "VNM",
+        "name_en": "Vietnam",
+        "name_de": "Vietnam",
+        "region": "Asia",
+        "subregion": "South-Eastern Asia",
+        "currency_code": "VND",
+        "phone_code": "+84"
+    },
+    {
+        "iso_3166_2": "VU",
+        "iso_3166_3": "VUT",
+        "name_en": "Vanuatu",
+        "name_de": "Vanuatu",
+        "region": "Oceania",
+        "subregion": "Melanesia",
+        "currency_code": "VUV",
+        "phone_code": "+678"
+    },
+    {
+        "iso_3166_2": "WS",
+        "iso_3166_3": "WSM",
+        "name_en": "Samoa",
+        "name_de": "Samoa",
+        "region": "Oceania",
+        "subregion": "Polynesia",
+        "currency_code": "WST",
+        "phone_code": "+685"
+    },
+    {
+        "iso_3166_2": "YE",
+        "iso_3166_3": "YEM",
+        "name_en": "Yemen",
+        "name_de": "Jemen",
+        "region": "Asia",
+        "subregion": "Western Asia",
+        "currency_code": "YER",
+        "phone_code": "+967"
+    },
+    {
+        "iso_3166_2": "ZA",
+        "iso_3166_3": "ZAF",
+        "name_en": "South Africa",
+        "name_de": "Südafrika",
+        "region": "Africa",
+        "subregion": "Southern Africa",
+        "currency_code": "ZAR",
+        "phone_code": "+27"
+    },
+    {
+        "iso_3166_2": "ZM",
+        "iso_3166_3": "ZMB",
+        "name_en": "Zambia",
+        "name_de": "Zambia",
+        "region": "Africa",
+        "subregion": "Eastern Africa",
+        "currency_code": "ZMW",
+        "phone_code": "+260"
+    },
+    {
+        "iso_3166_2": "ZW",
+        "iso_3166_3": "ZWE",
+        "name_en": "Zimbabwe",
+        "name_de": "Zimbabwe",
+        "region": "Africa",
+        "subregion": "Eastern Africa",
+        "currency_code": "ZWL",
+        "phone_code": "+263"
+    }
+]

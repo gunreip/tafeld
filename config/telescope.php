@@ -59,7 +59,7 @@ return [
 
     'storage' => [
         'database' => [
-            'connection' => env('DB_CONNECTION', 'mysql'),
+            'connection' => env('DB_CONNECTION', 'pgsql'),
             'chunk' => 1000,
         ],
     ],
@@ -176,7 +176,12 @@ return [
 
         Watchers\LogWatcher::class => [
             'enabled' => env('TELESCOPE_LOG_WATCHER', true),
-            'level' => 'error',
+
+            // Alle TafeldDebug-Level sichtbar: debug, info, warn, error, success, fail
+            'level' => 'debug',
+
+            // Eigene Channels nicht ausschließen (z. B. tafeld-debug)
+            'ignore_channels' => [],
         ],
 
         Watchers\MailWatcher::class => env('TELESCOPE_MAIL_WATCHER', true),
@@ -207,5 +212,7 @@ return [
 
         Watchers\ScheduleWatcher::class => env('TELESCOPE_SCHEDULE_WATCHER', true),
         Watchers\ViewWatcher::class => env('TELESCOPE_VIEW_WATCHER', true),
+
+        // App\Support\TafeldDebug\Telescope\TafeldDebugWatcher::class => true,
     ],
 ];

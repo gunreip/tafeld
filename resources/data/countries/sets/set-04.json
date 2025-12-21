@@ -1,0 +1,502 @@
+[
+    {
+        "iso_3166_2": "PH",
+        "iso_3166_3": "PHL",
+        "name_en": "Philippines",
+        "name_de": "Philippinen",
+        "region": "Asia",
+        "subregion": "South-Eastern Asia",
+        "currency_code": "PHP",
+        "phone_code": "+63"
+    },
+    {
+        "iso_3166_2": "PK",
+        "iso_3166_3": "PAK",
+        "name_en": "Pakistan",
+        "name_de": "Pakistan",
+        "region": "Asia",
+        "subregion": "Southern Asia",
+        "currency_code": "PKR",
+        "phone_code": "+92"
+    },
+    {
+        "iso_3166_2": "PL",
+        "iso_3166_3": "POL",
+        "name_en": "Poland",
+        "name_de": "Polen",
+        "region": "Europe",
+        "subregion": "Eastern Europe",
+        "currency_code": "PLN",
+        "phone_code": "+48"
+    },
+    {
+        "iso_3166_2": "PS",
+        "iso_3166_3": "PSE",
+        "name_en": "Palestine",
+        "name_de": "Palästina",
+        "region": "Asia",
+        "subregion": "Western Asia",
+        "currency_code": null,
+        "phone_code": "+970"
+    },
+    {
+        "iso_3166_2": "PT",
+        "iso_3166_3": "PRT",
+        "name_en": "Portugal",
+        "name_de": "Portugal",
+        "region": "Europe",
+        "subregion": "Southern Europe",
+        "currency_code": "EUR",
+        "phone_code": "+351"
+    },
+    {
+        "iso_3166_2": "PW",
+        "iso_3166_3": "PLW",
+        "name_en": "Palau",
+        "name_de": "Palau",
+        "region": "Oceania",
+        "subregion": "Micronesia",
+        "currency_code": "USD",
+        "phone_code": "+680"
+    },
+    {
+        "iso_3166_2": "PY",
+        "iso_3166_3": "PRY",
+        "name_en": "Paraguay",
+        "name_de": "Paraguay",
+        "region": "Americas",
+        "subregion": "South America",
+        "currency_code": "PYG",
+        "phone_code": "+595"
+    },
+    {
+        "iso_3166_2": "QA",
+        "iso_3166_3": "QAT",
+        "name_en": "Qatar",
+        "name_de": "Katar",
+        "region": "Asia",
+        "subregion": "Western Asia",
+        "currency_code": "QAR",
+        "phone_code": "+974"
+    },
+    {
+        "iso_3166_2": "RO",
+        "iso_3166_3": "ROU",
+        "name_en": "Romania",
+        "name_de": "Rumänien",
+        "region": "Europe",
+        "subregion": "Eastern Europe",
+        "currency_code": "RON",
+        "phone_code": "+40"
+    },
+    {
+        "iso_3166_2": "RS",
+        "iso_3166_3": "SRB",
+        "name_en": "Serbia",
+        "name_de": "Serbien",
+        "region": "Europe",
+        "subregion": "Southern Europe",
+        "currency_code": "RSD",
+        "phone_code": "+381"
+    },
+    {
+        "iso_3166_2": "RU",
+        "iso_3166_3": "RUS",
+        "name_en": "Russia",
+        "name_de": "Russland",
+        "region": "Europe",
+        "subregion": "Eastern Europe",
+        "currency_code": "RUB",
+        "phone_code": "+7"
+    },
+    {
+        "iso_3166_2": "RW",
+        "iso_3166_3": "RWA",
+        "name_en": "Rwanda",
+        "name_de": "Ruanda",
+        "region": "Africa",
+        "subregion": "Eastern Africa",
+        "currency_code": "RWF",
+        "phone_code": "+250"
+    },
+    {
+        "iso_3166_2": "SA",
+        "iso_3166_3": "SAU",
+        "name_en": "Saudi Arabia",
+        "name_de": "Saudi-Arabien",
+        "region": "Asia",
+        "subregion": "Western Asia",
+        "currency_code": "SAR",
+        "phone_code": "+966"
+    },
+    {
+        "iso_3166_2": "SB",
+        "iso_3166_3": "SLB",
+        "name_en": "Solomon Islands",
+        "name_de": "Salomonen",
+        "region": "Oceania",
+        "subregion": "Melanesia",
+        "currency_code": "SBD",
+        "phone_code": "+677"
+    },
+    {
+        "iso_3166_2": "SC",
+        "iso_3166_3": "SYC",
+        "name_en": "Seychelles",
+        "name_de": "Seychellen",
+        "region": "Africa",
+        "subregion": "Eastern Africa",
+        "currency_code": "SCR",
+        "phone_code": "+248"
+    },
+    {
+        "iso_3166_2": "SD",
+        "iso_3166_3": "SDN",
+        "name_en": "Sudan",
+        "name_de": "Sudan",
+        "region": "Africa",
+        "subregion": "Northern Africa",
+        "currency_code": "SDG",
+        "phone_code": "+249"
+    },
+    {
+        "iso_3166_2": "SE",
+        "iso_3166_3": "SWE",
+        "name_en": "Sweden",
+        "name_de": "Schweden",
+        "region": "Europe",
+        "subregion": "Northern Europe",
+        "currency_code": "SEK",
+        "phone_code": "+46"
+    },
+    {
+        "iso_3166_2": "SG",
+        "iso_3166_3": "SGP",
+        "name_en": "Singapore",
+        "name_de": "Singapur",
+        "region": "Asia",
+        "subregion": "South-Eastern Asia",
+        "currency_code": "SGD",
+        "phone_code": "+65"
+    },
+    {
+        "iso_3166_2": "SI",
+        "iso_3166_3": "SVN",
+        "name_en": "Slovenia",
+        "name_de": "Slowenien",
+        "region": "Europe",
+        "subregion": "Southern Europe",
+        "currency_code": "EUR",
+        "phone_code": "+386"
+    },
+    {
+        "iso_3166_2": "SK",
+        "iso_3166_3": "SVK",
+        "name_en": "Slovakia",
+        "name_de": "Slowakei",
+        "region": "Europe",
+        "subregion": "Eastern Europe",
+        "currency_code": "EUR",
+        "phone_code": "+421"
+    },
+    {
+        "iso_3166_2": "SL",
+        "iso_3166_3": "SLE",
+        "name_en": "Sierra Leone",
+        "name_de": "Sierra Leone",
+        "region": "Africa",
+        "subregion": "Western Africa",
+        "currency_code": "SLL",
+        "phone_code": "+232"
+    },
+    {
+        "iso_3166_2": "SM",
+        "iso_3166_3": "SMR",
+        "name_en": "San Marino",
+        "name_de": "San Marino",
+        "region": "Europe",
+        "subregion": "Southern Europe",
+        "currency_code": "EUR",
+        "phone_code": "+378"
+    },
+    {
+        "iso_3166_2": "SN",
+        "iso_3166_3": "SEN",
+        "name_en": "Senegal",
+        "name_de": "Senegal",
+        "region": "Africa",
+        "subregion": "Western Africa",
+        "currency_code": "XOF",
+        "phone_code": "+221"
+    },
+    {
+        "iso_3166_2": "SO",
+        "iso_3166_3": "SOM",
+        "name_en": "Somalia",
+        "name_de": "Somalia",
+        "region": "Africa",
+        "subregion": "Eastern Africa",
+        "currency_code": "SOS",
+        "phone_code": "+252"
+    },
+    {
+        "iso_3166_2": "SR",
+        "iso_3166_3": "SUR",
+        "name_en": "Suriname",
+        "name_de": "Suriname",
+        "region": "Americas",
+        "subregion": "South America",
+        "currency_code": "SRD",
+        "phone_code": "+597"
+    },
+    {
+        "iso_3166_2": "SS",
+        "iso_3166_3": "SSD",
+        "name_en": "South Sudan",
+        "name_de": "Südsudan",
+        "region": "Africa",
+        "subregion": "Eastern Africa",
+        "currency_code": "SSP",
+        "phone_code": "+211"
+    },
+    {
+        "iso_3166_2": "ST",
+        "iso_3166_3": "STP",
+        "name_en": "São Tomé and Príncipe",
+        "name_de": "São Tomé und Príncipe",
+        "region": "Africa",
+        "subregion": "Middle Africa",
+        "currency_code": "STN",
+        "phone_code": "+239"
+    },
+    {
+        "iso_3166_2": "SV",
+        "iso_3166_3": "SLV",
+        "name_en": "El Salvador",
+        "name_de": "El Salvador",
+        "region": "Americas",
+        "subregion": "Central America",
+        "currency_code": "USD",
+        "phone_code": "+503"
+    },
+    {
+        "iso_3166_2": "SY",
+        "iso_3166_3": "SYR",
+        "name_en": "Syria",
+        "name_de": "Syrien",
+        "region": "Asia",
+        "subregion": "Western Asia",
+        "currency_code": "SYP",
+        "phone_code": "+963"
+    },
+    {
+        "iso_3166_2": "SZ",
+        "iso_3166_3": "SWZ",
+        "name_en": "Eswatini",
+        "name_de": "Eswatini",
+        "region": "Africa",
+        "subregion": "Southern Africa",
+        "currency_code": "SZL",
+        "phone_code": "+268"
+    },
+    {
+        "iso_3166_2": "TD",
+        "iso_3166_3": "TCD",
+        "name_en": "Chad",
+        "name_de": "Tschad",
+        "region": "Africa",
+        "subregion": "Middle Africa",
+        "currency_code": "XAF",
+        "phone_code": "+235"
+    },
+    {
+        "iso_3166_2": "TF",
+        "iso_3166_3": "ATF",
+        "name_en": "French Southern Territories",
+        "name_de": "Französische Südgebiete",
+        "region": "Antarctica",
+        "subregion": null,
+        "currency_code": "EUR",
+        "phone_code": null
+    },
+    {
+        "iso_3166_2": "TG",
+        "iso_3166_3": "TGO",
+        "name_en": "Togo",
+        "name_de": "Togo",
+        "region": "Africa",
+        "subregion": "Western Africa",
+        "currency_code": "XOF",
+        "phone_code": "+228"
+    },
+    {
+        "iso_3166_2": "TH",
+        "iso_3166_3": "THA",
+        "name_en": "Thailand",
+        "name_de": "Thailand",
+        "region": "Asia",
+        "subregion": "South-Eastern Asia",
+        "currency_code": "THB",
+        "phone_code": "+66"
+    },
+    {
+        "iso_3166_2": "TJ",
+        "iso_3166_3": "TJK",
+        "name_en": "Tajikistan",
+        "name_de": "Tadschikistan",
+        "region": "Asia",
+        "subregion": "Central Asia",
+        "currency_code": "TJS",
+        "phone_code": "+992"
+    },
+    {
+        "iso_3166_2": "TL",
+        "iso_3166_3": "TLS",
+        "name_en": "Timor-Leste",
+        "name_de": "Osttimor",
+        "region": "Asia",
+        "subregion": "South-Eastern Asia",
+        "currency_code": "USD",
+        "phone_code": "+670"
+    },
+    {
+        "iso_3166_2": "TM",
+        "iso_3166_3": "TKM",
+        "name_en": "Turkmenistan",
+        "name_de": "Turkmenistan",
+        "region": "Asia",
+        "subregion": "Central Asia",
+        "currency_code": "TMT",
+        "phone_code": "+993"
+    },
+    {
+        "iso_3166_2": "TN",
+        "iso_3166_3": "TUN",
+        "name_en": "Tunisia",
+        "name_de": "Tunesien",
+        "region": "Africa",
+        "subregion": "Northern Africa",
+        "currency_code": "TND",
+        "phone_code": "+216"
+    },
+    {
+        "iso_3166_2": "TO",
+        "iso_3166_3": "TON",
+        "name_en": "Tonga",
+        "name_de": "Tonga",
+        "region": "Oceania",
+        "subregion": "Polynesia",
+        "currency_code": "TOP",
+        "phone_code": "+676"
+    },
+    {
+        "iso_3166_2": "TR",
+        "iso_3166_3": "TUR",
+        "name_en": "Turkey",
+        "name_de": "Türkei",
+        "region": "Asia",
+        "subregion": "Western Asia",
+        "currency_code": "TRY",
+        "phone_code": "+90"
+    },
+    {
+        "iso_3166_2": "TT",
+        "iso_3166_3": "TTO",
+        "name_en": "Trinidad and Tobago",
+        "name_de": "Trinidad und Tobago",
+        "region": "Americas",
+        "subregion": "Caribbean",
+        "currency_code": "TTD",
+        "phone_code": "+1-868"
+    },
+    {
+        "iso_3166_2": "TV",
+        "iso_3166_3": "TUV",
+        "name_en": "Tuvalu",
+        "name_de": "Tuvalu",
+        "region": "Oceania",
+        "subregion": "Polynesia",
+        "currency_code": "AUD",
+        "phone_code": "+688"
+    },
+    {
+        "iso_3166_2": "TW",
+        "iso_3166_3": "TWN",
+        "name_en": "Taiwan",
+        "name_de": "Taiwan",
+        "region": "Asia",
+        "subregion": "Eastern Asia",
+        "currency_code": "TWD",
+        "phone_code": "+886"
+    },
+    {
+        "iso_3166_2": "TZ",
+        "iso_3166_3": "TZA",
+        "name_en": "Tanzania",
+        "name_de": "Tansania",
+        "region": "Africa",
+        "subregion": "Eastern Africa",
+        "currency_code": "TZS",
+        "phone_code": "+255"
+    },
+    {
+        "iso_3166_2": "UA",
+        "iso_3166_3": "UKR",
+        "name_en": "Ukraine",
+        "name_de": "Ukraine",
+        "region": "Europe",
+        "subregion": "Eastern Europe",
+        "currency_code": "UAH",
+        "phone_code": "+380"
+    },
+    {
+        "iso_3166_2": "UG",
+        "iso_3166_3": "UGA",
+        "name_en": "Uganda",
+        "name_de": "Uganda",
+        "region": "Africa",
+        "subregion": "Eastern Africa",
+        "currency_code": "UGX",
+        "phone_code": "+256"
+    },
+    {
+        "iso_3166_2": "US",
+        "iso_3166_3": "USA",
+        "name_en": "United States",
+        "name_de": "Vereinigte Staaten",
+        "region": "Americas",
+        "subregion": "Northern America",
+        "currency_code": "USD",
+        "phone_code": "+1"
+    },
+    {
+        "iso_3166_2": "UY",
+        "iso_3166_3": "URY",
+        "name_en": "Uruguay",
+        "name_de": "Uruguay",
+        "region": "Americas",
+        "subregion": "South America",
+        "currency_code": "UYU",
+        "phone_code": "+598"
+    },
+    {
+        "iso_3166_2": "UZ",
+        "iso_3166_3": "UZB",
+        "name_en": "Uzbekistan",
+        "name_de": "Usbekistan",
+        "region": "Asia",
+        "subregion": "Central Asia",
+        "currency_code": "UZS",
+        "phone_code": "+998"
+    },
+    {
+        "iso_3166_2": "VA",
+        "iso_3166_3": "VAT",
+        "name_en": "Vatican City",
+        "name_de": "Vatikanstadt",
+        "region": "Europe",
+        "subregion": "Southern Europe",
+        "currency_code": "EUR",
+        "phone_code": "+379"
+    }
+]

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de" x-data="darkModeController()" x-init="init()" wire:ignore>
+<html lang="de" x-data="darkModeController()" x-init="init()">
 
 <!-- tafeld/resources/views/livewire/layout/app.blade.php -->
 
@@ -7,6 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @livewireStyles
     <title>{{ config('app.name', 'tafeld') }}</title>
 
     <script>
@@ -62,7 +63,8 @@
             x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0"
             x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-150"
             x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
-            @keydown.window.escape="closeSidebar()">
+            {{-- @keydown.window.escape="closeSidebar()" --}}
+            >
 
             <div class="fixed inset-0 bg-black/50" @click="closeSidebar()"></div>
 
@@ -106,6 +108,32 @@
         </div>
 
     </div>
+
+    {{-- JS Debug Initialisierung --}}
+    <script>
+        // Initialisierung des Debug-Moduls (Livewire 3 kompatibel)
+        document.addEventListener("livewire:init", () => {
+            window.TAFELD_DEBUG_GLOBAL = @json(config('tafeld-debug'));
+            window.TAFELD_DEBUG_LOG_LEVEL = "{{ env('LOG_LEVEL') }}";
+
+            if (window.TafeldDebug && typeof window.TafeldDebug.init === 'function') {
+                window.TafeldDebug.init(
+                    window.TAFELD_DEBUG_GLOBAL,
+                    window.TAFELD_DEBUG_LOG_LEVEL
+                );
+            }
+        });
+
+        // Debug-Ereignisse empfangen (Livewire 3: BrowserEvents)
+        window.addEventListener('tafeld-debug', (event) => {
+            if (window.TafeldDebug && typeof window.TafeldDebug.fromPHP === 'function') {
+                window.TafeldDebug.fromPHP(event.detail);
+            }
+        });
+    </script>
+
+    @livewireScripts
+
 </body>
 
 </html>

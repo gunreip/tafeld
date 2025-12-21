@@ -1,5 +1,7 @@
 <?php
 
+// tafeld/routes/web.php
+
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Log;
 use App\Support\RouteAudit;
@@ -14,15 +16,22 @@ use App\Livewire\Pages\Auth\ConfirmPassword;
 
 // Livewire-Pages (Core)
 use App\Livewire\Pages\Welcome;
+
+// Livewire-Pages (Debug)
 use App\Livewire\Pages\Dashboard;
+use App\Livewire\Debug\Overview;
+use App\Livewire\Debug\Scopes\Index as DebugScopesIndex;
+use App\Livewire\Debug\Scopes\Show as DebugScopesShow;
+use App\Livewire\Debug\Logs\Index as DebugLogsIndex;
+use App\Livewire\Debug\Logs\Show as DebugLogsShow;
+
+// Middleware
+use App\Http\Middleware\EnsureDebugUiEnabled;
 
 // Livewire-Pages (Persons)
 use App\Livewire\Pages\Persons\Index as PersonsIndex;
 use App\Livewire\Pages\Persons\Create as PersonsCreate;
 use App\Livewire\Pages\Persons\Edit as PersonsEdit;
-
-// Models
-use App\Models\Person;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,7 +85,7 @@ if (class_exists(ConfirmPassword::class)) {
 
 /*
 |--------------------------------------------------------------------------
-| Authentifizierte Bereiche (auth)
+| Authentifizierte Bereiche
 |--------------------------------------------------------------------------
 */
 
@@ -92,7 +101,7 @@ Route::middleware(['auth'])->group(function () {
 
     /*
     |--------------------------------------------------------------------------
-    | Persons-Modul
+    | Persons
     |--------------------------------------------------------------------------
     */
     Route::prefix('persons')->group(function () {
@@ -118,11 +127,49 @@ Route::middleware(['auth'])->group(function () {
             RouteAudit::missing(PersonsEdit::class);
         }
     });
+
+    /*
+    |--------------------------------------------------------------------------
+    | Debug (Livewire-only, Read-only)
+    |--------------------------------------------------------------------------
+    */
+    Route::prefix('debug')
+        ->name('debug.')
+        ->middleware(EnsureDebugUiEnabled::class)
+        ->group(function () {
+
+            // Übersicht
+            Route::get('/', Overview::class)
+                ->name('overview');
+
+            // Logs
+            if (class_exists(DebugLogsIndex::class)) {
+                Route::get('/logs', DebugLogsIndex::class)
+                    ->name('logs.index');
+            }
+
+            if (class_exists(DebugLogsShow::class)) {
+                Route::get('/logs/{id}', DebugLogsShow::class)
+                    ->whereUlid('id')
+                    ->name('logs.show');
+            }
+
+            // Scopes
+            if (class_exists(DebugScopesIndex::class)) {
+                Route::get('/scopes', DebugScopesIndex::class)
+                    ->name('scopes.index');
+            }
+
+            if (class_exists(DebugScopesShow::class)) {
+                Route::get('/scopes/{scopeKey}', DebugScopesShow::class)
+                    ->name('scopes.show');
+            }
+        });
 });
 
 /*
 |--------------------------------------------------------------------------
-| Logout (POST)
+| Logout
 |--------------------------------------------------------------------------
 */
 
@@ -130,5 +177,14 @@ Route::post('/logout', function () {
     auth()->logout();
     request()->session()->invalidate();
     request()->session()->regenerateToken();
+
     return redirect('/login');
 })->name('logout');
+
+/*
+|--------------------------------------------------------------------------
+| Debug-Test
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/debug-test', \App\Livewire\DebugTest::class);

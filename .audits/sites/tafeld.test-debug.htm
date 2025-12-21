@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="de" x-data="darkModeController()" x-init="init()" wire:ignore="" class="dark"><!-- tafeld/resources/views/livewire/layout/app.blade.php --><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preload" as="style" href="tafeld.test-debug-Dateien/app-DbhFabDu.css"><link rel="modulepreload" as="script" href="tafeld.test-debug-Dateien/app-iRYBtiqz.js"><link rel="stylesheet" href="tafeld.test-debug-Dateien/app-DbhFabDu.css" data-navigate-track="reload"><script type="module" src="tafeld.test-debug-Dateien/app-iRYBtiqz.js" data-navigate-track="reload"></script>    <title>Laravel</title>
+
+    <script>
+        function appLayout() {
+            return {
+                sidebarOpen: false,
+
+                toggleSidebar() {
+                    this.sidebarOpen = !this.sidebarOpen;
+                },
+
+                closeSidebar() {
+                    this.sidebarOpen = false;
+                },
+            }
+        }
+
+        function darkModeController() {
+            return {
+                isDark: false,
+
+                init() {
+                    const saved = localStorage.getItem('dark-mode');
+                    this.isDark = saved === 'true';
+                    document.documentElement.classList.toggle('dark', this.isDark);
+                },
+
+                toggle() {
+                    this.isDark = !this.isDark;
+                    localStorage.setItem('dark-mode', this.isDark);
+                    document.documentElement.classList.toggle('dark', this.isDark);
+                },
+            }
+        }
+    </script>
+
+<!-- Livewire Styles --><style>[wire\:loading][wire\:loading], [wire\:loading\.delay][wire\:loading\.delay], [wire\:loading\.inline-block][wire\:loading\.inline-block], [wire\:loading\.inline][wire\:loading\.inline], [wire\:loading\.block][wire\:loading\.block], [wire\:loading\.flex][wire\:loading\.flex], [wire\:loading\.table][wire\:loading\.table], [wire\:loading\.grid][wire\:loading\.grid], [wire\:loading\.inline-flex][wire\:loading\.inline-flex] {display: none;}[wire\:loading\.delay\.none][wire\:loading\.delay\.none], [wire\:loading\.delay\.shortest][wire\:loading\.delay\.shortest], [wire\:loading\.delay\.shorter][wire\:loading\.delay\.shorter], [wire\:loading\.delay\.short][wire\:loading\.delay\.short], [wire\:loading\.delay\.default][wire\:loading\.delay\.default], [wire\:loading\.delay\.long][wire\:loading\.delay\.long], [wire\:loading\.delay\.longer][wire\:loading\.delay\.longer], [wire\:loading\.delay\.longest][wire\:loading\.delay\.longest] {display: none;}[wire\:offline][wire\:offline] {display: none;}[wire\:dirty]:not(textarea):not(input):not(select) {display: none;}:root {--livewire-progress-bar-color: #2299dd;}[x-cloak] {display: none !important;}[wire\:cloak] {display: none !important;}dialog#livewire-error::backdrop {background-color: rgba(0, 0, 0, .6);}</style>
+<style>/* Make clicks pass-through */
+
+    #nprogress {
+      pointer-events: none;
+    }
+
+    #nprogress .bar {
+      background: var(--livewire-progress-bar-color, #29d);
+
+      position: fixed;
+      z-index: 1031;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 2px;
+    }
+
+    /* Fancy blur effect */
+    #nprogress .peg {
+      display: block;
+      position: absolute;
+      right: 0px;
+      width: 100px;
+      height: 100%;
+      box-shadow: 0 0 10px var(--livewire-progress-bar-color, #29d), 0 0 5px var(--livewire-progress-bar-color, #29d);
+      opacity: 1.0;
+
+      -webkit-transform: rotate(3deg) translate(0px, -4px);
+          -ms-transform: rotate(3deg) translate(0px, -4px);
+              transform: rotate(3deg) translate(0px, -4px);
+    }
+
+    /* Remove these to get rid of the spinner */
+    #nprogress .spinner {
+      display: block;
+      position: fixed;
+      z-index: 1031;
+      top: 15px;
+      right: 15px;
+    }
+
+    #nprogress .spinner-icon {
+      width: 18px;
+      height: 18px;
+      box-sizing: border-box;
+
+      border: solid 2px transparent;
+      border-top-color: var(--livewire-progress-bar-color, #29d);
+      border-left-color: var(--livewire-progress-bar-color, #29d);
+      border-radius: 50%;
+
+      -webkit-animation: nprogress-spinner 400ms linear infinite;
+              animation: nprogress-spinner 400ms linear infinite;
+    }
+
+    .nprogress-custom-parent {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .nprogress-custom-parent #nprogress .spinner,
+    .nprogress-custom-parent #nprogress .bar {
+      position: absolute;
+    }
+
+    @-webkit-keyframes nprogress-spinner {
+      0%   { -webkit-transform: rotate(0deg); }
+      100% { -webkit-transform: rotate(360deg); }
+    }
+    @keyframes nprogress-spinner {
+      0%   { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    </style><script type="text/javascript" async="">window.addEventListener("load",checkForCmp,!1);let dataframeForPingReturn={type:"FROM_MINIMAL_CONSENT"},checkForCmpCounter=0,maxTimeoutForResearch=200,maxRetryForSearch=25;function checkForCmp(){this.__cmp?this.__cmp("ping",2,sendMessage):this.__tcfapi?this.__tcfapi("ping",2,sendMessage):this.frames&&this.frames.length&&this.frames.__tcfapiLocator?this.__tcfapi("ping",2,sendMessage):checkForCmpCounter<maxRetryForSearch?(setTimeout(checkForCmp,maxTimeoutForResearch),checkForCmpCounter++):window.removeEventListener("load",checkForCmp,!1)}function sendMessage(e,t){t&&(dataframeForPingReturn.cmp=JSON.stringify(e),window.postMessage(dataframeForPingReturn,"*"),window.removeEventListener("load",checkForCmp,!1))}</script></head>
+
+<body class="bg-surface text-default" cz-shortcut-listen="true">
+
+    <!-- Livewire Navigate Darkmode Sync -->
+    <script>
+        document.addEventListener("livewire:navigated", () => {
+            const isDark = localStorage.getItem('dark-mode') === 'true';
+            document.documentElement.classList.toggle('dark', isDark);
+        });
+    </script>
+
+    <div x-data="{ sidebarOpen: false }" class="flex h-screen">
+
+        <!-- Mobile Sidebar -->
+        <div class="relative z-40 lg:hidden" x-show="sidebarOpen" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" style="display: none;">
+
+            <div class="fixed inset-0 bg-black/50" @click="closeSidebar()"></div>
+
+            <div class="fixed inset-y-0 left-0 flex max-w-full">
+                <div class="w-64 bg-elevated shadow-xl">
+                    <!-- tafeld/resources/views/livewire/layout/partials/navigation.blade.php -->
+
+
+<nav class="flex flex-col h-full">
+
+    <!-- Brand -->
+    <div class="flex items-center px-4 py-4 border-b border-default">
+        <a href="https://tafeld.test/dashboard" class="flex items-center gap-2 m-4 text-lg font-semibold">
+            <!-- tafeld/resources/views/components/logo.blade.php -->
+
+
+    <picture>
+        <source srcset="tafeld.test-debug-Dateien/die-tafeln-dark.svg 1x" media="(prefers-color-scheme: dark)">
+        <img src="tafeld.test-debug-Dateien/die-tafeln-light.svg" width="160" class=" " alt="tafeld logo">
+    </picture>
+
+    
+        </a>
+    </div>
+
+    <!-- Navigation -->
+    <div class="flex-1 overflow-y-auto py-4">
+        <ul class="space-y-1 px-2">
+
+                            
+                <li>
+                    <a href="https://tafeld.test/dashboard" wire:navigate="" class="group flex items-center gap-3 px-3 py-2 rounded-lg text-sm
+                            text-muted hover:bg-hover hover:text-default">
+
+                                                        <svg class="w-5 h-5
+                                        text-muted group-hover:text-default" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+  <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"></path>
+</svg>                            
+                        <span class="truncate">Dashboard</span>
+                    </a>
+                </li>
+                            
+                <li>
+                    <a href="https://tafeld.test/persons" wire:navigate="" class="group flex items-center gap-3 px-3 py-2 rounded-lg text-sm
+                            text-muted hover:bg-hover hover:text-default">
+
+                                                        <svg class="w-5 h-5
+                                        text-muted group-hover:text-default" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"></path>
+</svg>                            
+                        <span class="truncate">Personen</span>
+                    </a>
+                </li>
+                            
+                <li>
+                    <a href="https://tafeld.test/persons/create" wire:navigate="" class="group flex items-center gap-3 px-3 py-2 rounded-lg text-sm
+                            text-muted hover:bg-hover hover:text-default">
+
+                                                        <svg class="w-5 h-5
+                                        text-muted group-hover:text-default" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z"></path>
+</svg>                            
+                        <span class="truncate">Person anlegen</span>
+                    </a>
+                </li>
+                            
+                <li>
+                    <a href="https://tafeld.test/debug" wire:navigate="" class="group flex items-center gap-3 px-3 py-2 rounded-lg text-sm
+                            bg-active text-default font-semibold">
+
+                                                        <svg class="w-5 h-5
+                                        text-default" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M12 12.75c1.148 0 2.278.08 3.383.237 1.037.146 1.866.966 1.866 2.013 0 3.728-2.35 6.75-5.25 6.75S6.75 18.728 6.75 15c0-1.046.83-1.867 1.866-2.013A24.204 24.204 0 0 1 12 12.75Zm0 0c2.883 0 5.647.508 8.207 1.44a23.91 23.91 0 0 1-1.152 6.06M12 12.75c-2.883 0-5.647.508-8.208 1.44.125 2.104.52 4.136 1.153 6.06M12 12.75a2.25 2.25 0 0 0 2.248-2.354M12 12.75a2.25 2.25 0 0 1-2.248-2.354M12 8.25c.995 0 1.971-.08 2.922-.236.403-.066.74-.358.795-.762a3.778 3.778 0 0 0-.399-2.25M12 8.25c-.995 0-1.97-.08-2.922-.236-.402-.066-.74-.358-.795-.762a3.734 3.734 0 0 1 .4-2.253M12 8.25a2.25 2.25 0 0 0-2.248 2.146M12 8.25a2.25 2.25 0 0 1 2.248 2.146M8.683 5a6.032 6.032 0 0 1-1.155-1.002c.07-.63.27-1.222.574-1.747m.581 2.749A3.75 3.75 0 0 1 15.318 5m0 0c.427-.283.815-.62 1.155-.999a4.471 4.471 0 0 0-.575-1.752M4.921 6a24.048 24.048 0 0 0-.392 3.314c1.668.546 3.416.914 5.223 1.082M19.08 6c.205 1.08.337 2.187.392 3.314a23.882 23.882 0 0 1-5.223 1.082"></path>
+</svg>                            
+                        <span class="truncate">Debug</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <!-- Logout -->
+    <div class="border-t border-default px-2 py-3">
+        <form method="POST" action="https://tafeld.test/logout">
+            <input type="hidden" name="_token" value="veWMeNOocIUllOcdfYgfbFECpgHoIhozVcMjzFYC" autocomplete="off">
+            <button type="submit" class="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm
+                       text-muted hover:bg-hover hover:text-default">
+                <svg class="w-5 h-5 text-muted group-hover:text-default" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75"></path>
+</svg>                <span>Abmelden</span>
+            </button>
+        </form>
+    </div>
+
+</nav>                </div>
+            </div>
+        </div>
+
+        <!-- Desktop Sidebar -->
+        <aside class="hidden lg:flex lg:flex-col w-64 shrink-0 bg-elevated border-r border-default">
+            <!-- tafeld/resources/views/livewire/layout/partials/navigation.blade.php -->
+
+
+<nav class="flex flex-col h-full">
+
+    <!-- Brand -->
+    <div class="flex items-center px-4 py-4 border-b border-default">
+        <a href="https://tafeld.test/dashboard" class="flex items-center gap-2 m-4 text-lg font-semibold">
+            <!-- tafeld/resources/views/components/logo.blade.php -->
+
+
+    <picture>
+        <source srcset="tafeld.test-debug-Dateien/die-tafeln-dark.svg 1x" media="(prefers-color-scheme: dark)">
+        <img src="tafeld.test-debug-Dateien/die-tafeln-light.svg" width="160" class=" " alt="tafeld logo">
+    </picture>
+
+    
+        </a>
+    </div>
+
+    <!-- Navigation -->
+    <div class="flex-1 overflow-y-auto py-4">
+        <ul class="space-y-1 px-2">
+
+                            
+                <li>
+                    <a href="https://tafeld.test/dashboard" wire:navigate="" class="group flex items-center gap-3 px-3 py-2 rounded-lg text-sm
+                            text-muted hover:bg-hover hover:text-default">
+
+                                                        <svg class="w-5 h-5
+                                        text-muted group-hover:text-default" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+  <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"></path>
+</svg>                            
+                        <span class="truncate">Dashboard</span>
+                    </a>
+                </li>
+                            
+                <li>
+                    <a href="https://tafeld.test/persons" wire:navigate="" class="group flex items-center gap-3 px-3 py-2 rounded-lg text-sm
+                            text-muted hover:bg-hover hover:text-default">
+
+                                                        <svg class="w-5 h-5
+                                        text-muted group-hover:text-default" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"></path>
+</svg>                            
+                        <span class="truncate">Personen</span>
+                    </a>
+                </li>
+                            
+                <li>
+                    <a href="https://tafeld.test/persons/create" wire:navigate="" class="group flex items-center gap-3 px-3 py-2 rounded-lg text-sm
+                            text-muted hover:bg-hover hover:text-default">
+
+                                                        <svg class="w-5 h-5
+                                        text-muted group-hover:text-default" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z"></path>
+</svg>                            
+                        <span class="truncate">Person anlegen</span>
+                    </a>
+                </li>
+                            
+                <li>
+                    <a href="https://tafeld.test/debug" wire:navigate="" class="group flex items-center gap-3 px-3 py-2 rounded-lg text-sm
+                            bg-active text-default font-semibold">
+
+                                                        <svg class="w-5 h-5
+                                        text-default" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M12 12.75c1.148 0 2.278.08 3.383.237 1.037.146 1.866.966 1.866 2.013 0 3.728-2.35 6.75-5.25 6.75S6.75 18.728 6.75 15c0-1.046.83-1.867 1.866-2.013A24.204 24.204 0 0 1 12 12.75Zm0 0c2.883 0 5.647.508 8.207 1.44a23.91 23.91 0 0 1-1.152 6.06M12 12.75c-2.883 0-5.647.508-8.208 1.44.125 2.104.52 4.136 1.153 6.06M12 12.75a2.25 2.25 0 0 0 2.248-2.354M12 12.75a2.25 2.25 0 0 1-2.248-2.354M12 8.25c.995 0 1.971-.08 2.922-.236.403-.066.74-.358.795-.762a3.778 3.778 0 0 0-.399-2.25M12 8.25c-.995 0-1.97-.08-2.922-.236-.402-.066-.74-.358-.795-.762a3.734 3.734 0 0 1 .4-2.253M12 8.25a2.25 2.25 0 0 0-2.248 2.146M12 8.25a2.25 2.25 0 0 1 2.248 2.146M8.683 5a6.032 6.032 0 0 1-1.155-1.002c.07-.63.27-1.222.574-1.747m.581 2.749A3.75 3.75 0 0 1 15.318 5m0 0c.427-.283.815-.62 1.155-.999a4.471 4.471 0 0 0-.575-1.752M4.921 6a24.048 24.048 0 0 0-.392 3.314c1.668.546 3.416.914 5.223 1.082M19.08 6c.205 1.08.337 2.187.392 3.314a23.882 23.882 0 0 1-5.223 1.082"></path>
+</svg>                            
+                        <span class="truncate">Debug</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <!-- Logout -->
+    <div class="border-t border-default px-2 py-3">
+        <form method="POST" action="https://tafeld.test/logout">
+            <input type="hidden" name="_token" value="veWMeNOocIUllOcdfYgfbFECpgHoIhozVcMjzFYC" autocomplete="off">
+            <button type="submit" class="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm
+                       text-muted hover:bg-hover hover:text-default">
+                <svg class="w-5 h-5 text-muted group-hover:text-default" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75"></path>
+</svg>                <span>Abmelden</span>
+            </button>
+        </form>
+    </div>
+
+</nav>        </aside>
+
+        <!-- Main Content -->
+        <div class="flex flex-1 flex-col min-w-0">
+
+            <!-- Header (mit Breadcrumbs) -->
+            <!-- tafeld/resources/views/livewire/layout/partials/header.blade.php -->
+
+<header class="h-16 flex items-center justify-between px-4 lg:px-6
+           border-b border-default bg-elevated backdrop-blur">
+
+    <!-- LEFT SIDE: Standort + Breadcrumbs -->
+    <div class="flex flex-col justify-center leading-tight select-none">
+
+        <!-- Standortname (kommt später aus DB) -->
+        <span class="mt-2 mb-2 text-base font-semibold text-brand-500 uppercase tracking-wide">
+            Tafel-Standort
+        </span>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="flex items-center gap-4">
+
+        <!-- DARK MODE TOGGLE -->
+        <button @click="toggle()" class="group p-2 rounded-full bg-elevated hover:bg-hover
+                   text-muted hover:text-default transition">
+
+            <svg x-show="!isDark" class="w-5 h-5 text-muted group-hover:text-default" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon" style="display: none;">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"></path>
+</svg>            <svg x-show="isDark" class="w-5 h-5 text-muted group-hover:text-default" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"></path>
+</svg>        </button>
+
+        <!-- USER INFORMATION -->
+        <div class="flex items-center gap-2">
+
+            <!-- Avatar (Foto / Gender / Fallback) -->
+            <img src="tafeld.test-debug-Dateien/default-user.svg" alt="avatar" class="w-8 h-8 rounded-full object-cover bg-elevated">
+
+            <!-- User Name -->
+            <span class="hidden md:inline text-sm font-medium text-default">
+                Gunter Reinhard
+            </span>
+
+        </div>
+
+    </div>
+
+</header>
+            
+            
+            <main class="flex-1 overflow-y-auto p-4 lg:p-6">
+                <div class="max-w-content mx-auto w-full">
+                    <div wire:snapshot="{&quot;data&quot;:{&quot;stats&quot;:[{&quot;total_scopes&quot;:2,&quot;active_scopes&quot;:2,&quot;logs_24h&quot;:2},{&quot;s&quot;:&quot;arr&quot;}],&quot;chartLogsByLevel&quot;:[[[{&quot;label&quot;:&quot;debug&quot;,&quot;value&quot;:2},{&quot;s&quot;:&quot;arr&quot;}],[{&quot;label&quot;:&quot;info&quot;,&quot;value&quot;:0},{&quot;s&quot;:&quot;arr&quot;}],[{&quot;label&quot;:&quot;warn&quot;,&quot;value&quot;:0},{&quot;s&quot;:&quot;arr&quot;}],[{&quot;label&quot;:&quot;error&quot;,&quot;value&quot;:0},{&quot;s&quot;:&quot;arr&quot;}],[{&quot;label&quot;:&quot;success&quot;,&quot;value&quot;:0},{&quot;s&quot;:&quot;arr&quot;}],[{&quot;label&quot;:&quot;fail&quot;,&quot;value&quot;:0},{&quot;s&quot;:&quot;arr&quot;}]],{&quot;s&quot;:&quot;arr&quot;}],&quot;chartLogsByScope&quot;:[[[{&quot;label&quot;:&quot;persons.create.nationality&quot;,&quot;value&quot;:1},{&quot;s&quot;:&quot;arr&quot;}],[{&quot;label&quot;:&quot;persons.create.workarea&quot;,&quot;value&quot;:1},{&quot;s&quot;:&quot;arr&quot;}]],{&quot;s&quot;:&quot;arr&quot;}],&quot;latestLogs&quot;:[[[{&quot;time&quot;:&quot;2025-12-07 11:16:01&quot;,&quot;level&quot;:&quot;debug&quot;,&quot;scope&quot;:&quot;persons.create.nationality&quot;,&quot;message&quot;:&quot;DebugTest component render() fired&quot;,&quot;context&quot;:[{&quot;level&quot;:&quot;debug&quot;,&quot;component&quot;:&quot;DebugTest&quot;},{&quot;s&quot;:&quot;arr&quot;}],&quot;raw_line&quot;:&quot;2025-12-07 11:16:01 | DEBUG | persons.create.nationality | DebugTest component render() fired | {\&quot;level\&quot;:\&quot;debug\&quot;,\&quot;component\&quot;:\&quot;DebugTest\&quot;}&quot;,&quot;file_path&quot;:null},{&quot;s&quot;:&quot;arr&quot;}],[{&quot;time&quot;:&quot;2025-12-06 14:24:57&quot;,&quot;level&quot;:&quot;debug&quot;,&quot;scope&quot;:&quot;persons.create.workarea&quot;,&quot;message&quot;:&quot;DebugTest workarea scope fired&quot;,&quot;context&quot;:[{&quot;component&quot;:&quot;DebugTest&quot;},{&quot;s&quot;:&quot;arr&quot;}],&quot;raw_line&quot;:&quot;2025-12-06 14:24:57 | DEBUG | persons.create.workarea | DebugTest workarea scope fired | {\&quot;component\&quot;:\&quot;DebugTest\&quot;}&quot;,&quot;file_path&quot;:null},{&quot;s&quot;:&quot;arr&quot;}]],{&quot;s&quot;:&quot;arr&quot;}]},&quot;memo&quot;:{&quot;id&quot;:&quot;hX42q2NHM94IFHdYTHIq&quot;,&quot;name&quot;:&quot;debug.overview&quot;,&quot;path&quot;:&quot;debug&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;release&quot;:&quot;a-a-a&quot;,&quot;children&quot;:[],&quot;scripts&quot;:[],&quot;assets&quot;:[],&quot;errors&quot;:[],&quot;locale&quot;:&quot;de&quot;},&quot;checksum&quot;:&quot;379c0124347be9b94eeb29fa15be91c13a21e73c14957d82bb4f5b1d5235e320&quot;}" wire:effects="[]" wire:id="hX42q2NHM94IFHdYTHIq">
+    
+
+    
+    
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+        <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow">
+            <div class="text-sm text-gray-500">Gesamt Scopes</div>
+            <div class="text-3xl font-semibold text-gray-900 dark:text-gray-100">
+                2
+            </div>
+        </div>
+
+        <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow">
+            <div class="text-sm text-gray-500">Aktive Scopes</div>
+            <div class="text-3xl font-semibold text-gray-900 dark:text-gray-100">
+                2
+            </div>
+        </div>
+
+        <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow">
+            <div class="text-sm text-gray-500">Logs (24h)</div>
+            <div class="text-3xl font-semibold text-gray-900 dark:text-gray-100">
+                2
+            </div>
+        </div>
+    </div>
+
+    
+    
+    
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-10">
+
+        
+        <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow">
+            <h2 class="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
+                Logs nach Level (24h)
+            </h2>
+            <canvas id="chart-logs-level" data-chart="[{&quot;label&quot;:&quot;debug&quot;,&quot;value&quot;:2},{&quot;label&quot;:&quot;info&quot;,&quot;value&quot;:0},{&quot;label&quot;:&quot;warn&quot;,&quot;value&quot;:0},{&quot;label&quot;:&quot;error&quot;,&quot;value&quot;:0},{&quot;label&quot;:&quot;success&quot;,&quot;value&quot;:0},{&quot;label&quot;:&quot;fail&quot;,&quot;value&quot;:0}]">
+            </canvas>
+        </div>
+
+        
+        <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow">
+            <h2 class="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
+                Logs nach Scope (24h)
+            </h2>
+            <canvas id="chart-logs-scope" data-chart="[{&quot;label&quot;:&quot;persons.create.nationality&quot;,&quot;value&quot;:1},{&quot;label&quot;:&quot;persons.create.workarea&quot;,&quot;value&quot;:1}]">
+            </canvas>
+        </div>
+    </div>
+
+    
+    
+    
+    <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow">
+        <h2 class="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
+            Letzte Logs
+        </h2>
+
+        <table class="w-full text-left text-sm">
+            <thead>
+                <tr class="border-b border-gray-300 dark:border-gray-700">
+                    <th class="py-2">Zeit</th>
+                    <th class="py-2">Level</th>
+                    <th class="py-2">Scope</th>
+                    <th class="py-2">Message</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!--[if BLOCK]><![endif]-->                    <tr class="border-b border-gray-200 dark:border-gray-700">
+                        <td class="py-1">2025-12-07 11:16:01</td>
+                        <td class="py-1">DEBUG</td>
+                        <td class="py-1">persons.create.nationality</td>
+                        <td class="py-1">DebugTest component render() fired</td>
+                    </tr>
+                                    <tr class="border-b border-gray-200 dark:border-gray-700">
+                        <td class="py-1">2025-12-06 14:24:57</td>
+                        <td class="py-1">DEBUG</td>
+                        <td class="py-1">persons.create.workarea</td>
+                        <td class="py-1">DebugTest workarea scope fired</td>
+                    </tr>
+                <!--[if ENDBLOCK]><![endif]-->            </tbody>
+        </table>
+    </div>
+</div>
+                </div>
+            </main>
+
+            <!-- tafeld/resources/views/livewire/layout/partials/footer.blade.php -->
+
+<footer class="border-t border-default bg-elevated backdrop-blur">
+    <div class="px-4 lg:px-6 py-3 flex items-center justify-between text-xs text-muted">
+        <span>© 2025 Laravel</span>
+
+        <span class="inline-flex items-center gap-1">
+            <span class="hidden sm:inline text-muted">Status:</span>
+            <span class="font-mono text-default">livewire</span>
+        </span>
+    </div>
+</footer>
+        </div>
+
+    </div>
+
+    
+    <script>
+        // Initialisierung des Debug-Moduls (Livewire 3 kompatibel)
+        document.addEventListener("livewire:init", () => {
+            window.TAFELD_DEBUG_GLOBAL = {"enabled":true,"reset_on_run":true,"channels":{"console":true,"file":true,"laravel_log":true},"scopes":{"persons.create.nationality":{"enabled":true,"file":"persons\/create\/nationality.log"},"persons.create.workarea":{"enabled":true,"file":"persons\/create\/workarea.log"}}};
+            window.TAFELD_DEBUG_LOG_LEVEL = "debug";
+
+            if (window.TafeldDebug && typeof window.TafeldDebug.init === 'function') {
+                window.TafeldDebug.init(
+                    window.TAFELD_DEBUG_GLOBAL,
+                    window.TAFELD_DEBUG_LOG_LEVEL
+                );
+            }
+        });
+
+        // Debug-Ereignisse empfangen (Livewire 3: BrowserEvents)
+        window.addEventListener('tafeld-debug', (event) => {
+            if (window.TafeldDebug && typeof window.TafeldDebug.fromPHP === 'function') {
+                window.TafeldDebug.fromPHP(event.detail);
+            }
+        });
+    </script>
+
+<!-- Livewire Scripts -->
+<script src="tafeld.test-debug-Dateien/livewire.js" data-csrf="veWMeNOocIUllOcdfYgfbFECpgHoIhozVcMjzFYC" data-update-uri="/livewire/update" data-navigate-once="true"></script>
+
+
+<deepl-input-controller translate="no"></deepl-input-controller></body></html>

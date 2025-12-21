@@ -63,6 +63,49 @@
         background-color: var(--brand-orange);
     }
 
+    .bg-label {
+        background-color: var(--color-brand-primary);
+    }
+
+    /* Smoother Hover/Focus-Transition */
+    .input-transition {
+        @apply transition-all duration-500 ease-in-out;
+    }
+
+    /* Basis für alle Eingabefelder */
+    .input-base {
+        @apply w-full bg-card text-default px-3 py-2 border-0 last:rounded-r-lg;
+        @apply input-transition;
+        @apply hover-input-brand focus-input-brand focus-input-reset;
+    }
+
+    /* Fokus vollständig entstören (kein Outline, kein Ring, keine blauen Ränder) */
+    .focus-input-reset {
+        @apply focus:outline-none focus:ring-0 focus:ring-transparent focus:border-transparent;
+    }
+
+    /* 2-spaltiges Layout für Slot-Eingabefelder */
+    .input-group-2col {
+        @apply grid grid-cols-2;
+    }
+
+    /* Gleicher Divider wie in group-Komponente */
+    .input-group-divider {
+        @apply divide-x;
+    }
+
+    .input-group-divider>*+* {
+        border-left-color: rgb(var(--color-border-default)) !important;
+    }
+
+    .focus-input-brand {
+        @apply focus:bg-slate-200 focus:text-gray-900 focus:placeholder-gray-600;
+    }
+
+    .hover-input-brand {
+        @apply hover:bg-slate-100 hover:text-gray-900 hover:placeholder-gray-700;
+    }
+
     .border-brand {
         border-color: var(--brand-orange);
     }
@@ -75,7 +118,7 @@
         color: var(--brand-orange-dark);
     }
 
-    /* Semantische Brand-Utilities (auf den neuen CSS-Variablen) */
+    /* Semantische Brand-Utilities */
     .text-brand-primary {
         color: rgb(var(--color-brand-primary));
     }
@@ -101,5 +144,44 @@
     .btn-brand:focus-visible {
         outline: 2px solid rgb(var(--color-focus-ring));
         outline-offset: 2px;
+    }
+
+
+    /* ============================
+       SELECT COMPONENT STYLING
+       ============================ */
+
+    /* Grundzustand aller Select-Listeneinträge */
+    .select-base {
+        @apply w-full px-3 py-2 text-default cursor-pointer;
+        background-color: rgb(var(--color-bg-card));
+        transition: background-color 200ms ease, color 200ms ease;
+
+        /* Abstand zwischen Items */
+        @apply mb-1;
+
+        /* Rahmen jedes Eintrags */
+        border: 1px solid rgb(var(--color-border-default));
+        border-radius: 0.25rem;
+    }
+
+    /* Hover-Zustand (Maus) */
+    .select-hover {
+        background-color: rgb(var(--color-bg-hover));
+    }
+
+    /* Active-/Highlight-Zustand (Keyboard oder Auswahl) */
+    .select-active {
+        background-color: rgb(var(--color-bg-active));
+        color: rgb(var(--color-text-default));
+
+        /* stärkerer Kontrast */
+        border-color: rgb(var(--color-border-muted));
+    }
+
+    .select-trigger {
+        @apply flex w-full items-center rounded bg-card text-default px-3 py-2 border-0;
+        @apply input-transition;
+        @apply hover-input-brand focus-input-brand focus-input-reset;
     }
 }

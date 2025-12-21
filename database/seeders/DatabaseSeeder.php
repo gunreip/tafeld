@@ -3,12 +3,13 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    use WithoutModelEvents;
+    // Model-Events sind aktiv; ULID-Hooks funktionieren jetzt korrekt
+    // use WithoutModelEvents;
 
     /**
      * Seed the application's database.
@@ -27,7 +28,14 @@ class DatabaseSeeder extends Seeder
             PermissionSeeder::class, // nur wenn vorhanden
             CountriesSeeder::class,
             AdminSeeder::class,
+            CountriesSortKeyFixSeeder::class,
+            CountryRegionsSeeder::class,
             PeopleSeeder::class,
+            PeopleSortKeyFixSeeder::class,
+            HolidaysSeeder::class,
+            EventSeeder::class,
+            CountryWorkAreaSeeder::class,
+            DebugConfigSeeder::class,
         ]);
     }
 }

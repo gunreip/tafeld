@@ -1,0 +1,52 @@
+{
+    "root": "bootstrap",
+    "path": "\/home\/gunreip\/code\/tafeld\/bootstrap",
+    "items": [
+        {
+            "type": "dir",
+            "name": "cache",
+            "items": [
+                {
+                    "type": "file",
+                    "name": "packages.php",
+                    "extension": "php",
+                    "size": 2462,
+                    "modified_at": 1765553253,
+                    "modified_at_iso": "2025-12-12T15:27:33+00:00",
+                    "created_at": 1765553253,
+                    "created_at_iso": "2025-12-12T15:27:33+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "services.php",
+                    "extension": "php",
+                    "size": 23187,
+                    "modified_at": 1765553253,
+                    "modified_at_iso": "2025-12-12T15:27:33+00:00",
+                    "created_at": 1765553253,
+                    "created_at_iso": "2025-12-12T15:27:33+00:00"
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "name": "app.php",
+            "extension": "php",
+            "size": 525,
+            "modified_at": 1762268421,
+            "modified_at_iso": "2025-11-04T15:00:21+00:00",
+            "created_at": 1762680789,
+            "created_at_iso": "2025-11-09T09:33:09+00:00"
+        },
+        {
+            "type": "file",
+            "name": "providers.php",
+            "extension": "php",
+            "size": 161,
+            "modified_at": 1762700747,
+            "modified_at_iso": "2025-11-09T15:05:47+00:00",
+            "created_at": 1762700747,
+            "created_at_iso": "2025-11-09T15:05:47+00:00"
+        }
+    ]
+}

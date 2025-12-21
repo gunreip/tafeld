@@ -1,0 +1,16 @@
+[drwxr-xr-x 4.0K]  tests
+├── [drwxr-xr-x 4.0K]  Feature
+│   ├── [drwxr-xr-x 4.0K]  Auth
+│   │   ├── [-rw-r--r-- 2.0K]  AuthenticationTest.php
+│   │   ├── [-rw-r--r-- 1.7K]  EmailVerificationTest.php
+│   │   ├── [-rw-r--r-- 1.3K]  PasswordConfirmationTest.php
+│   │   ├── [-rw-r--r-- 2.3K]  PasswordResetTest.php
+│   │   ├── [-rw-r--r-- 1.4K]  PasswordUpdateTest.php
+│   │   └── [-rw-r--r--  886]  RegistrationTest.php
+│   ├── [-rw-r--r--  359]  ExampleTest.php
+│   └── [-rw-r--r-- 2.7K]  ProfileTest.php
+├── [-rw-r--r--  142]  TestCase.php
+└── [drwxr-xr-x 4.0K]  Unit
+    └── [-rw-r--r--  243]  ExampleTest.php
+
+4 directories, 10 files

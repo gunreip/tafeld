@@ -115,7 +115,6 @@
     }
 }
 
-/* Utility-Klassen auf Basis der Variablen */
 @layer utilities {
 
     /* Oberflächen */
@@ -161,7 +160,24 @@
         border-color: rgb(var(--color-border-muted));
     }
 
-    /* Status / Semantic (Text + Hintergrund) */
+    /* Divider */
+    .divider-default {
+        border-color: rgb(var(--color-border-default));
+    }
+
+    .divider-muted {
+        border-color: rgb(var(--color-border-muted));
+    }
+
+    .input-group-divider {
+        @apply divide-x;
+    }
+
+    .input-group-divider>*+* {
+        border-left-color: rgb(var(--color-border-default)) !important;
+    }
+
+    /* Status / Semantic */
     .text-success {
         color: rgb(var(--color-success));
     }
@@ -194,9 +210,44 @@
         background-color: rgb(var(--color-info-bg));
     }
 
-    /* Focus-Ring (für :focus-visible via @apply in Komponenten) */
+    /* Focus-Ring */
     .focus-ring {
         outline: 2px solid rgb(var(--color-focus-ring));
         outline-offset: 2px;
+    }
+
+    /* ============================
+       SELECT COMPONENT STYLING
+       ============================ */
+
+    .select-base {
+        @apply w-full px-3 py-2 text-default cursor-pointer;
+        background-color: rgb(var(--color-bg-card));
+        transition: background-color 200ms ease, color 200ms ease;
+    }
+
+    .select-hover {
+        background-color: rgb(var(--color-bg-hover));
+    }
+
+    .select-active {
+        background-color: rgb(var(--color-bg-active));
+        color: rgb(var(--color-text-default));
+    }
+
+    /* ============================
+       SELECT COMPONENT – VISUAL ENHANCEMENTS
+       ============================ */
+
+    .select-card {
+        @apply border border-default rounded-md shadow-sm;
+    }
+
+    .select-gap {
+        @apply flex flex-col gap-y-1;
+    }
+
+    .select-rounded {
+        @apply rounded-md;
     }
 }

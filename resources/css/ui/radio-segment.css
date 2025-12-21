@@ -1,0 +1,43 @@
+/* tafeld/resources/css/ui/radio-segment.css */
+
+@layer components {
+
+    /* ===========================================
+       RADIO-SEGMENT – WRAPPER (border removed)
+       =========================================== */
+    .radio-segment-wrapper {
+        @apply flex w-full rounded-r-lg bg-surface overflow-hidden;
+    }
+
+    /* ===========================================
+       RADIO-SEGMENT – BASE
+       =========================================== */
+    .radio-segment {
+        @apply h-10 flex items-center justify-center bg-card gap-2 px-3 text-base font-medium text-default select-none cursor-pointer transition bg-surface;
+    }
+
+    /* ===========================================
+       RADIO-SEGMENT – HOVER
+       =========================================== */
+    .radio-segment:hover {
+        @apply bg-slate-100 text-gray-900;
+    }
+
+    /* ===========================================
+       RADIO-SEGMENT – CHECKED (Brand-Filled)
+       =========================================== */
+    .peer:checked+.radio-segment {
+        @apply bg-brand text-black shadow-md;
+    }
+
+    /* ===========================================
+       RADIO-SEGMENT – CHECKMARK (✓)
+       =========================================== */
+    .radio-segment-check {
+        @apply ml-2 text-xs opacity-0 transition;
+    }
+
+    .peer:checked+.radio-segment .radio-segment-check {
+        @apply opacity-100;
+    }
+}

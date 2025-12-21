@@ -1,0 +1,96 @@
+[drwxrwxr-x 4.0K]  storage
+├── [drwxrwxr-x 4.0K]  app
+│   ├── [-rwxrwxr-x   33]  .gitignore
+│   ├── [-rwxrwxr-x  375]  country_DE.json
+│   ├── [drwxrwxr-x 4.0K]  private
+│   │   └── [-rwxrwxr-x   14]  .gitignore
+│   ├── [drwxrwxr-x 4.0K]  public
+│   │   └── [-rwxrwxr-x   14]  .gitignore
+│   └── [drwxrwxr-x 4.0K]  tables
+│       ├── [-rwxrwxr-x 2.8K]  countries.json
+│       └── [-rwxrwxr-x 6.4K]  people.json
+├── [drwxrwxr-x 4.0K]  framework
+│   ├── [-rwxrwxr-x  119]  .gitignore
+│   ├── [drwxrwxr-x 4.0K]  cache
+│   │   ├── [-rwxrwxr-x   21]  .gitignore
+│   │   └── [drwxrwxr-x 4.0K]  data
+│   │       └── [-rwxrwxr-x   14]  .gitignore
+│   ├── [drwxrwxr-x 4.0K]  sessions
+│   │   └── [-rwxrwxr-x   14]  .gitignore
+│   ├── [drwxrwxr-x 4.0K]  testing
+│   │   └── [-rwxrwxr-x   14]  .gitignore
+│   └── [drwxrwxr-x  40K]  views
+│       ├── [-rwxrwxr-x   14]  .gitignore
+│       ├── [-rw-r--r-- 4.9K]  0d46a1ca1283a1f2684b8cd90fdc3af3.php
+│       ├── [-rw-r--r-- 4.3K]  0e46ccdac57e803c44a6e5c7c4cf10aa.php
+│       ├── [-rw-r--r--  562]  0f9329e982dfe005b04a82d31ab48e6d.php
+│       ├── [-rw-r--r--  589]  1272977fb416713d87f355c17e9c2135.php
+│       ├── [-rw-r--r--  467]  1505a1c85d14dfbf8101dcf7b26cc063.blade.php
+│       ├── [-rw-r--r--  289]  18006b45eab462666792e11e935853d1.php
+│       ├── [-rw-r--r--  228]  18324dc32c8b8610ba577db2c2be408e.php
+│       ├── [-rw-r--r--  313]  1c2fba2ed3c067043d0dc6802213b59c.blade.php
+│       ├── [-rw-r--r--  767]  1f71cfeb3b39330c63305f763e6808fc.php
+│       ├── [-rw-r--r-- 7.5K]  20a483e04b70cddd94a15e0fd455954f.php
+│       ├── [-rw-r--r--  390]  23781564978f2bef2b57d476ecf0bf2c.php
+│       ├── [-rw-r--r--  599]  25fe62af7d67b1eb16961f4b9fd74a2e.php
+│       ├── [-rw-r--r--  315]  2f50f0a608f65069ab6308e6a64365e4.blade.php
+│       ├── [-rw-r--r--  423]  31ece6f4830f8ca5fde25e41f6426b18.blade.php
+│       ├── [-rw-r--r--  588]  367ba27b93ba8cd2d0259491e966b562.php
+│       ├── [-rw-r--r--  17K]  37811d79bcbecbdcdb554757ea1da10c.php
+│       ├── [-rw-r--r-- 1.3K]  3e106ae0ad737f66d34e7f580cbee12b.php
+│       ├── [-rw-r--r--  468]  4102599e0f904c1beabe64a96e0b0390.blade.php
+│       ├── [-rw-r--r-- 2.2K]  4165a3801338fa8ace057b37e51a4161.php
+│       ├── [-rw-r--r--  574]  420d168e170d0cb6e151e57ab8a4a2b5.php
+│       ├── [-rw-r--r--  571]  4943bc92ebba41e8b0e508149542e0ad.blade.php
+│       ├── [-rw-r--r--  376]  4e751b09bab37d2c6b4a6769ebdce142.php
+│       ├── [-rw-r--r-- 1.8K]  4f271759104c6eff12d01a2e9679f85e.php
+│       ├── [-rw-r--r--  504]  516b2ccde02f9fcb7d47fc097395c5b5.blade.php
+│       ├── [-rw-r--r-- 1.2K]  585c415e5ee424b8920e95998d645a32.blade.php
+│       ├── [-rw-r--r--  25K]  594f864272db6609d5904d0359960ad8.php
+│       ├── [-rw-r--r-- 6.7K]  59f2a416725bbfd8d7892b1d5e39d55f.php
+│       ├── [-rw-r--r--  374]  5d470de1cdcc5ebdfc02dafb447c250e.php
+│       ├── [-rw-r--r-- 1.5K]  5f044dbc7a2933072b12f3a27d997e2e.php
+│       ├── [-rw-r--r--  624]  61be0f922faa530629ff950830e9f1fa.php
+│       ├── [-rw-r--r-- 6.2K]  64acce82a137bc3ba291f7c81c14ac8b.php
+│       ├── [-rw-r--r-- 1.9K]  658d719c46ae180049e903cffbe14185.php
+│       ├── [-rw-r--r--  311]  67ce25ff0e7aa6a38ae9bf7935fc4cf5.blade.php
+│       ├── [-rw-r--r-- 1.8K]  6a8279d953005d3bee2d99cfe4eec5a8.php
+│       ├── [-rw-r--r--  479]  70435d198d78fbff9ed38afff65a4506.blade.php
+│       ├── [-rw-r--r-- 5.3K]  74e90618669589e18071acf96809389f.php
+│       ├── [-rw-r--r--  313]  78762bdf01f7e4b491235270f7cf3f0f.blade.php
+│       ├── [-rw-r--r--  311]  7977d67dace8e5593d8c7d37c72044c4.blade.php
+│       ├── [-rw-r--r-- 1.8K]  7a711cf0dbdfc437b9108be9016aeca8.php
+│       ├── [-rw-r--r-- 5.0K]  82af21ea53bb76ac1174ae4984d9406d.php
+│       ├── [-rw-r--r--  275]  8a906719eaa94d7ed0a44b178fad31ed.blade.php
+│       ├── [-rw-r--r--  395]  8f5fb2bb7f60670699672b9338d21142.php
+│       ├── [-rw-r--r--  442]  92a89800967cd06dee2dea9e552b7a2e.blade.php
+│       ├── [-rw-r--r--  469]  98f1637d747b69d77a225c7752244a86.blade.php
+│       ├── [-rw-r--r--  670]  99b0780055a6bd7c5cb00a24bed05be5.php
+│       ├── [-rw-r--r--  254]  9d1cba9ddfcc7d10cbb469764d1345c4.blade.php
+│       ├── [-rw-r--r-- 1.8K]  9e1b12909a369885b309f29fbad34cd3.php
+│       ├── [-rw-r--r--  784]  a59db5dfd3048413a175411f558adfc9.php
+│       ├── [-rw-r--r-- 4.6K]  a8d6bac7e57083daa1fdf892861d86d3.php
+│       ├── [-rw-r--r--  256]  b03d558ac05b04673739538ea548658d.blade.php
+│       ├── [-rw-r--r--  184]  b20a907e1393f77e99c9b56cec855943.php
+│       ├── [-rw-r--r-- 2.3K]  b222a4e2eb95c863777c7ba3c92d90c9.php
+│       ├── [-rw-r--r--  454]  b32c173664c1cf0fe453141a7322f39d.blade.php
+│       ├── [-rw-r--r--  543]  b57727a51ac248fcc22d5190ead41689.php
+│       ├── [-rw-r--r-- 1.3K]  b6a9ab202ec5811095e1e2346e4cf890.php
+│       ├── [-rw-r--r--  587]  ce53ed7c4a71149aaead617ec8701172.php
+│       ├── [-rw-r--r--  270]  cf28e0e3e0e3847190b913e9d2d1e69e.blade.php
+│       ├── [-rw-r--r--  611]  d2faf29bc38595f557efda02a4159c04.blade.php
+│       ├── [-rw-r--r-- 1.8K]  e08fde7c6b13ca7afeb90cacc6c483ae.php
+│       ├── [-rw-r--r--  647]  f1dcf92109af35fc5b23c55ceadacd28.blade.php
+│       └── [-rw-r--r--  731]  fbeac757859b4d56959ce0e4323fe6cc.php
+└── [drwxrwxr-x 4.0K]  logs
+    ├── [-rwxrwxr-x   14]  .gitignore
+    ├── [drwxrwxr-x 4.0K]  database
+    │   ├── [-rwxrwxr-x  34K]  seeder-countries_fix_sort_key.log
+    │   └── [-rwxrwxr-x 1.2K]  seeder-people_fix_sort_key.log
+    ├── [-rw-r--r--  25K]  ioc-bindings.json
+    ├── [-rw-r--r--  11K]  laravel-2025-12-20.log
+    ├── [-rwxrwxr-x 638M]  laravel.log
+    ├── [-rw-r--r-- 3.6K]  tafeld-debug-2025-12-20.log
+    └── [-rw-r--r--  11K]  tafeld-debug.log
+
+13 directories, 81 files

@@ -1,0 +1,827 @@
+{
+    "root": "database",
+    "path": "\/home\/gunreip\/code\/tafeld\/database",
+    "items": [
+        {
+            "type": "dir",
+            "name": "data",
+            "items": []
+        },
+        {
+            "type": "dir",
+            "name": "dumps",
+            "items": [
+                {
+                    "type": "dir",
+                    "name": "tafeld",
+                    "items": [
+                        {
+                            "type": "dir",
+                            "name": "countries",
+                            "items": [
+                                {
+                                    "type": "file",
+                                    "name": "tafeld_countries_2025-11-13_124828.sql",
+                                    "extension": "sql",
+                                    "size": 2598,
+                                    "modified_at": 1763034513,
+                                    "modified_at_iso": "2025-11-13T11:48:33+00:00",
+                                    "created_at": 1765093983,
+                                    "created_at_iso": "2025-12-07T07:53:03+00:00"
+                                },
+                                {
+                                    "type": "file",
+                                    "name": "tafeld_countries_2025-11-13_204513.sql",
+                                    "extension": "sql",
+                                    "size": 24028,
+                                    "modified_at": 1763063122,
+                                    "modified_at_iso": "2025-11-13T19:45:22+00:00",
+                                    "created_at": 1765093983,
+                                    "created_at_iso": "2025-12-07T07:53:03+00:00"
+                                },
+                                {
+                                    "type": "file",
+                                    "name": "tafeld_countries_2025-11-16_211013.sql",
+                                    "extension": "sql",
+                                    "size": 2598,
+                                    "modified_at": 1763323818,
+                                    "modified_at_iso": "2025-11-16T20:10:18+00:00",
+                                    "created_at": 1765093983,
+                                    "created_at_iso": "2025-12-07T07:53:03+00:00"
+                                },
+                                {
+                                    "type": "file",
+                                    "name": "tafeld_countries_2025-11-20_074323.sql",
+                                    "extension": "sql",
+                                    "size": 2598,
+                                    "modified_at": 1763621006,
+                                    "modified_at_iso": "2025-11-20T06:43:26+00:00",
+                                    "created_at": 1765093983,
+                                    "created_at_iso": "2025-12-07T07:53:03+00:00"
+                                },
+                                {
+                                    "type": "file",
+                                    "name": "tafeld_countries_2025-11-23_110809.sql",
+                                    "extension": "sql",
+                                    "size": 2598,
+                                    "modified_at": 1763892492,
+                                    "modified_at_iso": "2025-11-23T10:08:12+00:00",
+                                    "created_at": 1765093983,
+                                    "created_at_iso": "2025-12-07T07:53:03+00:00"
+                                },
+                                {
+                                    "type": "file",
+                                    "name": "tafeld_countries_2025-11-23_114539.sql",
+                                    "extension": "sql",
+                                    "size": 3104,
+                                    "modified_at": 1763894743,
+                                    "modified_at_iso": "2025-11-23T10:45:43+00:00",
+                                    "created_at": 1765093983,
+                                    "created_at_iso": "2025-12-07T07:53:03+00:00"
+                                },
+                                {
+                                    "type": "file",
+                                    "name": "tafeld_countries_2025-11-23_122547.sql",
+                                    "extension": "sql",
+                                    "size": 27091,
+                                    "modified_at": 1763897151,
+                                    "modified_at_iso": "2025-11-23T11:25:51+00:00",
+                                    "created_at": 1765093983,
+                                    "created_at_iso": "2025-12-07T07:53:03+00:00"
+                                },
+                                {
+                                    "type": "file",
+                                    "name": "tafeld_countries_2025-11-24_162310.sql",
+                                    "extension": "sql",
+                                    "size": 3104,
+                                    "modified_at": 1763997793,
+                                    "modified_at_iso": "2025-11-24T15:23:13+00:00",
+                                    "created_at": 1765093983,
+                                    "created_at_iso": "2025-12-07T07:53:03+00:00"
+                                },
+                                {
+                                    "type": "file",
+                                    "name": "tafeld_countries_2025-11-25_192841.sql",
+                                    "extension": "sql",
+                                    "size": 3104,
+                                    "modified_at": 1764095323,
+                                    "modified_at_iso": "2025-11-25T18:28:43+00:00",
+                                    "created_at": 1765093983,
+                                    "created_at_iso": "2025-12-07T07:53:03+00:00"
+                                },
+                                {
+                                    "type": "file",
+                                    "name": "tafeld_countries_2025-11-28_210344.sql",
+                                    "extension": "sql",
+                                    "size": 3104,
+                                    "modified_at": 1764360226,
+                                    "modified_at_iso": "2025-11-28T20:03:46+00:00",
+                                    "created_at": 1765093983,
+                                    "created_at_iso": "2025-12-07T07:53:03+00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "dir",
+                            "name": "debug_logs",
+                            "items": [
+                                {
+                                    "type": "file",
+                                    "name": "tafeld_debug_logs_2025-12-09_182600.sql",
+                                    "extension": "sql",
+                                    "size": 2227,
+                                    "modified_at": 1765301164,
+                                    "modified_at_iso": "2025-12-09T17:26:04+00:00",
+                                    "created_at": 1765301164,
+                                    "created_at_iso": "2025-12-09T17:26:04+00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "dir",
+                            "name": "holidays",
+                            "items": [
+                                {
+                                    "type": "file",
+                                    "name": "tafeld_holidays_2025-11-28_210337.sql",
+                                    "extension": "sql",
+                                    "size": 2175,
+                                    "modified_at": 1764360220,
+                                    "modified_at_iso": "2025-11-28T20:03:40+00:00",
+                                    "created_at": 1765094012,
+                                    "created_at_iso": "2025-12-07T07:53:32+00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "dir",
+                            "name": "people",
+                            "items": [
+                                {
+                                    "type": "file",
+                                    "name": "tafeld_people_2025-11-13_183412.sql",
+                                    "extension": "sql",
+                                    "size": 1398,
+                                    "modified_at": 1763055254,
+                                    "modified_at_iso": "2025-11-13T17:34:14+00:00",
+                                    "created_at": 1765094028,
+                                    "created_at_iso": "2025-12-07T07:53:48+00:00"
+                                },
+                                {
+                                    "type": "file",
+                                    "name": "tafeld_people_2025-11-13_194243.sql",
+                                    "extension": "sql",
+                                    "size": 1398,
+                                    "modified_at": 1763059365,
+                                    "modified_at_iso": "2025-11-13T18:42:45+00:00",
+                                    "created_at": 1765094028,
+                                    "created_at_iso": "2025-12-07T07:53:48+00:00"
+                                },
+                                {
+                                    "type": "file",
+                                    "name": "tafeld_people_2025-11-13_204501.sql",
+                                    "extension": "sql",
+                                    "size": 38030,
+                                    "modified_at": 1763063106,
+                                    "modified_at_iso": "2025-11-13T19:45:06+00:00",
+                                    "created_at": 1765094028,
+                                    "created_at_iso": "2025-12-07T07:53:48+00:00"
+                                },
+                                {
+                                    "type": "file",
+                                    "name": "tafeld_people_2025-11-23_114549.sql",
+                                    "extension": "sql",
+                                    "size": 1868,
+                                    "modified_at": 1763894753,
+                                    "modified_at_iso": "2025-11-23T10:45:53+00:00",
+                                    "created_at": 1765094028,
+                                    "created_at_iso": "2025-12-07T07:53:48+00:00"
+                                },
+                                {
+                                    "type": "file",
+                                    "name": "tafeld_people_2025-11-23_122601.sql",
+                                    "extension": "sql",
+                                    "size": 38788,
+                                    "modified_at": 1763897165,
+                                    "modified_at_iso": "2025-11-23T11:26:05+00:00",
+                                    "created_at": 1765094028,
+                                    "created_at_iso": "2025-12-07T07:53:48+00:00"
+                                },
+                                {
+                                    "type": "file",
+                                    "name": "tafeld_people_2025-11-25_142917.sql",
+                                    "extension": "sql",
+                                    "size": 1868,
+                                    "modified_at": 1764077359,
+                                    "modified_at_iso": "2025-11-25T13:29:19+00:00",
+                                    "created_at": 1765094028,
+                                    "created_at_iso": "2025-12-07T07:53:48+00:00"
+                                },
+                                {
+                                    "type": "file",
+                                    "name": "tafeld_people_2025-11-25_191527.sql",
+                                    "extension": "sql",
+                                    "size": 3168,
+                                    "modified_at": 1764094530,
+                                    "modified_at_iso": "2025-11-25T18:15:30+00:00",
+                                    "created_at": 1765094028,
+                                    "created_at_iso": "2025-12-07T07:53:48+00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "dir",
+                            "name": "tafeld",
+                            "items": [
+                                {
+                                    "type": "file",
+                                    "name": "tafeld_2025-11-11_144250.sql",
+                                    "extension": "sql",
+                                    "size": 23250,
+                                    "modified_at": 1762868634,
+                                    "modified_at_iso": "2025-11-11T13:43:54+00:00",
+                                    "created_at": 1765093970,
+                                    "created_at_iso": "2025-12-07T07:52:50+00:00"
+                                },
+                                {
+                                    "type": "file",
+                                    "name": "tafeld_2025-11-12_184006.sql",
+                                    "extension": "sql",
+                                    "size": 23611,
+                                    "modified_at": 1762969209,
+                                    "modified_at_iso": "2025-11-12T17:40:09+00:00",
+                                    "created_at": 1765093970,
+                                    "created_at_iso": "2025-12-07T07:52:50+00:00"
+                                },
+                                {
+                                    "type": "file",
+                                    "name": "tafeld_2025-11-12_204026.sql",
+                                    "extension": "sql",
+                                    "size": 24840,
+                                    "modified_at": 1762976429,
+                                    "modified_at_iso": "2025-11-12T19:40:29+00:00",
+                                    "created_at": 1765093970,
+                                    "created_at_iso": "2025-12-07T07:52:50+00:00"
+                                },
+                                {
+                                    "type": "file",
+                                    "name": "tafeld_2025-11-28_063713.sql",
+                                    "extension": "sql",
+                                    "size": 27812,
+                                    "modified_at": 1764308236,
+                                    "modified_at_iso": "2025-11-28T05:37:16+00:00",
+                                    "created_at": 1765093970,
+                                    "created_at_iso": "2025-12-07T07:52:50+00:00"
+                                },
+                                {
+                                    "type": "file",
+                                    "name": "tafeld_2025-11-29_190746.sql",
+                                    "extension": "sql",
+                                    "size": 29276,
+                                    "modified_at": 1764439671,
+                                    "modified_at_iso": "2025-11-29T18:07:51+00:00",
+                                    "created_at": 1765093971,
+                                    "created_at_iso": "2025-12-07T07:52:51+00:00"
+                                },
+                                {
+                                    "type": "file",
+                                    "name": "tafeld_2025-11-30_204428.sql",
+                                    "extension": "sql",
+                                    "size": 24851,
+                                    "modified_at": 1764531870,
+                                    "modified_at_iso": "2025-11-30T19:44:30+00:00",
+                                    "created_at": 1765093971,
+                                    "created_at_iso": "2025-12-07T07:52:51+00:00"
+                                },
+                                {
+                                    "type": "file",
+                                    "name": "tafeld_2025-12-01_050334.sql",
+                                    "extension": "sql",
+                                    "size": 31194,
+                                    "modified_at": 1764561818,
+                                    "modified_at_iso": "2025-12-01T04:03:38+00:00",
+                                    "created_at": 1765093971,
+                                    "created_at_iso": "2025-12-07T07:52:51+00:00"
+                                },
+                                {
+                                    "type": "file",
+                                    "name": "tafeld_2025-12-04_124238.sql",
+                                    "extension": "sql",
+                                    "size": 31482,
+                                    "modified_at": 1764848561,
+                                    "modified_at_iso": "2025-12-04T11:42:41+00:00",
+                                    "created_at": 1765093971,
+                                    "created_at_iso": "2025-12-07T07:52:51+00:00"
+                                },
+                                {
+                                    "type": "file",
+                                    "name": "tafeld_2025-12-07_085039.sql",
+                                    "extension": "sql",
+                                    "size": 31482,
+                                    "modified_at": 1765093842,
+                                    "modified_at_iso": "2025-12-07T07:50:42+00:00",
+                                    "created_at": 1765093971,
+                                    "created_at_iso": "2025-12-07T07:52:51+00:00"
+                                },
+                                {
+                                    "type": "file",
+                                    "name": "tafeld_2025-12-07_085052.sql",
+                                    "extension": "sql",
+                                    "size": 31482,
+                                    "modified_at": 1765093959,
+                                    "modified_at_iso": "2025-12-07T07:52:39+00:00",
+                                    "created_at": 1765093959,
+                                    "created_at_iso": "2025-12-07T07:52:39+00:00"
+                                },
+                                {
+                                    "type": "file",
+                                    "name": "tafeld_2025-12-08_132955.sql",
+                                    "extension": "sql",
+                                    "size": 32908,
+                                    "modified_at": 1765197002,
+                                    "modified_at_iso": "2025-12-08T12:30:02+00:00",
+                                    "created_at": 1765197002,
+                                    "created_at_iso": "2025-12-08T12:30:02+00:00"
+                                },
+                                {
+                                    "type": "file",
+                                    "name": "tafeld_2025-12-08_190254.sql",
+                                    "extension": "sql",
+                                    "size": 32908,
+                                    "modified_at": 1765216977,
+                                    "modified_at_iso": "2025-12-08T18:02:57+00:00",
+                                    "created_at": 1765216977,
+                                    "created_at_iso": "2025-12-08T18:02:57+00:00"
+                                },
+                                {
+                                    "type": "file",
+                                    "name": "tafeld_2025-12-09_065458.sql",
+                                    "extension": "sql",
+                                    "size": 34358,
+                                    "modified_at": 1765259700,
+                                    "modified_at_iso": "2025-12-09T05:55:00+00:00",
+                                    "created_at": 1765259700,
+                                    "created_at_iso": "2025-12-09T05:55:00+00:00"
+                                },
+                                {
+                                    "type": "file",
+                                    "name": "tafeld_2025-12-10_121123.sql",
+                                    "extension": "sql",
+                                    "size": 34607,
+                                    "modified_at": 1765365093,
+                                    "modified_at_iso": "2025-12-10T11:11:33+00:00",
+                                    "created_at": 1765365093,
+                                    "created_at_iso": "2025-12-10T11:11:33+00:00"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "dir",
+            "name": "factories",
+            "items": [
+                {
+                    "type": "file",
+                    "name": "UserFactory.php",
+                    "extension": "php",
+                    "size": 1141,
+                    "modified_at": 1765219601,
+                    "modified_at_iso": "2025-12-08T18:46:41+00:00",
+                    "created_at": 1765219601,
+                    "created_at_iso": "2025-12-08T18:46:41+00:00"
+                }
+            ]
+        },
+        {
+            "type": "dir",
+            "name": "migrations",
+            "items": [
+                {
+                    "type": "dir",
+                    "name": "bak",
+                    "items": [
+                        {
+                            "type": "file",
+                            "name": "2025_11_11_143327_create_people_table.php",
+                            "extension": "php",
+                            "size": 1104,
+                            "modified_at": 1763891161,
+                            "modified_at_iso": "2025-11-23T09:46:01+00:00",
+                            "created_at": 1764087243,
+                            "created_at_iso": "2025-11-25T16:14:03+00:00"
+                        },
+                        {
+                            "type": "file",
+                            "name": "2025_11_13_190103_add_country_id_to_people_table.php",
+                            "extension": "php",
+                            "size": 831,
+                            "modified_at": 1763889680,
+                            "modified_at_iso": "2025-11-23T09:21:20+00:00",
+                            "created_at": 1764087250,
+                            "created_at_iso": "2025-11-25T16:14:10+00:00"
+                        }
+                    ]
+                },
+                {
+                    "type": "file",
+                    "name": "0001_01_01_000000_create_users_table.php",
+                    "extension": "php",
+                    "size": 1545,
+                    "modified_at": 1763890456,
+                    "modified_at_iso": "2025-11-23T09:34:16+00:00",
+                    "created_at": 1763890456,
+                    "created_at_iso": "2025-11-23T09:34:16+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "0001_01_01_000001_create_cache_table.php",
+                    "extension": "php",
+                    "size": 921,
+                    "modified_at": 1763890482,
+                    "modified_at_iso": "2025-11-23T09:34:42+00:00",
+                    "created_at": 1763890482,
+                    "created_at_iso": "2025-11-23T09:34:42+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "0001_01_01_000002_create_jobs_table.php",
+                    "extension": "php",
+                    "size": 1883,
+                    "modified_at": 1763890505,
+                    "modified_at_iso": "2025-11-23T09:35:05+00:00",
+                    "created_at": 1763890505,
+                    "created_at_iso": "2025-11-23T09:35:05+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "2025_11_09_103449_create_activity_log_table.php",
+                    "extension": "php",
+                    "size": 1114,
+                    "modified_at": 1763890567,
+                    "modified_at_iso": "2025-11-23T09:36:07+00:00",
+                    "created_at": 1763890567,
+                    "created_at_iso": "2025-11-23T09:36:07+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "2025_11_09_103450_add_event_column_to_activity_log_table.php",
+                    "extension": "php",
+                    "size": 784,
+                    "modified_at": 1763890585,
+                    "modified_at_iso": "2025-11-23T09:36:25+00:00",
+                    "created_at": 1763890585,
+                    "created_at_iso": "2025-11-23T09:36:25+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "2025_11_09_103451_add_batch_uuid_column_to_activity_log_table.php",
+                    "extension": "php",
+                    "size": 799,
+                    "modified_at": 1763890601,
+                    "modified_at_iso": "2025-11-23T09:36:41+00:00",
+                    "created_at": 1763890601,
+                    "created_at_iso": "2025-11-23T09:36:41+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "2025_11_09_113127_create_telescope_entries_table.php",
+                    "extension": "php",
+                    "size": 2153,
+                    "modified_at": 1763890625,
+                    "modified_at_iso": "2025-11-23T09:37:05+00:00",
+                    "created_at": 1763890625,
+                    "created_at_iso": "2025-11-23T09:37:05+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "2025_11_11_125601_create_permission_tables.php",
+                    "extension": "php",
+                    "size": 6752,
+                    "modified_at": 1763890649,
+                    "modified_at_iso": "2025-11-23T09:37:29+00:00",
+                    "created_at": 1763890649,
+                    "created_at_iso": "2025-11-23T09:37:29+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "2025_11_11_134038_create_personal_access_tokens_table.php",
+                    "extension": "php",
+                    "size": 952,
+                    "modified_at": 1763890681,
+                    "modified_at_iso": "2025-11-23T09:38:01+00:00",
+                    "created_at": 1763890681,
+                    "created_at_iso": "2025-11-23T09:38:01+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "2025_11_13_135023_create_countries_table.php",
+                    "extension": "php",
+                    "size": 1468,
+                    "modified_at": 1764516184,
+                    "modified_at_iso": "2025-11-30T15:23:04+00:00",
+                    "created_at": 1764516184,
+                    "created_at_iso": "2025-11-30T15:23:04+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "2025_11_13_172619_add_two_factor_columns_to_users_table.php",
+                    "extension": "php",
+                    "size": 1148,
+                    "modified_at": 1763890709,
+                    "modified_at_iso": "2025-11-23T09:38:29+00:00",
+                    "created_at": 1763890709,
+                    "created_at_iso": "2025-11-23T09:38:29+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "2025_11_25_153855_create_people_table.php",
+                    "extension": "php",
+                    "size": 2397,
+                    "modified_at": 1764561416,
+                    "modified_at_iso": "2025-12-01T03:56:56+00:00",
+                    "created_at": 1764561416,
+                    "created_at_iso": "2025-12-01T03:56:56+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "2025_11_28_123345_create_holidays_table.php",
+                    "extension": "php",
+                    "size": 1888,
+                    "modified_at": 1764561752,
+                    "modified_at_iso": "2025-12-01T04:02:32+00:00",
+                    "created_at": 1764561752,
+                    "created_at_iso": "2025-12-01T04:02:32+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "2025_11_29_063606_add_display_date_and_confession_to_holidays_table.php",
+                    "extension": "php",
+                    "size": 933,
+                    "modified_at": 1764398577,
+                    "modified_at_iso": "2025-11-29T06:42:57+00:00",
+                    "created_at": 1764398577,
+                    "created_at_iso": "2025-11-29T06:42:57+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "2025_11_29_135111_create_country_regions_table.php",
+                    "extension": "php",
+                    "size": 1970,
+                    "modified_at": 1764488414,
+                    "modified_at_iso": "2025-11-30T07:40:14+00:00",
+                    "created_at": 1764488414,
+                    "created_at_iso": "2025-11-30T07:40:14+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "2025_11_29_140356_create_vacations_table.php.xxx",
+                    "extension": "xxx",
+                    "size": 1638,
+                    "modified_at": 1764490694,
+                    "modified_at_iso": "2025-11-30T08:18:14+00:00",
+                    "created_at": 1764512732,
+                    "created_at_iso": "2025-11-30T14:25:32+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "2025_11_30_125229_create_events_table.php",
+                    "extension": "php",
+                    "size": 1667,
+                    "modified_at": 1764507398,
+                    "modified_at_iso": "2025-11-30T12:56:38+00:00",
+                    "created_at": 1764507398,
+                    "created_at_iso": "2025-11-30T12:56:38+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "2025_12_03_195659_add_work_area_to_countries_table.php",
+                    "extension": "php",
+                    "size": 907,
+                    "modified_at": 1764793774,
+                    "modified_at_iso": "2025-12-03T20:29:34+00:00",
+                    "created_at": 1764793774,
+                    "created_at_iso": "2025-12-03T20:29:34+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "2025_12_08_110956_create_debug_logs_table.php",
+                    "extension": "php",
+                    "size": 1232,
+                    "modified_at": 1765196741,
+                    "modified_at_iso": "2025-12-08T12:25:41+00:00",
+                    "created_at": 1765196741,
+                    "created_at_iso": "2025-12-08T12:25:41+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "2025_12_08_113452_add_ulid_to_users_table.php",
+                    "extension": "php",
+                    "size": 774,
+                    "modified_at": 1765217633,
+                    "modified_at_iso": "2025-12-08T18:13:53+00:00",
+                    "created_at": 1765217633,
+                    "created_at_iso": "2025-12-08T18:13:53+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "2025_12_08_122623_add_user_fk_to_debug_logs_table.php",
+                    "extension": "php",
+                    "size": 893,
+                    "modified_at": 1765217706,
+                    "modified_at_iso": "2025-12-08T18:15:06+00:00",
+                    "created_at": 1765217706,
+                    "created_at_iso": "2025-12-08T18:15:06+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "2025_12_09_054916_create_debug_settings_table.php",
+                    "extension": "php",
+                    "size": 826,
+                    "modified_at": 1765259403,
+                    "modified_at_iso": "2025-12-09T05:50:03+00:00",
+                    "created_at": 1765259403,
+                    "created_at_iso": "2025-12-09T05:50:03+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "2025_12_09_055024_create_debug_scopes_table.php",
+                    "extension": "php",
+                    "size": 868,
+                    "modified_at": 1765259443,
+                    "modified_at_iso": "2025-12-09T05:50:43+00:00",
+                    "created_at": 1765259443,
+                    "created_at_iso": "2025-12-09T05:50:43+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "2025_12_09_143118_add_run_id_to_debug_logs_table.php",
+                    "extension": "php",
+                    "size": 791,
+                    "modified_at": 1765291100,
+                    "modified_at_iso": "2025-12-09T14:38:20+00:00",
+                    "created_at": 1765291100,
+                    "created_at_iso": "2025-12-09T14:38:20+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "2025_12_09_181425_add_updated_at_to_debug_logs_table.php",
+                    "extension": "php",
+                    "size": 701,
+                    "modified_at": 1765304285,
+                    "modified_at_iso": "2025-12-09T18:18:05+00:00",
+                    "created_at": 1765304285,
+                    "created_at_iso": "2025-12-09T18:18:05+00:00"
+                }
+            ]
+        },
+        {
+            "type": "dir",
+            "name": "seeders",
+            "items": [
+                {
+                    "type": "file",
+                    "name": "AdminSeeder.php",
+                    "extension": "php",
+                    "size": 550,
+                    "modified_at": 1763049994,
+                    "modified_at_iso": "2025-11-13T16:06:34+00:00",
+                    "created_at": 1763049994,
+                    "created_at_iso": "2025-11-13T16:06:34+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "CountriesSeeder.php",
+                    "extension": "php",
+                    "size": 663,
+                    "modified_at": 1764530827,
+                    "modified_at_iso": "2025-11-30T19:27:07+00:00",
+                    "created_at": 1764530827,
+                    "created_at_iso": "2025-11-30T19:27:07+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "CountriesSortKeyFixSeeder.php",
+                    "extension": "php",
+                    "size": 1856,
+                    "modified_at": 1763903745,
+                    "modified_at_iso": "2025-11-23T13:15:45+00:00",
+                    "created_at": 1763903745,
+                    "created_at_iso": "2025-11-23T13:15:45+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "CountryRegionsSeeder.php",
+                    "extension": "php",
+                    "size": 2511,
+                    "modified_at": 1764562497,
+                    "modified_at_iso": "2025-12-01T04:14:57+00:00",
+                    "created_at": 1764562497,
+                    "created_at_iso": "2025-12-01T04:14:57+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "CountryWorkAreaSeeder.php",
+                    "extension": "php",
+                    "size": 2339,
+                    "modified_at": 1764794324,
+                    "modified_at_iso": "2025-12-03T20:38:44+00:00",
+                    "created_at": 1764794324,
+                    "created_at_iso": "2025-12-03T20:38:44+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "DatabaseSeeder.php",
+                    "extension": "php",
+                    "size": 1074,
+                    "modified_at": 1765297753,
+                    "modified_at_iso": "2025-12-09T16:29:13+00:00",
+                    "created_at": 1765297753,
+                    "created_at_iso": "2025-12-09T16:29:13+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "DebugConfigSeeder.php",
+                    "extension": "php",
+                    "size": 727,
+                    "modified_at": 1765297909,
+                    "modified_at_iso": "2025-12-09T16:31:49+00:00",
+                    "created_at": 1765297909,
+                    "created_at_iso": "2025-12-09T16:31:49+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "EventSeeder.php",
+                    "extension": "php",
+                    "size": 569,
+                    "modified_at": 1764508337,
+                    "modified_at_iso": "2025-11-30T13:12:17+00:00",
+                    "created_at": 1764508337,
+                    "created_at_iso": "2025-11-30T13:12:17+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "HolidaysSeeder.php",
+                    "extension": "php",
+                    "size": 1494,
+                    "modified_at": 1764400331,
+                    "modified_at_iso": "2025-11-29T07:12:11+00:00",
+                    "created_at": 1764400331,
+                    "created_at_iso": "2025-11-29T07:12:11+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "PeopleSeeder.php",
+                    "extension": "php",
+                    "size": 3302,
+                    "modified_at": 1764087065,
+                    "modified_at_iso": "2025-11-25T16:11:05+00:00",
+                    "created_at": 1764087065,
+                    "created_at_iso": "2025-11-25T16:11:05+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "PeopleSortKeyFixSeeder.php",
+                    "extension": "php",
+                    "size": 2733,
+                    "modified_at": 1763919920,
+                    "modified_at_iso": "2025-11-23T17:45:20+00:00",
+                    "created_at": 1763919920,
+                    "created_at_iso": "2025-11-23T17:45:20+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "PermissionSeeder.php",
+                    "extension": "php",
+                    "size": 381,
+                    "modified_at": 1762866910,
+                    "modified_at_iso": "2025-11-11T13:15:10+00:00",
+                    "created_at": 1762866910,
+                    "created_at_iso": "2025-11-11T13:15:10+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "RoleSeeder.php",
+                    "extension": "php",
+                    "size": 277,
+                    "modified_at": 1762866870,
+                    "modified_at_iso": "2025-11-11T13:14:30+00:00",
+                    "created_at": 1762866870,
+                    "created_at_iso": "2025-11-11T13:14:30+00:00"
+                }
+            ]
+        },
+        {
+            "type": "file",
+            "name": "database.sqlite",
+            "extension": "sqlite",
+            "size": 86016,
+            "modified_at": 1762680800,
+            "modified_at_iso": "2025-11-09T09:33:20+00:00",
+            "created_at": 1762680800,
+            "created_at_iso": "2025-11-09T09:33:20+00:00"
+        }
+    ]
+}

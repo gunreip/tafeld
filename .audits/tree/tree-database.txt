@@ -1,0 +1,128 @@
+[drwxr-xr-x 4.0K]  database
+├── [-rw-r--r--   10]  .gitignore
+├── [drwxr-xr-x 4.0K]  data
+│   └── [drwxr-xr-x 4.0K]  tests
+│       └── [drwxr-xr-x 4.0K]  debug_logs
+├── [-rw-r--r--  84K]  database.sqlite
+├── [drwxr-xr-x 4.0K]  dumps
+│   └── [drwxr-xr-x 4.0K]  tafeld
+│       ├── [drwxr-xr-x 4.0K]  activity_log
+│       │   └── [-rw-r--r-- 2.6K]  tafeld_activity_log_2025-12-20_173638.sql
+│       ├── [drwxr-xr-x 4.0K]  countries
+│       │   ├── [-rw-r--r-- 2.5K]  tafeld_countries_2025-11-13_124828.sql
+│       │   ├── [-rw-r--r--  23K]  tafeld_countries_2025-11-13_204513.sql
+│       │   ├── [-rw-r--r-- 2.5K]  tafeld_countries_2025-11-16_211013.sql
+│       │   ├── [-rw-r--r-- 2.5K]  tafeld_countries_2025-11-20_074323.sql
+│       │   ├── [-rw-r--r-- 2.5K]  tafeld_countries_2025-11-23_110809.sql
+│       │   ├── [-rw-r--r-- 3.0K]  tafeld_countries_2025-11-23_114539.sql
+│       │   ├── [-rw-r--r--  26K]  tafeld_countries_2025-11-23_122547.sql
+│       │   ├── [-rw-r--r-- 3.0K]  tafeld_countries_2025-11-24_162310.sql
+│       │   ├── [-rw-r--r-- 3.0K]  tafeld_countries_2025-11-25_192841.sql
+│       │   └── [-rw-r--r-- 3.0K]  tafeld_countries_2025-11-28_210344.sql
+│       ├── [drwxr-xr-x 4.0K]  debug_logs
+│       │   ├── [-rw-r--r-- 2.2K]  tafeld_debug_logs_2025-12-09_182600.sql
+│       │   ├── [-rw-r--r-- 2.2K]  tafeld_debug_logs_2025-12-14_093443.sql
+│       │   ├── [-rw-r--r-- 2.2K]  tafeld_debug_logs_2025-12-15_195306.sql
+│       │   ├── [-rw-r--r-- 2.2K]  tafeld_debug_logs_2025-12-16_155100.sql
+│       │   └── [-rw-r--r-- 2.2K]  tafeld_debug_logs_2025-12-20_112509.sql
+│       ├── [drwxr-xr-x 4.0K]  debug_scopes
+│       │   ├── [-rw-r--r-- 1.6K]  tafeld_debug_scopes_2025-12-14_093605.sql
+│       │   ├── [-rw-r--r-- 1.6K]  tafeld_debug_scopes_2025-12-15_195321.sql
+│       │   ├── [-rw-r--r-- 1.9K]  tafeld_debug_scopes_2025-12-16_155110.sql
+│       │   ├── [-rw-r--r-- 1.9K]  tafeld_debug_scopes_2025-12-18_183323.sql
+│       │   └── [-rw-r--r-- 1.9K]  tafeld_debug_scopes_2025-12-20_112520.sql
+│       ├── [drwxr-xr-x 4.0K]  debug_settings
+│       │   ├── [-rw-r--r-- 1.4K]  tafeld_debug_settings_2025-12-14_093620.sql
+│       │   ├── [-rw-r--r-- 1.6K]  tafeld_debug_settings_2025-12-15_195329.sql
+│       │   ├── [-rw-r--r-- 1.6K]  tafeld_debug_settings_2025-12-16_155122.sql
+│       │   └── [-rw-r--r-- 1.6K]  tafeld_debug_settings_2025-12-20_112532.sql
+│       ├── [drwxr-xr-x 4.0K]  holidays
+│       │   └── [-rw-r--r-- 2.1K]  tafeld_holidays_2025-11-28_210337.sql
+│       ├── [drwxr-xr-x 4.0K]  model_has_permissions
+│       │   └── [-rw-r--r-- 1.9K]  tafeld_model_has_permissions_2025-12-17_121410.sql
+│       ├── [drwxr-xr-x 4.0K]  model_has_roles
+│       │   └── [-rw-r--r-- 1.8K]  tafeld_model_has_roles_2025-12-17_121929.sql
+│       ├── [drwxr-xr-x 4.0K]  people
+│       │   ├── [-rw-r--r-- 1.4K]  tafeld_people_2025-11-13_183412.sql
+│       │   ├── [-rw-r--r-- 1.4K]  tafeld_people_2025-11-13_194243.sql
+│       │   ├── [-rw-r--r--  37K]  tafeld_people_2025-11-13_204501.sql
+│       │   ├── [-rw-r--r-- 1.8K]  tafeld_people_2025-11-23_114549.sql
+│       │   ├── [-rw-r--r--  38K]  tafeld_people_2025-11-23_122601.sql
+│       │   ├── [-rw-r--r-- 1.8K]  tafeld_people_2025-11-25_142917.sql
+│       │   └── [-rw-r--r-- 3.1K]  tafeld_people_2025-11-25_191527.sql
+│       ├── [drwxr-xr-x 4.0K]  roles
+│       │   └── [-rw-r--r-- 2.0K]  tafeld_roles_2025-12-17_121437.sql
+│       ├── [drwxr-xr-x 4.0K]  tafeld
+│       │   ├── [-rw-r--r--  23K]  tafeld_2025-11-11_144250.sql
+│       │   ├── [-rw-r--r--  23K]  tafeld_2025-11-12_184006.sql
+│       │   ├── [-rw-r--r--  24K]  tafeld_2025-11-12_204026.sql
+│       │   ├── [-rw-r--r--  27K]  tafeld_2025-11-28_063713.sql
+│       │   ├── [-rw-r--r--  29K]  tafeld_2025-11-29_190746.sql
+│       │   ├── [-rw-r--r--  24K]  tafeld_2025-11-30_204428.sql
+│       │   ├── [-rw-r--r--  30K]  tafeld_2025-12-01_050334.sql
+│       │   ├── [-rw-r--r--  31K]  tafeld_2025-12-04_124238.sql
+│       │   ├── [-rw-r--r--  31K]  tafeld_2025-12-07_085039.sql
+│       │   ├── [-rw-r--r--  31K]  tafeld_2025-12-07_085052.sql
+│       │   ├── [-rw-r--r--  32K]  tafeld_2025-12-08_132955.sql
+│       │   ├── [-rw-r--r--  32K]  tafeld_2025-12-08_190254.sql
+│       │   ├── [-rw-r--r--  34K]  tafeld_2025-12-09_065458.sql
+│       │   ├── [-rw-r--r--  34K]  tafeld_2025-12-10_121123.sql
+│       │   ├── [-rw-r--r--  34K]  tafeld_2025-12-12_164954.sql
+│       │   ├── [-rw-r--r--  34K]  tafeld_2025-12-15_175536.sql
+│       │   ├── [-rw-r--r--  34K]  tafeld_2025-12-19_133758.sql
+│       │   ├── [-rw-r--r--  34K]  tafeld_2025-12-20_105147.sql
+│       │   └── [-rw-r--r--  34K]  tafeld_2025-12-20_130315.sql
+│       └── [drwxr-xr-x 4.0K]  users
+│           ├── [-rw-r--r-- 2.5K]  tafeld_users_2025-12-13_195508.sql
+│           └── [-rw-r--r-- 2.5K]  tafeld_users_2025-12-17_121209.sql
+├── [drwxr-xr-x 4.0K]  factories
+│   └── [-rw-r--r-- 1.1K]  UserFactory.php
+├── [drwxr-xr-x 4.0K]  migrations
+│   ├── [-rw-r--r-- 1.5K]  0001_01_01_000000_create_users_table.php
+│   ├── [-rw-r--r--  921]  0001_01_01_000001_create_cache_table.php
+│   ├── [-rw-r--r-- 1.8K]  0001_01_01_000002_create_jobs_table.php
+│   ├── [-rw-r--r-- 1.1K]  2025_11_09_103449_create_activity_log_table.php
+│   ├── [-rw-r--r--  784]  2025_11_09_103450_add_event_column_to_activity_log_table.php
+│   ├── [-rw-r--r--  799]  2025_11_09_103451_add_batch_uuid_column_to_activity_log_table.php
+│   ├── [-rw-r--r-- 2.1K]  2025_11_09_113127_create_telescope_entries_table.php
+│   ├── [-rw-r--r-- 6.6K]  2025_11_11_125601_create_permission_tables.php
+│   ├── [-rw-r--r--  952]  2025_11_11_134038_create_personal_access_tokens_table.php
+│   ├── [-rw-r--r-- 1.4K]  2025_11_13_135023_create_countries_table.php
+│   ├── [-rw-r--r-- 1.1K]  2025_11_13_172619_add_two_factor_columns_to_users_table.php
+│   ├── [-rw-r--r-- 2.3K]  2025_11_25_153855_create_people_table.php
+│   ├── [-rw-r--r-- 1.8K]  2025_11_28_123345_create_holidays_table.php
+│   ├── [-rw-r--r--  933]  2025_11_29_063606_add_display_date_and_confession_to_holidays_table.php
+│   ├── [-rw-r--r-- 1.9K]  2025_11_29_135111_create_country_regions_table.php
+│   ├── [-rw-r--r-- 1.6K]  2025_11_29_140356_create_vacations_table.php.xxx
+│   ├── [-rw-r--r-- 1.6K]  2025_11_30_125229_create_events_table.php
+│   ├── [-rw-r--r--  907]  2025_12_03_195659_add_work_area_to_countries_table.php
+│   ├── [-rw-r--r-- 1.2K]  2025_12_08_110956_create_debug_logs_table.php
+│   ├── [-rw-r--r--  774]  2025_12_08_113452_add_ulid_to_users_table.php
+│   ├── [-rw-r--r--  893]  2025_12_08_122623_add_user_fk_to_debug_logs_table.php
+│   ├── [-rw-r--r--  826]  2025_12_09_054916_create_debug_settings_table.php
+│   ├── [-rw-r--r--  868]  2025_12_09_055024_create_debug_scopes_table.php
+│   ├── [-rw-r--r--  791]  2025_12_09_143118_add_run_id_to_debug_logs_table.php
+│   ├── [-rw-r--r--  701]  2025_12_09_181425_add_updated_at_to_debug_logs_table.php
+│   ├── [-rw-r--r-- 1010]  2025_12_14_152242_add_scope_key_to_debug_settings_table.php
+│   ├── [-rw-r--r--  426]  2025_12_16_144547_truncate_debug_tables_before_debug_core_v1.php
+│   ├── [-rw-r--r-- 1.2K]  2025_12_16_144638_add_discovery_metadata_to_debug_scopes_table.php
+│   ├── [-rw-r--r--  795]  2025_12_18_172604_add_runtime_killable_to_debug_scopes_table.php
+│   └── [drwxr-xr-x 4.0K]  bak
+│       ├── [-rw-r--r-- 1.1K]  2025_11_11_143327_create_people_table.php
+│       └── [-rw-r--r--  831]  2025_11_13_190103_add_country_id_to_people_table.php
+└── [drwxr-xr-x 4.0K]  seeders
+    ├── [-rw-r--r--  550]  AdminSeeder.php
+    ├── [-rw-r--r--  663]  CountriesSeeder.php
+    ├── [-rw-r--r-- 1.8K]  CountriesSortKeyFixSeeder.php
+    ├── [-rw-r--r-- 2.5K]  CountryRegionsSeeder.php
+    ├── [-rw-r--r-- 2.3K]  CountryWorkAreaSeeder.php
+    ├── [-rw-r--r-- 1.0K]  DatabaseSeeder.php
+    ├── [-rw-r--r--  727]  DebugConfigSeeder.php
+    ├── [-rw-r--r--  569]  EventSeeder.php
+    ├── [-rw-r--r-- 1.5K]  HolidaysSeeder.php
+    ├── [-rw-r--r-- 3.2K]  PeopleSeeder.php
+    ├── [-rw-r--r-- 2.7K]  PeopleSortKeyFixSeeder.php
+    ├── [-rw-r--r--  381]  PermissionSeeder.php
+    └── [-rw-r--r--  277]  RoleSeeder.php
+
+22 directories, 104 files

@@ -1,5 +1,7 @@
 <?php
 
+// tafeld/app/Livewire/Pages/Welcome.php
+
 namespace App\Livewire\Pages;
 
 use Livewire\Component;

@@ -1,0 +1,16 @@
+resources/data/events/<type>/<year>/<region>.ics
+
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//tafeld/events//DE
+BEGIN:VEVENT
+SUMMARY:Ereignisname
+DTSTART:20250101
+DTEND:20250102
+END:VEVENT
+END:VCALENDAR
+
+Wichtig:
+SUMMARY wird zu name_de und name_en (gleiches Feld)
+DTSTART & DTEND müssen YYYYMMDD sein
+Der Parser erzeugt alle weiteren Felder automatisch

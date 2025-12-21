@@ -19,6 +19,25 @@
             'route' => 'persons.create',
             'icon' => 'user-plus',
         ],
+        [
+            'label' => 'Debug',
+            'route' => null,
+            'icon' => 'bug',
+            'children' => [
+                [
+                    'label' => 'Logs',
+                    'route' => 'debug.logs.index',
+                ],
+                [
+                    'label' => 'Scopes',
+                    'route' => 'debug.scopes.index',
+                ],
+                [
+                    'label' => 'Übersicht',
+                    'route' => 'debug.overview',
+                ],
+            ],
+        ],
     ];
 
     $currentRoute = Route::currentRouteName();
@@ -40,36 +59,72 @@
             @foreach ($navItems as $item)
                 @php
                     $isActive =
-                        $currentRoute === $item['route'] || str_starts_with($currentRoute, $item['route'] . '.');
+                        ($item['route'] && ($currentRoute === $item['route'] || str_starts_with($currentRoute, $item['route'] . '.')));
                 @endphp
 
                 <li>
-                    <a href="{{ route($item['route']) }}" wire:navigate
-                        class="group flex items-center gap-3 px-3 py-2 rounded-lg text-sm
-                            {{ $isActive ? 'bg-active text-default font-semibold' : 'text-muted hover:bg-hover hover:text-default' }}">
+                    @if (isset($item['children']))
+                        {{-- Hauptpunkt mit Untermenü --}}
+                        <div
+                            class="px-3 py-2 text-sm font-semibold
+                                   {{ str_starts_with($currentRoute, 'debug.') ? 'text-default' : 'text-muted' }}">
+                            <div class="flex items-center gap-3">
+                                @if ($item['icon'] === 'bug')
+                                    <x-heroicon-o-bug-ant class="w-5 h-5 text-muted" />
+                                @endif
+                                <span class="truncate">{{ $item['label'] }}</span>
+                            </div>
+                        </div>
 
-                        @switch($item['icon'])
-                            @case('home')
-                                <x-heroicon-o-home
-                                    class="w-5 h-5
-                                        {{ $isActive ? 'text-default' : 'text-muted group-hover:text-default' }}" />
-                            @break
+                        <ul class="ml-8 space-y-1">
+                            @foreach ($item['children'] as $child)
+                                @php
+                                    $childActive =
+                                        $currentRoute === $child['route']
+                                        || str_starts_with($currentRoute, $child['route'] . '.');
+                                @endphp
 
-                            @case('users')
-                                <x-heroicon-o-users
-                                    class="w-5 h-5
-                                        {{ $isActive ? 'text-default' : 'text-muted group-hover:text-default' }}" />
-                            @break
+                                <li>
+                                    <a href="{{ route($child['route']) }}" wire:navigate
+                                        class="group flex items-center gap-3 px-3 py-1.5 rounded-lg text-sm
+                                               {{ $childActive ? 'bg-active text-default font-semibold' : 'text-muted hover:bg-hover hover:text-default' }}">
+                                        <span class="truncate">{{ $child['label'] }}</span>
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
 
-                            @case('user-plus')
-                                <x-heroicon-o-user-plus
-                                    class="w-5 h-5
-                                        {{ $isActive ? 'text-default' : 'text-muted group-hover:text-default' }}" />
-                            @break
-                        @endswitch
+                    @else
+                        {{-- Normale Menüpunkte --}}
+                        <a href="{{ route($item['route']) }}" wire:navigate
+                            class="group flex items-center gap-3 px-3 py-2 rounded-lg text-sm
+                                   {{ $isActive ? 'bg-active text-default font-semibold' : 'text-muted hover:bg-hover hover:text-default' }}">
 
-                        <span class="truncate">{{ $item['label'] }}</span>
-                    </a>
+                            @switch($item['icon'])
+                                @case('home')
+                                    <x-heroicon-o-home
+                                        class="w-5 h-5 {{ $isActive ? 'text-default' : 'text-muted group-hover:text-default' }}" />
+                                @break
+
+                                @case('users')
+                                    <x-heroicon-o-users
+                                        class="w-5 h-5 {{ $isActive ? 'text-default' : 'text-muted group-hover:text-default' }}" />
+                                @break
+
+                                @case('user-plus')
+                                    <x-heroicon-o-user-plus
+                                        class="w-5 h-5 {{ $isActive ? 'text-default' : 'text-muted group-hover:text-default' }}" />
+                                @break
+
+                                @case('bug')
+                                    <x-heroicon-o-bug-ant
+                                        class="w-5 h-5 {{ $isActive ? 'text-default' : 'text-muted group-hover:text-default' }}" />
+                                @break
+                            @endswitch
+
+                            <span class="truncate">{{ $item['label'] }}</span>
+                        </a>
+                    @endif
                 </li>
             @endforeach
 

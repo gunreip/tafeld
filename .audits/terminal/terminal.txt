@@ -1,0 +1,207 @@
+app/Http/Middleware/AssignRunId.php:22:        app()->instance('tafeld.run_id', (string) $runId);
+app/Support/TafeldDebug/OutputRouter.php:77:            if (empty($context['run_id']) && app()->bound('tafeld.run_id')) {
+app/Support/TafeldDebug/OutputRouter.php:78:                $runId = app('tafeld.run_id');   // guaranteed safe
+app/Support/TafeldDebug/OutputRouter.php:85:            if (empty($context['run_id']) && !app()->bound('tafeld.run_id')) {
+app/Support/TafeldDebug/OutputRouter.php:86:                // kein Versuch app('tafeld.run_id') aufzurufen
+app/Support/TafeldDebug/Engine.php:57:        if (app()->bound('tafeld.run_id')) {
+app/Support/TafeldDebug/Engine.php:58:            $context['run_id'] = app('tafeld.run_id');
+#63 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#64 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#65 /home/gunreip/code/tafeld/public/index.php(20): Illuminate\\Foundation\\Application->handleRequest()
+#66 {main}
+"} 
+[2025-12-08 11:16:12] local.ERROR: SQLSTATE[42804]: Datatype mismatch: 7 ERROR:  foreign key constraint "debug_logs_user_id_foreign" cannot be implemented
+DETAIL:  Key columns "user_id" of the referencing table and "id" of the referenced table are of incompatible types: character and bigint. (Connection: pgsql, SQL: alter table "debug_logs" add constraint "debug_logs_user_id_foreign" foreign key ("user_id") references "users" ("id") on delete set null) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 42804): SQLSTATE[42804]: Datatype mismatch: 7 ERROR:  foreign key constraint \"debug_logs_user_id_foreign\" cannot be implemented
+DETAIL:  Key columns \"user_id\" of the referencing table and \"id\" of the referenced table are of incompatible types: character and bigint. (Connection: pgsql, SQL: alter table \"debug_logs\" add constraint \"debug_logs_user_id_foreign\" foreign key (\"user_id\") references \"users\" (\"id\") on delete set null) at /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Connection.php:826)
+[stacktrace]
+#0 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Connection.php(780): Illuminate\\Database\\Connection->runQueryCallback()
+#1 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Connection.php(559): Illuminate\\Database\\Connection->run()
+#2 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Schema/Blueprint.php(121): Illuminate\\Database\\Connection->statement()
+#3 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Schema/Builder.php(618): Illuminate\\Database\\Schema\\Blueprint->build()
+#4 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Schema/Builder.php(472): Illuminate\\Database\\Schema\\Builder->build()
+#5 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(363): Illuminate\\Database\\Schema\\Builder->create()
+#6 /home/gunreip/code/tafeld/database/migrations/2025_12_08_110956_create_debug_logs_table.php(16): Illuminate\\Support\\Facades\\Facade::__callStatic()
+#7 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(514): Illuminate\\Database\\Migrations\\Migration@anonymous->up()
+#8 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(439): Illuminate\\Database\\Migrations\\Migrator->runMethod()
+#9 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Concerns/ManagesTransactions.php(35): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#10 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(447): Illuminate\\Database\\Connection->transaction()
+#11 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(250): Illuminate\\Database\\Migrations\\Migrator->runMigration()
+#12 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Console/View/Components/Task.php(41): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#13 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(809): Illuminate\\Console\\View\\Components\\Task->render()
+#14 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(250): Illuminate\\Database\\Migrations\\Migrator->write()
+#15 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(210): Illuminate\\Database\\Migrations\\Migrator->runUp()
+#16 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(137): Illuminate\\Database\\Migrations\\Migrator->runPending()
+#17 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/MigrateCommand.php(116): Illuminate\\Database\\Migrations\\Migrator->run()
+#18 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(666): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#19 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/MigrateCommand.php(109): Illuminate\\Database\\Migrations\\Migrator->usingConnection()
+#20 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/MigrateCommand.php(88): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->runMigrations()
+#21 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#22 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Container/Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#23 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(96): Illuminate\\Container\\Util::unwrapIfClosure()
+#24 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#25 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Container/Container.php(807): Illuminate\\Container\\BoundMethod::call()
+#26 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Console/Command.php(211): Illuminate\\Container\\Container->call()
+#27 /home/gunreip/code/tafeld/vendor/symfony/console/Command/Command.php(335): Illuminate\\Console\\Command->execute()
+#28 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Console/Command.php(180): Symfony\\Component\\Console\\Command\\Command->run()
+#29 /home/gunreip/code/tafeld/vendor/symfony/console/Application.php(1103): Illuminate\\Console\\Command->run()
+#30 /home/gunreip/code/tafeld/vendor/symfony/console/Application.php(356): Symfony\\Component\\Console\\Application->doRunCommand()
+#31 /home/gunreip/code/tafeld/vendor/symfony/console/Application.php(195): Symfony\\Component\\Console\\Application->doRun()
+#32 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(197): Symfony\\Component\\Console\\Application->run()
+#33 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
+#34 /home/gunreip/code/tafeld/artisan(16): Illuminate\\Foundation\\Application->handleCommand()
+#35 {main}
+
+[previous exception] [object] (PDOException(code: 42804): SQLSTATE[42804]: Datatype mismatch: 7 ERROR:  foreign key constraint \"debug_logs_user_id_foreign\" cannot be implemented
+DETAIL:  Key columns \"user_id\" of the referencing table and \"id\" of the referenced table are of incompatible types: character and bigint. at /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Connection.php:570)
+[stacktrace]
+#0 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Connection.php(570): PDOStatement->execute()
+#1 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Connection.php(813): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}()
+#2 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Connection.php(780): Illuminate\\Database\\Connection->runQueryCallback()
+#3 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Connection.php(559): Illuminate\\Database\\Connection->run()
+#4 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Schema/Blueprint.php(121): Illuminate\\Database\\Connection->statement()
+#5 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Schema/Builder.php(618): Illuminate\\Database\\Schema\\Blueprint->build()
+#6 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Schema/Builder.php(472): Illuminate\\Database\\Schema\\Builder->build()
+#7 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(363): Illuminate\\Database\\Schema\\Builder->create()
+#8 /home/gunreip/code/tafeld/database/migrations/2025_12_08_110956_create_debug_logs_table.php(16): Illuminate\\Support\\Facades\\Facade::__callStatic()
+#9 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(514): Illuminate\\Database\\Migrations\\Migration@anonymous->up()
+#10 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(439): Illuminate\\Database\\Migrations\\Migrator->runMethod()
+#11 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Concerns/ManagesTransactions.php(35): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#12 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(447): Illuminate\\Database\\Connection->transaction()
+#13 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(250): Illuminate\\Database\\Migrations\\Migrator->runMigration()
+#14 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Console/View/Components/Task.php(41): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#15 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(809): Illuminate\\Console\\View\\Components\\Task->render()
+#16 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(250): Illuminate\\Database\\Migrations\\Migrator->write()
+#17 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(210): Illuminate\\Database\\Migrations\\Migrator->runUp()
+#18 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(137): Illuminate\\Database\\Migrations\\Migrator->runPending()
+#19 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/MigrateCommand.php(116): Illuminate\\Database\\Migrations\\Migrator->run()
+#20 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(666): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#21 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/MigrateCommand.php(109): Illuminate\\Database\\Migrations\\Migrator->usingConnection()
+#22 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/MigrateCommand.php(88): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->runMigrations()
+#23 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#24 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Container/Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#25 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(96): Illuminate\\Container\\Util::unwrapIfClosure()
+#26 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#27 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Container/Container.php(807): Illuminate\\Container\\BoundMethod::call()
+#28 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Console/Command.php(211): Illuminate\\Container\\Container->call()
+#29 /home/gunreip/code/tafeld/vendor/symfony/console/Command/Command.php(335): Illuminate\\Console\\Command->execute()
+#30 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Console/Command.php(180): Symfony\\Component\\Console\\Command\\Command->run()
+#31 /home/gunreip/code/tafeld/vendor/symfony/console/Application.php(1103): Illuminate\\Console\\Command->run()
+#32 /home/gunreip/code/tafeld/vendor/symfony/console/Application.php(356): Symfony\\Component\\Console\\Application->doRunCommand()
+#33 /home/gunreip/code/tafeld/vendor/symfony/console/Application.php(195): Symfony\\Component\\Console\\Application->doRun()
+#34 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(197): Symfony\\Component\\Console\\Application->run()
+#35 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
+#36 /home/gunreip/code/tafeld/artisan(16): Illuminate\\Foundation\\Application->handleCommand()
+#37 {main}
+"} 
+[2025-12-08 19:02:38] local.ERROR: The "--seed:DatabaseSeeder" option does not exist. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): The \"--seed:DatabaseSeeder\" option does not exist. at /home/gunreip/code/tafeld/vendor/symfony/console/Input/ArgvInput.php:226)
+[stacktrace]
+#0 /home/gunreip/code/tafeld/vendor/symfony/console/Input/ArgvInput.php(155): Symfony\\Component\\Console\\Input\\ArgvInput->addLongOption()
+#1 /home/gunreip/code/tafeld/vendor/symfony/console/Input/ArgvInput.php(88): Symfony\\Component\\Console\\Input\\ArgvInput->parseLongOption()
+#2 /home/gunreip/code/tafeld/vendor/symfony/console/Input/ArgvInput.php(77): Symfony\\Component\\Console\\Input\\ArgvInput->parseToken()
+#3 /home/gunreip/code/tafeld/vendor/symfony/console/Input/Input.php(53): Symfony\\Component\\Console\\Input\\ArgvInput->parse()
+#4 /home/gunreip/code/tafeld/vendor/symfony/console/Command/Command.php(289): Symfony\\Component\\Console\\Input\\Input->bind()
+#5 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Console/Command.php(180): Symfony\\Component\\Console\\Command\\Command->run()
+#6 /home/gunreip/code/tafeld/vendor/symfony/console/Application.php(1103): Illuminate\\Console\\Command->run()
+#7 /home/gunreip/code/tafeld/vendor/symfony/console/Application.php(356): Symfony\\Component\\Console\\Application->doRunCommand()
+#8 /home/gunreip/code/tafeld/vendor/symfony/console/Application.php(195): Symfony\\Component\\Console\\Application->doRun()
+#9 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(197): Symfony\\Component\\Console\\Application->run()
+#10 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
+#11 /home/gunreip/code/tafeld/artisan(16): Illuminate\\Foundation\\Application->handleCommand()
+#12 {main}
+"} 
+[2025-12-09 05:16:52] local.DEBUG: User::booted() wurde aufgerufen.  
+[2025-12-09 05:16:52] local.DEBUG: User::booted() registriert creating-Hook...  
+[2025-12-09 05:28:59] local.DEBUG: User::booted() wurde aufgerufen.  
+[2025-12-09 05:28:59] local.DEBUG: User::booted() registriert creating-Hook...  
+[2025-12-09 05:28:59] local.DEBUG: User::creating() wurde aufgerufen. {"attributes_before":{"name":"System Admin","email":"admin@example.com","password":"$2y$12$fZvI3mcS5Fgzw4tRa3fCIe/5Y9gTn848beYdww6yh7JSnXwg1QfCK"}} 
+[2025-12-09 05:28:59] local.DEBUG: User::creating() setzt ULID: {"ulid":"01KC0SB5XVGAZP11Y06DET8XTV"} 
+[2025-12-09 05:28:59] local.DEBUG: User::creating() nach Setzen ULID: {"attributes_after":{"name":"System Admin","email":"admin@example.com","password":"$2y$12$fZvI3mcS5Fgzw4tRa3fCIe/5Y9gTn848beYdww6yh7JSnXwg1QfCK","ulid":"01KC0SB5XVGAZP11Y06DET8XTV"}} 
+[2025-12-09 05:31:50] local.DEBUG: User::booted() wurde aufgerufen.  
+[2025-12-09 05:31:50] local.DEBUG: User::booted() registriert creating-Hook...  
+[2025-12-09 05:31:50] local.DEBUG: User::creating() wurde aufgerufen. {"attributes_before":{"name":"Gunter Reinhard","email":"gunreip@web.de","password":"$2y$12$LUUXXWZtEMCD8mNg77ridufhYalVdt5M/EsSskoFJwFwI5eRO6ni6"}} 
+[2025-12-09 05:31:50] local.DEBUG: User::creating() setzt ULID: {"ulid":"01KC0SGCHFFNBV918MDF8QGD99"} 
+[2025-12-09 05:31:50] local.DEBUG: User::creating() nach Setzen ULID: {"attributes_after":{"name":"Gunter Reinhard","email":"gunreip@web.de","password":"$2y$12$LUUXXWZtEMCD8mNg77ridufhYalVdt5M/EsSskoFJwFwI5eRO6ni6","ulid":"01KC0SGCHFFNBV918MDF8QGD99"}} 
+[2025-12-09 05:31:50] local.DEBUG: User::booted() wurde aufgerufen.  
+[2025-12-09 05:31:50] local.DEBUG: User::booted() registriert creating-Hook...  
+[2025-12-09 05:31:53] local.DEBUG: User::booted() wurde aufgerufen.  
+[2025-12-09 05:31:53] local.DEBUG: User::booted() registriert creating-Hook...  
+[2025-12-09 12:49:50] local.ERROR: There are no commands defined in the "protject" namespace.
+
+Did you mean one of these?
+    project
+    project:dataset {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"protject\" namespace.
+
+Did you mean one of these?
+    project
+    project:dataset at /home/gunreip/code/tafeld/vendor/symfony/console/Application.php:694)
+[stacktrace]
+#0 /home/gunreip/code/tafeld/vendor/symfony/console/Application.php(743): Symfony\\Component\\Console\\Application->findNamespace()
+#1 /home/gunreip/code/tafeld/vendor/symfony/console/Application.php(298): Symfony\\Component\\Console\\Application->find()
+#2 /home/gunreip/code/tafeld/vendor/symfony/console/Application.php(195): Symfony\\Component\\Console\\Application->doRun()
+#3 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(197): Symfony\\Component\\Console\\Application->run()
+#4 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 /home/gunreip/code/tafeld/artisan(16): Illuminate\\Foundation\\Application->handleCommand()
+#6 {main}
+"} 
+[2025-12-09 16:37:33] local.ERROR: Command "seed" is not defined.
+
+Did you mean one of these?
+    db:seed
+    make:seeder {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"seed\" is not defined.
+
+Did you mean one of these?
+    db:seed
+    make:seeder at /home/gunreip/code/tafeld/vendor/symfony/console/Application.php:760)
+[stacktrace]
+#0 /home/gunreip/code/tafeld/vendor/symfony/console/Application.php(298): Symfony\\Component\\Console\\Application->find()
+#1 /home/gunreip/code/tafeld/vendor/symfony/console/Application.php(195): Symfony\\Component\\Console\\Application->doRun()
+#2 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(197): Symfony\\Component\\Console\\Application->run()
+#3 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
+#4 /home/gunreip/code/tafeld/artisan(16): Illuminate\\Foundation\\Application->handleCommand()
+#5 {main}
+"} 
+[2025-12-09 16:37:49] local.DEBUG: User::booted() wurde aufgerufen.  
+[2025-12-09 16:37:49] local.DEBUG: User::booted() registriert creating-Hook...  
+[2025-12-09 16:37:55] local.ERROR: Class "App\Models\DebugSetting" not found {"exception":"[object] (Error(code: 0): Class \"App\\Models\\DebugSetting\" not found at /home/gunreip/code/tafeld/database/seeders/DebugConfigSeeder.php:15)
+[stacktrace]
+#0 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Database\\Seeders\\DebugConfigSeeder->run()
+#1 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Container/Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#2 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(96): Illuminate\\Container\\Util::unwrapIfClosure()
+#3 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#4 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Container/Container.php(807): Illuminate\\Container\\BoundMethod::call()
+#5 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Seeder.php(184): Illuminate\\Container\\Container->call()
+#6 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Seeder.php(193): Illuminate\\Database\\Seeder->Illuminate\\Database\\{closure}()
+#7 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Seeder.php(59): Illuminate\\Database\\Seeder->__invoke()
+#8 /home/gunreip/code/tafeld/database/seeders/DatabaseSeeder.php(26): Illuminate\\Database\\Seeder->call()
+#9 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Database\\Seeders\\DatabaseSeeder->run()
+#10 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Container/Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#11 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(96): Illuminate\\Container\\Util::unwrapIfClosure()
+#12 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#13 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Container/Container.php(807): Illuminate\\Container\\BoundMethod::call()
+#14 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Seeder.php(184): Illuminate\\Container\\Container->call()
+#15 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Seeder.php(193): Illuminate\\Database\\Seeder->Illuminate\\Database\\{closure}()
+#16 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Console/Seeds/SeedCommand.php(71): Illuminate\\Database\\Seeder->__invoke()
+#17 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/GuardsAttributes.php(157): Illuminate\\Database\\Console\\Seeds\\SeedCommand->Illuminate\\Database\\Console\\Seeds\\{closure}()
+#18 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Database/Console/Seeds/SeedCommand.php(70): Illuminate\\Database\\Eloquent\\Model::unguarded()
+#19 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Illuminate\\Database\\Console\\Seeds\\SeedCommand->handle()
+#20 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Container/Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#21 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(96): Illuminate\\Container\\Util::unwrapIfClosure()
+#22 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#23 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Container/Container.php(807): Illuminate\\Container\\BoundMethod::call()
+#24 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Console/Command.php(211): Illuminate\\Container\\Container->call()
+#25 /home/gunreip/code/tafeld/vendor/symfony/console/Command/Command.php(335): Illuminate\\Console\\Command->execute()
+#26 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Console/Command.php(180): Symfony\\Component\\Console\\Command\\Command->run()
+#27 /home/gunreip/code/tafeld/vendor/symfony/console/Application.php(1103): Illuminate\\Console\\Command->run()
+#28 /home/gunreip/code/tafeld/vendor/symfony/console/Application.php(356): Symfony\\Component\\Console\\Application->doRunCommand()
+#29 /home/gunreip/code/tafeld/vendor/symfony/console/Application.php(195): Symfony\\Component\\Console\\Application->doRun()
+#30 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(197): Symfony\\Component\\Console\\Application->run()
+#31 /home/gunreip/code/tafeld/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle()
+#32 /home/gunreip/code/tafeld/artisan(16): Illuminate\\Foundation\\Application->handleCommand()
+#33 {main}
+"} 
+[2025-12-09 16:59:00] local.DEBUG: User::booted() wurde aufgerufen.  
+[2025-12-09 16:59:00] local.DEBUG: User::booted() registriert creating-Hook...  
+[2025-12-10 03:20:33] local.DEBUG: User::booted() wurde aufgerufen.  
+[2025-12-10 03:20:33] local.DEBUG: User::booted() registriert creating-Hook...  
+[2025-12-10 03:20:33] local.DEBUG: User::booted() wurde aufgerufen.  
+[2025-12-10 03:20:33] local.DEBUG: User::booted() registriert creating-Hook...  
