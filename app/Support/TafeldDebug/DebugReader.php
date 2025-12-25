@@ -6,6 +6,7 @@ namespace App\Support\TafeldDebug;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 use DateTimeInterface;
 
 class DebugReader
@@ -18,6 +19,10 @@ class DebugReader
 
     public function getScopes(): array
     {
+        if (! Schema::hasTable('debug_scopes')) {
+            return [];
+        }
+
         return DB::table('debug_scopes')
             ->orderBy('scope_key')
             ->get()
@@ -34,6 +39,10 @@ class DebugReader
 
     public function getScope(string $scopeKey): ?array
     {
+        if (! Schema::hasTable('debug_scopes')) {
+            return null;
+        }
+
         $row = DB::table('debug_scopes')
             ->where('scope_key', $scopeKey)
             ->first();
@@ -60,6 +69,10 @@ class DebugReader
 
     public function getLogCountLast24h(): int
     {
+        if (! Schema::hasTable('activity_log')) {
+            return 0;
+        }
+
         return DB::table('activity_log')
             ->where('log_name', 'tafeld-debug')
             ->where('created_at', '>=', now()->subDay())
@@ -76,6 +89,10 @@ class DebugReader
         DateTimeInterface $from,
         DateTimeInterface $to
     ): array {
+        if (! Schema::hasTable('activity_log')) {
+            return [];
+        }
+
         return DB::table('activity_log')
             ->where('log_name', 'tafeld-debug')
             ->whereBetween('created_at', [$from, $to])
@@ -89,6 +106,10 @@ class DebugReader
         DateTimeInterface $from,
         DateTimeInterface $to
     ): array {
+        if (! Schema::hasTable('activity_log')) {
+            return [];
+        }
+
         return DB::table('activity_log')
             ->where('log_name', 'tafeld-debug')
             ->whereBetween('created_at', [$from, $to])
@@ -111,17 +132,16 @@ class DebugReader
      */
     public function getLatestLogs(int $limit = 15): array
     {
+        if (! Schema::hasTable('activity_log')) {
+            return [];
+        }
+
         return DB::table('activity_log')
             ->where('log_name', 'tafeld-debug')
             ->orderByDesc('created_at')
             ->limit($limit)
             ->get()
-            ->map(fn($row) => [
-                'time'    => $row->created_at,
-                'level'   => data_get(json_decode($row->properties, true), 'level', 'info'),
-                'scope'   => data_get(json_decode($row->properties, true), 'scope_key', '—'),
-                'message' => $row->description,
-            ])
+            ->map(fn($row) => $this->normalizeActivityRow($row))
             ->toArray();
     }
 
@@ -134,6 +154,10 @@ class DebugReader
         ?string $search = null,
         int $perPage = 100
     ): Collection {
+        if (! Schema::hasTable('activity_log')) {
+            return collect();
+        }
+
         $query = DB::table('activity_log')
             ->where('log_name', 'tafeld-debug')
             ->orderByDesc('created_at');
@@ -154,6 +178,115 @@ class DebugReader
             $query->where('description', 'ILIKE', "%{$search}%");
         }
 
-        return $query->limit($perPage)->get();
+        return $query
+            ->limit($perPage)
+            ->get()
+            ->map(fn($row) => $this->normalizeActivityRow($row));
+    }
+
+    /**
+     * Cursor-paginated log reader (stable, deterministic).
+     *
+     * @param array{created_at?: string, id?: string}|null $cursor
+     * @return array{data: array<int, array<string, mixed>>, next_cursor: array|null}
+     */
+    public function getLogsCursor(
+        ?string $scope = null,
+        ?string $level = null,
+        ?DateTimeInterface $from = null,
+        ?DateTimeInterface $to = null,
+        ?string $search = null,
+        ?array $cursor = null,
+        int $perPage = 50
+    ): array {
+        if (! Schema::hasTable('activity_log')) {
+            return ['data' => [], 'next_cursor' => null];
+        }
+
+        $query = DB::table('activity_log')
+            ->where('log_name', 'tafeld-debug')
+            ->orderByDesc('created_at')
+            ->orderByDesc('id');
+
+        if ($from && $to) {
+            $query->whereBetween('created_at', [$from, $to]);
+        }
+
+        if ($scope) {
+            $query->whereRaw("properties->>'scope_key' = ?", [$scope]);
+        }
+
+        if ($level) {
+            $query->whereRaw("properties->>'level' = ?", [$level]);
+        }
+
+        if ($search) {
+            $query->where('description', 'ILIKE', "%{$search}%");
+        }
+
+        if ($cursor && isset($cursor['created_at'], $cursor['id'])) {
+            $query->where(function ($q) use ($cursor) {
+                $q->where('created_at', '<', $cursor['created_at'])
+                    ->orWhere(function ($q2) use ($cursor) {
+                        $q2->where('created_at', '=', $cursor['created_at'])
+                            ->where('id', '<', $cursor['id']);
+                    });
+            });
+        }
+
+        $rows = $query->limit($perPage + 1)->get();
+
+        $data = $rows
+            ->take($perPage)
+            ->map(fn($row) => $this->normalizeActivityRow($row))
+            ->values()
+            ->toArray();
+
+        $nextCursor = null;
+        if ($rows->count() > $perPage) {
+            $last = $rows->get($perPage - 1);
+            $nextCursor = [
+                'created_at' => is_string($last->created_at)
+                    ? $last->created_at
+                    : ($last->created_at instanceof \DateTimeInterface
+                        ? $last->created_at->toDateTimeString()
+                        : null),
+                'id' => (string) $last->id,
+            ];
+        }
+
+        return [
+            'data' => $data,
+            'next_cursor' => $nextCursor,
+        ];
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Internal
+    |--------------------------------------------------------------------------
+    */
+
+    private function normalizeActivityRow(object $row): array
+    {
+        $properties = is_string($row->properties)
+            ? json_decode($row->properties, true) ?? []
+            : (array) ($row->properties ?? []);
+
+        $time = null;
+        if (isset($row->created_at)) {
+            if ($row->created_at instanceof \DateTimeInterface) {
+                $time = $row->created_at->toDateTimeString();
+            } elseif (is_string($row->created_at)) {
+                $time = $row->created_at;
+            }
+        }
+
+        return [
+            'time'    => $time,
+            'level'   => (string) ($properties['level'] ?? 'info'),
+            'scope'   => (string) ($properties['scope_key'] ?? 'global'),
+            'message' => (string) ($row->description ?? ''),
+        ];
     }
 }

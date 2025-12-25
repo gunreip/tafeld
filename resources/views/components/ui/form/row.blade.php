@@ -1,4 +1,7 @@
-{{-- tafeld/resources/views/components/ui/form-row.blade.php --}}
+@if (config('tafeld-debug.view_path_comment'))
+    <!-- tafeld/resources/views/components/ui/form/row.blade.php -->
+    <!-- {{ $__path }} -->
+@endif
 
 @props([
     'columns' => 2, // 2 | 3 | 4 – Anzahl der Spalten

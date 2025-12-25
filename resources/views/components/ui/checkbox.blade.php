@@ -1,4 +1,7 @@
-{{-- tafeld/resources/views/components/ui/checkbox.blade.php --}}
+@if (config('tafeld-debug.view_path_comment'))
+    <!-- tafeld/resources/views/components/ui/checkbox.blade.php -->
+    <!-- {{ $__path }} -->
+@endif
 
 @props([
     'model' => null, // wire:model Unterstützung

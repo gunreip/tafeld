@@ -1,4 +1,7 @@
-{{-- tafeld/resources/views/livewire/debug/logs/show.blade.php --}}
+@if (config('tafeld-debug.view_path_comment'))
+    <!-- tafeld/resources/views/livewire/debug/logs/show.blade.php -->
+    <!-- {{ $__path }} -->
+@endif
 
 <div class="p-6 space-y-6">
 

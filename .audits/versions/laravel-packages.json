@@ -3,7 +3,7 @@
         "php": "8.3.6",
         "laravel": "12.41.1",
         "node": "v22.20.0",
-        "npm": "11.6.4",
+        "npm": "11.7.0",
         "composer_count": 92,
         "npm_count": 14
     },
@@ -1550,8 +1550,8 @@
                 "source": "https://github.com/laravel/framework"
             },
             "time": "2025-12-03T01:02:13+00:00",
-            "version_latest": "v12.41.1",
-            "update_type": "none",
+            "version_latest": "v12.44.0",
+            "update_type": "minor",
             "deps": [
                 {
                     "name": "brick/math",
@@ -2011,8 +2011,8 @@
                 "source": "https://github.com/laravel/telescope/tree/v5.15.1"
             },
             "time": "2025-11-25T14:45:17+00:00",
-            "version_latest": "v5.15.1",
-            "update_type": "none",
+            "version_latest": "v5.16.0",
+            "update_type": "minor",
             "deps": [
                 {
                     "name": "laravel/framework",
@@ -2654,8 +2654,8 @@
                 }
             ],
             "time": "2025-11-18T12:17:23+00:00",
-            "version_latest": "7.6.0",
-            "update_type": "none",
+            "version_latest": "7.7.0",
+            "update_type": "minor",
             "deps": [
                 {
                     "name": "league/uri-interfaces",
@@ -2752,8 +2752,8 @@
                 }
             ],
             "time": "2025-11-18T12:17:23+00:00",
-            "version_latest": "7.6.0",
-            "update_type": "none",
+            "version_latest": "7.7.0",
+            "update_type": "minor",
             "deps": [
                 {
                     "name": "psr/http-message",
@@ -2827,8 +2827,8 @@
                 "source": "https://github.com/livewire/flux/tree/v2.9.2"
             },
             "time": "2025-12-04T17:09:39+00:00",
-            "version_latest": "v2.9.2",
-            "update_type": "none",
+            "version_latest": "v2.10.2",
+            "update_type": "minor",
             "deps": [
                 {
                     "name": "laravel/prompts",
@@ -2922,8 +2922,8 @@
                 }
             ],
             "time": "2025-12-03T22:41:13+00:00",
-            "version_latest": "v3.7.1",
-            "update_type": "none",
+            "version_latest": "v3.7.3",
+            "update_type": "patch",
             "deps": [
                 {
                     "name": "laravel/prompts",
@@ -3440,8 +3440,8 @@
                 "source": "https://github.com/nette/utils/tree/v4.1.0"
             },
             "time": "2025-12-01T17:49:23+00:00",
-            "version_latest": "v4.1.0",
-            "update_type": "none",
+            "version_latest": "v4.1.1",
+            "update_type": "patch",
             "deps": []
         },
         {
@@ -4292,8 +4292,8 @@
                 "source": "https://github.com/bobthecow/psysh/tree/v0.12.16"
             },
             "time": "2025-12-07T03:39:01+00:00",
-            "version_latest": "v0.12.16",
-            "update_type": "none",
+            "version_latest": "v0.12.18",
+            "update_type": "patch",
             "deps": [
                 {
                     "name": "nikic/php-parser",
@@ -4515,8 +4515,8 @@
                 "source": "https://github.com/ramsey/uuid/tree/4.9.1"
             },
             "time": "2025-09-04T20:59:21+00:00",
-            "version_latest": "4.9.1",
-            "update_type": "none",
+            "version_latest": "4.9.2",
+            "update_type": "patch",
             "deps": [
                 {
                     "name": "brick/math",
@@ -4742,7 +4742,7 @@
                 }
             ],
             "time": "2025-02-14T13:42:06+00:00",
-            "version_latest": "2.6.0",
+            "version_latest": "2.8.0",
             "update_type": "major",
             "deps": [
                 {
@@ -5235,8 +5235,8 @@
                 }
             ],
             "time": "2025-11-03T20:16:13+00:00",
-            "version_latest": "6.23.0",
-            "update_type": "none",
+            "version_latest": "6.24.0",
+            "update_type": "minor",
             "deps": []
         },
         {
@@ -5428,8 +5428,8 @@
                 }
             ],
             "time": "2025-11-27T13:27:24+00:00",
-            "version_latest": "v7.4.0",
-            "update_type": "none",
+            "version_latest": "v7.4.1",
+            "update_type": "patch",
             "deps": [
                 {
                     "name": "symfony/deprecation-contracts",
@@ -6027,8 +6027,8 @@
                 }
             ],
             "time": "2025-11-13T08:49:24+00:00",
-            "version_latest": "v7.4.0",
-            "update_type": "none",
+            "version_latest": "v7.4.1",
+            "update_type": "patch",
             "deps": [
                 {
                     "name": "symfony/deprecation-contracts",
@@ -6160,8 +6160,8 @@
                 }
             ],
             "time": "2025-11-27T13:38:24+00:00",
-            "version_latest": "v7.4.0",
-            "update_type": "none",
+            "version_latest": "v7.4.2",
+            "update_type": "patch",
             "deps": [
                 {
                     "name": "psr/log",
@@ -8115,8 +8115,8 @@
                 "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/v2.3.0"
             },
             "time": "2024-12-21T16:25:41+00:00",
-            "version_latest": "v2.3.0",
-            "update_type": "none",
+            "version_latest": "v2.4.0",
+            "update_type": "minor",
             "deps": [
                 {
                     "name": "symfony/css-selector",
@@ -8320,8 +8320,8 @@
         {
             "name": "alpinejs",
             "version": "3.15.2",
-            "version_latest": "3.15.2",
-            "update_type": "none",
+            "version_latest": "3.15.3",
+            "update_type": "patch",
             "deps": [
                 {
                     "name": "@vue/reactivity",
@@ -8333,8 +8333,8 @@
         {
             "name": "autoprefixer",
             "version": "10.4.22",
-            "version_latest": "10.4.22",
-            "update_type": "none",
+            "version_latest": "10.4.23",
+            "update_type": "patch",
             "deps": [
                 {
                     "name": "browserslist",
@@ -8500,21 +8500,21 @@
         {
             "name": "tailwindcss",
             "version": "4.1.17",
-            "version_latest": "4.1.17",
-            "update_type": "none",
+            "version_latest": "4.1.18",
+            "update_type": "patch",
             "deps": []
         },
         {
             "name": "tailwindcss",
             "version": "4.1.17",
-            "version_latest": "4.1.17",
-            "update_type": "none",
+            "version_latest": "4.1.18",
+            "update_type": "patch",
             "deps": []
         },
         {
             "name": "tailwindcss",
             "version": "3.4.18",
-            "version_latest": "4.1.17",
+            "version_latest": "4.1.18",
             "update_type": "major",
             "deps": [
                 {
@@ -8632,8 +8632,8 @@
         {
             "name": "vite",
             "version": "4.1.17",
-            "version_latest": "4.1.17",
-            "update_type": "none",
+            "version_latest": "7.3.0",
+            "update_type": "major",
             "deps": [
                 {
                     "name": "@tailwindcss/node",
@@ -8655,8 +8655,8 @@
         {
             "name": "vite",
             "version": "7.2.6",
-            "version_latest": "7.2.6",
-            "update_type": "none",
+            "version_latest": "7.3.0",
+            "update_type": "minor",
             "deps": [
                 {
                     "name": "esbuild",

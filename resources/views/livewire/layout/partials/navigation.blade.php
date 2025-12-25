@@ -1,4 +1,7 @@
-<!-- tafeld/resources/views/livewire/layout/partials/navigation.blade.php -->
+@if (config('tafeld-debug.view_path_comment'))
+    <!-- tafeld/resources/views/livewire/layout/partials/navigation.blade.php -->
+    <!-- {{ $__path }} -->
+@endif
 
 @php
     use Illuminate\Support\Facades\Route;

@@ -1,5 +1,5 @@
 [drwxr-xr-x 4.0K]  routes
-├── [-rw-r--r--  210]  console.php
+├── [-rw-r--r--  240]  console.php
 └── [-rw-r--r-- 6.1K]  web.php
 
 1 directory, 2 files

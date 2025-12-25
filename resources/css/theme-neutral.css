@@ -45,6 +45,10 @@
         /* blue-600 */
         --color-info-bg: 219 234 254;
         /* blue-100 */
+        --color-critical: 156 39 176;
+        /* Material-Purple 500 */
+        --color-critical-bg: 206 147 216;
+        /* Material-Purple 200 */
 
         /* Focus / Auswahl – LIGHT */
         --color-focus-ring: 59 130 246;
@@ -99,6 +103,10 @@
         /* blue-400 */
         --color-info-bg: 30 64 175;
         /* blue-800 */
+        --color-critical: 171 71 188;
+        /* Material-Purple 500 */
+        --color-critical-bg: 206 147 216;
+        /* Material-Purple 200 */
 
         /* Focus / Auswahl – DARK */
         --color-focus-ring: 96 165 250;
@@ -208,6 +216,14 @@
 
     .bg-info-soft {
         background-color: rgb(var(--color-info-bg));
+    }
+
+    .text-critical {
+        color: rgb(var(--color-critical));
+    }
+
+    .bg-critical-soft {
+        background-color: rgb(var(--color-critical-bg));
     }
 
     /* Focus-Ring */

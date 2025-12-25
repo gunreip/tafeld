@@ -1,4 +1,7 @@
-{{-- tafeld/resources/views/components/ui/alert.blade.php --}}
+@if (config('tafeld-debug.view_path_comment'))
+    <!-- tafeld/resources/views/components/ui/alert.blade.php -->
+    <!-- {{ $__path }} -->
+@endif
 
 @props([
     'type' => 'info', // success, warning, danger, info

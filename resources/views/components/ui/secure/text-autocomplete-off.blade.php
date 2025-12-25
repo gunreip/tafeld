@@ -1,6 +1,7 @@
-{{-- tafeld/resources/views/components/ui/secure/text-autocomplete-off.blade.php --}}
-
-{{-- tafeld/resources/views/components/ui/secure/text-autocomplete-off.blade.php --}}
+@if (config('tafeld-debug.view_path_comment'))
+    <!-- tafeld/resources/views/components/ui/secure/text-autocomplete-off.blade.php -->
+    <!-- {{ $__path }} -->
+@endif
 
 @props([
     'type' => 'text',

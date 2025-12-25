@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="de" x-data="darkModeController()" x-init="init()">
 
-<!-- tafeld/resources/views/livewire/layout/app.blade.php -->
+@if (config('tafeld-debug.view_path_comment'))
+    <!-- tafeld/resources/views/livewire/layout/app.blade.php -->
+    <!-- {{ $__path }} -->
+@endif
 
 <head>
     <meta charset="utf-8">

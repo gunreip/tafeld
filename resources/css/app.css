@@ -3,10 +3,13 @@
 @import './theme-neutral.css';
 @import './theme-tafeld.css';
 
-@import "ui/datepicker.css";
-@import "ui/radio-segment.css";
-@import "ui/toggle-switch.css";
-@import "ui/badge.css";
+@import "./ui/datepicker.css";
+@import "./ui/radio-segment.css";
+@import "./ui/toggle-switch.css";
+@import "./ui/badge.css";
+@import "./ui/debug-pagination.css";
+@import "./ui/debug-select.css";
+@import "./ui/debug-custom-select.css";
 
 @tailwind base;
 @tailwind components;

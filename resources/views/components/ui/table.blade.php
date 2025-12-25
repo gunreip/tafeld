@@ -1,4 +1,8 @@
-{{-- tafeld/resources/views/components/ui/table.blade.php --}}
+@if (config('tafeld-debug.view_path_comment'))
+    <!-- tafeld/resources/views/components/ui/table.blade.php -->
+    <!-- {{ $__path }} -->
+@endif
+
 {{-- table-table --}}
 
 @props([

@@ -1,4 +1,7 @@
-{{-- tafeld/resources/views/components/ui/form.blade.php --}}
+@if (config('tafeld-debug.view_path_comment'))
+    <!-- tafeld/resources/views/components/ui/form.blade.php -->
+    <!-- {{ $__path }} -->
+@endif
 
 @props([
     'submit', // z. B. "save", "login", "register"

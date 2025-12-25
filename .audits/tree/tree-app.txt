@@ -32,12 +32,12 @@
 │   │   └── [-rw-r--r--  358]  Logout.php
 │   ├── [drwxr-xr-x 4.0K]  Debug
 │   │   ├── [drwxr-xr-x 4.0K]  Logs
-│   │   │   ├── [-rw-r--r-- 1.8K]  Index.php
+│   │   │   ├── [-rw-r--r-- 2.0K]  Index.php
 │   │   │   └── [-rw-r--r--  863]  Show.php
 │   │   ├── [-rw-r--r-- 1.4K]  Overview.php
 │   │   └── [drwxr-xr-x 4.0K]  Scopes
 │   │       ├── [-rw-r--r-- 3.2K]  Index.php
-│   │       └── [-rw-r--r-- 2.4K]  Show.php
+│   │       └── [-rw-r--r-- 3.6K]  Show.php
 │   ├── [-rw-r--r-- 1.4K]  DebugTest.php
 │   ├── [drwxr-xr-x 4.0K]  Forms
 │   │   └── [-rw-r--r-- 1.8K]  LoginForm.php
@@ -68,17 +68,19 @@
 │   ├── [-rw-r--r-- 1.2K]  Event.php
 │   ├── [-rw-r--r--  774]  Holiday.php
 │   ├── [-rw-r--r-- 3.6K]  Person.php
+│   ├── [-rw-r--r--  655]  UiPreference.php
 │   └── [-rw-r--r-- 1.7K]  User.php
 ├── [drwxr-xr-x 4.0K]  Providers
 │   ├── [-rw-r--r-- 1.2K]  AppServiceProvider.php
 │   ├── [-rw-r--r-- 1.6K]  TelescopeServiceProvider.php
 │   └── [-rw-r--r--  494]  VoltServiceProvider.php
 ├── [drwxr-xr-x 4.0K]  Services
-│   └── [drwxr-xr-x 4.0K]  Events
-│       ├── [-rw-r--r-- 6.5K]  EventImporter.php
-│       └── [drwxr-xr-x 4.0K]  Parsers
-│           ├── [-rw-r--r-- 3.1K]  IcsParser.php
-│           └── [-rw-r--r-- 1.7K]  JsonParser.php
+│   ├── [drwxr-xr-x 4.0K]  Events
+│   │   ├── [-rw-r--r-- 6.5K]  EventImporter.php
+│   │   └── [drwxr-xr-x 4.0K]  Parsers
+│   │       ├── [-rw-r--r-- 3.1K]  IcsParser.php
+│   │       └── [-rw-r--r-- 1.7K]  JsonParser.php
+│   └── [-rw-r--r-- 1.2K]  UiPreferenceResolver.php
 ├── [drwxr-xr-x 4.0K]  Support
 │   ├── [-rw-r--r--  845]  Breadcrumbs.php
 │   ├── [drwxr-xr-x 4.0K]  Holidays
@@ -90,6 +92,7 @@
 │       ├── [-rw-r--r-- 5.4K]  DbLogWriter.php
 │       ├── [-rw-r--r-- 1.4K]  Debug.php
 │       ├── [-rw-r--r-- 5.5K]  DebugEngine.php
+│       ├── [-rw-r--r-- 8.6K]  DebugReader.php
 │       ├── [-rw-r--r-- 1.3K]  DebugRuntime.php
 │       ├── [-rw-r--r-- 5.1K]  DebugToggleService.php
 │       ├── [-rw-r--r-- 1.8K]  FatalFallbackLogger.php
@@ -103,8 +106,20 @@
 │           │   └── [-rw-r--r-- 1.5K]  WorkArea.php
 │           ├── [drwxr-xr-x 4.0K]  Checkbox
 │           │   └── [-rw-r--r--  476]  Segment.php
+│           ├── [drwxr-xr-x 4.0K]  Date
+│           │   └── [-rw-r--r--  544]  DebugDatepicker.php
+│           ├── [drwxr-xr-x 4.0K]  Input
+│           │   └── [-rw-r--r--  532]  DebugInput.php
+│           ├── [drwxr-xr-x 4.0K]  Pagination
+│           │   ├── [-rw-r--r--  462]  DebugLogsPagination.php
+│           │   └── [-rw-r--r--  540]  DebugScopesPagination.php
 │           ├── [drwxr-xr-x 4.0K]  Radio
 │           │   └── [-rw-r--r--  470]  Segment.php
+│           ├── [drwxr-xr-x 4.0K]  Select
+│           │   ├── [-rw-r--r-- 3.0K]  DebugCustomSelect.php
+│           │   ├── [-rw-r--r-- 2.0K]  DebugSelect.php
+│           │   └── [drwxr-xr-x 4.0K]  Options
+│           │       └── [-rw-r--r--  565]  SelectOption.php
 │           ├── [drwxr-xr-x 4.0K]  Table
 │           │   ├── [-rw-r--r--  464]  Body.php
 │           │   ├── [-rw-r--r--  464]  Head.php
@@ -116,4 +131,4 @@
 │               └── [-rw-r--r--  541]  ToggleSwitch.php
 └── [-rw-r--r--    0]  helpers.php
 
-34 directories, 83 files
+39 directories, 93 files

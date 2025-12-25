@@ -1,4 +1,7 @@
-{{-- tafeld/resources/views/livewire/debug/scopes/index.blade.php --}}
+@if (config('tafeld-debug.view_path_comment'))
+    <!-- tafeld/resources/views/livewire/debug/scopes/index.blade.php -->
+    <!-- {{ $__path }} -->
+@endif
 
 <x-ui.section>
 

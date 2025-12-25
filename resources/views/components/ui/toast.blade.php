@@ -1,4 +1,7 @@
-{{-- tafeld/resources/views/components/ui/toast.blade.php --}}
+@if (config('tafeld-debug.view_path_comment'))
+    <!-- tafeld/resources/views/components/ui/toast.blade.php -->
+    <!-- {{ $__path }} -->
+@endif
 
 @props([
     'position' => 'top-right', // top-right | top-left | bottom-right | bottom-left

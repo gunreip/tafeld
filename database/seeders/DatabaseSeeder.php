@@ -36,6 +36,8 @@ class DatabaseSeeder extends Seeder
             EventSeeder::class,
             CountryWorkAreaSeeder::class,
             DebugConfigSeeder::class,
+            UiPreferenceDefaultsSeeder::class,
+            AppSettingsSeeder::class,
         ]);
     }
 }

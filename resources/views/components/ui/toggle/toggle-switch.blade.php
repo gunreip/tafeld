@@ -1,4 +1,7 @@
-{{-- tafeld/resources/views/components/ui/toggle/toggle-switch.blade.php --}}
+@if (config('tafeld-debug.view_path_comment'))
+    <!-- tafeld/resources/views/components/ui/toggle/toggle-switch.blade.php -->
+    <!-- {{ $__path }} -->
+@endif
 
 @props([
     'disabled' => false,

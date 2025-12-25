@@ -35,6 +35,10 @@ export default {
             },
         },
     },
+    safelist: [
+        'text-critical',
+        'bg-critical-soft',
+    ],
     plugins: [],
 }
 

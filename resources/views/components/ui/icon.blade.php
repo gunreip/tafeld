@@ -1,4 +1,7 @@
-{{-- tafeld/resources/views/components/ui/icon.blade.php --}}
+@if (config('tafeld-debug.view_path_comment'))
+    <!-- tafeld/resources/views/components/ui/icon.blade.php -->
+    <!-- {{ $__path }} -->
+@endif
 
 @props([
     'name', // z.B. "user", "home", "trash"

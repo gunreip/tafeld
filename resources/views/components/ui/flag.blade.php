@@ -1,6 +1,8 @@
-{{-- tafeld/resources/views/components/ui/flag.blade.php --}}
+@if (config('tafeld-debug.view_path_comment'))
+    <!-- tafeld/resources/views/components/ui/flag.blade.php -->
+    <!-- {{ $__path }} -->
+@endif
 
-{{-- tafeld/resources/views/components/ui/flag.blade.php --}}
 @props([
     'code', // z.B. "de", "fr", "us", "ac"
     'label' => null, // optionaler Text neben der Flagge

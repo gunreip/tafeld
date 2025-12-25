@@ -42,19 +42,31 @@
             </select>
         </div>
 
-        {{-- Suchfeld --}}
+        {{-- Suche --}}
         <div>
             <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Suche</label>
             <input type="text" wire:model="search"
                    class="w-full rounded-md bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 p-2"
                    placeholder="Textsuche...">
         </div>
+
+        {{-- Einträge pro Seite --}}
+        <div>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                Einträge pro Seite
+            </label>
+            <select wire:model="perPage"
+                class="w-full rounded-md bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 p-2">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="50">50</option>
+            </select>
+        </div>
     </div>
 
     {{-- CHART: Logs nach Level --}}
     <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow">
-    {{-- <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow h-[450px] overflow-hidden"> --}}
-
         <h2 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">
             Logs nach Level (gefiltert)
         </h2>
@@ -71,7 +83,7 @@
     <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow">
 
         <h2 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">
-            Logs ({{ count($logs) }})
+            Logs – Seite {{ $page }} ({{ count($logs) }} Einträge)
         </h2>
 
         <table class="w-full text-left text-sm">
@@ -99,6 +111,12 @@
                 @endforelse
             </tbody>
         </table>
+
+        {{-- DEBUG PAGINATION --}}
+        <x-ui.pagination.debug-scopes-pagination
+            :page="$page"
+            :has-more="$hasMore"
+        />
 
     </div>
 

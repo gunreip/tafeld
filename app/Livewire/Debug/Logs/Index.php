@@ -22,10 +22,21 @@ class Index extends Component
     public ?string $from = null;
     public ?string $to = null;
 
+    // Pagination
+    public int $perPage = 50;
+
     public function updating($name): void
     {
-        // Filteränderungen setzen die Pagination zurück
-        $this->resetPage();
+        if (in_array($name, [
+            'scope',
+            'level',
+            'run_id',
+            'from',
+            'to',
+            'perPage',
+        ], true)) {
+            $this->resetPage();
+        }
     }
 
     protected function query()
@@ -67,7 +78,7 @@ class Index extends Component
     public function render()
     {
         return view('livewire.debug.logs.index', [
-            'logs' => $this->query()->paginate(50),
+            'logs' => $this->query()->paginate($this->perPage),
         ])->layout(
             'livewire.layout.app',
             [

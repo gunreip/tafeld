@@ -1,4 +1,7 @@
-{{-- resources/views/components/ui/date/datepicker.blade.php --}}
+@if (config('tafeld-debug.view_path_comment'))
+    <!-- tafeld/resources/views/components/ui/date/datepicker.blade.php -->
+    <!-- {{ $__path }} -->
+@endif
 
 @props([
     'model' => null,

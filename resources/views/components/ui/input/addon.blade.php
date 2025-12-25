@@ -1,4 +1,7 @@
-{{-- tafeld/resources/views/components/ui/input-addon.blade.php --}}
+@if (config('tafeld-debug.view_path_comment'))
+    <!-- tafeld/resources/views/components/ui/input/addon.blade.php -->
+    <!-- {{ $__path }} -->
+@endif
 
 @props([
     'prefix' => null, // Text oder Icon links

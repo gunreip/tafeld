@@ -1,4 +1,7 @@
-{{-- tafeld/resources/views/components/ui/avatar.blade.php --}}
+@if (config('tafeld-debug.view_path_comment'))
+    <!-- tafeld/resources/views/components/ui/avatar.blade.php -->
+    <!-- {{ $__path }} -->
+@endif
 
 @props([
     'src' => null, // Bild-URL

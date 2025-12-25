@@ -1,4 +1,7 @@
-{{-- tafeld/resources/views/components/ui/input/group.blade.php --}}
+@if (config('tafeld-debug.view_path_comment'))
+    <!-- tafeld/resources/views/components/ui/input/group.blade.php -->
+    <!-- {{ $__path }} -->
+@endif
 
 @props([
     'field' => null,

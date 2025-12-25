@@ -1,4 +1,7 @@
-{{-- tafeld/resources/views/components/ui/tag.blade.php --}}
+@if (config('tafeld-debug.view_path_comment'))
+    <!-- tafeld/resources/views/components/ui/tag.blade.php -->
+    <!-- {{ $__path }} -->
+@endif
 
 @props([
     'color' => 'default', // default | brand | success | warning | danger | info

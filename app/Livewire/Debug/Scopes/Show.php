@@ -11,7 +11,15 @@ class Show extends Component
 {
     public string $scopeKey;
     public array $scopeData = [];
+
     public array $logs = [];
+
+    public ?array $cursor = null;
+    public array $pageCursors = [];
+    public int $page = 1;
+    public int $perPage = 20;
+    public bool $hasMore = true;
+
     public array $chartByLevel = [];
 
     public string $level = 'all';
@@ -25,15 +33,13 @@ class Show extends Component
         $this->reader = $reader;
         $this->scopeKey = $scopeKey;
 
-        // Scope laden
         $scopeData = $reader->getScope($scopeKey);
-        if (!$scopeData) {
+        if (! $scopeData) {
             abort(404, "Scope '{$scopeKey}' nicht gefunden.");
         }
 
         $this->scopeData = $scopeData;
 
-        // Startdaten laden
         $this->loadLogs();
     }
 
@@ -52,8 +58,27 @@ class Show extends Component
         $this->loadLogs();
     }
 
+    public function updatedPerPage(): void
+    {
+        $this->loadLogs();
+    }
+
     protected function loadLogs(): void
     {
+        $this->page = 1;
+        $this->pageCursors = [];
+        $this->cursor = null;
+        $this->hasMore = true;
+
+        $this->loadPage(1);
+    }
+
+    protected function loadPage(int $page): void
+    {
+        if ($page < 1) {
+            return;
+        }
+
         $from = match ($this->period) {
             '24h' => new \DateTimeImmutable('-24 hours'),
             '7d'  => new \DateTimeImmutable('-7 days'),
@@ -66,21 +91,50 @@ class Show extends Component
         $level = $this->level === 'all' ? null : $this->level;
         $search = $this->search !== '' ? $this->search : null;
 
-        // Logs lesen
-        $collection = $this->reader->getLogs(
+        $cursor = $page > 1
+            ? ($this->pageCursors[$page - 1] ?? null)
+            : null;
+
+        $result = $this->reader->getLogsCursor(
             scope: $this->scopeKey,
-            channel: null,
             level: $level,
             from: $from,
             to: $to,
             search: $search,
-            perPage: 500
+            cursor: $cursor,
+            perPage: $this->perPage
         );
 
-        $this->logs = $collection->values()->toArray();
+        $this->logs = $result['data'];
+        $this->cursor = $result['next_cursor'];
+        $this->hasMore = $this->cursor !== null;
 
-        // Chart nach Level (global – Reader unterstützt Scope-Filter noch nicht)
+        if ($this->cursor) {
+            $this->pageCursors[$page] = $this->cursor;
+        }
+
+        $this->page = $page;
+
+        // Charts bleiben global (Scope-Aggregation im Reader derzeit nicht vorgesehen)
         $this->chartByLevel = $this->reader->getLogsByLevel($from, $to);
+    }
+
+    public function nextPage(): void
+    {
+        if (! $this->hasMore) {
+            return;
+        }
+
+        $this->loadPage($this->page + 1);
+    }
+
+    public function prevPage(): void
+    {
+        if ($this->page <= 1) {
+            return;
+        }
+
+        $this->loadPage($this->page - 1);
     }
 
     public function render()
@@ -91,6 +145,9 @@ class Show extends Component
             'scope'        => $this->scopeData,
             'logs'         => $this->logs,
             'chartByLevel' => $this->chartByLevel,
+            'page'         => $this->page,
+            'perPage'      => $this->perPage,
+            'hasMore'      => $this->hasMore,
         ])->layout('livewire.layout.app');
     }
 }

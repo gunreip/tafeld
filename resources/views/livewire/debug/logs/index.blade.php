@@ -1,4 +1,7 @@
-{{-- tafeld/resources/views/livewire/debug/logs/index.blade.php --}}
+@if (config('tafeld-debug.view_path_comment'))
+    <!-- tafeld/resources/views/livewire/debug/logs/index.blade.php -->
+    <!-- {{ $__path }} -->
+@endif
 
 <x-ui.section>
 
@@ -24,42 +27,39 @@
         <div class="mt-6 bg-elevated rounded-md p-4">
             <div class="grid grid-cols-1 md:grid-cols-5 gap-3">
 
-                <input
-                    type="text"
+                <x-ui.input.debug-input
                     wire:model.debounce.300ms="scope"
                     placeholder="Scope enthält …"
-                    class="input-base rounded-md"
-                >
+                />
 
-                <select wire:model="level" class="input-base rounded-md">
-                    <option value="">Level (alle)</option>
-                    <option value="debug">debug</option>
-                    <option value="info">info</option>
-                    <option value="warning">warning</option>
-                    <option value="error">error</option>
-                    <option value="critical">critical</option>
-                </select>
+                <x-ui.select.debug-custom-select
+                    wire:model="level"
+                    option-set="debug-levels"
+                />
 
-                <input
-                    type="text"
+                <x-ui.input.debug-input
                     wire:model.debounce.300ms="run_id"
                     placeholder="Run-ID"
-                    class="input-base font-mono rounded-md"
-                >
+                    class="font-mono"
+                />
 
-                <input
-                    type="datetime-local"
+                <x-ui.date.debug-datepicker
                     wire:model="from"
-                    class="input-base rounded-md"
-                >
+                />
 
-                <input
-                    type="datetime-local"
+                <x-ui.date.debug-datepicker
                     wire:model="to"
-                    class="input-base rounded-md"
-                >
+                />
+
             </div>
         </div>
+
+        @php
+            $debugLevels = app(\App\Services\AppSettingResolver::class)
+                ->getForUser(auth()->user()?->ulid, 'debug.levels', []);
+
+            $debugLevelMap = collect($debugLevels)->keyBy('value');
+        @endphp
 
         {{-- Tabelle --}}
         <div class="mt-6 overflow-x-auto">
@@ -76,40 +76,36 @@
 
                 @foreach ($logs as $log)
                     <x-ui.table.tr>
-
-                        {{-- Zeit --}}
-                        <x-ui.table.td align="left" class="text-muted font-mono whitespace-nowrap">
+                        <x-ui.table.td align="left" class="text-muted whitespace-nowrap">
                             {{ $log->created_at }}
                         </x-ui.table.td>
 
-                        {{-- Level --}}
                         <x-ui.table.td align="left">
-                            <span @class([
-                                'text-muted'    => $log->level === 'debug',
-                                'text-info'     => $log->level === 'info',
-                                'text-warning'  => $log->level === 'warning',
-                                'text-danger'   => in_array($log->level, ['error', 'critical']),
-                                'font-semibold' => $log->level === 'critical',
-                            ])>
-                                {{ $log->level }}
+                            @php($meta = $debugLevelMap[$log->level] ?? null)
+
+                            <span class="{{ $meta['class'] ?? 'text-muted' }}">
+                                @if (!empty($meta['icon-name']))
+                                    <x-ui.icon
+                                        :name="$meta['icon-name']"
+                                        class="inline-block w-4 h-4 mr-1 align-text-bottom"
+                                    />
+                                @endif
+
+                                {{ $meta['label'] ?? $log->level }}
                             </span>
                         </x-ui.table.td>
 
-                        {{-- Scope --}}
                         <x-ui.table.td align="left" class="font-mono text-default">
                             {{ $log->scope }}
                         </x-ui.table.td>
 
-                        {{-- Message --}}
                         <x-ui.table.td align="left" class="text-default">
                             {{ $log->message }}
                         </x-ui.table.td>
 
-                        {{-- Run-ID --}}
                         <x-ui.table.td align="left" class="font-mono text-muted">
                             {{ $log->run_id }}
                         </x-ui.table.td>
-
                     </x-ui.table.tr>
                 @endforeach
 
@@ -118,9 +114,7 @@
         </div>
 
         {{-- Pagination --}}
-        <div class="mt-6">
-            <x-ui.pagination :paginator="$logs" />
-        </div>
+        <x-ui.pagination.debug-logs-pagination :paginator="$logs" />
 
     </x-ui.card>
 

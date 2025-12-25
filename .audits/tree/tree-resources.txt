@@ -3,9 +3,12 @@
 │   ├── [drwxr-xr-x 4.0K]  ui
 │   │   ├── [-rw-r--r--  806]  badge.css
 │   │   ├── [-rw-r--r-- 4.1K]  datepicker.css
+│   │   ├── [-rw-r--r-- 1.6K]  debug-custom-select.css
+│   │   ├── [-rw-r--r-- 2.6K]  debug-pagination.css
+│   │   ├── [-rw-r--r-- 2.3K]  debug-select.css
 │   │   ├── [-rw-r--r-- 1.4K]  radio-segment.css
 │   │   └── [-rw-r--r-- 2.1K]  toggle-switch.css
-│   ├── [-rw-r--r--  274]  app.css
+│   ├── [-rw-r--r--  392]  app.css
 │   ├── [-rw-r--r-- 6.0K]  theme-neutral.css
 │   ├── [-rw-r--r-- 4.9K]  theme-tafeld.css
 │   └── [-rw-r--r-- 1.3K]  theme.css
@@ -63,14 +66,13 @@
 │   │   └── [drwxr-xr-x 4.0K]  tafel
 │   └── [drwxr-xr-x 4.0K]  heroicons
 ├── [drwxr-xr-x 4.0K]  js
-│   ├── [drwxr-xr-x 4.0K]  components
+│   ├── [drwxr-xr-x 4.0K]  ui
+│   │   ├── [-rw-r--r-- 4.4K]  dashboard-charts.js
 │   │   ├── [-rw-r--r--  12K]  datepicker.js
-│   │   └── [-rw-r--r--  10K]  nationality.select.js
-│   ├── [drwxr-xr-x 4.0K]  dashboard
-│   │   └── [-rw-r--r-- 4.4K]  charts.js
-│   ├── [drwxr-xr-x 4.0K]  tafeld
-│   │   └── [-rw-r--r-- 1.8K]  debug.js
-│   ├── [-rw-r--r-- 1.6K]  app.js
+│   │   ├── [-rw-r--r-- 1.2K]  debug-custom-select.js
+│   │   ├── [-rw-r--r-- 1.8K]  debug.js
+│   │   └── [-rw-r--r--  10K]  nationality-select.js
+│   ├── [-rw-r--r--  865]  app.js
 │   └── [-rw-r--r--   82]  bootstrap.js
 └── [drwxr-xr-x 4.0K]  views
     ├── [drwxr-xr-x 4.0K]  audits
@@ -78,104 +80,113 @@
     ├── [drwxr-xr-x 4.0K]  components
     │   ├── [drwxr-xr-x 4.0K]  ui
     │   │   ├── [drwxr-xr-x 4.0K]  accordion
-    │   │   │   └── [-rw-r--r-- 1.3K]  item.blade.php
+    │   │   │   └── [-rw-r--r-- 1.4K]  item.blade.php
     │   │   ├── [drwxr-xr-x 4.0K]  badge
-    │   │   │   └── [-rw-r--r--  205]  work-area.blade.php
+    │   │   │   └── [-rw-r--r--  289]  work-area.blade.php
     │   │   ├── [drwxr-xr-x 4.0K]  checkbox
-    │   │   │   └── [-rw-r--r--  171]  segment.blade.php
+    │   │   │   └── [-rw-r--r--  255]  segment.blade.php
     │   │   ├── [drwxr-xr-x 4.0K]  date
-    │   │   │   └── [-rw-r--r-- 5.4K]  datepicker.blade.php
+    │   │   │   ├── [-rw-r--r-- 5.4K]  datepicker.blade.php
+    │   │   │   └── [-rw-r--r--  270]  debug-datepicker.blade.php
     │   │   ├── [drwxr-xr-x 4.0K]  form
-    │   │   │   ├── [-rw-r--r--   68]  field.blade.php
-    │   │   │   ├── [-rw-r--r--  801]  grid.blade.php
-    │   │   │   └── [-rw-r--r--  484]  row.blade.php
+    │   │   │   ├── [-rw-r--r--  152]  field.blade.php
+    │   │   │   ├── [-rw-r--r--  885]  grid.blade.php
+    │   │   │   └── [-rw-r--r--  568]  row.blade.php
     │   │   ├── [drwxr-xr-x 4.0K]  input
-    │   │   │   ├── [-rw-r--r-- 1.0K]  addon.blade.php
-    │   │   │   └── [-rw-r--r-- 1.7K]  group.blade.php
+    │   │   │   ├── [-rw-r--r-- 1.1K]  addon.blade.php
+    │   │   │   ├── [-rw-r--r--  266]  debug-input.blade.php
+    │   │   │   └── [-rw-r--r-- 1.8K]  group.blade.php
     │   │   ├── [drwxr-xr-x 4.0K]  modal
-    │   │   │   └── [-rw-r--r--  335]  trigger.blade.php
+    │   │   │   └── [-rw-r--r--  419]  trigger.blade.php
+    │   │   ├── [drwxr-xr-x 4.0K]  pagination
+    │   │   │   ├── [-rw-r--r-- 3.8K]  debug-logs-pagination.blade.php
+    │   │   │   └── [-rw-r--r-- 2.1K]  debug-scopes-pagination.blade.php
     │   │   ├── [drwxr-xr-x 4.0K]  radio
-    │   │   │   └── [-rw-r--r--  890]  segment.blade.php
+    │   │   │   └── [-rw-r--r--  974]  segment.blade.php
     │   │   ├── [drwxr-xr-x 4.0K]  secure
     │   │   │   ├── [drwxr-xr-x 4.0K]  radio
-    │   │   │   │   └── [-rw-r--r--  978]  segment.blade.php
-    │   │   │   └── [-rw-r--r--  647]  text-autocomplete-off.blade.php
+    │   │   │   │   └── [-rw-r--r-- 1.0K]  segment.blade.php
+    │   │   │   └── [-rw-r--r--  644]  text-autocomplete-off.blade.php
     │   │   ├── [drwxr-xr-x 4.0K]  select
-    │   │   │   └── [-rw-r--r-- 3.7K]  nationality.blade.php
+    │   │   │   ├── [drwxr-xr-x 4.0K]  options
+    │   │   │   │   └── [-rw-r--r--  280]  select-option.blade.php
+    │   │   │   ├── [-rw-r--r-- 1.8K]  debug-custom-select.blade.php
+    │   │   │   ├── [-rw-r--r--  532]  debug-select.blade.php
+    │   │   │   └── [-rw-r--r-- 3.8K]  nationality.blade.php
     │   │   ├── [drwxr-xr-x 4.0K]  table
-    │   │   │   ├── [-rw-r--r--  134]  body.blade.php
-    │   │   │   ├── [-rw-r--r--  178]  head.blade.php
-    │   │   │   ├── [-rw-r--r--  294]  table.blade.php
-    │   │   │   ├── [-rw-r--r--  394]  td.blade.php
-    │   │   │   ├── [-rw-r--r--  709]  th.blade.php
-    │   │   │   └── [-rw-r--r--  227]  tr.blade.php
+    │   │   │   ├── [-rw-r--r--  218]  body.blade.php
+    │   │   │   ├── [-rw-r--r--  262]  head.blade.php
+    │   │   │   ├── [-rw-r--r--  378]  table.blade.php
+    │   │   │   ├── [-rw-r--r--  478]  td.blade.php
+    │   │   │   ├── [-rw-r--r--  793]  th.blade.php
+    │   │   │   └── [-rw-r--r--  310]  tr.blade.php
     │   │   ├── [drwxr-xr-x 4.0K]  toggle
-    │   │   │   └── [-rw-r--r--  987]  toggle-switch.blade.php
-    │   │   ├── [-rw-r--r--  502]  accordion.blade.php
-    │   │   ├── [-rw-r--r-- 1.3K]  alert.blade.php
-    │   │   ├── [-rw-r--r-- 1.5K]  avatar.blade.php
-    │   │   ├── [-rw-r--r-- 2.0K]  badge.blade.php
-    │   │   ├── [-rw-r--r--  133]  body.blade.php
+    │   │   │   └── [-rw-r--r-- 1.0K]  toggle-switch.blade.php
+    │   │   ├── [-rw-r--r--  586]  accordion.blade.php
+    │   │   ├── [-rw-r--r-- 1.4K]  alert.blade.php
+    │   │   ├── [-rw-r--r-- 1.6K]  avatar.blade.php
+    │   │   ├── [-rw-r--r-- 2.1K]  badge.blade.php
+    │   │   ├── [-rw-r--r--  218]  body.blade.php
     │   │   ├── [-rw-r--r-- 1.2K]  button.blade.php
-    │   │   ├── [-rw-r--r--  427]  card.blade.php
-    │   │   ├── [-rw-r--r-- 1.3K]  checkbox.blade.php
-    │   │   ├── [-rw-r--r-- 2.1K]  drawer.blade.php
+    │   │   ├── [-rw-r--r--  511]  card.blade.php
+    │   │   ├── [-rw-r--r-- 1.4K]  checkbox.blade.php
+    │   │   ├── [-rw-r--r-- 2.2K]  drawer.blade.php
     │   │   ├── [-rw-r--r-- 1.2K]  flag.blade.php
-    │   │   ├── [-rw-r--r-- 1.3K]  form.blade.php
-    │   │   ├── [-rw-r--r--  191]  head.blade.php
-    │   │   ├── [-rw-r--r-- 1.0K]  icon.blade.php
-    │   │   ├── [-rw-r--r-- 1012]  input.blade.php
-    │   │   ├── [-rw-r--r--  260]  label.blade.php
-    │   │   ├── [-rw-r--r-- 2.1K]  modal.blade.php
-    │   │   ├── [-rw-r--r-- 2.4K]  pagination.blade.php
-    │   │   ├── [-rw-r--r-- 1.2K]  radio.blade.php
-    │   │   ├── [-rw-r--r-- 1.1K]  section.blade.php
-    │   │   ├── [-rw-r--r--  987]  select.blade.php
-    │   │   ├── [-rw-r--r-- 1.0K]  switch.blade.php
-    │   │   ├── [-rw-r--r--  181]  tab-panel.blade.php
-    │   │   ├── [-rw-r--r--  407]  table.blade.php
-    │   │   ├── [-rw-r--r-- 1.4K]  tabs.blade.php
+    │   │   ├── [-rw-r--r-- 1.4K]  form.blade.php
+    │   │   ├── [-rw-r--r--  276]  head.blade.php
+    │   │   ├── [-rw-r--r-- 1.1K]  icon.blade.php
+    │   │   ├── [-rw-r--r-- 1.1K]  input.blade.php
+    │   │   ├── [-rw-r--r--  344]  label.blade.php
+    │   │   ├── [-rw-r--r-- 2.2K]  modal.blade.php
+    │   │   ├── [-rw-r--r-- 2.5K]  pagination.blade.php
+    │   │   ├── [-rw-r--r-- 1.3K]  radio.blade.php
+    │   │   ├── [-rw-r--r-- 1.2K]  section.blade.php
+    │   │   ├── [-rw-r--r-- 1.0K]  select.blade.php
+    │   │   ├── [-rw-r--r-- 1.1K]  switch.blade.php
+    │   │   ├── [-rw-r--r--  265]  tab-panel.blade.php
+    │   │   ├── [-rw-r--r--  492]  table.blade.php
+    │   │   ├── [-rw-r--r-- 1.5K]  tabs.blade.php
     │   │   ├── [-rw-r--r-- 1.6K]  tag.blade.php
-    │   │   ├── [-rw-r--r--  171]  td.blade.php
-    │   │   ├── [-rw-r--r--  353]  textarea.blade.php
-    │   │   ├── [-rw-r--r--  568]  th.blade.php
+    │   │   ├── [-rw-r--r--  256]  td.blade.php
+    │   │   ├── [-rw-r--r--  437]  textarea.blade.php
+    │   │   ├── [-rw-r--r--  653]  th.blade.php
     │   │   ├── [-rw-r--r-- 2.9K]  toast.blade.php
-    │   │   ├── [-rw-r--r-- 1.2K]  toggle.blade.php
-    │   │   ├── [-rw-r--r--  429]  tr.blade.php
+    │   │   ├── [-rw-r--r-- 1.3K]  toggle.blade.php
+    │   │   ├── [-rw-r--r--  514]  tr.blade.php
     │   │   └── [-rw-r--r--    0]  ui-muster.md
-    │   ├── [-rw-r--r-- 1.9K]  breadcrumbs.blade.php
-    │   ├── [-rw-r--r-- 1.9K]  logo.blade.php
+    │   ├── [-rw-r--r-- 2.0K]  breadcrumbs.blade.php
+    │   ├── [-rw-r--r-- 2.0K]  logo.blade.php
     │   └── [-rw-r--r-- 6.3K]  roadmap-ui.md
     └── [drwxr-xr-x 4.0K]  livewire
         ├── [drwxr-xr-x 4.0K]  debug
         │   ├── [drwxr-xr-x 4.0K]  logs
-        │   │   ├── [-rw-r--r-- 4.3K]  index.blade.php
-        │   │   └── [-rw-r--r--  967]  show.blade.php
+        │   │   ├── [-rw-r--r-- 3.6K]  index.blade.php
+        │   │   └── [-rw-r--r-- 1.0K]  show.blade.php
         │   ├── [drwxr-xr-x 4.0K]  scopes
-        │   │   ├── [-rw-r--r-- 2.7K]  index.blade.php
-        │   │   └── [-rw-r--r-- 4.0K]  show.blade.php
+        │   │   ├── [-rw-r--r-- 2.8K]  index.blade.php
+        │   │   └── [-rw-r--r-- 4.7K]  show.blade.php
         │   └── [-rw-r--r-- 3.4K]  overview.blade.php
         ├── [drwxr-xr-x 4.0K]  layout
         │   ├── [drwxr-xr-x 4.0K]  partials
-        │   │   ├── [-rw-r--r--  536]  footer.blade.php
-        │   │   ├── [-rw-r--r-- 1.5K]  header.blade.php
-        │   │   └── [-rw-r--r-- 5.8K]  navigation.blade.php
-        │   ├── [-rw-r--r-- 4.5K]  app.blade.php
+        │   │   ├── [-rw-r--r--  621]  footer.blade.php
+        │   │   ├── [-rw-r--r-- 1.6K]  header.blade.php
+        │   │   └── [-rw-r--r-- 5.9K]  navigation.blade.php
+        │   ├── [-rw-r--r-- 4.6K]  app.blade.php
         │   └── [-rw-r--r-- 2.5K]  guest.blade.php
         ├── [drwxr-xr-x 4.0K]  pages
         │   ├── [drwxr-xr-x 4.0K]  auth
         │   │   ├── [-rw-r--r-- 1.3K]  confirm-password.blade.php
-        │   │   ├── [-rw-r--r-- 1.4K]  forgot-password.blade.php
-        │   │   ├── [-rw-r--r-- 2.8K]  login.blade.php
-        │   │   ├── [-rw-r--r-- 2.7K]  register.blade.php
-        │   │   ├── [-rw-r--r-- 2.1K]  reset-password.blade.php
+        │   │   ├── [-rw-r--r-- 1.5K]  forgot-password.blade.php
+        │   │   ├── [-rw-r--r-- 2.9K]  login.blade.php
+        │   │   ├── [-rw-r--r-- 2.8K]  register.blade.php
+        │   │   ├── [-rw-r--r-- 2.2K]  reset-password.blade.php
         │   │   └── [-rw-r--r-- 1.3K]  verify-email.blade.php
         │   ├── [drwxr-xr-x 4.0K]  persons
         │   │   ├── [-rw-r--r-- 7.9K]  create.blade.php
         │   │   ├── [-rw-r--r-- 2.2K]  edit.blade.php
         │   │   └── [-rw-r--r-- 4.2K]  index.blade.php
-        │   ├── [-rw-r--r--  327]  dashboard.blade.php
-        │   └── [-rw-r--r-- 1.1K]  welcome.blade.php
-        └── [-rw-r--r--  195]  debug-test.blade.php
+        │   ├── [-rw-r--r--  412]  dashboard.blade.php
+        │   └── [-rw-r--r-- 1.2K]  welcome.blade.php
+        └── [-rw-r--r--  280]  debug-test.blade.php
 
-71 directories, 108 files
+71 directories, 119 files

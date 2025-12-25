@@ -3,8 +3,9 @@
     "private": true,
     "type": "module",
     "sideEffects": [
-        "resources/js/tafeld/debug.js",
-        "resources/js/dashboard/charts.js"
+        "resources/js/ui/debug.js",
+        "resources/js/ui/dashboard-charts.js",
+        "resources/js/ui/debug-custom-select.js"
     ],
     "scripts": {
         "build": "vite build",

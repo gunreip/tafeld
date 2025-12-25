@@ -24,7 +24,8 @@
 │       │   ├── [-rw-r--r-- 2.2K]  tafeld_debug_logs_2025-12-14_093443.sql
 │       │   ├── [-rw-r--r-- 2.2K]  tafeld_debug_logs_2025-12-15_195306.sql
 │       │   ├── [-rw-r--r-- 2.2K]  tafeld_debug_logs_2025-12-16_155100.sql
-│       │   └── [-rw-r--r-- 2.2K]  tafeld_debug_logs_2025-12-20_112509.sql
+│       │   ├── [-rw-r--r-- 2.2K]  tafeld_debug_logs_2025-12-20_112509.sql
+│       │   └── [-rw-r--r-- 2.2K]  tafeld_debug_logs_2025-12-22_165543.sql
 │       ├── [drwxr-xr-x 4.0K]  debug_scopes
 │       │   ├── [-rw-r--r-- 1.6K]  tafeld_debug_scopes_2025-12-14_093605.sql
 │       │   ├── [-rw-r--r-- 1.6K]  tafeld_debug_scopes_2025-12-15_195321.sql
@@ -71,10 +72,13 @@
 │       │   ├── [-rw-r--r--  34K]  tafeld_2025-12-15_175536.sql
 │       │   ├── [-rw-r--r--  34K]  tafeld_2025-12-19_133758.sql
 │       │   ├── [-rw-r--r--  34K]  tafeld_2025-12-20_105147.sql
-│       │   └── [-rw-r--r--  34K]  tafeld_2025-12-20_130315.sql
+│       │   ├── [-rw-r--r--  34K]  tafeld_2025-12-20_130315.sql
+│       │   ├── [-rw-r--r--  34K]  tafeld_2025-12-22_104255.sql
+│       │   └── [-rw-r--r--  36K]  tafeld_2025-12-23_121208.sql
 │       └── [drwxr-xr-x 4.0K]  users
 │           ├── [-rw-r--r-- 2.5K]  tafeld_users_2025-12-13_195508.sql
-│           └── [-rw-r--r-- 2.5K]  tafeld_users_2025-12-17_121209.sql
+│           ├── [-rw-r--r-- 2.5K]  tafeld_users_2025-12-17_121209.sql
+│           └── [-rw-r--r-- 2.5K]  tafeld_users_2025-12-23_115433.sql
 ├── [drwxr-xr-x 4.0K]  factories
 │   └── [-rw-r--r-- 1.1K]  UserFactory.php
 ├── [drwxr-xr-x 4.0K]  migrations
@@ -107,6 +111,7 @@
 │   ├── [-rw-r--r--  426]  2025_12_16_144547_truncate_debug_tables_before_debug_core_v1.php
 │   ├── [-rw-r--r-- 1.2K]  2025_12_16_144638_add_discovery_metadata_to_debug_scopes_table.php
 │   ├── [-rw-r--r--  795]  2025_12_18_172604_add_runtime_killable_to_debug_scopes_table.php
+│   ├── [-rw-r--r-- 1.2K]  2025_12_23_110152_create_ui_preferences_table.php
 │   └── [drwxr-xr-x 4.0K]  bak
 │       ├── [-rw-r--r-- 1.1K]  2025_11_11_143327_create_people_table.php
 │       └── [-rw-r--r--  831]  2025_11_13_190103_add_country_id_to_people_table.php
@@ -116,13 +121,14 @@
     ├── [-rw-r--r-- 1.8K]  CountriesSortKeyFixSeeder.php
     ├── [-rw-r--r-- 2.5K]  CountryRegionsSeeder.php
     ├── [-rw-r--r-- 2.3K]  CountryWorkAreaSeeder.php
-    ├── [-rw-r--r-- 1.0K]  DatabaseSeeder.php
+    ├── [-rw-r--r-- 1.1K]  DatabaseSeeder.php
     ├── [-rw-r--r--  727]  DebugConfigSeeder.php
     ├── [-rw-r--r--  569]  EventSeeder.php
     ├── [-rw-r--r-- 1.5K]  HolidaysSeeder.php
     ├── [-rw-r--r-- 3.2K]  PeopleSeeder.php
     ├── [-rw-r--r-- 2.7K]  PeopleSortKeyFixSeeder.php
     ├── [-rw-r--r--  381]  PermissionSeeder.php
-    └── [-rw-r--r--  277]  RoleSeeder.php
+    ├── [-rw-r--r--  277]  RoleSeeder.php
+    └── [-rw-r--r-- 1.3K]  UiPreferenceDefaultsSeeder.php
 
-22 directories, 104 files
+22 directories, 110 files

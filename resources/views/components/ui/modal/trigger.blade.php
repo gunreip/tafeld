@@ -1,4 +1,7 @@
-{{-- tafeld/resources/views/components/ui/modal/trigger.blade.php --}}
+@if (config('tafeld-debug.view_path_comment'))
+    <!-- tafeld/resources/views/components/ui/modal/trigger.blade.php -->
+    <!-- {{ $__path }} -->
+@endif
 
 @props([
     'modal' => null, // ID des Modals

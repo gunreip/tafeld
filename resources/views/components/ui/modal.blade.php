@@ -1,3 +1,9 @@
+@if (config('tafeld-debug.view_path_comment'))
+    <!-- tafeld/resources/views/components/ui/modal.blade.php -->
+    <!-- {{ $__path }} -->
+@endif
+
+
 @props([
     'model' => null, // wire:model="isOpen"
     'maxWidth' => 'max-w-lg', // sm, md, lg, xl, full

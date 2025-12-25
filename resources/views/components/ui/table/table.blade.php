@@ -1,4 +1,7 @@
-{{-- tafeld/resources/views/components/ui/table/table.blade.php --}}
+@if (config('tafeld-debug.view_path_comment'))
+    <!-- tafeld/resources/views/components/ui/table/table.blade.php -->
+    <!-- {{ $__path }} -->
+@endif
 
 <table {{ $attributes->merge(['class' => 'w-full border-collapse text-base rounded-base']) }}>
 

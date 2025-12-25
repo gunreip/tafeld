@@ -1,4 +1,7 @@
-{{-- tafeld/resources/views/components/ui/drawer.blade.php --}}
+@if (config('tafeld-debug.view_path_comment'))
+    <!-- tafeld/resources/views/components/ui/drawer.blade.php -->
+    <!-- {{ $__path }} -->
+@endif
 
 @props([
     'side' => 'right', // right | left

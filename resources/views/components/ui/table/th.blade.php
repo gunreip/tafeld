@@ -1,4 +1,7 @@
-{{-- tafeld/resources/views/components/ui/table/th.blade.php --}}
+@if (config('tafeld-debug.view_path_comment'))
+    <!-- tafeld/resources/views/components/ui/table/th.blade.php -->
+    <!-- {{ $__path }} -->
+@endif
 
 @props([
     'sortable'   => false,

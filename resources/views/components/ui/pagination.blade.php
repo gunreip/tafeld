@@ -1,4 +1,7 @@
-{{-- tafeld/resources/views/components/ui/pagination.blade.php --}}
+@if (config('tafeld-debug.view_path_comment'))
+    <!-- tafeld/resources/views/components/ui/pagination.blade.php -->
+    <!-- {{ $__path }} -->
+@endif
 
 @props(['paginator'])
 

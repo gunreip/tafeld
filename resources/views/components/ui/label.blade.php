@@ -1,4 +1,7 @@
-{{-- tafeld/resources/views/components/ui/label.blade.php --}}
+@if (config('tafeld-debug.view_path_comment'))
+    <!-- tafeld/resources/views/components/ui/label.blade.php -->
+    <!-- {{ $__path }} -->
+@endif
 
 @props([
     'for' => null,
