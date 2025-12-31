@@ -1,5 +1,7 @@
 <?php
 
+// tafeld/app/Providers/AppServiceProvider.php
+
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
@@ -14,6 +16,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
+        // Route-Helper laden (route_if_exists)
+        require_once app_path('helpers/routes.php');
+
         if ($this->app->environment('local') && class_exists(\Laravel\Telescope\TelescopeServiceProvider::class)) {
             $this->app->register(\Laravel\Telescope\TelescopeServiceProvider::class);
             $this->app->register(TelescopeServiceProvider::class);
@@ -27,7 +32,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Paginator::useTailwind();
 
-        // Globale Passwort-Policy (gilt in allen FormRequests/Validatoren mit Password::defaults())
+        // Globale Passwort-Policy
         Password::defaults(function () {
             return Password::min(12)
                 ->mixedCase()
@@ -39,6 +44,11 @@ class AppServiceProvider extends ServiceProvider
         // SuperAdmin darf alles
         Gate::before(function ($user, string $ability) {
             return $user->hasRole('superadmin') ? true : null;
+        });
+
+        // App-Settings: global setzen (nur admin / superadmin)
+        Gate::define('app-settings.set-global', function ($user) {
+            return $user->hasRole('admin');
         });
     }
 }

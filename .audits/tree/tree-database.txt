@@ -7,7 +7,9 @@
 ├── [drwxr-xr-x 4.0K]  dumps
 │   └── [drwxr-xr-x 4.0K]  tafeld
 │       ├── [drwxr-xr-x 4.0K]  activity_log
-│       │   └── [-rw-r--r-- 2.6K]  tafeld_activity_log_2025-12-20_173638.sql
+│       │   ├── [-rw-r--r-- 2.6K]  tafeld_activity_log_2025-12-20_173638.sql
+│       │   ├── [-rw-r--r-- 2.6K]  tafeld_activity_log_2025-12-25_211106.sql
+│       │   └── [-rw-r--r-- 2.6K]  tafeld_activity_log_2025-12-26_101754.sql
 │       ├── [drwxr-xr-x 4.0K]  countries
 │       │   ├── [-rw-r--r-- 2.5K]  tafeld_countries_2025-11-13_124828.sql
 │       │   ├── [-rw-r--r--  23K]  tafeld_countries_2025-11-13_204513.sql
@@ -36,7 +38,8 @@
 │       │   ├── [-rw-r--r-- 1.4K]  tafeld_debug_settings_2025-12-14_093620.sql
 │       │   ├── [-rw-r--r-- 1.6K]  tafeld_debug_settings_2025-12-15_195329.sql
 │       │   ├── [-rw-r--r-- 1.6K]  tafeld_debug_settings_2025-12-16_155122.sql
-│       │   └── [-rw-r--r-- 1.6K]  tafeld_debug_settings_2025-12-20_112532.sql
+│       │   ├── [-rw-r--r-- 1.6K]  tafeld_debug_settings_2025-12-20_112532.sql
+│       │   └── [-rw-r--r-- 1.6K]  tafeld_debug_settings_2025-12-25_202322.sql
 │       ├── [drwxr-xr-x 4.0K]  holidays
 │       │   └── [-rw-r--r-- 2.1K]  tafeld_holidays_2025-11-28_210337.sql
 │       ├── [drwxr-xr-x 4.0K]  model_has_permissions
@@ -74,11 +77,15 @@
 │       │   ├── [-rw-r--r--  34K]  tafeld_2025-12-20_105147.sql
 │       │   ├── [-rw-r--r--  34K]  tafeld_2025-12-20_130315.sql
 │       │   ├── [-rw-r--r--  34K]  tafeld_2025-12-22_104255.sql
-│       │   └── [-rw-r--r--  36K]  tafeld_2025-12-23_121208.sql
+│       │   ├── [-rw-r--r--  36K]  tafeld_2025-12-23_121208.sql
+│       │   ├── [-rw-r--r--  36K]  tafeld_2025-12-25_103333.sql
+│       │   ├── [-rw-r--r--  37K]  tafeld_2025-12-26_201649.sql
+│       │   └── [-rw-r--r--  37K]  tafeld_2025-12-28_083213.sql
 │       └── [drwxr-xr-x 4.0K]  users
 │           ├── [-rw-r--r-- 2.5K]  tafeld_users_2025-12-13_195508.sql
 │           ├── [-rw-r--r-- 2.5K]  tafeld_users_2025-12-17_121209.sql
-│           └── [-rw-r--r-- 2.5K]  tafeld_users_2025-12-23_115433.sql
+│           ├── [-rw-r--r-- 2.5K]  tafeld_users_2025-12-23_115433.sql
+│           └── [-rw-r--r-- 2.5K]  tafeld_users_2025-12-25_211054.sql
 ├── [drwxr-xr-x 4.0K]  factories
 │   └── [-rw-r--r-- 1.1K]  UserFactory.php
 ├── [drwxr-xr-x 4.0K]  migrations
@@ -111,12 +118,15 @@
 │   ├── [-rw-r--r--  426]  2025_12_16_144547_truncate_debug_tables_before_debug_core_v1.php
 │   ├── [-rw-r--r-- 1.2K]  2025_12_16_144638_add_discovery_metadata_to_debug_scopes_table.php
 │   ├── [-rw-r--r--  795]  2025_12_18_172604_add_runtime_killable_to_debug_scopes_table.php
-│   ├── [-rw-r--r-- 1.2K]  2025_12_23_110152_create_ui_preferences_table.php
+│   ├── [-rw-r--r-- 1.3K]  2025_12_23_110152_create_ui_preferences_table.php
+│   ├── [-rw-r--r--  719]  2025_12_25_201922_create_app_settings_table.php
+│   ├── [-rw-r--r--  962]  2025_12_25_201922_create_app_user_settings_table.php
 │   └── [drwxr-xr-x 4.0K]  bak
 │       ├── [-rw-r--r-- 1.1K]  2025_11_11_143327_create_people_table.php
 │       └── [-rw-r--r--  831]  2025_11_13_190103_add_country_id_to_people_table.php
 └── [drwxr-xr-x 4.0K]  seeders
     ├── [-rw-r--r--  550]  AdminSeeder.php
+    ├── [-rw-r--r-- 1.8K]  AppSettingsSeeder.php
     ├── [-rw-r--r--  663]  CountriesSeeder.php
     ├── [-rw-r--r-- 1.8K]  CountriesSortKeyFixSeeder.php
     ├── [-rw-r--r-- 2.5K]  CountryRegionsSeeder.php
@@ -131,4 +141,4 @@
     ├── [-rw-r--r--  277]  RoleSeeder.php
     └── [-rw-r--r-- 1.3K]  UiPreferenceDefaultsSeeder.php
 
-22 directories, 110 files
+22 directories, 120 files

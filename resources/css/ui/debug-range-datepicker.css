@@ -1,0 +1,201 @@
+/* tafeld/resources/css/ui/debug-range-datepicker.css */
+
+/* Root */
+.debug-range-picker {
+    @apply relative;
+}
+
+/* Input / Trigger */
+.debug-range-input {
+    @apply flex items-center gap-2 px-3 py-2 rounded-md border border-default bg-input text-sm cursor-pointer transition-colors;
+}
+
+.debug-range-input:hover {
+    @apply border-brand;
+}
+
+.debug-range-input.is-active {
+    @apply border-brand focus-ring;
+}
+
+.debug-range-value {
+    @apply text-sm truncate;
+}
+
+.debug-range-value.is-empty {
+    @apply text-muted;
+}
+
+.debug-range-value.is-filled {
+    @apply text-default;
+}
+
+.debug-range-clear {
+    @apply text-muted transition-colors;
+}
+
+.debug-range-clear:hover {
+    @apply text-danger;
+}
+
+.debug-range-calendar {
+    @apply text-muted pointer-events-none;
+}
+
+/* Overlay Panel */
+.debug-range-panel {
+    @apply absolute mt-2 w-full rounded-lg border border-default bg-card shadow-lg z-50;
+}
+
+/* Presets */
+.debug-range-presets {
+    @apply flex flex-wrap gap-2 p-2 border-b border-default justify-center;
+}
+
+.preset-btn {
+    @apply px-2 py-1 rounded-md text-sm text-muted font-extralight transition-colors;
+}
+
+.preset-btn:hover {
+    @apply text-default bg-elevated;
+}
+
+.preset-btn.is-active {
+    @apply bg-brand-soft text-brand-primary font-medium;
+}
+
+/* Calendar Header */
+.debug-range-calendar-header {
+    @apply flex items-center justify-between px-3 py-2 text-sm text-default;
+}
+
+.calendar-nav {
+    @apply p-1 rounded text-muted transition-colors;
+}
+
+.calendar-nav:hover {
+    @apply text-default bg-elevated;
+}
+
+.calendar-current {
+    @apply font-medium text-sm;
+}
+
+/* Calendar Grid */
+.calendar-weekdays {
+    @apply grid grid-cols-7 text-xs text-muted mb-1;
+}
+
+.calendar-days {
+    @apply grid grid-cols-7 gap-1;
+}
+
+.calendar-weekday {
+    @apply h-6 w-8 text-center text-muted text-sm;
+}
+
+.calendar-saturday {
+    @apply h-6 w-8 text-center text-sm font-semibold text-orange-500;
+}
+
+.calendar-sunday {
+    @apply h-6 w-8 text-center text-sm font-semibold text-green-500;
+}
+
+.calendar-day {
+    @apply h-8 w-8 flex items-center justify-center rounded-md text-sm cursor-pointer transition-colors;
+}
+
+.calendar-day:hover {
+    @apply bg-elevated;
+}
+
+/* Calendar States */
+.calendar-day.is-today {
+    @apply focus-ring;
+}
+
+.calendar-day.is-sunday {
+    @apply text-green-300;
+}
+
+.calendar-day.is-saturday {
+    @apply text-orange-300;
+}
+
+/* Grundfläche für Range */
+.calendar-day.is-in-range {
+    @apply bg-brand-soft;
+    border-radius: 0;
+}
+
+/* Preview-Zwischenzustand */
+.calendar-day.is-span-preview {
+    @apply bg-brand-soft px-2;
+    border-radius: 0;
+}
+
+/* Startpunkt */
+.calendar-day.is-start {
+    @apply bg-brand text-inverted font-semibold !important;
+    border-top-left-radius: 9999px !important;
+    border-bottom-left-radius: 9999px !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+/* Endpunkt */
+.calendar-day.is-end {
+    @apply bg-brand text-inverted font-semibold !important;
+    border-top-right-radius: 9999px !important;
+    border-bottom-right-radius: 9999px !important;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
+
+/* Sonderfall: from === to */
+.calendar-day.is-start.is-end {
+    border-radius: 9999px;
+}
+
+.calendar-day.is-disabled {
+    @apply text-muted pointer-events-none;
+}
+
+/* Keyboard-Focus */
+.calendar-day.is-focused-day {
+    position: relative;
+    border-radius: 9999px;
+    background-color: bg-brand;
+}
+
+.calendar-day.is-focused-day::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    /* border-radius: 0.375rem; */
+    border-radius: 9999px;
+    border: 2px dashed rgb(var(--color-calendar-ring));
+    pointer-events: none;
+}
+
+/* Footer */
+.debug-range-footer {
+    @apply flex items-center justify-between px-3 py-2 border-t border-default;
+}
+
+.footer-today {
+    @apply text-sm text-muted transition-colors px-4;
+}
+
+.footer-today:hover {
+    @apply text-default;
+}
+
+.footer-clear {
+    @apply text-sm text-muted transition-colors px-4;
+}
+
+.footer-clear:hover {
+    @apply text-danger;
+}

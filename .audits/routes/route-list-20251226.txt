@@ -1,0 +1,84 @@
+
+  GET|HEAD  / ....................................................... welcome › App\Livewire\Pages\Welcome
+  POST      _ignition/execute-solution ignition.executeSolution › Spatie\LaravelIgnition › ExecuteSolutio…
+  GET|HEAD  _ignition/health-check . ignition.healthCheck › Spatie\LaravelIgnition › HealthCheckController
+  POST      _ignition/update-config ignition.updateConfig › Spatie\LaravelIgnition › UpdateConfigControll…
+  GET|HEAD  admin/activity-log ........... admin.activity-log.index › App\Livewire\Admin\ActivityLog\Index
+  GET|HEAD  admin/app-settings ........... admin.app-settings.index › App\Livewire\Admin\AppSettings\Index
+  GET|HEAD  confirm-password .................. password.confirm › App\Livewire\Pages\Auth\ConfirmPassword
+  GET|HEAD  dashboard ........................................... dashboard › App\Livewire\Pages\Dashboard
+  GET|HEAD  debug ........................................... debug.overview › App\Livewire\Debug\Overview
+  GET|HEAD  debug-test ............................................................ App\Livewire\DebugTest
+  GET|HEAD  debug/logs .................................. debug.logs.index › App\Livewire\Debug\Logs\Index
+  GET|HEAD  debug/logs/{id} ............................... debug.logs.show › App\Livewire\Debug\Logs\Show
+  GET|HEAD  debug/scopes ............................ debug.scopes.index › App\Livewire\Debug\Scopes\Index
+  GET|HEAD  debug/scopes/{scopeKey} ................... debug.scopes.show › App\Livewire\Debug\Scopes\Show
+  GET|HEAD  flux/editor.css ......................... Flux\AssetManager@editorCss › AssetManager@editorCss
+  GET|HEAD  flux/editor.js ............................ Flux\AssetManager@editorJs › AssetManager@editorJs
+  GET|HEAD  flux/editor.min.js .................. Flux\AssetManager@editorMinJs › AssetManager@editorMinJs
+  GET|HEAD  flux/flux.js .................................. Flux\AssetManager@fluxJs › AssetManager@fluxJs
+  GET|HEAD  flux/flux.min.js ........................ Flux\AssetManager@fluxMinJs › AssetManager@fluxMinJs
+  GET|HEAD  forgot-password .................... password.request › App\Livewire\Pages\Auth\ForgotPassword
+  GET|HEAD  livewire/livewire.js ............. Livewire\Mechanisms › FrontendAssets@returnJavaScriptAsFile
+  GET|HEAD  livewire/livewire.min.js.map ....................... Livewire\Mechanisms › FrontendAssets@maps
+  GET|HEAD  livewire/preview-file/{filename} livewire.preview-file › Livewire\Features › FilePreviewContr…
+  POST      livewire/update .......... livewire.update › Livewire\Mechanisms › HandleRequests@handleUpdate
+  POST      livewire/upload-file .. livewire.upload-file › Livewire\Features › FileUploadController@handle
+  GET|HEAD  login .................................................. login › App\Livewire\Pages\Auth\Login
+  POST      logout ................................................................................ logout
+  GET|HEAD  persons ..................................... persons.index › App\Livewire\Pages\Persons\Index
+  GET|HEAD  persons/create ............................ persons.create › App\Livewire\Pages\Persons\Create
+  GET|HEAD  persons/{person}/edit ......................... persons.edit › App\Livewire\Pages\Persons\Edit
+  GET|HEAD  register ......................................... register › App\Livewire\Pages\Auth\Register
+  GET|HEAD  reset-password/{token} ................ password.reset › App\Livewire\Pages\Auth\ResetPassword
+  GET|HEAD  sanctum/csrf-cookie ........ sanctum.csrf-cookie › Laravel\Sanctum › CsrfCookieController@show
+  GET|HEAD  storage/{path} ................................................................. storage.local
+  POST      telescope/telescope-api/batches ............. Laravel\Telescope › QueueBatchesController@index
+  GET|HEAD  telescope/telescope-api/batches/{telescopeEntryId} Laravel\Telescope › QueueBatchesController…
+  POST      telescope/telescope-api/cache ...................... Laravel\Telescope › CacheController@index
+  GET|HEAD  telescope/telescope-api/cache/{telescopeEntryId} .... Laravel\Telescope › CacheController@show
+  POST      telescope/telescope-api/client-requests .... Laravel\Telescope › ClientRequestController@index
+  GET|HEAD  telescope/telescope-api/client-requests/{telescopeEntryId} Laravel\Telescope › ClientRequestC…
+  POST      telescope/telescope-api/commands ................ Laravel\Telescope › CommandsController@index
+  GET|HEAD  telescope/telescope-api/commands/{telescopeEntryId} Laravel\Telescope › CommandsController@sh…
+  POST      telescope/telescope-api/dumps ....................... Laravel\Telescope › DumpController@index
+  DELETE    telescope/telescope-api/entries ................ Laravel\Telescope › EntriesController@destroy
+  POST      telescope/telescope-api/events .................... Laravel\Telescope › EventsController@index
+  GET|HEAD  telescope/telescope-api/events/{telescopeEntryId} .. Laravel\Telescope › EventsController@show
+  POST      telescope/telescope-api/exceptions ............. Laravel\Telescope › ExceptionController@index
+  GET|HEAD  telescope/telescope-api/exceptions/{telescopeEntryId} Laravel\Telescope › ExceptionController…
+  PUT       telescope/telescope-api/exceptions/{telescopeEntryId} Laravel\Telescope › ExceptionController…
+  POST      telescope/telescope-api/gates ...................... Laravel\Telescope › GatesController@index
+  GET|HEAD  telescope/telescope-api/gates/{telescopeEntryId} .... Laravel\Telescope › GatesController@show
+  POST      telescope/telescope-api/jobs ....................... Laravel\Telescope › QueueController@index
+  GET|HEAD  telescope/telescope-api/jobs/{telescopeEntryId} ..... Laravel\Telescope › QueueController@show
+  POST      telescope/telescope-api/logs ......................... Laravel\Telescope › LogController@index
+  GET|HEAD  telescope/telescope-api/logs/{telescopeEntryId} ....... Laravel\Telescope › LogController@show
+  POST      telescope/telescope-api/mail ........................ Laravel\Telescope › MailController@index
+  GET|HEAD  telescope/telescope-api/mail/{telescopeEntryId} ...... Laravel\Telescope › MailController@show
+  GET|HEAD  telescope/telescope-api/mail/{telescopeEntryId}/download Laravel\Telescope › MailEmlControlle…
+  GET|HEAD  telescope/telescope-api/mail/{telescopeEntryId}/preview Laravel\Telescope › MailHtmlControlle…
+  POST      telescope/telescope-api/models .................... Laravel\Telescope › ModelsController@index
+  GET|HEAD  telescope/telescope-api/models/{telescopeEntryId} .. Laravel\Telescope › ModelsController@show
+  GET|HEAD  telescope/telescope-api/monitored-tags ...... Laravel\Telescope › MonitoredTagController@index
+  POST      telescope/telescope-api/monitored-tags ...... Laravel\Telescope › MonitoredTagController@store
+  POST      telescope/telescope-api/monitored-tags/delete Laravel\Telescope › MonitoredTagController@dest…
+  POST      telescope/telescope-api/notifications ...... Laravel\Telescope › NotificationsController@index
+  GET|HEAD  telescope/telescope-api/notifications/{telescopeEntryId} Laravel\Telescope › NotificationsCon…
+  POST      telescope/telescope-api/queries .................. Laravel\Telescope › QueriesController@index
+  GET|HEAD  telescope/telescope-api/queries/{telescopeEntryId} Laravel\Telescope › QueriesController@show
+  POST      telescope/telescope-api/redis ...................... Laravel\Telescope › RedisController@index
+  GET|HEAD  telescope/telescope-api/redis/{telescopeEntryId} .... Laravel\Telescope › RedisController@show
+  POST      telescope/telescope-api/requests ................ Laravel\Telescope › RequestsController@index
+  GET|HEAD  telescope/telescope-api/requests/{telescopeEntryId} Laravel\Telescope › RequestsController@sh…
+  POST      telescope/telescope-api/schedule ................ Laravel\Telescope › ScheduleController@index
+  GET|HEAD  telescope/telescope-api/schedule/{telescopeEntryId} Laravel\Telescope › ScheduleController@sh…
+  POST      telescope/telescope-api/toggle-recording ...... Laravel\Telescope › RecordingController@toggle
+  POST      telescope/telescope-api/views ...................... Laravel\Telescope › ViewsController@index
+  GET|HEAD  telescope/telescope-api/views/{telescopeEntryId} .... Laravel\Telescope › ViewsController@show
+  GET|HEAD  telescope/{view?} ....................... telescope › Laravel\Telescope › HomeController@index
+  GET|HEAD  up ........................................................................................... 
+  GET|HEAD  verify-email ....................... verification.notice › App\Livewire\Pages\Auth\VerifyEmail
+
+                                                                                       Showing [80] routes
+

@@ -25,31 +25,30 @@
 
         {{-- Filter --}}
         <div class="mt-6 bg-elevated rounded-md p-4">
-            <div class="grid grid-cols-1 md:grid-cols-5 gap-3">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
 
-                <x-ui.input.debug-input
+                {{-- Scope --}}
+                <x-ui.select.debug-suggest-select
                     wire:model.debounce.300ms="scope"
                     placeholder="Scope enthält …"
+                    :options="$scopeSuggestions"
                 />
 
+                {{-- Level --}}
                 <x-ui.select.debug-custom-select
                     wire:model="level"
                     option-set="debug-levels"
                 />
 
-                <x-ui.input.debug-input
+                {{-- Run-ID --}}
+                <x-ui.select.debug-suggest-select
                     wire:model.debounce.300ms="run_id"
                     placeholder="Run-ID"
-                    class="font-mono"
+                    :options="$runIdSuggestions"
                 />
 
-                <x-ui.date.debug-datepicker
-                    wire:model="from"
-                />
-
-                <x-ui.date.debug-datepicker
-                    wire:model="to"
-                />
+                {{-- Date Range (Flatpickr PoC) --}}
+                <x-ui.date.debug-range-datepicker />
 
             </div>
         </div>

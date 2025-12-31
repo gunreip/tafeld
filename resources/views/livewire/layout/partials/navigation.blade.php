@@ -5,6 +5,7 @@
 
 @php
     use Illuminate\Support\Facades\Route;
+    use Illuminate\Support\Facades\Gate;
 
     $navItems = [
         [
@@ -43,6 +44,24 @@
         ],
     ];
 
+    if (Gate::allows('app-settings.set-global')) {
+        $navItems[] = [
+            'label' => 'Admin',
+            'route' => null,
+            'icon'  => 'cog',
+            'children' => [
+                [
+                    'label' => 'App-Settings',
+                    'route' => 'admin.app-settings.index',
+                ],
+                [
+                    'label' => 'Activity-Log',
+                    'route' => 'admin.activity-log.index',
+                ],
+            ],
+        ];
+    }
+
     $currentRoute = Route::currentRouteName();
 @endphp
 
@@ -62,7 +81,9 @@
             @foreach ($navItems as $item)
                 @php
                     $isActive =
-                        ($item['route'] && ($currentRoute === $item['route'] || str_starts_with($currentRoute, $item['route'] . '.')));
+                        ($item['route']
+                            && ($currentRoute === $item['route']
+                                || str_starts_with($currentRoute, $item['route'] . '.')));
                 @endphp
 
                 <li>
@@ -70,11 +91,21 @@
                         {{-- Hauptpunkt mit Untermenü --}}
                         <div
                             class="px-3 py-2 text-sm font-semibold
-                                   {{ str_starts_with($currentRoute, 'debug.') ? 'text-default' : 'text-muted' }}">
+                                   {{ collect($item['children'])
+                                        ->pluck('route')
+                                        ->contains(fn ($r) => str_starts_with($currentRoute, $r))
+                                        ? 'text-default'
+                                        : 'text-muted' }}"
+                        >
                             <div class="flex items-center gap-3">
-                                @if ($item['icon'] === 'bug')
-                                    <x-heroicon-o-bug-ant class="w-5 h-5 text-muted" />
-                                @endif
+                                @switch($item['icon'])
+                                    @case('bug')
+                                        <x-heroicon-o-bug-ant class="w-5 h-5 text-muted" />
+                                    @break
+                                    @case('cog')
+                                        <x-heroicon-o-cog-6-tooth class="w-5 h-5 text-muted" />
+                                    @break
+                                @endswitch
                                 <span class="truncate">{{ $item['label'] }}</span>
                             </div>
                         </div>
@@ -90,7 +121,9 @@
                                 <li>
                                     <a href="{{ route($child['route']) }}" wire:navigate
                                         class="group flex items-center gap-3 px-3 py-1.5 rounded-lg text-sm
-                                               {{ $childActive ? 'bg-active text-default font-semibold' : 'text-muted hover:bg-hover hover:text-default' }}">
+                                               {{ $childActive
+                                                    ? 'bg-active text-default font-semibold'
+                                                    : 'text-muted hover:bg-hover hover:text-default' }}">
                                         <span class="truncate">{{ $child['label'] }}</span>
                                     </a>
                                 </li>
@@ -101,27 +134,30 @@
                         {{-- Normale Menüpunkte --}}
                         <a href="{{ route($item['route']) }}" wire:navigate
                             class="group flex items-center gap-3 px-3 py-2 rounded-lg text-sm
-                                   {{ $isActive ? 'bg-active text-default font-semibold' : 'text-muted hover:bg-hover hover:text-default' }}">
+                                   {{ $isActive
+                                        ? 'bg-active text-default font-semibold'
+                                        : 'text-muted hover:bg-hover hover:text-default' }}">
 
                             @switch($item['icon'])
                                 @case('home')
                                     <x-heroicon-o-home
-                                        class="w-5 h-5 {{ $isActive ? 'text-default' : 'text-muted group-hover:text-default' }}" />
+                                        class="w-5 h-5 {{ $isActive
+                                            ? 'text-default'
+                                            : 'text-muted group-hover:text-default' }}" />
                                 @break
 
                                 @case('users')
                                     <x-heroicon-o-users
-                                        class="w-5 h-5 {{ $isActive ? 'text-default' : 'text-muted group-hover:text-default' }}" />
+                                        class="w-5 h-5 {{ $isActive
+                                            ? 'text-default'
+                                            : 'text-muted group-hover:text-default' }}" />
                                 @break
 
                                 @case('user-plus')
                                     <x-heroicon-o-user-plus
-                                        class="w-5 h-5 {{ $isActive ? 'text-default' : 'text-muted group-hover:text-default' }}" />
-                                @break
-
-                                @case('bug')
-                                    <x-heroicon-o-bug-ant
-                                        class="w-5 h-5 {{ $isActive ? 'text-default' : 'text-muted group-hover:text-default' }}" />
+                                        class="w-5 h-5 {{ $isActive
+                                            ? 'text-default'
+                                            : 'text-muted group-hover:text-default' }}" />
                                 @break
                             @endswitch
 
@@ -142,7 +178,8 @@
             <button type="submit"
                 class="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm
                        text-muted hover:bg-hover hover:text-default">
-                <x-heroicon-o-arrow-left-on-rectangle class="w-5 h-5 text-muted group-hover:text-default" />
+                <x-heroicon-o-arrow-left-on-rectangle
+                    class="w-5 h-5 text-muted group-hover:text-default" />
                 <span>Abmelden</span>
             </button>
         </form>

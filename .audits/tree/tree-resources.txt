@@ -3,13 +3,15 @@
 │   ├── [drwxr-xr-x 4.0K]  ui
 │   │   ├── [-rw-r--r--  806]  badge.css
 │   │   ├── [-rw-r--r-- 4.1K]  datepicker.css
-│   │   ├── [-rw-r--r-- 1.6K]  debug-custom-select.css
+│   │   ├── [-rw-r--r-- 2.0K]  debug-custom-select.css
 │   │   ├── [-rw-r--r-- 2.6K]  debug-pagination.css
+│   │   ├── [-rw-r--r-- 3.6K]  debug-range-datepicker.css
 │   │   ├── [-rw-r--r-- 2.3K]  debug-select.css
+│   │   ├── [-rw-r--r-- 1.5K]  debug-suggest-input.css
 │   │   ├── [-rw-r--r-- 1.4K]  radio-segment.css
 │   │   └── [-rw-r--r-- 2.1K]  toggle-switch.css
-│   ├── [-rw-r--r--  392]  app.css
-│   ├── [-rw-r--r-- 6.0K]  theme-neutral.css
+│   ├── [-rw-r--r--  475]  app.css
+│   ├── [-rw-r--r-- 6.5K]  theme-neutral.css
 │   ├── [-rw-r--r-- 4.9K]  theme-tafeld.css
 │   └── [-rw-r--r-- 1.3K]  theme.css
 ├── [drwxr-xr-x 4.0K]  data
@@ -69,10 +71,12 @@
 │   ├── [drwxr-xr-x 4.0K]  ui
 │   │   ├── [-rw-r--r-- 4.4K]  dashboard-charts.js
 │   │   ├── [-rw-r--r--  12K]  datepicker.js
-│   │   ├── [-rw-r--r-- 1.2K]  debug-custom-select.js
+│   │   ├── [-rw-r--r-- 1.5K]  debug-custom-select.js
+│   │   ├── [-rw-r--r-- 9.3K]  debug-range-datepicker.js
+│   │   ├── [-rw-r--r-- 3.9K]  debug-suggest-input.js
 │   │   ├── [-rw-r--r-- 1.8K]  debug.js
 │   │   └── [-rw-r--r--  10K]  nationality-select.js
-│   ├── [-rw-r--r--  865]  app.js
+│   ├── [-rw-r--r-- 1.1K]  app.js
 │   └── [-rw-r--r--   82]  bootstrap.js
 └── [drwxr-xr-x 4.0K]  views
     ├── [drwxr-xr-x 4.0K]  audits
@@ -87,7 +91,8 @@
     │   │   │   └── [-rw-r--r--  255]  segment.blade.php
     │   │   ├── [drwxr-xr-x 4.0K]  date
     │   │   │   ├── [-rw-r--r-- 5.4K]  datepicker.blade.php
-    │   │   │   └── [-rw-r--r--  270]  debug-datepicker.blade.php
+    │   │   │   ├── [-rw-r--r--  270]  debug-datepicker.blade.php
+    │   │   │   └── [-rw-r--r-- 5.2K]  debug-range-datepicker.blade.php
     │   │   ├── [drwxr-xr-x 4.0K]  form
     │   │   │   ├── [-rw-r--r--  152]  field.blade.php
     │   │   │   ├── [-rw-r--r--  885]  grid.blade.php
@@ -109,9 +114,10 @@
     │   │   │   └── [-rw-r--r--  644]  text-autocomplete-off.blade.php
     │   │   ├── [drwxr-xr-x 4.0K]  select
     │   │   │   ├── [drwxr-xr-x 4.0K]  options
-    │   │   │   │   └── [-rw-r--r--  280]  select-option.blade.php
-    │   │   │   ├── [-rw-r--r-- 1.8K]  debug-custom-select.blade.php
+    │   │   │   │   └── [-rw-r--r--  889]  select-option.blade.php
+    │   │   │   ├── [-rw-r--r-- 2.4K]  debug-custom-select.blade.php
     │   │   │   ├── [-rw-r--r--  532]  debug-select.blade.php
+    │   │   │   ├── [-rw-r--r-- 1.4K]  debug-suggest-select.blade.php
     │   │   │   └── [-rw-r--r-- 3.8K]  nationality.blade.php
     │   │   ├── [drwxr-xr-x 4.0K]  table
     │   │   │   ├── [-rw-r--r--  218]  body.blade.php
@@ -158,9 +164,14 @@
     │   ├── [-rw-r--r-- 2.0K]  logo.blade.php
     │   └── [-rw-r--r-- 6.3K]  roadmap-ui.md
     └── [drwxr-xr-x 4.0K]  livewire
+        ├── [drwxr-xr-x 4.0K]  admin
+        │   ├── [drwxr-xr-x 4.0K]  activity-log
+        │   │   └── [-rw-r--r-- 3.0K]  index.blade.php
+        │   └── [drwxr-xr-x 4.0K]  app-settings
+        │       └── [-rw-r--r-- 2.6K]  index.blade.php
         ├── [drwxr-xr-x 4.0K]  debug
         │   ├── [drwxr-xr-x 4.0K]  logs
-        │   │   ├── [-rw-r--r-- 3.6K]  index.blade.php
+        │   │   ├── [-rw-r--r-- 4.0K]  index.blade.php
         │   │   └── [-rw-r--r-- 1.0K]  show.blade.php
         │   ├── [drwxr-xr-x 4.0K]  scopes
         │   │   ├── [-rw-r--r-- 2.8K]  index.blade.php
@@ -170,7 +181,7 @@
         │   ├── [drwxr-xr-x 4.0K]  partials
         │   │   ├── [-rw-r--r--  621]  footer.blade.php
         │   │   ├── [-rw-r--r-- 1.6K]  header.blade.php
-        │   │   └── [-rw-r--r-- 5.9K]  navigation.blade.php
+        │   │   └── [-rw-r--r-- 7.2K]  navigation.blade.php
         │   ├── [-rw-r--r-- 4.6K]  app.blade.php
         │   └── [-rw-r--r-- 2.5K]  guest.blade.php
         ├── [drwxr-xr-x 4.0K]  pages
@@ -189,4 +200,4 @@
         │   └── [-rw-r--r-- 1.2K]  welcome.blade.php
         └── [-rw-r--r--  280]  debug-test.blade.php
 
-71 directories, 119 files
+74 directories, 127 files

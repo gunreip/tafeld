@@ -69,14 +69,22 @@ class DebugReader
 
     public function getLogCountLast24h(): int
     {
-        if (! Schema::hasTable('activity_log')) {
-            return 0;
+        $count = 0;
+
+        if (Schema::hasTable('activity_log')) {
+            $count += DB::table('activity_log')
+                ->where('log_name', 'tafeld-debug')
+                ->where('created_at', '>=', now()->subDay())
+                ->count();
         }
 
-        return DB::table('activity_log')
-            ->where('log_name', 'tafeld-debug')
-            ->where('created_at', '>=', now()->subDay())
-            ->count();
+        if (Schema::hasTable('debug_logs')) {
+            $count += DB::table('debug_logs')
+                ->where('created_at', '>=', now()->subDay())
+                ->count();
+        }
+
+        return $count;
     }
 
     /*
@@ -89,34 +97,72 @@ class DebugReader
         DateTimeInterface $from,
         DateTimeInterface $to
     ): array {
-        if (! Schema::hasTable('activity_log')) {
-            return [];
+        $result = [];
+
+        if (Schema::hasTable('activity_log')) {
+            $rows = DB::table('activity_log')
+                ->where('log_name', 'tafeld-debug')
+                ->whereBetween('created_at', [$from, $to])
+                ->selectRaw("properties->>'level' as level, COUNT(*) as cnt")
+                ->groupBy('level')
+                ->pluck('cnt', 'level')
+                ->toArray();
+
+            foreach ($rows as $lvl => $cnt) {
+                $result[$lvl] = ($result[$lvl] ?? 0) + (int) $cnt;
+            }
         }
 
-        return DB::table('activity_log')
-            ->where('log_name', 'tafeld-debug')
-            ->whereBetween('created_at', [$from, $to])
-            ->selectRaw("properties->>'level' as level, COUNT(*) as cnt")
-            ->groupBy('level')
-            ->pluck('cnt', 'level')
-            ->toArray();
+        if (Schema::hasTable('debug_logs')) {
+            $rows = DB::table('debug_logs')
+                ->whereBetween('created_at', [$from, $to])
+                ->selectRaw('level, COUNT(*) as cnt')
+                ->groupBy('level')
+                ->pluck('cnt', 'level')
+                ->toArray();
+
+            foreach ($rows as $lvl => $cnt) {
+                $result[$lvl] = ($result[$lvl] ?? 0) + (int) $cnt;
+            }
+        }
+
+        return $result;
     }
 
     public function getLogsByScope(
         DateTimeInterface $from,
         DateTimeInterface $to
     ): array {
-        if (! Schema::hasTable('activity_log')) {
-            return [];
+        $result = [];
+
+        if (Schema::hasTable('activity_log')) {
+            $rows = DB::table('activity_log')
+                ->where('log_name', 'tafeld-debug')
+                ->whereBetween('created_at', [$from, $to])
+                ->selectRaw("properties->>'scope_key' as scope, COUNT(*) as cnt")
+                ->groupBy('scope')
+                ->pluck('cnt', 'scope')
+                ->toArray();
+
+            foreach ($rows as $scope => $cnt) {
+                $result[$scope] = ($result[$scope] ?? 0) + (int) $cnt;
+            }
         }
 
-        return DB::table('activity_log')
-            ->where('log_name', 'tafeld-debug')
-            ->whereBetween('created_at', [$from, $to])
-            ->selectRaw("properties->>'scope_key' as scope, COUNT(*) as cnt")
-            ->groupBy('scope')
-            ->pluck('cnt', 'scope')
-            ->toArray();
+        if (Schema::hasTable('debug_logs')) {
+            $rows = DB::table('debug_logs')
+                ->whereBetween('created_at', [$from, $to])
+                ->selectRaw('scope, COUNT(*) as cnt')
+                ->groupBy('scope')
+                ->pluck('cnt', 'scope')
+                ->toArray();
+
+            foreach ($rows as $scope => $cnt) {
+                $result[$scope] = ($result[$scope] ?? 0) + (int) $cnt;
+            }
+        }
+
+        return $result;
     }
 
     /*
@@ -132,17 +178,52 @@ class DebugReader
      */
     public function getLatestLogs(int $limit = 15): array
     {
-        if (! Schema::hasTable('activity_log')) {
-            return [];
+        $rows = [];
+
+        if (Schema::hasTable('activity_log')) {
+            $rows = array_merge($rows, DB::table('activity_log')
+                ->where('log_name', 'tafeld-debug')
+                ->select(['id', 'created_at', 'description', 'properties'])
+                ->orderByDesc('created_at')
+                ->limit($limit)
+                ->get()
+                ->map(fn($r) => $this->normalizeActivityRow($r))
+                ->toArray());
         }
 
-        return DB::table('activity_log')
-            ->where('log_name', 'tafeld-debug')
-            ->orderByDesc('created_at')
-            ->limit($limit)
-            ->get()
-            ->map(fn($row) => $this->normalizeActivityRow($row))
-            ->toArray();
+        if (Schema::hasTable('debug_logs')) {
+            $rows = array_merge($rows, DB::table('debug_logs')
+                ->select(['id', 'created_at', 'message', 'scope', 'level'])
+                ->orderByDesc('created_at')
+                ->limit($limit)
+                ->get()
+                ->map(fn($r) => $this->normalizeDebugLogRow($r))
+                ->toArray());
+        }
+
+        // Merge, sort by created_at desc and truncate to $limit
+        usort($rows, fn($a, $b) => strtotime($b['time'] ?? '') <=> strtotime($a['time'] ?? ''));
+
+        return array_values(array_slice($rows, 0, $limit));
+    }
+
+    private function normalizeDebugLogRow(object $row): array
+    {
+        $time = null;
+        if (isset($row->created_at)) {
+            if ($row->created_at instanceof \DateTimeInterface) {
+                $time = $row->created_at->toDateTimeString();
+            } elseif (is_string($row->created_at)) {
+                $time = $row->created_at;
+            }
+        }
+
+        return [
+            'time'    => $time,
+            'level'   => (string) ($row->level ?? 'info'),
+            'scope'   => (string) ($row->scope ?? 'global'),
+            'message' => (string) ($row->message ?? ''),
+        ];
     }
 
     public function getLogs(

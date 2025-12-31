@@ -17,6 +17,16 @@ window.datepickerComponent = datepickerComponent;
 import debugCustomSelect from './ui/debug-custom-select.js';
 window.debugCustomSelect = debugCustomSelect;
 
+import debugSuggestInput from './ui/debug-suggest-input.js';
+window.debugSuggestInput = debugSuggestInput;
+
+import { debugRangeDatepicker } from './ui/debug-range-datepicker.js';
+window.debugRangeDatepicker = debugRangeDatepicker;
+
+// // Date Range (Flatpickr PoC)
+// import { debugRangeDatepickerFlatpickr } from './ui/debug-range-datepicker-flatpickr.js';
+// window.debugRangeDatepickerFlatpickr = debugRangeDatepickerFlatpickr;
+
 // Livewire → JS Debug Event Bridge
 document.addEventListener("livewire:init", () => {
     if (typeof Livewire !== 'undefined') {

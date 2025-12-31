@@ -30,8 +30,17 @@ class Overview extends Component
         $from = new \DateTimeImmutable('-24 hours');
         $to   = new \DateTimeImmutable('now');
 
-        $this->chartLogsByLevel = $reader->getLogsByLevel($from, $to);
-        $this->chartLogsByScope = $reader->getLogsByScope($from, $to);
+        // Convert associative arrays (level => count, scope => count)
+        // into arrays of { label, value } so the JS chart init expects an array.
+        $this->chartLogsByLevel = collect($reader->getLogsByLevel($from, $to))
+            ->map(fn($cnt, $label) => ['label' => $label, 'value' => $cnt])
+            ->values()
+            ->all();
+
+        $this->chartLogsByScope = collect($reader->getLogsByScope($from, $to))
+            ->map(fn($cnt, $label) => ['label' => $label, 'value' => $cnt])
+            ->values()
+            ->all();
 
         // Neuste Logs
         $this->latestLogs = $reader->getLatestLogs(15);
@@ -39,6 +48,10 @@ class Overview extends Component
 
     public function render()
     {
+        // Ensure frontend charts are re-initialized after a Livewire render
+        // Livewire v3 replaces dispatchBrowserEvent() with dispatch().
+        $this->dispatch('tafeld-debug-chart-refresh');
+
         return view('livewire.debug.overview', [
             'stats'               => $this->stats,
             'chartLogsByLevel'    => $this->chartLogsByLevel,

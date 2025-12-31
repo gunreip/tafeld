@@ -115,6 +115,7 @@
         /* blue-800 */
         --color-selection-text: 219 234 254;
         /* blue-100 */
+        --color-calendar-ring: 239 127 1;
     }
 
     ::selection {
@@ -135,6 +136,10 @@
     }
 
     .bg-card {
+        background-color: rgb(var(--color-bg-card));
+    }
+
+    .bg-input {
         background-color: rgb(var(--color-bg-card));
     }
 
