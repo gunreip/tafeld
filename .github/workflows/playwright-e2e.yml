@@ -1,0 +1,85 @@
+name: Playwright E2E
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          coverage: none
+          extensions: mbstring, pdo, pdo_sqlite
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install Composer deps
+        run: composer install --no-progress --no-suggest --prefer-dist
+
+      - name: Prepare env
+        run: |
+          cp .env.example .env
+          php artisan key:generate --ansi
+          mkdir -p database && touch database/testing.sqlite
+          # Ensure .env uses sqlite for CI
+          php -r "file_put_contents('.env', str_replace(['DB_CONNECTION=mysql','DB_DATABASE=laravel'], ['DB_CONNECTION=sqlite','DB_DATABASE=database/testing.sqlite'], file_get_contents('.env')));"
+        env:
+          APP_ENV: testing
+
+      - name: Run migrations
+        run: php artisan migrate --force
+        env:
+          APP_ENV: testing
+          DB_CONNECTION: sqlite
+          DB_DATABASE: database/testing.sqlite
+          TAFELD_DEBUG_UI_ENABLED: 'true'
+
+      - name: Install Node deps
+        run: npm ci
+
+      - name: Build assets
+        run: npm run build
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
+      - name: Start Laravel server
+        run: nohup php artisan serve --host 127.0.0.1 --port 8000 > /tmp/laravel.log 2>&1 &
+
+      - name: Wait for server
+        run: |
+          for i in {1..15}; do
+            if curl -sSf "http://127.0.0.1:8000/_debug_test/overview" >/dev/null 2>&1; then
+              echo "Server is up"; break;
+            fi
+            echo "Waiting for server..."; sleep 1;
+          done
+
+      - name: Run Playwright tests
+        run: npx playwright test --reporter=list
+        env:
+          BASE_URL: http://127.0.0.1:8000
+          APP_ENV: testing
+          TAFELD_DEBUG_UI_ENABLED: 'true'
+          DB_CONNECTION: sqlite
+          DB_DATABASE: database/testing.sqlite
+
+      - name: Upload Playwright Artifacts (on failure)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-artifacts
+          path: playwright-report || ./playwright-report || /tmp/playwright

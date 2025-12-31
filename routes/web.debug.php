@@ -48,5 +48,42 @@ Route::middleware(['auth', EnsureDebugUiEnabled::class])
 
 // Test-only convenience route: exposes the Overview without auth when running tests
 if (app()->environment('testing')) {
-    Route::get('/_debug_test/overview', Overview::class)->name('debug.test.overview');
+    use Illuminate\Support\Facades\Schema;
+    use Illuminate\Support\Facades\DB;
+
+    Route::get('/_debug_test/overview', function () {
+        // Seed a small set of debug_logs if the table exists but is empty.
+        if (Schema::hasTable('debug_logs') && DB::table('debug_logs')->count() === 0) {
+            DB::table('debug_logs')->insert([
+                [
+                    'id' => (string) \Illuminate\Support\Str::ulid(),
+                    'run_id' => (string) \Illuminate\Support\Str::ulid(),
+                    'scope' => 'smoke.env',
+                    'channel' => 'tafeld-debug',
+                    'level' => 'debug',
+                    'message' => 'ENV gate test (seed)',
+                    'context' => json_encode(['seed' => true]),
+                    'user_id' => null,
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ],
+                [
+                    'id' => (string) \Illuminate\Support\Str::ulid(),
+                    'run_id' => (string) \Illuminate\Support\Str::ulid(),
+                    'scope' => 'smoke.global',
+                    'channel' => 'tafeld-debug',
+                    'level' => 'debug',
+                    'message' => 'Global enabled (seed)',
+                    'context' => json_encode([]),
+                    'user_id' => null,
+                    'created_at' => now()->subMinutes(5),
+                    'updated_at' => now()->subMinutes(5),
+                ],
+            ]);
+        }
+
+        // Instantiate and render the Livewire component directly so we bypass auth
+        $component = app(\App\Livewire\Debug\Overview::class);
+        return $component->render();
+    })->name('debug.test.overview');
 }
