@@ -4,6 +4,32 @@ const BASE = process.env.BASE_URL ?? 'http://127.0.0.1:8000';
 const URL = `${BASE}/_debug_test/overview`;
 
 test.describe('Debug Overview E2E', () => {
+  let consoleLogs: string[] = [];
+
+  test.beforeEach(async ({ page }) => {
+    consoleLogs = [];
+    page.on('console', (m) => consoleLogs.push(`${m.type()}: ${m.text()}`));
+  });
+
+  test.afterEach(async ({ page }, testInfo) => {
+    if (testInfo.status !== 'passed') {
+      await testInfo.attach('console.log', {
+        body: consoleLogs.join('\n'),
+        contentType: 'text/plain',
+      });
+
+      await testInfo.attach('page.html', {
+        body: await page.content(),
+        contentType: 'text/html',
+      });
+
+      await testInfo.attach('screenshot.png', {
+        body: await page.screenshot(),
+        contentType: 'image/png',
+      });
+    }
+  });
+
   test('charts initialize and Chart.js instance exists', async ({ page }) => {
     await page.goto(URL, { waitUntil: 'domcontentloaded' });
 

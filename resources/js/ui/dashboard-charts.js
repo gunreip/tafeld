@@ -2,6 +2,12 @@
 
 import Chart from "chart.js/auto";
 
+// Ensure Chart is available globally for runtime access and E2E tests that
+// expect `window.Chart.getChart` to exist.
+if (typeof window !== "undefined" && !(window).Chart) {
+    (window).Chart = Chart;
+}
+
 // Globale Registry: jedem Canvas ist genau ein Chart zugeordnet
 const chartRegistry = new Map();
 
@@ -95,6 +101,20 @@ function renderChart(canvas, data) {
 
     chartRegistry.set(canvas, chart);
 
+    // Mark the canvas as initialized and expose registry for tests/debugging.
+    try {
+        canvas.dataset.chartInitialized = '1';
+    } catch (e) {
+        // ignore in case of readonly dataset
+    }
+
+    // Expose registry for debugging / E2E tests
+    try {
+        window.__tafeld_chart_registry = chartRegistry;
+    } catch (e) {
+        // ignore in SSR environments
+    }
+
     console.log("[charts.js] renderChart(): AFTER", canvas.id, {
         offsetHeight: canvas.offsetHeight,
         clientHeight: canvas.clientHeight,
@@ -149,3 +169,17 @@ document.addEventListener("tafeld-debug-chart-refresh", () => {
     console.log("[charts.js] Event: tafeld-debug-chart-refresh");
     initCharts();
 });
+
+// Also attempt initialization immediately once the script loads. This handles
+// cases where a chart-refresh event fired before our listeners were set up
+// (e.g., server-side Livewire dispatch during initial render). We try to
+// initialize right away if the DOM is ready, otherwise wait for DOMContentLoaded.
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    console.log('[charts.js] initCharts(): immediate init (document ready)');
+    initCharts();
+} else {
+    document.addEventListener('DOMContentLoaded', () => {
+        console.log('[charts.js] initCharts(): DOMContentLoaded init');
+        initCharts();
+    });
+}

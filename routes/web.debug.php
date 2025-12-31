@@ -4,6 +4,8 @@
 // Debug UI (Livewire-only, Read-only)
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 use App\Http\Middleware\EnsureDebugUiEnabled;
 
 use App\Livewire\Debug\Overview;
@@ -48,8 +50,6 @@ Route::middleware(['auth', EnsureDebugUiEnabled::class])
 
 // Test-only convenience route: exposes the Overview without auth when running tests
 if (app()->environment('testing')) {
-    use Illuminate\Support\Facades\Schema;
-    use Illuminate\Support\Facades\DB;
 
     Route::get('/_debug_test/overview', function () {
         // Seed a small set of debug_logs if the table exists but is empty.
@@ -84,6 +84,15 @@ if (app()->environment('testing')) {
 
         // Instantiate and render the Livewire component directly so we bypass auth
         $component = app(\App\Livewire\Debug\Overview::class);
-        return $component->render();
+        // Ensure component lifecycle is initialized (mount with DI) so view variables are set
+        if (method_exists($component, 'mount')) {
+            app()->call([$component, 'mount']);
+        }
+
+        // Return the component inside a small test wrapper which includes the built
+        // assets explicitly so the page will load the client-side JS during E2E runs.
+        return view('debug.test-wrapper', [
+            'slot' => $component->render()->render(),
+        ]);
     })->name('debug.test.overview');
 }
