@@ -125,6 +125,30 @@ import fs from 'fs';
             await page.waitForTimeout(200);
             await page.screenshot({ path: `${outDir}/debug-logs-custom-selected.png`, fullPage: true });
             console.log('Saved custom-select selected screenshot');
+
+            // Test: pressing Tab should move focus outside the component (not to clear button)
+            await page.keyboard.press('Tab');
+            await page.waitForTimeout(120);
+            await page.screenshot({ path: `${outDir}/debug-logs-custom-after-tab.png`, fullPage: true });
+            const activeAfterTab = await page.evaluate(() => {
+                const el = document.activeElement;
+                return el ? { tag: el.tagName, cls: el.className } : null;
+            });
+            console.log('Active element after Tab:', activeAfterTab);
+
+            // Test: pressing Ctrl+Enter when component is focused should focus clear button
+            // First focus the trigger
+            await page.focus('.debug-custom-select-trigger');
+            await page.keyboard.down('Control');
+            await page.keyboard.press('Enter');
+            await page.keyboard.up('Control');
+            await page.waitForTimeout(120);
+            await page.screenshot({ path: `${outDir}/debug-logs-custom-ctrl-enter-clear.png`, fullPage: true });
+            const activeAfterCtrlEnter = await page.evaluate(() => {
+                const el = document.activeElement;
+                return el ? { tag: el.tagName, cls: el.className } : null;
+            });
+            console.log('Active element after Ctrl+Enter:', activeAfterCtrlEnter);
         }
     }
 
