@@ -126,6 +126,26 @@ import fs from 'fs';
             await page.screenshot({ path: `${outDir}/debug-logs-custom-selected.png`, fullPage: true });
             console.log('Saved custom-select selected screenshot');
 
+            // Test: clicking the clear button should clear the field and keep focus in the trigger
+            const clearBtn = await page.$('.ui-clear-button');
+            if (clearBtn) {
+                await clearBtn.click();
+                await page.waitForTimeout(200);
+                await page.screenshot({ path: `${outDir}/debug-logs-custom-click-clear.png`, fullPage: true });
+                const activeAfterClickClear = await page.evaluate(() => {
+                    const el = document.activeElement;
+                    return el ? { tag: el.tagName, cls: el.className } : null;
+                });
+                console.log('Active element after clicking clear:', activeAfterClickClear);
+
+                // Re-select option 1 to continue with the Tab/Escape tests
+                await page.click('.debug-custom-select-trigger');
+                await page.waitForSelector('.debug-custom-select-panel', { state: 'visible', timeout: 2000 }).catch(() => { });
+                await page.waitForTimeout(120);
+                await page.click('.debug-custom-select-panel ul li:nth-child(2)');
+                await page.waitForTimeout(120);
+            }
+
             // Test: pressing Tab should move focus outside the component (not to clear button)
             await page.keyboard.press('Tab');
             await page.waitForTimeout(120);
@@ -136,19 +156,27 @@ import fs from 'fs';
             });
             console.log('Active element after Tab:', activeAfterTab);
 
-            // Test: pressing Ctrl+Enter when component is focused should focus clear button
-            // First focus the trigger
+            // Test: pressing Escape when component is focused should clear selection
             await page.focus('.debug-custom-select-trigger');
-            await page.keyboard.down('Control');
-            await page.keyboard.press('Enter');
-            await page.keyboard.up('Control');
+            await page.keyboard.press('Escape');
             await page.waitForTimeout(120);
-            await page.screenshot({ path: `${outDir}/debug-logs-custom-ctrl-enter-clear.png`, fullPage: true });
-            const activeAfterCtrlEnter = await page.evaluate(() => {
+            await page.screenshot({ path: `${outDir}/debug-logs-custom-escape-clear.png`, fullPage: true });
+            const activeAfterEscape = await page.evaluate(() => {
                 const el = document.activeElement;
                 return el ? { tag: el.tagName, cls: el.className } : null;
             });
-            console.log('Active element after Ctrl+Enter:', activeAfterCtrlEnter);
+            console.log('Active element after Escape:', activeAfterEscape);
+
+            // Diagnostic: info about the trigger and clear button after pressing Escape
+            const triggerInfo = await page.evaluate(() => {
+                const t = document.querySelector('.debug-custom-select-trigger');
+                const btn = document.querySelector('.ui-clear-button');
+                return {
+                    trigger: t ? { tag: t.tagName, cls: t.className, tabindex: t.getAttribute('tabindex'), visible: !!(t.offsetParent), label: t.querySelector('.debug-custom-select-trigger-label')?.textContent?.trim() ?? null } : null,
+                    clearButton: btn ? { tag: btn.tagName, cls: btn.className, tabindex: btn.getAttribute('tabindex'), visible: !!(btn.offsetParent) } : null,
+                };
+            });
+            console.log('Trigger/clear info after Escape:', triggerInfo);
         }
     }
 

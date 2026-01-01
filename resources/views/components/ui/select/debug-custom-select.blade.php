@@ -12,7 +12,7 @@
     @keydown.tab.prevent="handleTab($event)"
     @keydown.shift.tab.prevent="handleShiftTab($event)"
     @keydown.space.prevent="open ? closeDropdown() : openDropdown()"
-    @keydown.escape.prevent="closeDropdown()"
+    @keydown.escape.prevent="handleEscape($event)"
     @focusout="if (! $el.contains($event.relatedTarget)) closeDropdown()"
     x-data="debugCustomSelect({
         value: @entangle($attributes->wire('model')),

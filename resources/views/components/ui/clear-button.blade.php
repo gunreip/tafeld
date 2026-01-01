@@ -2,9 +2,9 @@
 
 <button
     type="button"
-    {{ $attributes->merge(['class' => 'ui-clear-button', 'aria-label' => $label]) }}
+    {{ $attributes->merge(['class' => 'ui-clear-button', 'aria-label' => $label, 'tabindex' => '-1']) }}
     x-cloak
->
+> 
     @if(trim((string) $slot) !== '')
         {{ $slot }}
     @else

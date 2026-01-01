@@ -34,13 +34,8 @@ export default function debugCustomSelect({ value, options }) {
         },
 
         handleEnter(e) {
-            // If dropdown closed, but Ctrl/Meta pressed and a value is selected, focus clear button
+            // If closed, open the dropdown
             if (!this.open) {
-                if (e && (e.ctrlKey || e.metaKey) && this.selectedIndex() > 0) {
-                    this.focusClearButton();
-                    return;
-                }
-
                 this.openDropdown();
                 return;
             }
@@ -51,39 +46,62 @@ export default function debugCustomSelect({ value, options }) {
 
             this.closeDropdown();
 
-            // Focus behavior after selection
+            // Default: jump to next focusable outside this component (Enter is main action)
             try {
-                if (e && (e.ctrlKey || e.metaKey)) {
-                    // Focus clear button when ctrl/meta held
-                    this.focusClearButton();
-                } else {
-                    // Default: jump to next focusable outside this component
-                    this.focusNextOutside();
-                }
+                this.focusNextOutside();
             } catch (err) {
                 console.warn('Focus after enter failed', err);
             }
         },
 
         handleTab(e) {
-            // When Tab pressed, move focus outside unless Ctrl/Meta is held to go to clear
+            // Tab -> focus next outside
             try {
-                if (e && (e.ctrlKey || e.metaKey)) {
-                    this.focusClearButton();
-                } else {
-                    this.focusNextOutside();
-                }
+                this.focusNextOutside();
             } catch (err) {
                 console.warn('handleTab failed', err);
             }
         },
 
         handleShiftTab(e) {
-            // Shift+Tab -> focus previous focusable outside this component
+            // Shift+Tab -> focus previous outside
             try {
                 this.focusPrevOutside();
             } catch (err) {
                 console.warn('handleShiftTab failed', err);
+            }
+        },
+
+        handleEscape(e) {
+            // Escape: if a value is selected, clear it and keep focus on the trigger; else close the dropdown if open
+            try {
+                if (this.selectedIndex() > 0) {
+                    this.clear();
+                    // keep focus on trigger — allow for DOM updates / Livewire re-render
+                    const focusWithRetry = () => {
+                        let attempts = 0;
+                        const id = setInterval(() => {
+                            const trigger = this.$el.querySelector('.debug-custom-select-trigger');
+                            if (trigger && typeof trigger.focus === 'function') trigger.focus();
+                            const active = document.activeElement;
+                            if (trigger === active || ++attempts >= 8) clearInterval(id);
+                        }, 75);
+                    };
+
+                    if (typeof this.$nextTick === 'function') {
+                        this.$nextTick(() => setTimeout(focusWithRetry, 100));
+                    } else {
+                        setTimeout(focusWithRetry, 100);
+                    }
+
+                    return;
+                }
+
+                if (this.open) {
+                    this.closeDropdown();
+                }
+            } catch (err) {
+                console.warn('handleEscape failed', err);
             }
         },
 
@@ -146,6 +164,27 @@ export default function debugCustomSelect({ value, options }) {
             this.syncActiveFromValue();
             this.closeDropdown();
 
+            // Keep focus in the trigger after clearing — retry for a short time in case Livewire re-renders
+            try {
+                const focusWithRetry = () => {
+                    let attempts = 0;
+                    const id = setInterval(() => {
+                        const trigger = this.$el.querySelector('.debug-custom-select-trigger');
+                        if (trigger && typeof trigger.focus === 'function') trigger.focus();
+                        const active = document.activeElement;
+                        if (trigger === active || ++attempts >= 30) clearInterval(id);
+                    }, 100);
+                };
+
+                if (typeof this.$nextTick === 'function') {
+                    this.$nextTick(() => setTimeout(focusWithRetry, 150));
+                } else {
+                    setTimeout(focusWithRetry, 150);
+                }
+            } catch (e) {
+                // ignore
+            }
+
             // Try to set Livewire property immediately similar to suggest-input
             try {
                 const modelName = this.$el.dataset.wireModel;
@@ -164,6 +203,7 @@ export default function debugCustomSelect({ value, options }) {
                 console.warn('Livewire set fallback failed', e);
             }
         },
+
 
         next() {
             this.activate(
