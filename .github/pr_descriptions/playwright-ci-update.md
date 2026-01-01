@@ -29,3 +29,4 @@ Notes:
 
 - The storage file contains session cookies and must not be committed; `playwright-storage/` is ignored in `.gitignore`.
 - CI can use repo secrets for `E2E_USER` and `E2E_PASS` (recommended) so the runner can sign in if needed.
+ci: trigger run to capture screenshots (synchronize)
