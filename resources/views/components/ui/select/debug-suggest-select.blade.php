@@ -37,9 +37,7 @@
         x-show="hasValue()"
         @click.stop="clear()"
         aria-label="Clear input"
-    >
-        &times;
-    </x-ui.clear-button>
+    />
 
     <!-- Suggest Panel -->
     <div

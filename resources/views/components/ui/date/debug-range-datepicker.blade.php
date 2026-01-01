@@ -29,9 +29,7 @@
                 x-show="hasValue()"
                 @click.stop="clear()"
                 aria-label="Clear date range"
-            >
-                ✕
-            </x-ui.clear-button>
+            />
 
             <span class="debug-range-calendar">
                 <x-ui.icon

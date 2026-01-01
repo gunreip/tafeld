@@ -61,9 +61,7 @@
         x-show="selectedIndex() > 0"
         @click.stop="clear()"
         aria-label="Clear selection"
-    >
-        &times;
-    </x-ui.clear-button>
+    />
 
     <!-- Dropdown -->
     <div
