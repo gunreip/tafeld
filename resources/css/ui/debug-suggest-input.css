@@ -57,7 +57,8 @@
     .debug-suggest-input-option:hover,
     .debug-suggest-input-option:focus,
     .debug-suggest-input-option:focus-visible {
-        @apply bg-elevated text-default;
+        background-color: rgb(var(--color-bg-hover));
+        @apply text-default;
         outline: none;
     }
 
