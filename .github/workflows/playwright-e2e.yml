@@ -36,6 +36,8 @@ jobs:
                   mkdir -p database && touch database/testing.sqlite
                   # Ensure .env uses sqlite for CI
                   php -r "file_put_contents('.env', str_replace(['DB_CONNECTION=mysql','DB_DATABASE=laravel'], ['DB_CONNECTION=sqlite','DB_DATABASE=database/testing.sqlite'], file_get_contents('.env')));"
+                  # Ensure DB_DATABASE is explicitly set (uncommented/added)
+                  echo 'DB_DATABASE=database/testing.sqlite' >> .env
               env:
                   APP_ENV: testing
 
@@ -61,6 +63,8 @@ jobs:
               env:
                   APP_ENV: testing
                   TAFELD_DEBUG_UI_ENABLED: "true"
+                  DB_CONNECTION: sqlite
+                  DB_DATABASE: database/testing.sqlite
               run: nohup php artisan serve --host 127.0.0.1 --port 8000 > /tmp/laravel.log 2>&1 &
 
             - name: Wait for server
