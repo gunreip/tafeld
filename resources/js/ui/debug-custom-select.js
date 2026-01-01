@@ -52,6 +52,10 @@ export default function debugCustomSelect({ value, options }) {
             );
         },
 
+        selectedIndex() {
+            return this.options.findIndex(o => o.value === this.value);
+        },
+
         clear() {
             this.value = null;
             this.syncActiveFromValue();

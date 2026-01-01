@@ -58,6 +58,24 @@
     @apply text-danger;
 }
 
+/* Also support shared clear-button class for consistency */
+.ui-clear-button {
+    position: absolute;
+    right: 0.625rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    padding: 0.125rem;
+    @apply text-muted transition-colors cursor-pointer;
+    font-size: 1.05rem;
+    line-height: 1;
+}
+
+.ui-clear-button:hover {
+    @apply text-danger;
+}
+
 .debug-range-calendar {
     @apply text-muted pointer-events-none;
 }

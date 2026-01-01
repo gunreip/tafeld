@@ -56,17 +56,14 @@
         </span>
     </button>
 
-    <!-- Clear button (visible when a value is selected) -->
-    <button
-        type="button"
-        class="debug-custom-select-clear"
-        x-show="currentOption() !== null"
-        x-cloak
+    <!-- Clear button (visible when a non-first option is selected) -->
+    <x-ui.clear-button
+        x-show="selectedIndex() > 0"
         @click.stop="clear()"
         aria-label="Clear selection"
     >
         &times;
-    </button>
+    </x-ui.clear-button>
 
     <!-- Dropdown -->
     <div

@@ -25,13 +25,13 @@
         ></span>
 
         <span class="debug-range-icons ml-auto flex items-center gap-2">
-            <span
-                class="debug-range-clear"
+            <x-ui.clear-button
                 x-show="hasValue()"
                 @click.stop="clear()"
+                aria-label="Clear date range"
             >
                 ✕
-            </span>
+            </x-ui.clear-button>
 
             <span class="debug-range-calendar">
                 <x-ui.icon

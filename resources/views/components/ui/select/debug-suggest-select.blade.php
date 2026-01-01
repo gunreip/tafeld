@@ -33,16 +33,13 @@
     />
 
     <!-- Clear button -->
-    <button
-        type="button"
-        class="debug-suggest-clear"
+    <x-ui.clear-button
         x-show="hasValue()"
-        x-cloak
         @click.stop="clear()"
         aria-label="Clear input"
     >
         &times;
-    </button>
+    </x-ui.clear-button>
 
     <!-- Suggest Panel -->
     <div
