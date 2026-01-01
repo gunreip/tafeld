@@ -271,4 +271,25 @@
     .select-rounded {
         @apply rounded-md;
     }
+
+    /* Shared clear button used by pickers and selects */
+    .ui-clear-button {
+        position: absolute;
+        right: 0.625rem;
+        /* 10px */
+        top: 50%;
+        transform: translateY(-50%);
+        background: transparent;
+        border: none;
+        padding: 0.125rem;
+        @apply text-muted transition-colors cursor-pointer;
+        font-size: 1.05rem;
+        line-height: 1;
+    }
+
+    .ui-clear-button:hover,
+    .ui-clear-button:focus-visible {
+        @apply text-danger;
+        outline: none;
+    }
 }
