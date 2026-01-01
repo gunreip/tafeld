@@ -62,16 +62,30 @@ jobs:
 
             - name: Wait for server
               run: |
-                  for i in {1..60}; do
-                    if curl -sSf "http://127.0.0.1:8000/_debug_test/overview" >/dev/null 2>&1; then
+                  # Try up to 120s, print HTTP status and short body on failure for diagnostics
+                  for i in {1..120}; do
+                    curl -s -o /tmp/health_body -w '%{http_code}' "http://127.0.0.1:8000/_debug_test/overview" > /tmp/health_status 2>/tmp/health_err || true
+                    status=$(cat /tmp/health_status || echo "000")
+                    echo "Attempt $i - HTTP $status"
+                    if [ "$status" = "200" ]; then
                       echo "Server is up"; exit 0;
                     fi
-                    echo "Waiting for server... ($i/60)"; sleep 1;
+                    if [ -s /tmp/health_body ]; then
+                      echo "Body preview (first 10 lines):"; head -n 10 /tmp/health_body | sed -n '1,10p'
+                    fi
+                    if [ -s /tmp/health_err ]; then
+                      echo "Curl error (stderr):"; sed -n '1,20p' /tmp/health_err
+                    fi
+                    echo "Waiting for server... ($i/120)"; sleep 1;
                   done
                   echo "Server did not respond within timeout. Showing last lines of /tmp/laravel.log:";
                   echo "---- /tmp/laravel.log (last 500 lines) ----";
                   tail -n 500 /tmp/laravel.log || true;
                   echo "---- end /tmp/laravel.log ----";
+                  echo "---- Last health check body (if any) ----";
+                  sed -n '1,200p' /tmp/health_body || true;
+                  echo "---- curl stderr (if any) ----";
+                  sed -n '1,200p' /tmp/health_err || true;
                   exit 1;
 
             - name: Run Playwright tests
