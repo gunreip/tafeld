@@ -46,7 +46,10 @@ jobs:
                   APP_ENV: testing
 
             - name: Run migrations
-              run: php artisan migrate --force
+              run: |
+                  php artisan migrate --force
+                  # Ensure an admin user exists for E2E login attempts
+                  php artisan db:seed --class=AdminSeeder --force || true
               env:
                   APP_ENV: testing
                   DB_CONNECTION: sqlite
@@ -128,6 +131,22 @@ jobs:
                   DB_CONNECTION: sqlite
                   DB_DATABASE: database/testing.sqlite
 
+            - name: Run debug logs screenshot script (always)
+              if: always()
+              run: |
+                  echo "Running screenshot script to capture debug page states"
+                  node scripts/screenshot-debug-logs-states.js
+              env:
+                  BASE_URL: http://127.0.0.1:8000
+                  APP_ENV: testing
+                  TAFELD_DEBUG_UI_ENABLED: "true"
+                  DB_CONNECTION: sqlite
+                  DB_DATABASE: database/testing.sqlite
+                  # Optionally set secrets for credentials; fallbacks are used in script
+                  E2E_USER: ${{ secrets.E2E_USER }}
+                  E2E_PASS: ${{ secrets.E2E_PASS }}
+                  PLAYWRIGHT_STORAGE: ./playwright-storage/auth.json
+
             - name: Upload Playwright Artifacts (always)
               if: always()
               uses: actions/upload-artifact@v4
@@ -141,3 +160,5 @@ jobs:
                       test-results
                       /tmp/laravel.log
                       /tmp/server_start_diagnostics
+                      playwright-screenshots
+                      playwright-screenshots/**
