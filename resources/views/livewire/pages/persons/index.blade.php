@@ -5,7 +5,7 @@
     <h1 class="text-3xl font-semibold mb-6 text-default">Personen</h1>
 
     <a wire:navigate href="{{ route('persons.create') }}" class="btn-brand px-4 py-2 text-sm font-medium rounded-lg">
-        Neue Person anlegen
+        Neues Personal eintragen
     </a>
 
     @if (session()->has('message'))

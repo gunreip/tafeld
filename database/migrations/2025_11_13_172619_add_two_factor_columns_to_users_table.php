@@ -1,5 +1,7 @@
 <?php
 
+// tafeld/database/migrations/2025_11_13_172619_add_two_factor_columns_to_users_table.php
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;

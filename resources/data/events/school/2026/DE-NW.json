@@ -1,0 +1,37 @@
+[
+    {
+        "name_de": "Osterferien 2026",
+        "name_en": "Easter holidays 2026",
+        "type": "school",
+        "start_date": "2026-03-30",
+        "end_date": "2026-04-11"
+    },
+    {
+        "name_de": "Pfingstferien 2026",
+        "name_en": "Pentecost holiday 2026",
+        "type": "school",
+        "start_date": "2026-05-19",
+        "end_date": "2026-05-19"
+    },
+    {
+        "name_de": "Sommerferien 2026",
+        "name_en": "Summer holidays 2026",
+        "type": "school",
+        "start_date": "2026-06-29",
+        "end_date": "2026-08-11"
+    },
+    {
+        "name_de": "Herbstferien 2026",
+        "name_en": "Autumn holidays 2026",
+        "type": "school",
+        "start_date": "2026-10-19",
+        "end_date": "2026-10-31"
+    },
+    {
+        "name_de": "Weihnachtsferien 2026/2027",
+        "name_en": "Christmas holidays 2026/2027",
+        "type": "school",
+        "start_date": "2026-12-23",
+        "end_date": "2027-01-06"
+    }
+]

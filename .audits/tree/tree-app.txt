@@ -1,0 +1,146 @@
+[drwxr-xr-x 4.0K]  app
+├── [drwxr-xr-x 4.0K]  Console
+│   ├── [drwxr-xr-x 4.0K]  Commands
+│   │   ├── [-rw-r--r-- 8.7K]  ProjectBreezeKill.php
+│   │   ├── [-rw-r--r--  656]  ProjectBuild.php
+│   │   ├── [-rw-r--r-- 1.5K]  ProjectDatabase.php
+│   │   ├── [-rw-r--r-- 2.7K]  ProjectDataset.php
+│   │   ├── [-rw-r--r-- 5.6K]  ProjectDatasetDecrypt.php
+│   │   ├── [-rw-r--r-- 3.0K]  ProjectGit.php
+│   │   ├── [-rw-r--r-- 3.6K]  ProjectTreeCommand.php
+│   │   ├── [-rw-r--r-- 9.0K]  ProjectVersions.php
+│   │   ├── [-rw-r--r-- 4.7K]  ProjectWireNavigateCheck.php
+│   │   ├── [-rw-r--r-- 6.8K]  ProjectWireNavigateFixer.php
+│   │   └── [-rw-r--r-- 2.0K]  SplitCountries.php
+│   └── [-rw-r--r--  730]  Kernel.php
+├── [drwxr-xr-x 4.0K]  Enums
+│   ├── [-rw-r--r--  221]  CountryWorkArea.php
+│   ├── [-rw-r--r--  376]  DebugEvent.php
+│   ├── [-rw-r--r--  243]  DebugPhase.php
+│   ├── [-rw-r--r--  549]  EventType.php
+│   └── [-rw-r--r--  159]  VacationType.php
+├── [drwxr-xr-x 4.0K]  Http
+│   ├── [drwxr-xr-x 4.0K]  Controllers
+│   │   ├── [drwxr-xr-x 4.0K]  Auth
+│   │   │   └── [-rw-r--r--  800]  VerifyEmailController.php.xxx
+│   │   └── [-rw-r--r--   77]  Controller.php
+│   └── [drwxr-xr-x 4.0K]  Middleware
+│       ├── [-rw-r--r--  654]  AssignRunId.php
+│       └── [-rw-r--r--  915]  EnsureDebugUiEnabled.php
+├── [drwxr-xr-x 4.0K]  Livewire
+│   ├── [drwxr-xr-x 4.0K]  Actions
+│   │   └── [-rw-r--r--  358]  Logout.php
+│   ├── [drwxr-xr-x 4.0K]  Admin
+│   │   ├── [drwxr-xr-x 4.0K]  ActivityLog
+│   │   │   └── [-rw-r--r--  881]  Index.php
+│   │   └── [drwxr-xr-x 4.0K]  AppSettings
+│   │       └── [-rw-r--r--  946]  Index.php
+│   ├── [drwxr-xr-x 4.0K]  Debug
+│   │   ├── [drwxr-xr-x 4.0K]  Logs
+│   │   │   ├── [-rw-r--r-- 6.1K]  Index.php
+│   │   │   └── [-rw-r--r--  863]  Show.php
+│   │   ├── [-rw-r--r-- 1.4K]  Overview.php
+│   │   └── [drwxr-xr-x 4.0K]  Scopes
+│   │       ├── [-rw-r--r-- 3.2K]  Index.php
+│   │       └── [-rw-r--r-- 3.6K]  Show.php
+│   ├── [-rw-r--r-- 1.4K]  DebugTest.php
+│   ├── [drwxr-xr-x 4.0K]  Forms
+│   │   └── [-rw-r--r-- 1.8K]  LoginForm.php
+│   ├── [drwxr-xr-x 4.0K]  Layout
+│   │   ├── [-rw-r--r--  187]  Footer.php
+│   │   └── [-rw-r--r--  181]  Nav.php
+│   └── [drwxr-xr-x 4.0K]  Pages
+│       ├── [drwxr-xr-x 4.0K]  Auth
+│       │   ├── [-rw-r--r--  802]  ConfirmPassword.php
+│       │   ├── [-rw-r--r--  585]  ForgotPassword.php
+│       │   ├── [-rw-r--r--  920]  Login.php
+│       │   ├── [-rw-r--r-- 1004]  Register.php
+│       │   ├── [-rw-r--r-- 1.4K]  ResetPassword.php
+│       │   └── [-rw-r--r--  784]  VerifyEmail.php
+│       ├── [-rw-r--r--  279]  Dashboard.php
+│       ├── [-rw-r--r--  269]  Home.php
+│       ├── [drwxr-xr-x 4.0K]  Persons
+│       │   ├── [-rw-r--r-- 9.7K]  Create.php
+│       │   ├── [-rw-r--r-- 1.2K]  Edit.php
+│       │   └── [-rw-r--r-- 2.0K]  Index.php
+│       └── [-rw-r--r--  275]  Welcome.php
+├── [drwxr-xr-x 4.0K]  Models
+│   ├── [-rw-r--r--  448]  AppSetting.php
+│   ├── [-rw-r--r--  477]  AppUserSetting.php
+│   ├── [-rw-r--r-- 2.9K]  Country.php
+│   ├── [-rw-r--r--  782]  CountryRegion.php
+│   ├── [-rw-r--r--  706]  DebugLog.php
+│   ├── [-rw-r--r--  743]  DebugScope.php
+│   ├── [-rw-r--r--  671]  DebugSetting.php
+│   ├── [-rw-r--r-- 1.2K]  Event.php
+│   ├── [-rw-r--r--  774]  Holiday.php
+│   ├── [-rw-r--r-- 3.6K]  Person.php
+│   ├── [-rw-r--r--  655]  UiPreference.php
+│   └── [-rw-r--r-- 1.7K]  User.php
+├── [drwxr-xr-x 4.0K]  Providers
+│   ├── [-rw-r--r-- 1.5K]  AppServiceProvider.php
+│   ├── [-rw-r--r-- 1.6K]  TelescopeServiceProvider.php
+│   └── [-rw-r--r--  494]  VoltServiceProvider.php
+├── [drwxr-xr-x 4.0K]  Services
+│   ├── [-rw-r--r-- 4.0K]  AppSettingResolver.php
+│   ├── [drwxr-xr-x 4.0K]  Events
+│   │   ├── [-rw-r--r-- 6.5K]  EventImporter.php
+│   │   └── [drwxr-xr-x 4.0K]  Parsers
+│   │       ├── [-rw-r--r-- 3.1K]  IcsParser.php
+│   │       └── [-rw-r--r-- 1.7K]  JsonParser.php
+│   └── [-rw-r--r-- 1.2K]  UiPreferenceResolver.php
+├── [drwxr-xr-x 4.0K]  Support
+│   ├── [-rw-r--r--  845]  Breadcrumbs.php
+│   ├── [drwxr-xr-x 4.0K]  Holidays
+│   │   ├── [-rw-r--r-- 5.2K]  GermanyHolidayProvider.php
+│   │   ├── [-rw-r--r--  419]  HolidayDefinition.php
+│   │   └── [-rw-r--r--  246]  HolidayProviderInterface.php
+│   ├── [-rw-r--r-- 1.1K]  RouteAudit.php
+│   └── [drwxr-xr-x 4.0K]  TafeldDebug
+│       ├── [-rw-r--r-- 5.4K]  DbLogWriter.php
+│       ├── [-rw-r--r-- 1.4K]  Debug.php
+│       ├── [-rw-r--r-- 5.5K]  DebugEngine.php
+│       ├── [-rw-r--r-- 8.6K]  DebugReader.php
+│       ├── [-rw-r--r-- 1.3K]  DebugRuntime.php
+│       ├── [-rw-r--r-- 5.1K]  DebugToggleService.php
+│       ├── [-rw-r--r-- 1.8K]  FatalFallbackLogger.php
+│       └── [-rw-r--r-- 1.9K]  ScopeDiscovery.php
+├── [drwxr-xr-x 4.0K]  View
+│   └── [drwxr-xr-x 4.0K]  Components
+│       ├── [-rw-r--r--  584]  Breadcrumbs.php
+│       ├── [-rw-r--r--  594]  Logo.php
+│       └── [drwxr-xr-x 4.0K]  Ui
+│           ├── [drwxr-xr-x 4.0K]  Badge
+│           │   └── [-rw-r--r-- 1.5K]  WorkArea.php
+│           ├── [drwxr-xr-x 4.0K]  Checkbox
+│           │   └── [-rw-r--r--  476]  Segment.php
+│           ├── [drwxr-xr-x 4.0K]  Date
+│           │   ├── [-rw-r--r--  544]  DebugDatepicker.php
+│           │   └── [-rw-r--r--  560]  DebugRangeDatepicker.php
+│           ├── [drwxr-xr-x 4.0K]  Input
+│           │   └── [-rw-r--r--  532]  DebugInput.php
+│           ├── [drwxr-xr-x 4.0K]  Pagination
+│           │   ├── [-rw-r--r--  462]  DebugLogsPagination.php
+│           │   └── [-rw-r--r--  540]  DebugScopesPagination.php
+│           ├── [drwxr-xr-x 4.0K]  Radio
+│           │   └── [-rw-r--r--  470]  Segment.php
+│           ├── [drwxr-xr-x 4.0K]  Select
+│           │   ├── [-rw-r--r-- 2.3K]  DebugCustomSelect.php
+│           │   ├── [-rw-r--r-- 2.0K]  DebugSelect.php
+│           │   ├── [-rw-r--r--  498]  DebugSuggestSelect.php
+│           │   └── [drwxr-xr-x 4.0K]  Options
+│           │       └── [-rw-r--r--  565]  SelectOption.php
+│           ├── [drwxr-xr-x 4.0K]  Table
+│           │   ├── [-rw-r--r--  464]  Body.php
+│           │   ├── [-rw-r--r--  464]  Head.php
+│           │   ├── [-rw-r--r--  466]  Table.php
+│           │   ├── [-rw-r--r--  460]  Td.php
+│           │   ├── [-rw-r--r--  460]  Th.php
+│           │   └── [-rw-r--r--  460]  Tr.php
+│           └── [drwxr-xr-x 4.0K]  Toggle
+│               └── [-rw-r--r--  541]  ToggleSwitch.php
+├── [drwxr-xr-x 4.0K]  helpers
+│   └── [-rw-r--r--  620]  routes.php
+└── [-rw-r--r--    0]  helpers.php
+
+43 directories, 101 files

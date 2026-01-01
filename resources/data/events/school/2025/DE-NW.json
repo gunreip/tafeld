@@ -1,0 +1,37 @@
+[
+    {
+        "name_de": "Osterferien 2025",
+        "name_en": "Easter holidays 2025",
+        "type": "school",
+        "start_date": "2025-04-14",
+        "end_date": "2025-04-26"
+    },
+    {
+        "name_de": "Pfingstferien 2025",
+        "name_en": "Pentecost holiday 2025",
+        "type": "school",
+        "start_date": "2025-06-10",
+        "end_date": "2025-06-10"
+    },
+    {
+        "name_de": "Sommerferien 2025",
+        "name_en": "Summer holidays 2025",
+        "type": "school",
+        "start_date": "2025-07-14",
+        "end_date": "2025-08-27"
+    },
+    {
+        "name_de": "Herbstferien 2025",
+        "name_en": "Autumn holidays 2025",
+        "type": "school",
+        "start_date": "2025-10-13",
+        "end_date": "2025-10-25"
+    },
+    {
+        "name_de": "Weihnachtsferien 2025/2026",
+        "name_en": "Christmas holidays 2025/2026",
+        "type": "school",
+        "start_date": "2025-12-22",
+        "end_date": "2026-01-06"
+    }
+]

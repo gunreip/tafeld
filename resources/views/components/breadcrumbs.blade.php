@@ -1,4 +1,7 @@
-<!-- tafeld/resources/views/components/breadcrumbs.blade.php -->
+@if (config('tafeld-debug.view_path_comment'))
+    <!-- tafeld/resources/views/components/breadcrumbs.blade.php -->
+    <!-- {{ $__path }} -->
+@endif
 
 <nav class="w-full mt-1 mb-1">
     <ol class="flex items-center gap-1">

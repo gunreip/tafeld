@@ -1,5 +1,7 @@
 <?php
 
+// tafeld/app/Livewire/Pages/Dashboard.php
+
 namespace App\Livewire\Pages;
 
 use Livewire\Component;

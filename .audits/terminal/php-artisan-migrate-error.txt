@@ -1,0 +1,30 @@
+gunreip@DESKTOP-I7C75P2:~/code/tafeld$ php artisan migrate
+
+   INFO  Running migrations.  
+
+  2025_12_08_110956_create_debug_logs_table ................................................ 18.66ms FAIL
+
+   Illuminate\Database\QueryException 
+
+  SQLSTATE[42804]: Datatype mismatch: 7 ERROR:  foreign key constraint "debug_logs_user_id_foreign" cannot be implemented
+DETAIL:  Key columns "user_id" of the referencing table and "id" of the referenced table are of incompatible types: character and bigint. (Connection: pgsql, SQL: alter table "debug_logs" add constraint "debug_logs_user_id_foreign" foreign key ("user_id") references "users" ("id") on delete set null)
+
+  at vendor/laravel/framework/src/Illuminate/Database/Connection.php:826
+    822▕                     $this->getName(), $query, $this->prepareBindings($bindings), $e
+    823▕                 );
+    824▕             }
+    825▕ 
+  ➜ 826▕             throw new QueryException(
+    827▕                 $this->getName(), $query, $this->prepareBindings($bindings), $e
+    828▕             );
+    829▕         }
+    830▕     }
+
+      +9 vendor frames 
+
+  10  database/migrations/2025_12_08_110956_create_debug_logs_table.php:16
+      Illuminate\Support\Facades\Facade::__callStatic()
+      +27 vendor frames 
+
+  38  artisan:16
+      Illuminate\Foundation\Application::handleCommand()

@@ -22,6 +22,16 @@
                         },
                         {
                             "type": "file",
+                            "name": "ProjectBuild.php",
+                            "extension": "php",
+                            "size": 656,
+                            "modified_at": 1765104723,
+                            "modified_at_iso": "2025-12-07T10:52:03+00:00",
+                            "created_at": 1765104723,
+                            "created_at_iso": "2025-12-07T10:52:03+00:00"
+                        },
+                        {
+                            "type": "file",
                             "name": "ProjectDatabase.php",
                             "extension": "php",
                             "size": 1563,
@@ -29,6 +39,26 @@
                             "modified_at_iso": "2025-11-12T18:28:42+00:00",
                             "created_at": 1762972122,
                             "created_at_iso": "2025-11-12T18:28:42+00:00"
+                        },
+                        {
+                            "type": "file",
+                            "name": "ProjectDataset.php",
+                            "extension": "php",
+                            "size": 2755,
+                            "modified_at": 1763907300,
+                            "modified_at_iso": "2025-11-23T14:15:00+00:00",
+                            "created_at": 1763907300,
+                            "created_at_iso": "2025-11-23T14:15:00+00:00"
+                        },
+                        {
+                            "type": "file",
+                            "name": "ProjectDatasetDecrypt.php",
+                            "extension": "php",
+                            "size": 5717,
+                            "modified_at": 1763925154,
+                            "modified_at_iso": "2025-11-23T19:12:34+00:00",
+                            "created_at": 1763925154,
+                            "created_at_iso": "2025-11-23T19:12:34+00:00"
                         },
                         {
                             "type": "file",
@@ -52,6 +82,16 @@
                         },
                         {
                             "type": "file",
+                            "name": "ProjectVersions.php",
+                            "extension": "php",
+                            "size": 9255,
+                            "modified_at": 1765045865,
+                            "modified_at_iso": "2025-12-06T18:31:05+00:00",
+                            "created_at": 1765045865,
+                            "created_at_iso": "2025-12-06T18:31:05+00:00"
+                        },
+                        {
+                            "type": "file",
                             "name": "ProjectWireNavigateCheck.php",
                             "extension": "php",
                             "size": 4777,
@@ -69,6 +109,16 @@
                             "modified_at_iso": "2025-11-10T15:14:31+00:00",
                             "created_at": 1762787671,
                             "created_at_iso": "2025-11-10T15:14:31+00:00"
+                        },
+                        {
+                            "type": "file",
+                            "name": "SplitCountries.php",
+                            "extension": "php",
+                            "size": 2059,
+                            "modified_at": 1764530349,
+                            "modified_at_iso": "2025-11-30T19:19:09+00:00",
+                            "created_at": 1764530349,
+                            "created_at_iso": "2025-11-30T19:19:09+00:00"
                         }
                     ]
                 },
@@ -76,11 +126,47 @@
                     "type": "file",
                     "name": "Kernel.php",
                     "extension": "php",
-                    "size": 444,
-                    "modified_at": 1763122033,
-                    "modified_at_iso": "2025-11-14T12:07:13+00:00",
-                    "created_at": 1763122033,
-                    "created_at_iso": "2025-11-14T12:07:13+00:00"
+                    "size": 730,
+                    "modified_at": 1765038346,
+                    "modified_at_iso": "2025-12-06T16:25:46+00:00",
+                    "created_at": 1765038346,
+                    "created_at_iso": "2025-12-06T16:25:46+00:00"
+                }
+            ]
+        },
+        {
+            "type": "dir",
+            "name": "Enums",
+            "items": [
+                {
+                    "type": "file",
+                    "name": "CountryWorkArea.php",
+                    "extension": "php",
+                    "size": 221,
+                    "modified_at": 1764792592,
+                    "modified_at_iso": "2025-12-03T20:09:52+00:00",
+                    "created_at": 1764792592,
+                    "created_at_iso": "2025-12-03T20:09:52+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "EventType.php",
+                    "extension": "php",
+                    "size": 549,
+                    "modified_at": 1764507126,
+                    "modified_at_iso": "2025-11-30T12:52:06+00:00",
+                    "created_at": 1764507126,
+                    "created_at_iso": "2025-11-30T12:52:06+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "VacationType.php",
+                    "extension": "php",
+                    "size": 159,
+                    "modified_at": 1764493793,
+                    "modified_at_iso": "2025-11-30T09:09:53+00:00",
+                    "created_at": 1764493793,
+                    "created_at_iso": "2025-11-30T09:09:53+00:00"
                 }
             ]
         },
@@ -119,6 +205,22 @@
                             "created_at_iso": "2025-11-09T09:33:09+00:00"
                         }
                     ]
+                },
+                {
+                    "type": "dir",
+                    "name": "Middleware",
+                    "items": [
+                        {
+                            "type": "file",
+                            "name": "AssignRunId.php",
+                            "extension": "php",
+                            "size": 654,
+                            "modified_at": 1765291658,
+                            "modified_at_iso": "2025-12-09T14:47:38+00:00",
+                            "created_at": 1765291658,
+                            "created_at_iso": "2025-12-09T14:47:38+00:00"
+                        }
+                    ]
                 }
             ]
         },
@@ -139,6 +241,48 @@
                             "modified_at_iso": "2025-11-09T15:05:47+00:00",
                             "created_at": 1762700747,
                             "created_at_iso": "2025-11-09T15:05:47+00:00"
+                        }
+                    ]
+                },
+                {
+                    "type": "dir",
+                    "name": "Debug",
+                    "items": [
+                        {
+                            "type": "dir",
+                            "name": "Scopes",
+                            "items": [
+                                {
+                                    "type": "file",
+                                    "name": "Index.php",
+                                    "extension": "php",
+                                    "size": 553,
+                                    "modified_at": 1765127842,
+                                    "modified_at_iso": "2025-12-07T17:17:22+00:00",
+                                    "created_at": 1765127842,
+                                    "created_at_iso": "2025-12-07T17:17:22+00:00"
+                                },
+                                {
+                                    "type": "file",
+                                    "name": "Show.php",
+                                    "extension": "php",
+                                    "size": 2472,
+                                    "modified_at": 1765179364,
+                                    "modified_at_iso": "2025-12-08T07:36:04+00:00",
+                                    "created_at": 1765179364,
+                                    "created_at_iso": "2025-12-08T07:36:04+00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "file",
+                            "name": "Overview.php",
+                            "extension": "php",
+                            "size": 1437,
+                            "modified_at": 1765106802,
+                            "modified_at_iso": "2025-12-07T11:26:42+00:00",
+                            "created_at": 1765106802,
+                            "created_at_iso": "2025-12-07T11:26:42+00:00"
                         }
                     ]
                 },
@@ -262,31 +406,31 @@
                                     "type": "file",
                                     "name": "Create.php",
                                     "extension": "php",
-                                    "size": 1050,
-                                    "modified_at": 1763273171,
-                                    "modified_at_iso": "2025-11-16T06:06:11+00:00",
-                                    "created_at": 1763273171,
-                                    "created_at_iso": "2025-11-16T06:06:11+00:00"
+                                    "size": 9877,
+                                    "modified_at": 1765625077,
+                                    "modified_at_iso": "2025-12-13T11:24:37+00:00",
+                                    "created_at": 1765625077,
+                                    "created_at_iso": "2025-12-13T11:24:37+00:00"
                                 },
                                 {
                                     "type": "file",
                                     "name": "Edit.php",
                                     "extension": "php",
-                                    "size": 1153,
-                                    "modified_at": 1763191047,
-                                    "modified_at_iso": "2025-11-15T07:17:27+00:00",
-                                    "created_at": 1763191047,
-                                    "created_at_iso": "2025-11-15T07:17:27+00:00"
+                                    "size": 1200,
+                                    "modified_at": 1763732945,
+                                    "modified_at_iso": "2025-11-21T13:49:05+00:00",
+                                    "created_at": 1763732945,
+                                    "created_at_iso": "2025-11-21T13:49:05+00:00"
                                 },
                                 {
                                     "type": "file",
                                     "name": "Index.php",
                                     "extension": "php",
-                                    "size": 2006,
-                                    "modified_at": 1763190981,
-                                    "modified_at_iso": "2025-11-15T07:16:21+00:00",
-                                    "created_at": 1763190981,
-                                    "created_at_iso": "2025-11-15T07:16:21+00:00"
+                                    "size": 2054,
+                                    "modified_at": 1763732968,
+                                    "modified_at_iso": "2025-11-21T13:49:28+00:00",
+                                    "created_at": 1763732968,
+                                    "created_at_iso": "2025-11-21T13:49:28+00:00"
                                 }
                             ]
                         },
@@ -294,11 +438,11 @@
                             "type": "file",
                             "name": "Dashboard.php",
                             "extension": "php",
-                            "size": 235,
-                            "modified_at": 1763190838,
-                            "modified_at_iso": "2025-11-15T07:13:58+00:00",
-                            "created_at": 1763190838,
-                            "created_at_iso": "2025-11-15T07:13:58+00:00"
+                            "size": 279,
+                            "modified_at": 1763732985,
+                            "modified_at_iso": "2025-11-21T13:49:45+00:00",
+                            "created_at": 1763732985,
+                            "created_at_iso": "2025-11-21T13:49:45+00:00"
                         },
                         {
                             "type": "file",
@@ -314,13 +458,23 @@
                             "type": "file",
                             "name": "Welcome.php",
                             "extension": "php",
-                            "size": 233,
-                            "modified_at": 1763185199,
-                            "modified_at_iso": "2025-11-15T05:39:59+00:00",
-                            "created_at": 1763185199,
-                            "created_at_iso": "2025-11-15T05:39:59+00:00"
+                            "size": 275,
+                            "modified_at": 1763733009,
+                            "modified_at_iso": "2025-11-21T13:50:09+00:00",
+                            "created_at": 1763733009,
+                            "created_at_iso": "2025-11-21T13:50:09+00:00"
                         }
                     ]
+                },
+                {
+                    "type": "file",
+                    "name": "DebugTest.php",
+                    "extension": "php",
+                    "size": 1426,
+                    "modified_at": 1765023507,
+                    "modified_at_iso": "2025-12-06T12:18:27+00:00",
+                    "created_at": 1765023507,
+                    "created_at_iso": "2025-12-06T12:18:27+00:00"
                 }
             ]
         },
@@ -332,31 +486,91 @@
                     "type": "file",
                     "name": "Country.php",
                     "extension": "php",
-                    "size": 377,
-                    "modified_at": 1762968749,
-                    "modified_at_iso": "2025-11-12T17:32:29+00:00",
-                    "created_at": 1762968749,
-                    "created_at_iso": "2025-11-12T17:32:29+00:00"
+                    "size": 2941,
+                    "modified_at": 1764516519,
+                    "modified_at_iso": "2025-11-30T15:28:39+00:00",
+                    "created_at": 1764516519,
+                    "created_at_iso": "2025-11-30T15:28:39+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "CountryRegion.php",
+                    "extension": "php",
+                    "size": 782,
+                    "modified_at": 1764599367,
+                    "modified_at_iso": "2025-12-01T14:29:27+00:00",
+                    "created_at": 1764599367,
+                    "created_at_iso": "2025-12-01T14:29:27+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "DebugLog.php",
+                    "extension": "php",
+                    "size": 706,
+                    "modified_at": 1765308360,
+                    "modified_at_iso": "2025-12-09T19:26:00+00:00",
+                    "created_at": 1765308360,
+                    "created_at_iso": "2025-12-09T19:26:00+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "DebugScope.php",
+                    "extension": "php",
+                    "size": 653,
+                    "modified_at": 1765553008,
+                    "modified_at_iso": "2025-12-12T15:23:28+00:00",
+                    "created_at": 1765553008,
+                    "created_at_iso": "2025-12-12T15:23:28+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "DebugSetting.php",
+                    "extension": "php",
+                    "size": 650,
+                    "modified_at": 1765552976,
+                    "modified_at_iso": "2025-12-12T15:22:56+00:00",
+                    "created_at": 1765552976,
+                    "created_at_iso": "2025-12-12T15:22:56+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "Event.php",
+                    "extension": "php",
+                    "size": 1179,
+                    "modified_at": 1764507591,
+                    "modified_at_iso": "2025-11-30T12:59:51+00:00",
+                    "created_at": 1764507591,
+                    "created_at_iso": "2025-11-30T12:59:51+00:00"
+                },
+                {
+                    "type": "file",
+                    "name": "Holiday.php",
+                    "extension": "php",
+                    "size": 774,
+                    "modified_at": 1764346115,
+                    "modified_at_iso": "2025-11-28T16:08:35+00:00",
+                    "created_at": 1764346115,
+                    "created_at_iso": "2025-11-28T16:08:35+00:00"
                 },
                 {
                     "type": "file",
                     "name": "Person.php",
                     "extension": "php",
-                    "size": 1192,
-                    "modified_at": 1763060671,
-                    "modified_at_iso": "2025-11-13T19:04:31+00:00",
-                    "created_at": 1763060671,
-                    "created_at_iso": "2025-11-13T19:04:31+00:00"
+                    "size": 3718,
+                    "modified_at": 1764088305,
+                    "modified_at_iso": "2025-11-25T16:31:45+00:00",
+                    "created_at": 1764088305,
+                    "created_at_iso": "2025-11-25T16:31:45+00:00"
                 },
                 {
                     "type": "file",
                     "name": "User.php",
                     "extension": "php",
-                    "size": 1307,
-                    "modified_at": 1763190445,
-                    "modified_at_iso": "2025-11-15T07:07:25+00:00",
-                    "created_at": 1763190445,
-                    "created_at_iso": "2025-11-15T07:07:25+00:00"
+                    "size": 2289,
+                    "modified_at": 1765257378,
+                    "modified_at_iso": "2025-12-09T05:16:18+00:00",
+                    "created_at": 1765257378,
+                    "created_at_iso": "2025-12-09T05:16:18+00:00"
                 }
             ]
         },
@@ -368,11 +582,11 @@
                     "type": "file",
                     "name": "AppServiceProvider.php",
                     "extension": "php",
-                    "size": 973,
-                    "modified_at": 1763058983,
-                    "modified_at_iso": "2025-11-13T18:36:23+00:00",
-                    "created_at": 1763058983,
-                    "created_at_iso": "2025-11-13T18:36:23+00:00"
+                    "size": 1241,
+                    "modified_at": 1764952175,
+                    "modified_at_iso": "2025-12-05T16:29:35+00:00",
+                    "created_at": 1764952175,
+                    "created_at_iso": "2025-12-05T16:29:35+00:00"
                 },
                 {
                     "type": "file",
@@ -398,8 +612,108 @@
         },
         {
             "type": "dir",
+            "name": "Services",
+            "items": [
+                {
+                    "type": "dir",
+                    "name": "Events",
+                    "items": [
+                        {
+                            "type": "dir",
+                            "name": "Parsers",
+                            "items": [
+                                {
+                                    "type": "file",
+                                    "name": "IcsParser.php",
+                                    "extension": "php",
+                                    "size": 3205,
+                                    "modified_at": 1764508763,
+                                    "modified_at_iso": "2025-11-30T13:19:23+00:00",
+                                    "created_at": 1764508763,
+                                    "created_at_iso": "2025-11-30T13:19:23+00:00"
+                                },
+                                {
+                                    "type": "file",
+                                    "name": "JsonParser.php",
+                                    "extension": "php",
+                                    "size": 1766,
+                                    "modified_at": 1764508783,
+                                    "modified_at_iso": "2025-11-30T13:19:43+00:00",
+                                    "created_at": 1764508783,
+                                    "created_at_iso": "2025-11-30T13:19:43+00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "file",
+                            "name": "EventImporter.php",
+                            "extension": "php",
+                            "size": 6631,
+                            "modified_at": 1764602707,
+                            "modified_at_iso": "2025-12-01T15:25:07+00:00",
+                            "created_at": 1764602707,
+                            "created_at_iso": "2025-12-01T15:25:07+00:00"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "dir",
             "name": "Support",
             "items": [
+                {
+                    "type": "dir",
+                    "name": "Holidays",
+                    "items": [
+                        {
+                            "type": "file",
+                            "name": "GermanyHolidayProvider.php",
+                            "extension": "php",
+                            "size": 5363,
+                            "modified_at": 1764399346,
+                            "modified_at_iso": "2025-11-29T06:55:46+00:00",
+                            "created_at": 1764399346,
+                            "created_at_iso": "2025-11-29T06:55:46+00:00"
+                        },
+                        {
+                            "type": "file",
+                            "name": "HolidayDefinition.php",
+                            "extension": "php",
+                            "size": 419,
+                            "modified_at": 1764399082,
+                            "modified_at_iso": "2025-11-29T06:51:22+00:00",
+                            "created_at": 1764399082,
+                            "created_at_iso": "2025-11-29T06:51:22+00:00"
+                        },
+                        {
+                            "type": "file",
+                            "name": "HolidayProviderInterface.php",
+                            "extension": "php",
+                            "size": 246,
+                            "modified_at": 1764345396,
+                            "modified_at_iso": "2025-11-28T15:56:36+00:00",
+                            "created_at": 1764345396,
+                            "created_at_iso": "2025-11-28T15:56:36+00:00"
+                        }
+                    ]
+                },
+                {
+                    "type": "dir",
+                    "name": "TafeldDebug",
+                    "items": [
+                        {
+                            "type": "file",
+                            "name": "README.md",
+                            "extension": "md",
+                            "size": 236,
+                            "modified_at": 1765626169,
+                            "modified_at_iso": "2025-12-13T11:42:49+00:00",
+                            "created_at": 1765626169,
+                            "created_at_iso": "2025-12-13T11:42:49+00:00"
+                        }
+                    ]
+                },
                 {
                     "type": "file",
                     "name": "Breadcrumbs.php",
@@ -431,6 +745,76 @@
                     "name": "Components",
                     "items": [
                         {
+                            "type": "dir",
+                            "name": "Ui",
+                            "items": [
+                                {
+                                    "type": "dir",
+                                    "name": "Badge",
+                                    "items": [
+                                        {
+                                            "type": "file",
+                                            "name": "WorkArea.php",
+                                            "extension": "php",
+                                            "size": 1583,
+                                            "modified_at": 1764825306,
+                                            "modified_at_iso": "2025-12-04T05:15:06+00:00",
+                                            "created_at": 1764825306,
+                                            "created_at_iso": "2025-12-04T05:15:06+00:00"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "dir",
+                                    "name": "Checkbox",
+                                    "items": [
+                                        {
+                                            "type": "file",
+                                            "name": "Segment.php",
+                                            "extension": "php",
+                                            "size": 476,
+                                            "modified_at": 1764703587,
+                                            "modified_at_iso": "2025-12-02T19:26:27+00:00",
+                                            "created_at": 1764703587,
+                                            "created_at_iso": "2025-12-02T19:26:27+00:00"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "dir",
+                                    "name": "Radio",
+                                    "items": [
+                                        {
+                                            "type": "file",
+                                            "name": "Segment.php",
+                                            "extension": "php",
+                                            "size": 470,
+                                            "modified_at": 1764691975,
+                                            "modified_at_iso": "2025-12-02T16:12:55+00:00",
+                                            "created_at": 1764691975,
+                                            "created_at_iso": "2025-12-02T16:12:55+00:00"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "dir",
+                                    "name": "Toggle",
+                                    "items": [
+                                        {
+                                            "type": "file",
+                                            "name": "ToggleSwitch.php",
+                                            "extension": "php",
+                                            "size": 541,
+                                            "modified_at": 1764735472,
+                                            "modified_at_iso": "2025-12-03T04:17:52+00:00",
+                                            "created_at": 1764735472,
+                                            "created_at_iso": "2025-12-03T04:17:52+00:00"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
                             "type": "file",
                             "name": "Breadcrumbs.php",
                             "extension": "php",
@@ -453,6 +837,16 @@
                     ]
                 }
             ]
+        },
+        {
+            "type": "file",
+            "name": "helpers.php",
+            "extension": "php",
+            "size": 0,
+            "modified_at": 1765626401,
+            "modified_at_iso": "2025-12-13T11:46:41+00:00",
+            "created_at": 1765626401,
+            "created_at_iso": "2025-12-13T11:46:41+00:00"
         }
     ]
 }

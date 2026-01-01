@@ -1,4 +1,7 @@
-<!-- tafeld/resources/views/livewire/pages/dashboard.blade.php -->
+@if (config('tafeld-debug.view_path_comment'))
+    <!-- tafeld/resources/views/livewire/pages/dashboard.blade.php -->
+    <!-- {{ $__path }} -->
+@endif
 
 <section class="max-w-4xl mx-auto py-10 px-6 bg-surface text-default space-y-4">
 

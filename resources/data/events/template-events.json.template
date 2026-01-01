@@ -1,0 +1,17 @@
+// resources/data/events/<type>/<year>/<region>.json
+[
+    {
+        "name_de": "Ereignisname (DE)",
+        "name_en": "Event Name (EN)",
+        "start_date": "2025-01-01",
+        "end_date": "2025-01-02",
+        "type": "school", // school|business|supplier|personal|maintenance|other
+        "description": "Optionaler Beschreibungstext"
+    }
+]
+// Wichtig:
+// - type muss einer von EventType sein
+// - name_en muss existieren (auch wenn identisch zu name_de)
+// - start_date und end_date ISO-Format
+// - Parser generiert sort_key_xx und translit_xx automatisch
+// - Array kann 1..n Events enthalten

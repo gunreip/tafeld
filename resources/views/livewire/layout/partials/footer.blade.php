@@ -1,4 +1,7 @@
-<!-- tafeld/resources/views/livewire/layout/partials/footer.blade.php -->
+@if (config('tafeld-debug.view_path_comment'))
+    <!-- tafeld/resources/views/livewire/layout/partials/footer.blade.php -->
+    <!-- {{ $__path }} -->
+@endif
 
 <footer class="border-t border-default bg-elevated backdrop-blur">
     <div class="px-4 lg:px-6 py-3 flex items-center justify-between text-xs text-muted">

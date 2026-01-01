@@ -1,0 +1,9 @@
+[drwxr-xr-x 4.0K]  bootstrap
+├── [-rw-r--r--  525]  app.php
+├── [drwxrwxr-x 4.0K]  cache
+│   ├── [-rwxrwxr-x   14]  .gitignore
+│   ├── [-rwxr-xr-x 2.4K]  packages.php
+│   └── [-rwxr-xr-x  23K]  services.php
+└── [-rw-r--r--  161]  providers.php
+
+2 directories, 5 files

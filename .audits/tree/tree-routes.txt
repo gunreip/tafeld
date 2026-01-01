@@ -1,0 +1,10 @@
+[drwxr-xr-x 4.0K]  routes
+├── [-rw-r--r--  240]  console.php
+├── [-rw-r--r--  767]  web.admin.php
+├── [-rw-r--r-- 1.2K]  web.auth.php
+├── [-rw-r--r--  881]  web.core.php
+├── [-rw-r--r-- 1.4K]  web.debug.php
+├── [-rw-r--r--  855]  web.persons.php
+└── [-rw-r--r-- 1.1K]  web.php
+
+1 directory, 7 files

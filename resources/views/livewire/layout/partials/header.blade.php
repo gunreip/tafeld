@@ -1,4 +1,7 @@
-<!-- tafeld/resources/views/livewire/layout/partials/header.blade.php -->
+@if (config('tafeld-debug.view_path_comment'))
+    <!-- tafeld/resources/views/livewire/layout/partials/header.blade.php -->
+    <!-- {{ $__path }} -->
+@endif
 
 <header
     class="h-16 flex items-center justify-between px-4 lg:px-6

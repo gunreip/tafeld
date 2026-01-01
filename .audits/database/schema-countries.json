@@ -1,0 +1,96 @@
+{
+    "table": "countries",
+    "generated_at": "2025-11-23 14:15:46",
+    "columns": [
+        {
+            "column_name": "id",
+            "data_type": "bigint",
+            "is_nullable": "NO",
+            "column_default": "nextval('countries_id_seq'::regclass)"
+        },
+        {
+            "column_name": "iso_3166_2",
+            "data_type": "character varying",
+            "is_nullable": "NO",
+            "column_default": null
+        },
+        {
+            "column_name": "iso_3166_3",
+            "data_type": "character varying",
+            "is_nullable": "NO",
+            "column_default": null
+        },
+        {
+            "column_name": "name_en",
+            "data_type": "character varying",
+            "is_nullable": "NO",
+            "column_default": null
+        },
+        {
+            "column_name": "name_de",
+            "data_type": "character varying",
+            "is_nullable": "YES",
+            "column_default": null
+        },
+        {
+            "column_name": "region",
+            "data_type": "character varying",
+            "is_nullable": "YES",
+            "column_default": null
+        },
+        {
+            "column_name": "subregion",
+            "data_type": "character varying",
+            "is_nullable": "YES",
+            "column_default": null
+        },
+        {
+            "column_name": "currency_code",
+            "data_type": "character varying",
+            "is_nullable": "YES",
+            "column_default": null
+        },
+        {
+            "column_name": "phone_code",
+            "data_type": "character varying",
+            "is_nullable": "YES",
+            "column_default": null
+        },
+        {
+            "column_name": "sort_key",
+            "data_type": "character varying",
+            "is_nullable": "YES",
+            "column_default": null
+        },
+        {
+            "column_name": "sort_key_de",
+            "data_type": "character varying",
+            "is_nullable": "YES",
+            "column_default": null
+        },
+        {
+            "column_name": "translit_en",
+            "data_type": "character varying",
+            "is_nullable": "YES",
+            "column_default": null
+        },
+        {
+            "column_name": "translit_de",
+            "data_type": "character varying",
+            "is_nullable": "YES",
+            "column_default": null
+        },
+        {
+            "column_name": "created_at",
+            "data_type": "timestamp without time zone",
+            "is_nullable": "YES",
+            "column_default": null
+        },
+        {
+            "column_name": "updated_at",
+            "data_type": "timestamp without time zone",
+            "is_nullable": "YES",
+            "column_default": null
+        }
+    ]
+}

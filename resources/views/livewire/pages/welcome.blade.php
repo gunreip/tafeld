@@ -1,4 +1,7 @@
-<!-- tafeld/resources/views/livewire/pages/welcome.blade.php -->
+@if (config('tafeld-debug.view_path_comment'))
+    <!-- tafeld/resources/views/livewire/pages/welcome.blade.php -->
+    <!-- {{ $__path }} -->
+@endif
 
 <div class="max-w-3xl mx-auto py-16 px-6 bg-surface text-default">
 

@@ -1,0 +1,85 @@
+/* resources/css/ui/debug-pagination.css */
+
+@layer components {
+
+    /* =========================================================
+       DEBUG PAGINATION – ROOT
+       ========================================================= */
+
+    .debug-pagination {
+        @apply flex flex-wrap items-center justify-between gap-4;
+        @apply bg-card text-default text-sm;
+        @apply rounded-lg px-4 py-3;
+    }
+
+    /* =========================================================
+       META / LABELS (z. B. "Pro Seite")
+       ========================================================= */
+
+    .debug-pagination-meta {
+        @apply flex items-center gap-2;
+        @apply text-muted;
+    }
+
+    /* =========================================================
+       PAGINATION GROUP (Button-Cluster)
+       ========================================================= */
+
+    .debug-pagination-group {
+        @apply inline-flex items-center;
+        @apply rounded-lg overflow-hidden;
+        border: 1px solid rgb(var(--color-border-default));
+    }
+
+    /* =========================================================
+       PAGINATION ITEM (Einzelner Button / Link)
+       ========================================================= */
+
+    .debug-pagination-item {
+        @apply px-3 py-1.5;
+        @apply bg-card text-default;
+        @apply cursor-pointer select-none;
+        @apply input-transition;
+        @apply focus-input-reset;
+    }
+
+    /* Divider zwischen Items */
+    .debug-pagination-item+.debug-pagination-item {
+        border-left: 1px solid rgb(var(--color-border-default));
+    }
+
+    /* Hover */
+    .debug-pagination-item:hover {
+        /* background-color: rgb(var(--color-bg-hover)); */
+        @apply bg-slate-100 text-gray-900;
+    }
+
+    /* =========================================================
+       ACTIVE STATE (aktuelle Seite)
+       ========================================================= */
+
+    .debug-pagination-item.is-active {
+        background-color: rgb(var(--color-brand-primary));
+        color: rgb(var(--color-text-inverted));
+        font-weight: 500;
+        cursor: default;
+    }
+
+    .debug-pagination-item.is-active:hover {
+        background-color: rgb(var(--color-brand-primary));
+    }
+
+    /* =========================================================
+       DISABLED STATE (z. B. Zurück auf Seite 1)
+       ========================================================= */
+
+    .debug-pagination-item.is-disabled {
+        @apply text-muted;
+        cursor: not-allowed;
+    }
+
+    .debug-pagination-item.is-disabled:hover {
+        background-color: rgb(var(--color-bg-card));
+    }
+
+}

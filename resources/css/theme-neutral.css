@@ -45,6 +45,10 @@
         /* blue-600 */
         --color-info-bg: 219 234 254;
         /* blue-100 */
+        --color-critical: 156 39 176;
+        /* Material-Purple 500 */
+        --color-critical-bg: 206 147 216;
+        /* Material-Purple 200 */
 
         /* Focus / Auswahl – LIGHT */
         --color-focus-ring: 59 130 246;
@@ -99,6 +103,10 @@
         /* blue-400 */
         --color-info-bg: 30 64 175;
         /* blue-800 */
+        --color-critical: 171 71 188;
+        /* Material-Purple 500 */
+        --color-critical-bg: 206 147 216;
+        /* Material-Purple 200 */
 
         /* Focus / Auswahl – DARK */
         --color-focus-ring: 96 165 250;
@@ -107,6 +115,7 @@
         /* blue-800 */
         --color-selection-text: 219 234 254;
         /* blue-100 */
+        --color-calendar-ring: 239 127 1;
     }
 
     ::selection {
@@ -115,7 +124,6 @@
     }
 }
 
-/* Utility-Klassen auf Basis der Variablen */
 @layer utilities {
 
     /* Oberflächen */
@@ -128,6 +136,10 @@
     }
 
     .bg-card {
+        background-color: rgb(var(--color-bg-card));
+    }
+
+    .bg-input {
         background-color: rgb(var(--color-bg-card));
     }
 
@@ -161,7 +173,24 @@
         border-color: rgb(var(--color-border-muted));
     }
 
-    /* Status / Semantic (Text + Hintergrund) */
+    /* Divider */
+    .divider-default {
+        border-color: rgb(var(--color-border-default));
+    }
+
+    .divider-muted {
+        border-color: rgb(var(--color-border-muted));
+    }
+
+    .input-group-divider {
+        @apply divide-x;
+    }
+
+    .input-group-divider>*+* {
+        border-left-color: rgb(var(--color-border-default)) !important;
+    }
+
+    /* Status / Semantic */
     .text-success {
         color: rgb(var(--color-success));
     }
@@ -194,9 +223,52 @@
         background-color: rgb(var(--color-info-bg));
     }
 
-    /* Focus-Ring (für :focus-visible via @apply in Komponenten) */
+    .text-critical {
+        color: rgb(var(--color-critical));
+    }
+
+    .bg-critical-soft {
+        background-color: rgb(var(--color-critical-bg));
+    }
+
+    /* Focus-Ring */
     .focus-ring {
         outline: 2px solid rgb(var(--color-focus-ring));
         outline-offset: 2px;
+    }
+
+    /* ============================
+       SELECT COMPONENT STYLING
+       ============================ */
+
+    .select-base {
+        @apply w-full px-3 py-2 text-default cursor-pointer;
+        background-color: rgb(var(--color-bg-card));
+        transition: background-color 200ms ease, color 200ms ease;
+    }
+
+    .select-hover {
+        background-color: rgb(var(--color-bg-hover));
+    }
+
+    .select-active {
+        background-color: rgb(var(--color-bg-active));
+        color: rgb(var(--color-text-default));
+    }
+
+    /* ============================
+       SELECT COMPONENT – VISUAL ENHANCEMENTS
+       ============================ */
+
+    .select-card {
+        @apply border border-default rounded-md shadow-sm;
+    }
+
+    .select-gap {
+        @apply flex flex-col gap-y-1;
+    }
+
+    .select-rounded {
+        @apply rounded-md;
     }
 }

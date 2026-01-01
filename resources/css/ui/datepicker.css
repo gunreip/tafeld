@@ -1,0 +1,188 @@
+/* tafeld/resources/css/ui/datepicker.css */
+
+/* ============================================================
+   Premium Datepicker Styles (Dark Theme)
+   Tafeld UI – reusable, calm, neutral, high clarity
+   ============================================================ */
+
+/* Card */
+.dp-card {
+    @apply bg-elevated border border-default rounded-xl shadow-xl p-4 w-[320px] text-default select-none;
+}
+
+/* Header (Monat NAV) */
+.dp-header {
+    @apply flex items-center justify-between mb-3;
+}
+
+.dp-header-title {
+    @apply text-lg font-semibold tracking-wide text-default;
+}
+
+/* Navigation Buttons */
+.dp-nav-btn {
+    @apply w-8 h-8 flex items-center justify-center rounded-md bg-surface text-default hover:bg-hover hover:text-default transition cursor-pointer;
+}
+
+/* Weekdays Row */
+.dp-weekdays {
+    @apply grid grid-cols-7 text-center text-default text-sm mb-2;
+}
+
+/* Grid of Days */
+.dp-grid {
+    @apply grid grid-cols-7 gap-1;
+}
+
+.dp-day {
+    @apply w-8 h-6 flex items-center justify-center rounded-md text-default cursor-pointer transition;
+}
+
+/* Hover */
+.dp-day:hover,
+.dp-day-hover:hover {
+    @apply bg-hover text-default;
+}
+
+/* Today Outline */
+.dp-day-today {
+    @apply border border-brand-500;
+}
+
+/* Selected Day */
+.dp-day-selected {
+    @apply bg-brand-500 text-white shadow-lg;
+}
+
+/* Disabled Day */
+.dp-day-disabled {
+    @apply text-default cursor-not-allowed;
+}
+
+/* ============================================================
+   Wochenende / Feiertage / Ferien / Geschlossen / Range / Focus
+   ============================================================ */
+
+/* Samstag */
+.dp-day-sat {
+    @apply text-blue-400;
+}
+
+/* Sonntag */
+.dp-day-sun {
+    @apply text-red-500 font-semibold;
+}
+
+/* Weekday Header Samstag */
+.dp-weekday-sat {
+    @apply text-blue-400;
+}
+
+/* Weekday Header Sonntag */
+.dp-weekday-sun {
+    @apply text-red-500 font-semibold;
+}
+
+/* Feiertage */
+.dp-day-holiday {
+    /* @apply text-red-400 font-semibold bg-red-500 border border-red-500; */
+    @apply text-red-400 bg-red-500/20 border border-red-400/30;
+}
+
+/* Religiöse Feiertage (Ostersonntag, Pfingstsonntag etc.) */
+.dp-day-religious {
+    @apply text-purple-400 bg-purple-500/20 border border-purple-400/30 font-semibold;
+}
+
+/* Karnevalstage (Weiberfastnacht, Rosenmontag etc.) */
+.dp-day-carnival {
+    @apply text-pink-400 bg-pink-500/20 border border-pink-400/30 font-semibold;
+}
+
+/* Ferien */
+.dp-day-school {
+    @apply bg-green-300 text-green-800 font-semibold;
+}
+
+/* Betriebsferien / Geschäftseinträge */
+.dp-day-business {
+    @apply border-b-2 border-amber-400 text-amber-300 bg-transparent;
+}
+
+/* Geschlossen */
+.dp-day-closed {
+    @apply bg-gray-700/50 text-gray-400 line-through;
+}
+
+/* Focus */
+.dp-day-focus {
+    @apply ring-2 ring-brand-500 ring-offset-1;
+}
+
+/* Range Auswahl */
+.dp-day-range {
+    @apply bg-brand-400 text-brand-800;
+}
+
+.dp-day-range-start {
+    @apply border-l-2 border-brand-500;
+}
+
+.dp-day-range-end {
+    @apply border-r-2 border-brand-500;
+}
+
+/* ============================================================
+   Glow-/Focus Animation (Datepicker Panel sichtbar)
+   ============================================================ */
+
+@keyframes dp-glow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 140, 255, 0.15);
+    }
+
+    50% {
+        box-shadow: 0 0 12px 3px rgba(0, 140, 255, 0.35);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 140, 255, 0.15);
+    }
+}
+
+.dp-glow {
+    animation: dp-glow 2.6s ease-in-out 3;
+    border-color: theme('colors.brand.500');
+}
+
+/* Optional softer glow */
+.dp-card-glow {
+    animation: dp-glow 4.2s ease-in-out 3;
+    border-color: theme('colors.brand.400');
+}
+
+/* ============================================================
+   Neue Glow-Animation (3x Puls + statisch)
+   ============================================================ */
+
+@keyframes dpGlowPulse {
+    0% {
+        box-shadow: 0 0 0 rgba(80, 130, 255, 0.0);
+    }
+
+    50% {
+        box-shadow: 0 0 24px rgba(80, 130, 255, 0.55);
+    }
+
+    100% {
+        box-shadow: 0 0 0 rgba(80, 130, 255, 0.0);
+    }
+}
+
+.dp-glow-animate {
+    animation: dpGlowPulse 0.55s ease-in-out 3;
+}
+
+.dp-glow-static {
+    box-shadow: 0 0 25px rgba(80, 130, 255, 0.45);
+}

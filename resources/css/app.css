@@ -3,6 +3,21 @@
 @import './theme-neutral.css';
 @import './theme-tafeld.css';
 
+/* @import flatpickr from 'flatpickr'; */
+/* @import 'flatpickr/dist/flatpickr.min.css'; */
+/* @import "./vendor/flatpickr.css"; */
+
+@import "./ui/datepicker.css";
+@import "./ui/radio-segment.css";
+@import "./ui/toggle-switch.css";
+@import "./ui/badge.css";
+@import "./ui/debug-pagination.css";
+@import "./ui/debug-select.css";
+@import "./ui/debug-custom-select.css";
+@import "./ui/debug-suggest-input.css";
+@import "./ui/debug-range-datepicker.css";
+/* @import "./ui/debug-range-datepicker-flatpickr.css"; */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

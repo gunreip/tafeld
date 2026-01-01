@@ -1,0 +1,21 @@
+[drwxr-xr-x 4.0K]  config
+├── [-rw-r--r-- 1.6K]  activitylog.php
+├── [-rw-r--r-- 4.2K]  app.php
+├── [-rw-r--r-- 5.5K]  audit.php
+├── [-rw-r--r-- 3.9K]  auth.php
+├── [-rw-r--r-- 3.6K]  cache.php
+├── [-rw-r--r-- 2.4K]  countries.php
+├── [-rw-r--r-- 6.7K]  database.php
+├── [-rw-r--r-- 2.4K]  filesystems.php
+├── [-rw-r--r-- 5.2K]  fortify.php.xxx
+├── [-rw-r--r-- 3.4K]  logging.php
+├── [-rw-r--r-- 3.5K]  mail.php
+├── [-rw-r--r-- 6.9K]  permission.php
+├── [-rw-r--r-- 4.1K]  queue.php
+├── [-rw-r--r-- 3.0K]  sanctum.php
+├── [-rw-r--r-- 1.0K]  services.php
+├── [-rw-r--r-- 7.7K]  session.php
+├── [-rw-r--r--   85]  tafeld-debug.php
+└── [-rw-r--r-- 7.0K]  telescope.php
+
+1 directory, 18 files

@@ -1,134 +1,36 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Log;
-use App\Support\RouteAudit;
-
-// Livewire-Pages (Auth)
-use App\Livewire\Pages\Auth\Login;
-use App\Livewire\Pages\Auth\Register;
-use App\Livewire\Pages\Auth\ForgotPassword;
-use App\Livewire\Pages\Auth\ResetPassword;
-use App\Livewire\Pages\Auth\VerifyEmail;
-use App\Livewire\Pages\Auth\ConfirmPassword;
-
-// Livewire-Pages (Core)
-use App\Livewire\Pages\Welcome;
-use App\Livewire\Pages\Dashboard;
-
-// Livewire-Pages (Persons)
-use App\Livewire\Pages\Persons\Index as PersonsIndex;
-use App\Livewire\Pages\Persons\Create as PersonsCreate;
-use App\Livewire\Pages\Persons\Edit as PersonsEdit;
-
-// Models
-use App\Models\Person;
+// tafeld/routes/web.php
 
 /*
 |--------------------------------------------------------------------------
-| Öffentliche Routen (ohne Auth)
+| Web Routes – Bootstrap
 |--------------------------------------------------------------------------
+|
+| Diese Datei enthält bewusst KEINE Routen.
+| Alle Routen sind thematisch in einzelne Dateien ausgelagert.
+|
 */
 
-Route::get('/', Welcome::class)->name('welcome');
-
-if (class_exists(Login::class)) {
-    Route::get('/login', Login::class)->name('login');
-} else {
-    Log::warning('Route skipped: missing class ' . Login::class);
-    RouteAudit::missing(Login::class);
-}
-
-if (class_exists(Register::class)) {
-    Route::get('/register', Register::class)->name('register');
-} else {
-    Log::warning('Route skipped: missing class ' . Register::class);
-    RouteAudit::missing(Register::class);
-}
-
-if (class_exists(ForgotPassword::class)) {
-    Route::get('/forgot-password', ForgotPassword::class)->name('password.request');
-} else {
-    Log::warning('Route skipped: missing class ' . ForgotPassword::class);
-    RouteAudit::missing(ForgotPassword::class);
-}
-
-if (class_exists(ResetPassword::class)) {
-    Route::get('/reset-password/{token}', ResetPassword::class)->name('password.reset');
-} else {
-    Log::warning('Route skipped: missing class ' . ResetPassword::class);
-    RouteAudit::missing(ResetPassword::class);
-}
-
-if (class_exists(VerifyEmail::class)) {
-    Route::get('/verify-email', VerifyEmail::class)->name('verification.notice');
-} else {
-    Log::warning('Route skipped: missing class ' . VerifyEmail::class);
-    RouteAudit::missing(VerifyEmail::class);
-}
-
-if (class_exists(ConfirmPassword::class)) {
-    Route::get('/confirm-password', ConfirmPassword::class)->name('password.confirm');
-} else {
-    Log::warning('Route skipped: missing class ' . ConfirmPassword::class);
-    RouteAudit::missing(ConfirmPassword::class);
-}
+require __DIR__ . '/web.auth.php';
+require __DIR__ . '/web.core.php';
+require __DIR__ . '/web.persons.php';
+require __DIR__ . '/web.debug.php';
+require __DIR__ . '/web.admin.php';
 
 /*
 |--------------------------------------------------------------------------
-| Authentifizierte Bereiche (auth)
+| Route-Audit Test (temporär)
 |--------------------------------------------------------------------------
+|
+| Diese Route dient ausschließlich dazu, den RouteAudit-Mechanismus
+| zu testen. Sie MUSS einen Warning-Eintrag erzeugen.
+|
 */
 
-Route::middleware(['auth'])->group(function () {
-
-    // Dashboard
-    if (class_exists(Dashboard::class)) {
-        Route::get('/dashboard', Dashboard::class)->name('dashboard');
-    } else {
-        Log::warning('Route skipped: missing class ' . Dashboard::class);
-        RouteAudit::missing(Dashboard::class);
-    }
-
-    /*
-    |--------------------------------------------------------------------------
-    | Persons-Modul
-    |--------------------------------------------------------------------------
-    */
-    Route::prefix('persons')->group(function () {
-
-        if (class_exists(PersonsIndex::class)) {
-            Route::get('/', PersonsIndex::class)->name('persons.index');
-        } else {
-            Log::warning('Route skipped: missing class ' . PersonsIndex::class);
-            RouteAudit::missing(PersonsIndex::class);
-        }
-
-        if (class_exists(PersonsCreate::class)) {
-            Route::get('/create', PersonsCreate::class)->name('persons.create');
-        } else {
-            Log::warning('Route skipped: missing class ' . PersonsCreate::class);
-            RouteAudit::missing(PersonsCreate::class);
-        }
-
-        if (class_exists(PersonsEdit::class)) {
-            Route::get('/{person:id}/edit', PersonsEdit::class)->name('persons.edit');
-        } else {
-            Log::warning('Route skipped: missing class ' . PersonsEdit::class);
-            RouteAudit::missing(PersonsEdit::class);
-        }
-    });
-});
-
-/*
-|--------------------------------------------------------------------------
-| Logout (POST)
-|--------------------------------------------------------------------------
-*/
-
-Route::post('/logout', function () {
-    auth()->logout();
-    request()->session()->invalidate();
-    request()->session()->regenerateToken();
-    return redirect('/login');
-})->name('logout');
+// if (class_exists(\App\Livewire\__RouteAuditTest__::class)) {
+//     Route::get('/__route-audit-test__', \App\Livewire\__RouteAuditTest__::class);
+// } else {
+//     Log::warning('Route skipped: missing class ' . \App\Livewire\__RouteAuditTest__::class);
+//     RouteAudit::missing(\App\Livewire\__RouteAuditTest__::class);
+// }

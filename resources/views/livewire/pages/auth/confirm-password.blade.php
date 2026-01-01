@@ -1,4 +1,7 @@
-<!-- tafeld/resources/views/livewire/pages/auth/confirm-password.blade.php -->
+@if (config('tafeld-debug.view_path_comment'))
+    <!-- tafeld/resources/views/livewire/pages/auth/confirm-password.blade.php -->
+    <!-- {{ $__path }} -->
+@endif
 
 <div
     class="w-full sm:max-w-md mx-auto mt-10 px-6 py-8 bg-card text-default

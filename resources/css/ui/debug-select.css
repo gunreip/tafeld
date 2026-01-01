@@ -1,0 +1,103 @@
+/* resources/css/ui/debug-select.css */
+
+@layer utilities {
+
+    /* =========================
+       DEBUG SELECT – BASE
+       ========================= */
+
+    .debug-select {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+
+        @apply w-full rounded-md px-3 py-2 pr-9;
+        @apply bg-card text-default;
+        @apply border border-default;
+        @apply input-transition;
+
+        /* Typografie konsistent zu Inputs */
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+
+        cursor: pointer;
+    }
+
+    /* =========================
+       HOVER
+       ========================= */
+
+    .debug-select:hover {
+        background-color: rgb(var(--color-bg-hover));
+    }
+
+    /* =========================
+       FOCUS
+       ========================= */
+
+    .debug-select:focus {
+        outline: none;
+        background-color: rgb(var(--color-bg-active));
+    }
+
+    .debug-select:focus-visible {
+        outline: 2px solid rgb(var(--color-focus-ring));
+        outline-offset: 2px;
+    }
+
+    /* =========================
+       DISABLED
+       ========================= */
+
+    .debug-select:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        background-color: rgb(var(--color-bg-surface));
+    }
+
+    /* =========================
+       DROPDOWN INDICATOR
+       ========================= */
+
+    .debug-select-wrapper {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+    }
+
+    .debug-select-wrapper::after {
+        content: '';
+        pointer-events: none;
+
+        position: absolute;
+        right: 0.75rem;
+        top: 50%;
+        transform: translateY(-50%);
+
+        width: 0;
+        height: 0;
+
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 6px solid rgb(var(--color-text-muted));
+    }
+
+    .debug-select-wrapper:hover::after {
+        border-top-color: rgb(var(--color-text-default));
+    }
+
+    .debug-select:focus+.debug-select-wrapper::after {
+        border-top-color: rgb(var(--color-text-default));
+    }
+
+    /* =========================
+       SEMANTIC STATES (prepared)
+       ========================= */
+
+    /* Neutral / "all" state */
+    .debug-select.is-semantic-all {
+        color: rgb(var(--color-text-muted));
+        font-style: italic;
+    }
+
+}

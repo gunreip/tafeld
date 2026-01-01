@@ -1,5 +1,7 @@
 <?php
 
+// tafeld/database/migrations/2025_11_09_103451_add_batch_uuid_column_to_activity_log_table.php
+
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;

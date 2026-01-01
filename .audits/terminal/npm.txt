@@ -1,0 +1,77 @@
+gunreip@DESKTOP-I7C75P2:~/code/tafeld$ npm install heroicons
+
+added 1 package, and audited 193 packages in 2s
+
+50 packages are looking for funding
+  run `npm fund` for details
+
+3 high severity vulnerabilities
+
+To address all issues, run:
+  npm audit fix
+
+Run `npm audit` for details.
+gunreip@DESKTOP-I7C75P2:~/code/tafeld$ npm update all
+
+up to date, audited 193 packages in 683ms
+
+50 packages are looking for funding
+  run `npm fund` for details
+
+3 high severity vulnerabilities
+
+To address all issues, run:
+  npm audit fix
+
+Run `npm audit` for details.
+gunreip@DESKTOP-I7C75P2:~/code/tafeld$ npm audit fix
+
+changed 1 package, and audited 193 packages in 4s
+
+50 packages are looking for funding
+  run `npm fund` for details
+
+# npm audit report
+
+glob  10.3.7 - 11.0.3
+Severity: high
+glob CLI: Command injection via -c/--cmd executes matches with shell:true - https://github.com/advisories/GHSA-5j98-mcp5-4vw2
+fix available via `npm audit fix`
+node_modules/glob
+  sucrase  >=3.35.0
+  Depends on vulnerable versions of glob
+  node_modules/sucrase
+    tailwindcss  3.4.15 - 3.4.18
+    Depends on vulnerable versions of sucrase
+    node_modules/tailwindcss
+
+3 high severity vulnerabilities
+
+To address all issues, run:
+  npm audit fix
+gunreip@DESKTOP-I7C75P2:~/code/tafeld$ npm audit fix
+
+up to date, audited 193 packages in 1s
+
+50 packages are looking for funding
+  run `npm fund` for details
+
+# npm audit report
+
+glob  10.3.7 - 11.0.3
+Severity: high
+glob CLI: Command injection via -c/--cmd executes matches with shell:true - https://github.com/advisories/GHSA-5j98-mcp5-4vw2
+fix available via `npm audit fix`
+node_modules/glob
+  sucrase  >=3.35.0
+  Depends on vulnerable versions of glob
+  node_modules/sucrase
+    tailwindcss  3.4.15 - 3.4.18
+    Depends on vulnerable versions of sucrase
+    node_modules/tailwindcss
+
+3 high severity vulnerabilities
+
+To address all issues, run:
+  npm audit fix
+  

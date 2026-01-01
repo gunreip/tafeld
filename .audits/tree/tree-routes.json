@@ -1,0 +1,26 @@
+{
+    "root": "routes",
+    "path": "\/home\/gunreip\/code\/tafeld\/routes",
+    "items": [
+        {
+            "type": "file",
+            "name": "console.php",
+            "extension": "php",
+            "size": 210,
+            "modified_at": 1762268421,
+            "modified_at_iso": "2025-11-04T15:00:21+00:00",
+            "created_at": 1762680789,
+            "created_at_iso": "2025-11-09T09:33:09+00:00"
+        },
+        {
+            "type": "file",
+            "name": "web.php",
+            "extension": "php",
+            "size": 5976,
+            "modified_at": 1765134341,
+            "modified_at_iso": "2025-12-07T19:05:41+00:00",
+            "created_at": 1765134341,
+            "created_at_iso": "2025-12-07T19:05:41+00:00"
+        }
+    ]
+}

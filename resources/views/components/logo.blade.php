@@ -1,3 +1,8 @@
+@if (config('tafeld-debug.view_path_comment'))
+    <!-- tafeld/resources/views/components/logo.blade.php -->
+    <!-- {{ $__path }} -->
+@endif
+
 @php
     // Default size presets (for raster images)
     $sizePresets = [

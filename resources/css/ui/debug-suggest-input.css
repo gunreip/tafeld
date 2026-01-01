@@ -1,0 +1,62 @@
+/* tafeld/resources/css/ui/debug-suggest-input.css */
+
+@layer utilities {
+
+    .debug-suggest-input {
+        position: relative;
+        width: 100%;
+    }
+
+    .debug-suggest-input-field {
+        @apply w-full;
+        @apply bg-card text-default;
+        @apply border border-default rounded-md;
+        @apply px-3 py-2;
+        @apply input-transition;
+
+        outline: none;
+    }
+
+    .debug-suggest-input-field:focus-visible {
+        outline: 2px solid rgb(var(--color-focus-ring));
+        outline-offset: 2px;
+    }
+
+    .debug-suggest-input-panel {
+        @apply absolute z-50 mt-1;
+        @apply bg-card border border-default rounded-md;
+        @apply shadow-sm;
+
+        max-height: 16rem;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .debug-suggest-input-option {
+        @apply px-3 py-2 cursor-pointer;
+        @apply input-transition;
+        white-space: nowrap;
+    }
+
+    .debug-suggest-input-option:hover {
+        background-color: rgb(var(--color-bg-hover));
+    }
+
+    .debug-suggest-input-option.is-active {
+        background-color: rgb(var(--color-bg-active));
+    }
+
+    .debug-suggest-input-option mark {
+        background: rgb(var(--color-highlight));
+        color: rgb(var(--color-highlight-text));
+        padding: 0 2px;
+        border-radius: 2px;
+    }
+
+    .debug-suggest-input-option mark {
+        background-color: rgb(var(--color-highlight, 255 235 59 / 0.85));
+        color: rgb(var(--color-text-highlight, 0 0 0));
+        padding: 0 2px;
+        border-radius: 2px;
+    }
+}
