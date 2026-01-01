@@ -67,6 +67,26 @@ jobs:
                   DB_DATABASE: database/testing.sqlite
               run: nohup php artisan serve --host 127.0.0.1 --port 8000 > /tmp/laravel.log 2>&1 &
 
+            - name: Server start diagnostics
+              run: |
+                  # Give the server a moment to bind
+                  sleep 1
+
+                  echo "=== ENV from getenv() ===" > /tmp/server_start_diagnostics
+                  php -r 'echo "APP_ENV=" . (getenv("APP_ENV")?:"(unset)") ."\n"; echo "DB_CONNECTION=" . (getenv("DB_CONNECTION")?:"(unset)") ."\n"; echo "DB_DATABASE=" . (getenv("DB_DATABASE")?:"(unset)") ."\n";' >> /tmp/server_start_diagnostics || true
+
+                  echo "=== php artisan env ===" >> /tmp/server_start_diagnostics
+                  php artisan env >> /tmp/server_start_diagnostics 2>&1 || true
+
+                  echo "=== php artisan route:list (grep _debug_test) ===" >> /tmp/server_start_diagnostics
+                  php artisan route:list 2>&1 | sed -n '1,200p' >> /tmp/server_start_diagnostics || true
+
+                  echo "=== grep in route files ===" >> /tmp/server_start_diagnostics
+                  grep -nR "_debug_test/overview" routes || true >> /tmp/server_start_diagnostics || true
+
+                  echo "=== /tmp/server_start_diagnostics (first 200 lines) ==="
+                  sed -n '1,200p' /tmp/server_start_diagnostics || true
+
             - name: Wait for server
               run: |
                   # Try up to 120s, print HTTP status and short body on failure for diagnostics
@@ -116,3 +136,4 @@ jobs:
                       /tmp/playwright
                       test-results
                       /tmp/laravel.log
+                      /tmp/server_start_diagnostics
