@@ -24,7 +24,7 @@ jobs:
             - name: Setup Node
               uses: actions/setup-node@v4
               with:
-                  node-version: "18"
+                  node-version: "20"
 
             - name: Install Composer deps
               run: composer install --no-progress --no-suggest --prefer-dist
@@ -48,7 +48,8 @@ jobs:
                   TAFELD_DEBUG_UI_ENABLED: "true"
 
             - name: Install Node deps
-              run: npm ci
+              run: |
+                  npm ci || npm install
 
             - name: Build assets
               run: npm run build
