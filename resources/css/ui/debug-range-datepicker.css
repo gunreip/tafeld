@@ -63,6 +63,18 @@
     @apply text-muted pointer-events-none;
 }
 
+/* Make clear button inline inside the `.debug-range-icons` to avoid overlapping the calendar icon */
+.debug-range-icons .ui-clear-button {
+    position: static;
+    transform: none;
+    right: auto;
+    top: auto;
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    padding: .125rem;
+}
+
 /* Overlay Panel */
 .debug-range-panel {
     @apply absolute mt-2 w-full rounded-lg border border-default bg-card shadow-lg z-50;
