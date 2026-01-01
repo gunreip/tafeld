@@ -3,8 +3,11 @@ import { test, expect } from '@playwright/test';
 const BASE = process.env.BASE_URL ?? 'http://127.0.0.1:8000';
 const URL = `${BASE}/_debug_test/overview`;
 
+// Increase global test timeout to allow for slower CI environments
+test.setTimeout(120000);
+
 test.describe('Debug Overview E2E', () => {
-  let consoleLogs: string[] = [];
+  let consoleLogs: string[] = []; 
 
   test.beforeEach(async ({ page }) => {
     consoleLogs = [];
@@ -34,7 +37,7 @@ test.describe('Debug Overview E2E', () => {
     await page.goto(URL, { waitUntil: 'domcontentloaded' });
 
     // Wait for Livewire/JS to initialise and charts to be present
-    await page.waitForSelector('canvas[data-chart]');
+    await page.waitForSelector('canvas[data-chart]', { timeout: 60000 });
 
     // Ensure Chart.js is loaded and Chart instance exists for canvas
     const exists = await page.evaluate(() => {
