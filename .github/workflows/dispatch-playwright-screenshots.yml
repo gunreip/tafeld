@@ -1,0 +1,107 @@
+name: Dispatch Playwright Screenshots (branch-only)
+
+on:
+    push:
+        branches: [fix/e2e-debug-charts-include-built-assets]
+
+jobs:
+    e2e-screenshots:
+        runs-on: ubuntu-latest
+        timeout-minutes: 30
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Setup PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: "8.2"
+                  coverage: none
+                  extensions: mbstring, pdo, pdo_sqlite
+
+            - name: Setup Node
+              uses: actions/setup-node@v4
+              with:
+                  node-version: "20"
+
+            - name: Install Composer deps
+              run: composer install --no-progress --no-suggest --prefer-dist
+
+            - name: Prepare env
+              run: |
+                  cp .env.example .env
+                  php artisan key:generate --ansi
+                  mkdir -p database && touch database/testing.sqlite
+                  php -r "file_put_contents('.env', str_replace(['DB_CONNECTION=mysql','DB_DATABASE=laravel'], ['DB_CONNECTION=sqlite','DB_DATABASE=database/testing.sqlite'], file_get_contents('.env')));"
+                  if grep -q '^DB_DATABASE=' .env; then sed -i 's#^DB_DATABASE=.*#DB_DATABASE=database/testing.sqlite#' .env; else echo 'DB_DATABASE=database/testing.sqlite' >> .env; fi
+                  if grep -q '^APP_ENV=' .env; then sed -i 's/^APP_ENV=.*/APP_ENV=testing/' .env; else echo 'APP_ENV=testing' >> .env; fi
+                  if grep -q '^TAFELD_DEBUG_UI_ENABLED=' .env; then sed -i 's/^TAFELD_DEBUG_UI_ENABLED=.*/TAFELD_DEBUG_UI_ENABLED=true/' .env; else echo 'TAFELD_DEBUG_UI_ENABLED=true' >> .env; fi
+              env:
+                  APP_ENV: testing
+
+            - name: Run migrations & seed admin
+              run: |
+                  php artisan migrate --force
+                  php artisan db:seed --class=AdminSeeder --force || true
+              env:
+                  APP_ENV: testing
+                  DB_CONNECTION: sqlite
+                  DB_DATABASE: database/testing.sqlite
+                  TAFELD_DEBUG_UI_ENABLED: "true"
+
+            - name: Install Node deps
+              run: |
+                  npm ci || npm install
+
+            - name: Build assets
+              run: npm run build
+
+            - name: Install Playwright browsers
+              run: npx playwright install --with-deps
+
+            - name: Start Laravel server
+              env:
+                  APP_ENV: testing
+                  TAFELD_DEBUG_UI_ENABLED: "true"
+                  DB_CONNECTION: sqlite
+                  DB_DATABASE: database/testing.sqlite
+              run: nohup php artisan serve --host 127.0.0.1 --port 8000 > /tmp/laravel.log 2>&1 &
+
+            - name: Wait for server
+              run: |
+                  for i in {1..120}; do
+                    curl -s -o /tmp/health_body -w '%{http_code}' "http://127.0.0.1:8000/_debug_test/overview" > /tmp/health_status 2>/tmp/health_err || true
+                    status=$(cat /tmp/health_status || echo "000")
+                    echo "Attempt $i - HTTP $status"
+                    if [ "$status" = "200" ]; then
+                      echo "Server is up"; exit 0;
+                    fi
+                    sleep 1;
+                  done
+                  echo "Server did not respond"; exit 1;
+
+            - name: Run debug logs screenshot script
+              run: |
+                  echo "Running screenshot script to capture debug page states"
+                  node scripts/screenshot-debug-logs-states.js
+              env:
+                  BASE_URL: http://127.0.0.1:8000
+                  APP_ENV: testing
+                  TAFELD_DEBUG_UI_ENABLED: "true"
+                  DB_CONNECTION: sqlite
+                  DB_DATABASE: database/testing.sqlite
+                  E2E_USER: ${{ secrets.E2E_USER }}
+                  E2E_PASS: ${{ secrets.E2E_PASS }}
+                  PLAYWRIGHT_STORAGE: ./playwright-storage/auth.json
+
+            - name: Dump screenshot dir for diagnostics
+              run: |
+                  echo "Contents of playwright-screenshots:"; ls -la playwright-screenshots || echo "(dir missing)"; echo "---"; find playwright-screenshots -maxdepth 1 -type f -printf '%p %s\n' || true
+
+            - name: Upload screenshots
+              uses: actions/upload-artifact@v4
+              with:
+                  name: playwright-screenshots
+                  path: |
+                      playwright-screenshots
+                      playwright-screenshots/**
