@@ -21,12 +21,13 @@
         @apply border border-default rounded-md;
         @apply px-3 py-2;
         @apply input-transition;
+        @apply transition-colors;
 
         cursor: pointer;
     }
 
     .debug-custom-select-trigger:hover {
-        background-color: rgb(var(--color-bg-hover));
+        @apply bg-elevated border-brand;
     }
 
     .debug-custom-select-trigger:focus {
@@ -36,6 +37,18 @@
     .debug-custom-select-trigger:focus-visible {
         outline: 2px solid rgb(var(--color-focus-ring));
         outline-offset: 2px;
+        @apply border-brand;
+    }
+
+    .debug-custom-select-option:focus,
+    .debug-custom-select-option:focus-visible {
+        background-color: rgb(var(--color-bg-hover));
+        outline: none;
+    }
+
+    .debug-custom-select-option.is-active {
+        background-color: rgb(var(--color-bg-active));
+        @apply font-medium;
     }
 
     .debug-custom-select-trigger-inner {

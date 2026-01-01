@@ -8,14 +8,26 @@
 /* Input / Trigger */
 .debug-range-input {
     @apply flex items-center gap-2 px-3 py-2 rounded-md border border-default bg-input text-sm cursor-pointer transition-colors;
+    @apply transition-colors;
 }
 
 .debug-range-input:hover {
+    @apply border-brand bg-elevated;
+}
+
+.debug-range-input:focus-visible {
+    outline: 2px solid rgb(var(--color-focus-ring));
+    outline-offset: 2px;
     @apply border-brand;
 }
 
 .debug-range-input.is-active {
     @apply border-brand focus-ring;
+}
+
+/* Overlay Panel */
+.debug-range-panel {
+    @apply absolute mt-2 w-full left-0 rounded-lg border border-default bg-card shadow-lg z-50;
 }
 
 .debug-range-value {
