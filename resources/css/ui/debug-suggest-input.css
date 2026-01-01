@@ -31,12 +31,18 @@
 
     .debug-suggest-input-panel {
         @apply absolute z-50 mt-1 w-full left-0;
-        @apply bg-card border border-default rounded-md;
+        @apply bg-card border border-transparent rounded-md;
         @apply shadow-sm;
+        @apply transition-colors transition-shadow;
 
         max-height: 16rem;
         overflow-y: auto;
         overflow-x: hidden;
+    }
+
+    .debug-suggest-input:hover .debug-suggest-input-panel,
+    .debug-suggest-input:focus-within .debug-suggest-input-panel {
+        @apply border-brand shadow-lg;
     }
 
     .debug-suggest-input-option {
@@ -44,6 +50,8 @@
         @apply input-transition;
         @apply transition-colors;
         white-space: nowrap;
+        position: relative;
+        padding-left: 0.75rem;
     }
 
     .debug-suggest-input-option:hover,
@@ -51,6 +59,18 @@
     .debug-suggest-input-option:focus-visible {
         background-color: rgb(var(--color-bg-hover));
         outline: none;
+    }
+
+    .debug-suggest-input-option:hover::before,
+    .debug-suggest-input-option.is-active::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.25rem;
+        bottom: 0.25rem;
+        width: 4px;
+        border-radius: 0.25rem;
+        background-color: rgb(var(--color-brand));
     }
 
     .debug-suggest-input-option.is-active {

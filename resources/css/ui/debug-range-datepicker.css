@@ -27,7 +27,15 @@
 
 /* Overlay Panel */
 .debug-range-panel {
-    @apply absolute mt-2 w-full left-0 rounded-lg border border-default bg-card shadow-lg z-50;
+    @apply absolute mt-2 w-full left-0 rounded-lg border border-transparent bg-card shadow-sm z-50;
+    @apply transition-colors transition-shadow transform;
+}
+
+/* Highlight overlay when wrapper hovered or focused */
+.debug-range-picker:hover .debug-range-panel,
+.debug-range-picker:focus-within .debug-range-panel {
+    @apply border-brand shadow-xl;
+    transform: translateY(2px);
 }
 
 .debug-range-value {
