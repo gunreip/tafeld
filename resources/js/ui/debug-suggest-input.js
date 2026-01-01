@@ -181,5 +181,34 @@ export default function debugSuggestInput({ value, options }) {
 
             this.select(this.activeIndex);
         },
+
+        clear() {
+            this.value = '';
+            this.close();
+
+            this.$nextTick(() => {
+                const input = this.$el.querySelector('.debug-suggest-input-field');
+                if (input) {
+                    input.dispatchEvent(new Event('input', { bubbles: true }));
+                }
+
+                try {
+                    const modelName = this.$el.dataset.wireModel;
+                    if (modelName && window.Livewire) {
+                        const root = this.$el.closest('[wire\\:id]');
+                        const lwId = root ? root.getAttribute('wire:id') : null;
+
+                        if (lwId && typeof window.Livewire.find === 'function') {
+                            const lw = window.Livewire.find(lwId);
+                            if (lw && typeof lw.set === 'function') {
+                                lw.set(modelName, this.value);
+                            }
+                        }
+                    }
+                } catch (e) {
+                    console.warn('Livewire set fallback failed', e);
+                }
+            });
+        },
     };
 }

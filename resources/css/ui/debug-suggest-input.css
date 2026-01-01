@@ -11,12 +11,29 @@
         @apply w-full;
         @apply bg-card text-default;
         @apply border border-default rounded-md;
-        @apply px-3 py-2;
+        @apply px-3 py-2 pr-10;
         @apply input-transition;
         @apply transition-colors;
 
         outline: none;
         cursor: text;
+    }
+
+    .debug-suggest-clear {
+        position: absolute;
+        right: 0.625rem;
+        top: 50%;
+        transform: translateY(-50%);
+        background: transparent;
+        border: none;
+        padding: 0.125rem;
+        @apply text-muted transition-colors cursor-pointer;
+        font-size: 1.05rem;
+        line-height: 1;
+    }
+
+    .debug-suggest-clear:hover {
+        @apply text-danger;
     }
 
     .debug-suggest-input-field:hover {

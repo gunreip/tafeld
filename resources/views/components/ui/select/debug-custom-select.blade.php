@@ -5,6 +5,7 @@
 
 <div
     class="debug-custom-select"
+    data-wire-model="{{ $attributes->wire('model') instanceof \Livewire\WireDirective ? $attributes->wire('model')->value() : $attributes->wire('model') }}"
     @keydown.arrow-down.prevent="open && next()"
     @keydown.arrow-up.prevent="open && prev()"
     @keydown.enter.prevent="handleEnter()"
@@ -53,6 +54,18 @@
                 "
             ></span>
         </span>
+    </button>
+
+    <!-- Clear button (visible when a value is selected) -->
+    <button
+        type="button"
+        class="debug-custom-select-clear"
+        x-show="currentOption() !== null"
+        x-cloak
+        @click.stop="clear()"
+        aria-label="Clear selection"
+    >
+        &times;
     </button>
 
     <!-- Dropdown -->

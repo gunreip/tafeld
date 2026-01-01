@@ -32,6 +32,18 @@
         {{ $attributes->wire('model') }}
     />
 
+    <!-- Clear button -->
+    <button
+        type="button"
+        class="debug-suggest-clear"
+        x-show="hasValue()"
+        x-cloak
+        @click.stop="clear()"
+        aria-label="Clear input"
+    >
+        &times;
+    </button>
+
     <!-- Suggest Panel -->
     <div
         class="debug-suggest-input-panel"
