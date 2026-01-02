@@ -24,7 +24,7 @@
         </div>
 
         {{-- Filter --}}
-        <div class="mt-6 bg-elevated rounded-md p-4">
+        <div class="mt-6 bg-elevated rounded-lg p-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
 
                 {{-- Scope --}}
@@ -61,7 +61,7 @@
         @endphp
 
         {{-- Tabelle --}}
-        <div class="mt-6 overflow-x-auto">
+        <div class="mt-6 overflow-x-auto rounded-t-lg">
 
             <x-ui.table>
 

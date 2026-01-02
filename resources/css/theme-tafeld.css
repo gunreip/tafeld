@@ -79,6 +79,15 @@
         @apply hover-input-brand focus-input-brand focus-input-reset;
     }
 
+    .input-base-border {
+        @apply rounded-lg;
+        border: 1px solid rgb(var(--color-border-default));
+    }
+
+    .input-base-background {
+        background-color: rgb(var(--color-bg-card));
+    }
+
     /* Fokus vollständig entstören (kein Outline, kein Ring, keine blauen Ränder) */
     .focus-input-reset {
         @apply focus:outline-none focus:ring-0 focus:ring-transparent focus:border-transparent;
@@ -154,7 +163,8 @@
     /* Grundzustand aller Select-Listeneinträge */
     .select-base {
         @apply w-full px-3 py-2 text-default cursor-pointer;
-        background-color: rgb(var(--color-bg-card));
+        @apply input-base-background;
+        /* background-color: rgb(var(--color-bg-card)); */
         transition: background-color 200ms ease, color 200ms ease;
 
         /* Abstand zwischen Items */
@@ -162,7 +172,7 @@
 
         /* Rahmen jedes Eintrags */
         border: 1px solid rgb(var(--color-border-default));
-        border-radius: 0.25rem;
+        @apply rounded-lg;
     }
 
     /* Hover-Zustand (Maus) */

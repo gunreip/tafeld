@@ -24,7 +24,7 @@
     <!-- Input -->
     <input
         type="text"
-        class="debug-suggest-input-field"
+        class="input-base input-base-border"
         x-model="value"
         @input="onInput()"
         @focus="openIfHasOptions()"

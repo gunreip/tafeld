@@ -26,3 +26,9 @@ Thumbs.db
 
 # Playwright auth storage (contains session cookies) - do not commit
 playwright-storage/
+
+# Playwright screenshot artifacts (local)
+playwright-screenshots/
+
+# Temporary files created by scripts
+tmp/

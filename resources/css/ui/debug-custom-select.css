@@ -18,7 +18,7 @@
     .debug-custom-select-trigger {
         @apply w-full flex items-center justify-between;
         @apply bg-card text-default;
-        @apply border border-default rounded-md;
+        @apply border border-default rounded-lg;
         @apply px-3 py-2 pr-10;
         @apply input-transition;
         @apply transition-colors;
@@ -29,7 +29,7 @@
 
 
     .debug-custom-select-trigger:hover {
-        @apply bg-elevated border-brand;
+        @apply bg-elevated;
     }
 
     .debug-custom-select-trigger:focus {
@@ -79,7 +79,13 @@
     }
 
     /* Highlight panel when wrapper is hovered or focused */
-    .debug-custom-select:hover .debug-custom-select-panel,
+    /* On hover: use the same border color as the input-select (border-default)
+       On focus-within (keyboard focus): use the brand color (border-brand)
+    */
+    .debug-custom-select:hover .debug-custom-select-panel {
+        @apply border-default shadow-lg;
+    }
+
     .debug-custom-select:focus-within .debug-custom-select-panel {
         @apply border-brand shadow-lg;
     }
