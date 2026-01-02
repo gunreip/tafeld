@@ -10,7 +10,7 @@
     'showPassword' => false,
 ])
 
-<div class="relative w-full" x-data>
+<div class="relative w-full" @if($showPassword) x-data="{ show: false }" x-init="() => { if ($refs.input) $refs.input.type = show ? 'text' : 'password'; $el.addEventListener('livewire:update', () => { if ($refs.input) $refs.input.type = show ? 'text' : 'password'; }); }" @endif>
     
     {{-- Left Icon (optional) --}}
     @if ($iconLeft)
@@ -40,10 +40,11 @@
     {{-- Show / Hide Password --}}
     @if ($showPassword)
         <span class="absolute inset-y-0 right-0 pr-3 flex items-center text-muted">
-            <span x-data="{ show: false }" class="flex items-center">
+            <span class="flex items-center">
                 <button type="button"
-                    @click="show = !show; if ($refs.input) { $refs.input.type = show ? 'text' : 'password' }; $el.setAttribute('aria-pressed', show)"
+                    @click="show = !show; if ($refs.input) { $refs.input.type = show ? 'text' : 'password' }"
                     x-bind:aria-label="show ? 'Passwort verbergen' : 'Passwort anzeigen'"
+                    :aria-pressed="show"
                     class="rounded p-2 text-muted hover:text-default focus:outline-none focus:ring-2 focus:ring-brand-500"
                 >
                     <x-ui.icon name="eye" x-show="!show" class="w-4 h-4" />

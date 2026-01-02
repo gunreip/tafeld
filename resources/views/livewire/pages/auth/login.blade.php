@@ -47,7 +47,7 @@
                 Passwort
             </label>
 
-            <input type="password" wire:model="password" required
+            <x-ui.input type="password" name="password" wire:model="password" required show-password
                 class="w-full rounded px-3 py-2 bg-card text-default border border-default
                focus:ring-brand-500 focus:border-brand-500" />
 
