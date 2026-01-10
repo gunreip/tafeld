@@ -4,23 +4,18 @@
 @endif
 
 <div
-    class="debug-custom-select"
+    {{-- class="debug-custom-select" --}}
+    class="debug-custom-select-wrapper"
     data-wire-model="{{ $attributes->wire('model') instanceof \Livewire\WireDirective ? $attributes->wire('model')->value() : $attributes->wire('model') }}"
-    @keydown.arrow-down.prevent="open && next()"
-    @keydown.arrow-up.prevent="open && prev()"
-    @keydown.enter.prevent="handleEnter($event)"
-    @keydown.tab.prevent="handleTab($event)"
-    @keydown.shift.tab.prevent="handleShiftTab($event)"
-    @keydown.space.prevent="open ? closeDropdown() : openDropdown()"
-    @keydown.escape.prevent="handleEscape($event)"
-    @focusout="if (! $el.contains($event.relatedTarget)) closeDropdown()"
     x-data="debugCustomSelect({
         value: @entangle($attributes->wire('model')),
         options: @js($options)
     })"
-    x-init="init()"
+    @custom-select:set="
+        value = $event.detail;
+        closeDropdown();
+    "
 >
-
     <!-- Trigger -->
     <button
         class="debug-custom-select-trigger"
@@ -29,7 +24,7 @@
     >
         <span
             class="debug-custom-select-trigger-inner"
-            :class="currentOption()?.class ?? ''"
+            :class="displayedOption()?.['class'] ?? ''"
         >
             <span class="debug-custom-select-trigger-icon">
                 @php
@@ -50,19 +45,17 @@
             <span
                 class="debug-custom-select-trigger-label"
                 x-text="
-                    currentOption()?.label
-                    ?? options[activeIndex]?.label
-                    ?? 'Bitte wählen'
+                    displayedOption()?.label
+                    ?? 'Level wählen ...'
                 "
             ></span>
         </span>
     </button>
 
-    <!-- Clear button (visible when a non-first option is selected) -->
+    <!-- Clear button -->
     <x-ui.clear-button
-        x-show="selectedIndex() > 0"
-        @click.stop="clear()"
         aria-label="Clear selection"
+        @click.stop="clear()"
     />
 
     <!-- Dropdown -->
@@ -72,7 +65,11 @@
         x-cloak
         @click.outside="closeDropdown()"
     >
-        <ul role="listbox">
+        <ul
+            role="listbox"
+            @mouseover="previewFromEvent($event)"
+            @mouseleave="clearPreview()"
+        >
             @foreach ($options as $index => $opt)
                 <x-ui.select.options.select-option
                     :index="$index"
@@ -85,5 +82,4 @@
             @endforeach
         </ul>
     </div>
-
 </div>

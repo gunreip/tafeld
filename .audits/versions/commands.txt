@@ -1,0 +1,7 @@
+npm list --all > ./.audits/versions/npm-versions.txt
+
+composer show > ./.audits/versions/composer-versions.txt
+
+psql -V > ./.audits/versions/postgresql-version.txt
+
+nginx -V > ./.audits/versions/nginx-versions.txt

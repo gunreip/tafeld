@@ -28,13 +28,10 @@
 
         {{-- Email --}}
         <div>
-            <label class="block font-medium text-default mb-1">
-                E-Mail
-            </label>
+            <x-ui.label for="email">E-Mail</x-ui.label>
 
-            <input type="email" wire:model="email" required autofocus
-                class="w-full rounded px-3 py-2 bg-card text-default border border-default
-                       focus:ring-brand-500 focus:border-brand-500" />
+            <x-ui.input type="email" name="email" id="email" wire:model="email" required autofocus
+                class="w-full" />
 
             @error('email')
                 <p class="text-danger text-sm mt-1">{{ $message }}</p>
@@ -51,10 +48,9 @@
                 class="w-full rounded px-3 py-2 bg-card text-default border border-default
                focus:ring-brand-500 focus:border-brand-500" />
 
-            <a href="{{ route('password.request') }}" wire:navigate
-                class="block mt-1 text-right text-sm text-brand-500 hover:underline">
+            <x-ui.link href="{{ route('password.request') }}" wire:navigate class="block mt-1 text-right text-sm">
                 Passwort vergessen?
-            </a>
+            </x-ui.link>
 
             @error('password')
                 <p class="text-danger text-sm mt-1">{{ $message }}</p>
@@ -62,17 +58,13 @@
         </div>
 
         {{-- Remember --}}
-        <div class="flex items-center gap-2">
-            <input type="checkbox" wire:model="remember"
-                class="rounded bg-card border-default text-brand-500 focus:ring-brand-500" />
-            <span class="text-default">Angemeldet bleiben?</span>
+        <div>
+            <x-ui.checkbox model="remember">Angemeldet bleiben?</x-ui.checkbox>
         </div>
 
         {{-- Submit --}}
         <div>
-            <button type="submit" class="w-full py-2 flex justify-center rounded-md btn-brand">
-                Anmelden
-            </button>
+            <x-ui.button type="submit" class="w-full justify-center">Anmelden</x-ui.button>
         </div>
 
         {{-- Register --}}
@@ -82,9 +74,9 @@
                     Noch kein Konto?
                 </p>
 
-                <a href="{{ route('register') }}" class="w-full py-2 flex justify-center rounded-md btn-brand">
+                <x-ui.link href="{{ route('register') }}" class="w-full py-2 flex justify-center rounded-md btn-brand">
                     Registrieren
-                </a>
+                </x-ui.link>
             </div>
         @endif
     </form>

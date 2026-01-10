@@ -1,5 +1,15 @@
 import './bootstrap';
 
+// Material-Color
+// import { argbFromHex, hexFromArgb } from "@materialx/material-color-utilities";
+// import { MaterialDynamicColors } from "@materialx/material-color-utilities";
+// const MATERIAL_DYNAMIC_COLORS = new MaterialDynamicColors();
+// const allDynamicColors = MATERIAL_DYNAMIC_COLORS.allDynamicColors;
+
+// for(const dynamicColor of allDynamicColors) {
+//   console.log(dynamicColor.name);
+// }
+
 // Tafeld Debug-Modul
 import './ui/debug.js';
 

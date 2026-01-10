@@ -132,6 +132,22 @@ jobs:
                   DB_CONNECTION: sqlite
                   DB_DATABASE: database/testing.sqlite
 
+            - name: Run login screenshot script (always)
+              if: always()
+              run: |
+                  echo "Running login screenshot script to capture show/hide behavior"
+                  node scripts/screenshot-login-show-password.js
+              env:
+                  BASE_URL: http://127.0.0.1:8000
+                  APP_ENV: testing
+                  TAFELD_DEBUG_UI_ENABLED: "true"
+                  DB_CONNECTION: sqlite
+                  DB_DATABASE: database/testing.sqlite
+                  # Optionally set secrets for credentials; fallbacks are used in script
+                  E2E_USER: ${{ secrets.E2E_USER }}
+                  E2E_PASS: ${{ secrets.E2E_PASS }}
+                  PLAYWRIGHT_STORAGE: ./playwright-storage/auth.json
+
             - name: Run debug logs screenshot script (always)
               if: always()
               run: |

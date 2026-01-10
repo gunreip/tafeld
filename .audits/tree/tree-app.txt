@@ -1,6 +1,7 @@
 [drwxr-xr-x 4.0K]  app
 ├── [drwxr-xr-x 4.0K]  Console
 │   ├── [drwxr-xr-x 4.0K]  Commands
+│   │   ├── [-rw-r--r-- 7.8K]  AuditViewsComponents.php
 │   │   ├── [-rw-r--r-- 8.7K]  ProjectBreezeKill.php
 │   │   ├── [-rw-r--r--  656]  ProjectBuild.php
 │   │   ├── [-rw-r--r-- 1.5K]  ProjectDatabase.php
@@ -8,11 +9,11 @@
 │   │   ├── [-rw-r--r-- 5.6K]  ProjectDatasetDecrypt.php
 │   │   ├── [-rw-r--r-- 3.0K]  ProjectGit.php
 │   │   ├── [-rw-r--r-- 3.6K]  ProjectTreeCommand.php
-│   │   ├── [-rw-r--r-- 9.0K]  ProjectVersions.php
+│   │   ├── [-rw-r--r--  10K]  ProjectVersions.php
 │   │   ├── [-rw-r--r-- 4.7K]  ProjectWireNavigateCheck.php
 │   │   ├── [-rw-r--r-- 6.8K]  ProjectWireNavigateFixer.php
 │   │   └── [-rw-r--r-- 2.0K]  SplitCountries.php
-│   └── [-rw-r--r--  730]  Kernel.php
+│   └── [-rw-r--r--  828]  Kernel.php
 ├── [drwxr-xr-x 4.0K]  Enums
 │   ├── [-rw-r--r--  221]  CountryWorkArea.php
 │   ├── [-rw-r--r--  376]  DebugEvent.php
@@ -39,7 +40,7 @@
 │   │   ├── [drwxr-xr-x 4.0K]  Logs
 │   │   │   ├── [-rw-r--r-- 6.1K]  Index.php
 │   │   │   └── [-rw-r--r--  863]  Show.php
-│   │   ├── [-rw-r--r-- 1.4K]  Overview.php
+│   │   ├── [-rw-r--r-- 2.0K]  Overview.php
 │   │   └── [drwxr-xr-x 4.0K]  Scopes
 │   │       ├── [-rw-r--r-- 3.2K]  Index.php
 │   │       └── [-rw-r--r-- 3.6K]  Show.php
@@ -60,7 +61,7 @@
 │       ├── [-rw-r--r--  279]  Dashboard.php
 │       ├── [-rw-r--r--  269]  Home.php
 │       ├── [drwxr-xr-x 4.0K]  Persons
-│       │   ├── [-rw-r--r-- 9.7K]  Create.php
+│       │   ├── [-rw-r--r--  11K]  Create.php
 │       │   ├── [-rw-r--r-- 1.2K]  Edit.php
 │       │   └── [-rw-r--r-- 2.0K]  Index.php
 │       └── [-rw-r--r--  275]  Welcome.php
@@ -100,7 +101,7 @@
 │       ├── [-rw-r--r-- 5.4K]  DbLogWriter.php
 │       ├── [-rw-r--r-- 1.4K]  Debug.php
 │       ├── [-rw-r--r-- 5.5K]  DebugEngine.php
-│       ├── [-rw-r--r-- 8.6K]  DebugReader.php
+│       ├── [-rw-r--r--  11K]  DebugReader.php
 │       ├── [-rw-r--r-- 1.3K]  DebugRuntime.php
 │       ├── [-rw-r--r-- 5.1K]  DebugToggleService.php
 │       ├── [-rw-r--r-- 1.8K]  FatalFallbackLogger.php
@@ -112,6 +113,10 @@
 │       └── [drwxr-xr-x 4.0K]  Ui
 │           ├── [drwxr-xr-x 4.0K]  Badge
 │           │   └── [-rw-r--r-- 1.5K]  WorkArea.php
+│           ├── [drwxr-xr-x 4.0K]  Card
+│           │   ├── [-rw-r--r--  550]  HeaderDescription.php
+│           │   ├── [-rw-r--r--  529]  HeaderInfo.php
+│           │   └── [-rw-r--r--  532]  HeaderTitle.php
 │           ├── [drwxr-xr-x 4.0K]  Checkbox
 │           │   └── [-rw-r--r--  476]  Segment.php
 │           ├── [drwxr-xr-x 4.0K]  Date
@@ -127,7 +132,7 @@
 │           ├── [drwxr-xr-x 4.0K]  Select
 │           │   ├── [-rw-r--r-- 2.3K]  DebugCustomSelect.php
 │           │   ├── [-rw-r--r-- 2.0K]  DebugSelect.php
-│           │   ├── [-rw-r--r--  498]  DebugSuggestSelect.php
+│           │   ├── [-rw-r--r--  603]  DebugSuggestSelect.php
 │           │   └── [drwxr-xr-x 4.0K]  Options
 │           │       └── [-rw-r--r--  565]  SelectOption.php
 │           ├── [drwxr-xr-x 4.0K]  Table
@@ -143,4 +148,4 @@
 │   └── [-rw-r--r--  620]  routes.php
 └── [-rw-r--r--    0]  helpers.php
 
-43 directories, 101 files
+44 directories, 105 files

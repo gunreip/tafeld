@@ -19,13 +19,10 @@
 
         {{-- Passwort --}}
         <div>
-            <label class="block text-sm font-medium text-default mb-1">
-                Passwort
-            </label>
+            <x-ui.label for="password">Passwort</x-ui.label>
 
-            <input type="password" wire:model="password" required
-                class="w-full rounded-md bg-card text-default border border-default
-                       focus:ring-brand-500 focus:border-brand-500" />
+            <x-ui.input type="password" name="password" id="password" wire:model="password" required show-password
+                class="w-full rounded-md" />
 
             @error('password')
                 <p class="text-danger text-sm mt-1">{{ $message }}</p>
@@ -36,9 +33,7 @@
             @endif
         </div>
 
-        <button type="submit" class="w-full py-2 flex justify-center rounded-md btn-brand">
-            Bestätigen
-        </button>
+        <x-ui.button type="submit" class="w-full justify-center">Bestätigen</x-ui.button>
 
     </form>
 

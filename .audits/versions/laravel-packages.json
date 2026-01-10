@@ -5,7 +5,20 @@
         "node": "v22.20.0",
         "npm": "11.7.0",
         "composer_count": 92,
-        "npm_count": 14
+        "npm_count": 15
+    },
+    "system": {
+        "postgres": {
+            "client_version": "psql (PostgreSQL) 18.1 (Ubuntu 18.1-1.pgdg24.04+2)",
+            "server_version": "PostgreSQL 18.1 (Ubuntu 18.1-1.pgdg24.04+2) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0, 64-bit",
+            "ready": "/var/run/postgresql:5432 - accepting connections"
+        },
+        "nginx": {
+            "version": "nginx version: nginx/1.24.0 (Ubuntu)"
+        },
+        "domains": {
+            "tafeld.test": "127.0.0.1"
+        }
     },
     "composer": [
         {
@@ -856,8 +869,8 @@
                 }
             ],
             "time": "2024-07-20T21:45:45+00:00",
-            "version_latest": "v1.1.3",
-            "update_type": "none",
+            "version_latest": "v1.1.4",
+            "update_type": "patch",
             "deps": [
                 {
                     "name": "phpoption/phpoption",
@@ -3134,8 +3147,8 @@
                 }
             ],
             "time": "2025-03-24T10:02:05+00:00",
-            "version_latest": "3.9.0",
-            "update_type": "none",
+            "version_latest": "3.10.0",
+            "update_type": "minor",
             "deps": [
                 {
                     "name": "psr/log",
@@ -3762,8 +3775,8 @@
                 }
             ],
             "time": "2025-08-21T11:53:16+00:00",
-            "version_latest": "1.9.4",
-            "update_type": "none",
+            "version_latest": "1.9.5",
+            "update_type": "patch",
             "deps": []
         },
         {
@@ -5428,7 +5441,7 @@
                 }
             ],
             "time": "2025-11-27T13:27:24+00:00",
-            "version_latest": "v7.4.1",
+            "version_latest": "v7.4.3",
             "update_type": "patch",
             "deps": [
                 {
@@ -5942,8 +5955,8 @@
                 }
             ],
             "time": "2025-11-05T05:42:40+00:00",
-            "version_latest": "v7.4.0",
-            "update_type": "none",
+            "version_latest": "v7.4.3",
+            "update_type": "patch",
             "deps": []
         },
         {
@@ -6027,7 +6040,7 @@
                 }
             ],
             "time": "2025-11-13T08:49:24+00:00",
-            "version_latest": "v7.4.1",
+            "version_latest": "v7.4.3",
             "update_type": "patch",
             "deps": [
                 {
@@ -6160,7 +6173,7 @@
                 }
             ],
             "time": "2025-11-27T13:38:24+00:00",
-            "version_latest": "v7.4.2",
+            "version_latest": "v7.4.3",
             "update_type": "patch",
             "deps": [
                 {
@@ -6278,8 +6291,8 @@
                 }
             ],
             "time": "2025-11-21T15:26:00+00:00",
-            "version_latest": "v7.4.0",
-            "update_type": "none",
+            "version_latest": "v7.4.3",
+            "update_type": "patch",
             "deps": [
                 {
                     "name": "egulias/email-validator",
@@ -7350,8 +7363,8 @@
                 }
             ],
             "time": "2025-10-16T11:21:06+00:00",
-            "version_latest": "v7.4.0",
-            "update_type": "none",
+            "version_latest": "v7.4.3",
+            "update_type": "patch",
             "deps": []
         },
         {
@@ -7438,8 +7451,8 @@
                 }
             ],
             "time": "2025-11-27T13:27:24+00:00",
-            "version_latest": "v7.4.0",
-            "update_type": "none",
+            "version_latest": "v7.4.3",
+            "update_type": "patch",
             "deps": [
                 {
                     "name": "symfony/deprecation-contracts",
@@ -7768,8 +7781,8 @@
                 }
             ],
             "time": "2025-11-27T13:27:24+00:00",
-            "version_latest": "v7.4.0",
-            "update_type": "none",
+            "version_latest": "v7.4.3",
+            "update_type": "patch",
             "deps": [
                 {
                     "name": "symfony/deprecation-contracts",
@@ -8046,8 +8059,8 @@
                 }
             ],
             "time": "2025-10-27T20:36:44+00:00",
-            "version_latest": "v7.4.0",
-            "update_type": "none",
+            "version_latest": "v7.4.3",
+            "update_type": "patch",
             "deps": [
                 {
                     "name": "symfony/deprecation-contracts",
@@ -8208,8 +8221,8 @@
                 }
             ],
             "time": "2025-04-30T23:37:27+00:00",
-            "version_latest": "v5.6.2",
-            "update_type": "none",
+            "version_latest": "v5.6.3",
+            "update_type": "patch",
             "deps": [
                 {
                     "name": "graham-campbell/result-type",
@@ -8446,6 +8459,13 @@
             "name": "country-flag-icons",
             "version": "1.6.4",
             "version_latest": "1.6.4",
+            "update_type": "none",
+            "deps": []
+        },
+        {
+            "name": "flatpickr",
+            "version": "4.6.13",
+            "version_latest": "4.6.13",
             "update_type": "none",
             "deps": []
         },

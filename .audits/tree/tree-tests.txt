@@ -8,9 +8,16 @@
 │   │   ├── [-rw-r--r-- 1.4K]  PasswordUpdateTest.php
 │   │   └── [-rw-r--r--  886]  RegistrationTest.php
 │   ├── [-rw-r--r--  359]  ExampleTest.php
+│   ├── [drwxr-xr-x 4.0K]  Livewire
+│   │   ├── [-rw-r--r-- 3.0K]  DebugLogsIndexTest.php
+│   │   ├── [-rw-r--r-- 2.0K]  DebugOverviewIntegrationTest.php
+│   │   └── [-rw-r--r-- 2.0K]  DebugOverviewTest.php
 │   └── [-rw-r--r-- 2.7K]  ProfileTest.php
 ├── [-rw-r--r--  142]  TestCase.php
-└── [drwxr-xr-x 4.0K]  Unit
-    └── [-rw-r--r--  243]  ExampleTest.php
+├── [drwxr-xr-x 4.0K]  Unit
+│   └── [-rw-r--r--  243]  ExampleTest.php
+└── [drwxr-xr-x 4.0K]  e2e
+    ├── [-rw-r--r-- 1.7K]  debug-overview.spec.ts
+    └── [-rw-r--r--  435]  playwright.config.ts
 
-4 directories, 10 files
+6 directories, 15 files

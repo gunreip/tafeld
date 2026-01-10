@@ -17,5 +17,6 @@ class Kernel extends ConsoleKernel
         \App\Console\Commands\SplitCountries::class,    // php artisan countries:split
         \App\Console\Commands\ProjectBuild::class,
         \App\Console\Commands\ProjectVersions::class,
+        \App\Console\Commands\AuditViewsComponents::class,  // php artisan audit:views-components
     ];
 }

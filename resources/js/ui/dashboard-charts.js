@@ -37,22 +37,22 @@ function getColors() {
 function renderChart(canvas, data) {
     // Vorhandenen Chart sauber zerstören
     if (chartRegistry.has(canvas)) {
-        console.log("[charts.js] renderChart(): Destroy alter Chart für", canvas.id);
+        // console.log("[charts.js] renderChart(): Destroy alter Chart für", canvas.id);
         chartRegistry.get(canvas).destroy();
         chartRegistry.delete(canvas);
     }
 
-    console.log("[charts.js] renderChart(): BEFORE", canvas.id, {
-        styleHeight: canvas.style.height,
-        offsetHeight: canvas.offsetHeight,
-        clientHeight: canvas.clientHeight,
-        scrollHeight: canvas.scrollHeight,
-        parentOffsetHeight: canvas.parentElement?.offsetHeight,
-    });
+    // console.log("[charts.js] renderChart(): BEFORE", canvas.id, {
+    //     styleHeight: canvas.style.height,
+    //     offsetHeight: canvas.offsetHeight,
+    //     clientHeight: canvas.clientHeight,
+    //     scrollHeight: canvas.scrollHeight,
+    //     parentOffsetHeight: canvas.parentElement?.offsetHeight,
+    // });
 
     // Fallback-Höhe, falls nicht via CSS/Blade gesetzt
     if (!canvas.style.height) {
-        console.log("[charts.js] renderChart(): Fallback-Höhe gesetzt (350px) für", canvas.id);
+        // console.log("[charts.js] renderChart(): Fallback-Höhe gesetzt (350px) für", canvas.id);
         canvas.style.height = "350px";
     }
 
@@ -115,14 +115,14 @@ function renderChart(canvas, data) {
         // ignore in SSR environments
     }
 
-    console.log("[charts.js] renderChart(): AFTER", canvas.id, {
-        offsetHeight: canvas.offsetHeight,
-        clientHeight: canvas.clientHeight,
-        scrollHeight: canvas.scrollHeight,
-        styleHeight: canvas.style.height,
-        parentOffsetHeight: canvas.parentElement?.offsetHeight,
-        chartInstance: chart,
-    });
+    // console.log("[charts.js] renderChart(): AFTER", canvas.id, {
+    //     offsetHeight: canvas.offsetHeight,
+    //     clientHeight: canvas.clientHeight,
+    //     scrollHeight: canvas.scrollHeight,
+    //     styleHeight: canvas.style.height,
+    //     parentOffsetHeight: canvas.parentElement?.offsetHeight,
+    //     chartInstance: chart,
+    // });
 }
 
 /**
@@ -130,7 +130,7 @@ function renderChart(canvas, data) {
  */
 function initCharts() {
     const canvases = document.querySelectorAll("canvas[data-chart]");
-    console.log("[charts.js] initCharts(): canvases gefunden =", canvases.length);
+    // console.log("[charts.js] initCharts(): canvases gefunden =", canvases.length);
 
     canvases.forEach((canvas) => {
         let data;
@@ -138,16 +138,16 @@ function initCharts() {
         try {
             data = JSON.parse(canvas.dataset.chart || "[]");
         } catch {
-            console.log("[charts.js] initCharts(): JSON parse ERROR bei Canvas", canvas.id);
+            // console.log("[charts.js] initCharts(): JSON parse ERROR bei Canvas", canvas.id);
             return;
         }
 
         if (!Array.isArray(data) || data.length === 0) {
-            console.log("[charts.js] initCharts(): Canvas", canvas.id, "hat leere Daten → SKIP");
+            // console.log("[charts.js] initCharts(): Canvas", canvas.id, "hat leere Daten → SKIP");
             return;
         }
 
-        console.log("[charts.js] initCharts(): Render Canvas", canvas.id, "mit data =", data);
+        // console.log("[charts.js] initCharts(): Render Canvas", canvas.id, "mit data =", data);
         renderChart(canvas, data);
     });
 }
@@ -156,17 +156,17 @@ function initCharts() {
  * Livewire-Events
  */
 document.addEventListener("livewire:load", () => {
-    console.log("[charts.js] Event: livewire:load");
+    // console.log("[charts.js] Event: livewire:load");
     initCharts();
 });
 
 document.addEventListener("livewire:navigated", () => {
-    console.log("[charts.js] Event: livewire:navigated");
+    // console.log("[charts.js] Event: livewire:navigated");
     initCharts();
 });
 
 document.addEventListener("tafeld-debug-chart-refresh", () => {
-    console.log("[charts.js] Event: tafeld-debug-chart-refresh");
+    // console.log("[charts.js] Event: tafeld-debug-chart-refresh");
     initCharts();
 });
 
@@ -175,11 +175,11 @@ document.addEventListener("tafeld-debug-chart-refresh", () => {
 // (e.g., server-side Livewire dispatch during initial render). We try to
 // initialize right away if the DOM is ready, otherwise wait for DOMContentLoaded.
 if (document.readyState === 'complete' || document.readyState === 'interactive') {
-    console.log('[charts.js] initCharts(): immediate init (document ready)');
+    // console.log('[charts.js] initCharts(): immediate init (document ready)');
     initCharts();
 } else {
     document.addEventListener('DOMContentLoaded', () => {
-        console.log('[charts.js] initCharts(): DOMContentLoaded init');
+        // console.log('[charts.js] initCharts(): DOMContentLoaded init');
         initCharts();
     });
 }

@@ -4,7 +4,7 @@
 @endif
 
 <tr {{ $attributes->merge([
-    'class' => 'border-b border-default odd:bg-card even:bg-elevated hover:bg-card transition-colors'
+    'class' => 'border-b border-default odd:bg-card even:bg-elevated hover:bg-tr-hover transition-colors'
 ]) }}>
     {{ $slot }}
 </tr>

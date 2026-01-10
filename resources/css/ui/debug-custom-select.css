@@ -1,21 +1,15 @@
-/* resources/css/ui/debug-custom-select.css */
+/* tafeld/resources/css/ui/debug-custom-select.css */
 
 @layer utilities {
 
-    /* =========================
-       CUSTOM SELECT – WRAPPER
-       ========================= */
-
-    .debug-custom-select {
+    /* CUSTOM SELECT – WRAPPER */
+    /* .debug-custom-select {
         position: relative;
         width: 100%;
-    }
+    } */
 
-    /* =========================
-       TRIGGER
-       ========================= */
-
-    .debug-custom-select-trigger {
+    /* TRIGGER */
+    /* .debug-custom-select-trigger {
         @apply w-full flex items-center justify-between;
         @apply bg-card text-default;
         @apply border border-default rounded-lg;
@@ -23,52 +17,61 @@
         @apply input-transition;
         @apply transition-colors;
 
-        cursor: pointer;
-    }
-
-
-
-    .debug-custom-select-trigger:hover {
-        @apply bg-elevated;
-    }
-
-    .debug-custom-select-trigger:focus {
         outline: none;
-    }
+        cursor: pointer;
+    } */
 
-    .debug-custom-select-trigger:focus-visible {
+    /* .debug-custom-select-trigger:hover {
+        @apply border-brand;
+    } */
+
+    /* .debug-custom-select-trigger:focus {
+        outline: none;
+    } */
+
+    /* .debug-custom-select-trigger:focus-visible {
         outline: 2px solid rgb(var(--color-focus-ring));
         outline-offset: 2px;
         @apply border-brand;
-    }
+    } */
 
-    .debug-custom-select-option:focus,
+    /* .debug-custom-select-option:focus,
     .debug-custom-select-option:focus-visible {
         background-color: rgb(var(--color-bg-hover));
         outline: none;
-    }
+    } */
 
-    .debug-custom-select-option.is-active {
+
+
+
+
+
+
+
+
+
+
+    /* .debug-custom-select-option.is-active {
         background-color: rgb(var(--color-bg-active));
         @apply font-medium;
-    }
+    } */
 
-    .debug-custom-select-trigger-inner {
+    /* .debug-custom-select-trigger-inner {
         display: flex;
         align-items: center;
         gap: 0.5rem;
-    }
+    } */
 
-    .debug-custom-select-trigger-icon {
+    /* .debug-custom-select-trigger-icon {
         display: inline-flex;
         align-items: center;
-    }
+    } */
 
     /* =========================
        PANEL
        ========================= */
 
-    .debug-custom-select-panel {
+    /* .debug-custom-select-panel {
         @apply absolute z-50 mt-1 w-full;
         @apply bg-card border border-transparent rounded-md;
         @apply shadow-sm;
@@ -78,34 +81,34 @@
         overflow-y: auto;
     }
 
-    /* Highlight panel when wrapper is hovered or focused */
-    /* On hover: use the same border color as the input-select (border-default)
-       On focus-within (keyboard focus): use the brand color (border-brand)
-    */
     .debug-custom-select:hover .debug-custom-select-panel {
-        @apply border-default shadow-lg;
+        @apply border-brand shadow-lg;
     }
 
     .debug-custom-select:focus-within .debug-custom-select-panel {
         @apply border-brand shadow-lg;
-    }
+    } */
 
     /* =========================
        OPTION
        ========================= */
 
-    .debug-custom-select-option {
+    /* .debug-custom-select-option {
         @apply px-3 py-2 cursor-pointer;
         @apply input-transition;
         position: relative;
         padding-left: 0.75rem;
     }
 
-    .debug-custom-select-option:hover {
+    .debug-custom-select-option:hover,
+    .debug-custom-select-option:focus,
+    .debug-custom-select-option:focus-visible {
         background-color: rgb(var(--color-bg-hover));
+        outline: none;
     }
 
-    .debug-custom-select-option:hover::before {
+    .debug-custom-select-option:hover::before,
+    .debug-custom-select-option.is-active::before {
         content: "";
         position: absolute;
         left: 0;
@@ -118,16 +121,16 @@
 
     .debug-custom-select-option.is-active {
         background-color: rgb(var(--color-bg-active));
-    }
+    } */
 
     /* =========================
        OPTION – INNER (ICON + LABEL)
        ========================= */
 
-    .debug-custom-select-option-inner {
+    /* .debug-custom-select-option-inner {
         display: flex;
         align-items: center;
         gap: 0.5rem;
-    }
+    } */
 
 }

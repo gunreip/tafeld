@@ -8,30 +8,32 @@
     <x-ui.card>
 
         {{-- Header --}}
-        <div class="flex items-center justify-between">
+        <div class="card-header">
             <div>
-                <h1 class="text-xl font-semibold text-default">
+                <x-ui.card.header-title>
                     Debug Logs
-                </h1>
-                <p class="text-sm text-muted">
+                </x-ui.card.header-title>
+
+                <x-ui.card.header-description>
                     Read-only · gefiltert · paginiert
-                </p>
+                </x-ui.card.header-description>
             </div>
 
-            <div class="text-sm text-muted">
+            <x-ui.card.header-info>
                 {{ $logs->total() }} Einträge
-            </div>
+            </x-ui.card.header-info>
         </div>
 
         {{-- Filter --}}
-        <div class="mt-6 bg-elevated rounded-lg p-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
+        <div class="debug-filter-bar">
+            <div class="debug-filter-elements">
 
                 {{-- Scope --}}
                 <x-ui.select.debug-suggest-select
                     wire:model.debounce.300ms="scope"
                     placeholder="Scope enthält …"
                     :options="$scopeSuggestions"
+                    mode="hierarchical"
                 />
 
                 {{-- Level --}}
@@ -45,6 +47,7 @@
                     wire:model.debounce.300ms="run_id"
                     placeholder="Run-ID"
                     :options="$runIdSuggestions"
+                    mode="flat"
                 />
 
                 {{-- Date Range (Flatpickr PoC) --}}
@@ -61,7 +64,7 @@
         @endphp
 
         {{-- Tabelle --}}
-        <div class="mt-6 overflow-x-auto rounded-t-lg">
+        <div class="debug-table">
 
             <x-ui.table>
 

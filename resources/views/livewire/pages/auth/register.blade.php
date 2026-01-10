@@ -14,12 +14,8 @@
 
         {{-- Name --}}
         <div>
-            <label class="block font-medium text-default mb-1">
-                Name
-            </label>
-            <input type="text" wire:model="name" required
-                class="w-full rounded px-3 py-2 bg-card text-default border border-default
-                       focus:ring-brand-500 focus:border-brand-500" />
+            <x-ui.label for="name">Name</x-ui.label>
+            <x-ui.input type="text" name="name" id="name" wire:model="name" required class="w-full" />
             @error('name')
                 <p class="text-danger text-sm mt-1">{{ $message }}</p>
             @enderror
@@ -27,12 +23,8 @@
 
         {{-- Email --}}
         <div>
-            <label class="block font-medium text-default mb-1">
-                E-Mail
-            </label>
-            <input type="email" wire:model="email" required
-                class="w-full rounded px-3 py-2 bg-card text-default border border-default
-                       focus:ring-brand-500 focus:border-brand-500" />
+            <x-ui.label for="email">E-Mail</x-ui.label>
+            <x-ui.input type="email" name="email" id="email" wire:model="email" required class="w-full" />
             @error('email')
                 <p class="text-danger text-sm mt-1">{{ $message }}</p>
             @enderror
@@ -43,9 +35,8 @@
             <label class="block font-medium text-default mb-1">
                 Passwort
             </label>
-            <input type="password" wire:model="password" required
-                class="w-full rounded px-3 py-2 bg-card text-default border border-default
-                       focus:ring-brand-500 focus:border-brand-500" />
+            <x-ui.input type="password" name="password" wire:model="password" required show-password
+                class="w-full rounded px-3 py-2 bg-card text-default border border-default" />
             @error('password')
                 <p class="text-danger text-sm mt-1">{{ $message }}</p>
             @enderror
@@ -56,24 +47,19 @@
             <label class="block font-medium text-default mb-1">
                 Passwort bestätigen
             </label>
-            <input type="password" wire:model="password_confirmation" required
-                class="w-full rounded px-3 py-2 bg-card text-default border border-default
-                       focus:ring-brand-500 focus:border-brand-500" />
+            <x-ui.input type="password" name="password_confirmation" wire:model="password_confirmation" required show-password
+                class="w-full rounded px-3 py-2 bg-card text-default border border-default" />
         </div>
 
         {{-- Submit Button --}}
         <div>
-            <button type="submit" class="w-full py-2 flex justify-center rounded-md btn-brand">
-                Registrieren
-            </button>
+            <x-ui.button type="submit" class="w-full justify-center">Registrieren</x-ui.button>
         </div>
 
         {{-- Link zu Login --}}
         <p class="text-sm text-center text-muted">
             Bereits registriert?
-            <a href="{{ route('login') }}" wire:navigate class="text-brand-500 hover:underline">
-                Anmelden
-            </a>
+            <x-ui.link href="{{ route('login') }}" wire:navigate class="text-brand-500">Anmelden</x-ui.link>
         </p>
 
     </form>

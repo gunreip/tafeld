@@ -24,7 +24,7 @@
         {{ $attributes->merge([
             'class' =>
                 'rounded px-3 py-2 bg-card text-default border border-default
-                                         focus:ring-brand-500 focus:border-brand-500 w-full
+                                         focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 w-full
                                          ' .
                 ($iconLeft ? 'pl-10 ' : '') .
                 ($iconRight || $showPassword ? 'pr-10 ' : ''),
@@ -42,13 +42,13 @@
         <span class="absolute inset-y-0 right-0 pr-3 flex items-center text-muted">
             <span class="flex items-center">
                 <button type="button"
-                    @click="show = !show; if ($refs.input) { $refs.input.type = show ? 'text' : 'password' }"
+                    @click="show = !show; if ($refs.input) { $refs.input.type = show ? 'text' : 'password'; $nextTick(() => $refs.input.focus()) }"
                     x-bind:aria-label="show ? 'Passwort verbergen' : 'Passwort anzeigen'"
                     :aria-pressed="show"
                     class="rounded p-2 text-muted hover:text-default focus:outline-none focus:ring-2 focus:ring-brand-500"
                 >
                     <x-ui.icon name="eye" x-show="!show" class="w-4 h-4" />
-                    <x-ui.icon name="eye-off" x-show="show" class="w-4 h-4" />
+                    <x-ui.icon name="eye-slash" x-show="show" class="w-4 h-4" />
                 </button>
             </span>
         </span>

@@ -1,0 +1,408 @@
+/* tafeld/resources/css/ui/debug-base.css */
+
+@layer utilities {
+
+    /* DEBUG FILTER BAR */
+    .debug-filter-bar {
+        @apply mt-6 bg-elevated rounded-lg p-4;
+    }
+
+    /* DEBUG FILTER ELEMENTS */
+    .debug-filter-elements {
+        @apply grid grid-cols-1 md:grid-cols-4 gap-3;
+    }
+
+    /* DEBUG TABLE */
+    .debug-table {
+        @apply mt-6 overflow-x-auto rounded-t-lg;
+    }
+
+    /* DEBUG SUGGEST/CUSTOM WRAPPER */
+    .debug-suggest-select-wrapper,
+    .debug-custom-select-wrapper {
+        position: relative;
+        width: 100%;
+    }
+
+    /* =========================
+       DEBUG SUGGEST / CUSTOM
+       TRIGGER
+       ========================= */
+
+    .debug-custom-select-trigger,
+    .debug-suggest-select-field {
+        @apply w-full;
+        @apply bg-card text-default;
+        @apply border border-default rounded-lg;
+        @apply px-3 py-2 pr-10;
+        @apply input-transition;
+        @apply transition-colors transition-shadow;
+
+        outline: none;
+        cursor: text;
+    }
+
+    .debug-custom-select-trigger {
+        @apply flex items-center justify-between;
+    }
+
+    /* Hover */
+    .debug-custom-select-trigger:hover,
+    .debug-suggest-select-field:hover {
+        @apply hover-input-brand;
+        @apply transition-colors transition-shadow;
+    }
+
+    /* Focus = Hover */
+    .debug-custom-select-trigger:focus,
+    .debug-suggest-select-field:focus {
+        @apply hover-input-brand;
+        @apply transition-colors transition-shadow;
+    }
+
+    /* Focus-visible */
+    .debug-custom-select-trigger:focus-visible,
+    .debug-suggest-select-field:focus-visible {
+        outline: none;
+        @apply hover-input-brand;
+    }
+
+    .debug-custom-select-trigger-inner {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .debug-custom-select-trigger-icon {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    /* =========================
+       DEBUG SUGGEST PANEL
+       ========================= */
+
+    .debug-suggest-select-panel {
+        @apply absolute z-50 mt-1 w-full left-0;
+        @apply bg-card border border-dropdown rounded-md;
+        @apply shadow-sm;
+        @apply transition-colors transition-shadow duration-150 ease-out;
+
+        padding: 0.35rem;
+        max-height: 16rem;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .debug-suggest-select:hover .debug-suggest-select-panel,
+    .debug-suggest-select:focus-within .debug-suggest-select-panel,
+    .debug-suggest-select-wrapper:hover .debug-suggest-select-panel,
+    .debug-suggest-select-wrapper:focus-within .debug-suggest-select-panel {
+        @apply border-brand shadow-lg;
+    }
+
+    /* =========================
+       DEBUG SUGGEST OPTIONS
+       ========================= */
+
+    .debug-suggest-select-option {
+        @apply px-3 py-2 cursor-pointer;
+        @apply input-transition;
+        @apply transition-colors duration-100 ease-out;
+        @apply rounded-md;
+        border-radius: 0.375rem;
+        white-space: nowrap;
+        position: relative;
+        padding-left: 0.75rem;
+    }
+
+    .debug-suggest-select-option::before {
+        opacity: 0;
+    }
+
+    .debug-suggest-select-option:hover {
+        background-color: rgb(var(--color-bg-hover-panel-list-element));
+        @apply text-default font-medium;
+        outline: none;
+    }
+
+    .debug-suggest-select-option:hover::before,
+    .debug-suggest-select-option.is-active::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.25rem;
+        bottom: 0.25rem;
+        width: 4px;
+        border-radius: 0.25rem;
+        background-color: rgb(var(--color-mark-list-item));
+        transition: opacity 120ms ease-out;
+        opacity: 1;
+    }
+
+    .debug-suggest-select-option.is-active {
+        background-color: rgb(var(--color-bg-active));
+        @apply font-medium;
+    }
+
+    /* =========================
+       DEBUG CUSTOM PANEL
+       ========================= */
+
+    .debug-custom-select-panel {
+        @apply absolute z-50 mt-1 w-full;
+        @apply bg-card border border-dropdown rounded-md;
+        @apply shadow-sm;
+        @apply transition-colors transition-shadow;
+
+        padding: 0.35rem;
+        max-height: 16rem;
+        overflow-y: auto;
+    }
+
+    .debug-custom-select:hover .debug-custom-select-panel,
+    .debug-custom-select:focus-within .debug-custom-select-panel,
+    .debug-custom-select-wrapper:hover .debug-custom-select-panel,
+    .debug-custom-select-wrapper:focus-within .debug-custom-select-panel {
+        @apply border-dropdown shadow-lg;
+    }
+
+    /* =========================
+       DEBUG CUSTOM OPTIONS
+       ========================= */
+
+    .debug-custom-select-option {
+        @apply px-3 py-2 cursor-pointer;
+        @apply input-transition;
+        @apply rounded-md;
+        position: relative;
+        padding-left: 0.75rem;
+    }
+
+    .debug-custom-select-option:hover {
+        background-color: rgb(var(--color-bg-hover-panel-list-element));
+        outline: none;
+    }
+
+    .debug-custom-select-option:hover::before,
+    .debug-custom-select-option.is-active::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.25rem;
+        bottom: 0.25rem;
+        width: 4px;
+        border-radius: 0.25rem;
+        background-color: rgb(var(--color-mark-list-item));
+    }
+
+    .debug-custom-select-option.is-active {
+        background-color: rgb(var(--color-bg-active));
+    }
+
+    .debug-custom-select-option-inner {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    /* =========================
+       DEBUG RANGE DATEPICKER
+       (Calendar Core – Step 1)
+       ========================= */
+
+    .calendar-days {
+        @apply grid grid-cols-7 gap-1;
+    }
+
+    .calendar-day {
+        @apply h-8 w-8 flex items-center justify-center rounded-md text-sm cursor-pointer transition-colors;
+    }
+
+    .calendar-day:hover {
+        @apply bg-elevated;
+    }
+
+    .calendar-day.is-in-range {
+        @apply bg-brand-soft;
+        border-radius: 0;
+    }
+
+    .calendar-day.is-span-preview {
+        @apply bg-brand-soft px-2;
+        border-radius: 0;
+    }
+
+    .calendar-day.is-start {
+        @apply bg-brand text-inverted font-semibold !important;
+        border-top-left-radius: 9999px !important;
+        border-bottom-left-radius: 9999px !important;
+        border-top-right-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+    }
+
+    .calendar-day.is-end {
+        @apply bg-brand text-inverted font-semibold !important;
+        border-top-right-radius: 9999px !important;
+        border-bottom-right-radius: 9999px !important;
+        border-top-left-radius: 0 !important;
+        border-bottom-left-radius: 0 !important;
+    }
+
+    .calendar-day.is-start.is-end {
+        border-radius: 9999px;
+    }
+
+    .calendar-day.is-focused-day {
+        position: relative;
+        border-radius: 9999px;
+        background-color: bg-brand;
+    }
+
+    .calendar-day.is-focused-day::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 9999px;
+        border: 2px dashed rgb(var(--color-calendar-ring));
+        pointer-events: none;
+    }
+
+    .calendar-day.is-today {
+        @apply focus-ring;
+    }
+
+    .calendar-day.is-saturday {
+        @apply text-orange-300;
+    }
+
+    .calendar-day.is-sunday {
+        @apply text-green-300;
+    }
+
+    .calendar-day.is-disabled {
+        @apply text-muted pointer-events-none;
+    }
+
+    /* =========================
+       DEBUG RANGE DATEPICKER
+       (Presets & Footer – Step 2)
+       ========================= */
+
+    .debug-range-presets {
+        @apply flex flex-wrap gap-2 p-2 border-b border-default justify-center;
+    }
+
+    .preset-btn {
+        @apply px-2 py-1 rounded-md text-sm text-muted font-extralight transition-colors;
+    }
+
+    .preset-btn:hover {
+        @apply text-default bg-elevated;
+    }
+
+    .preset-btn.is-active {
+        @apply bg-brand-soft text-brand-primary font-medium;
+    }
+
+    .debug-range-footer {
+        @apply flex items-center justify-between px-3 py-2 border-t border-default;
+    }
+
+    .footer-today {
+        @apply text-sm text-muted transition-colors px-4;
+    }
+
+    .footer-today:hover {
+        @apply text-default;
+    }
+
+    .footer-clear {
+        @apply text-sm text-muted transition-colors px-4;
+    }
+
+    .footer-clear:hover {
+        @apply text-danger;
+    }
+
+    /* =========================
+       DEBUG RANGE DATEPICKER
+       (Panel Shell – Step 3)
+       ========================= */
+
+    .debug-range-panel {
+        @apply absolute z-50 mt-1 w-full left-0;
+        @apply bg-card border border-default rounded-md;
+        @apply shadow-sm;
+        @apply transition-colors transition-shadow;
+    }
+
+    .debug-range-picker:hover .debug-range-panel,
+    .debug-range-picker:focus-within .debug-range-panel {
+        @apply border-brand shadow-lg;
+    }
+
+    /* =========================
+       DEBUG RANGE DATEPICKER
+       (Trigger – Step 4)
+       ========================= */
+
+    .debug-range-input {
+        @apply w-full;
+        @apply bg-card text-default;
+        @apply border border-default rounded-lg;
+        @apply px-3 py-2;
+        @apply input-transition transition-colors;
+        outline: none;
+        cursor: text;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .debug-range-input:hover {
+        @apply hover-input-brand;
+        @apply transition-all;
+    }
+
+    .debug-range-input:focus,
+    .debug-range-input:focus-visible {
+        outline: none;
+        @apply hover-input-brand;
+    }
+
+    .debug-range-input.is-active {
+        @apply hover-input-brand;
+    }
+
+    .debug-range-value {
+        @apply text-base truncate;
+    }
+
+    .debug-range-value.is-empty {
+        @apply text-muted;
+    }
+
+    .debug-range-value.is-filled {
+        @apply text-default;
+    }
+
+    .debug-range-icons {
+        @apply ml-auto flex items-center gap-2;
+    }
+
+    .debug-range-calendar {
+        @apply text-muted pointer-events-none;
+    }
+
+    .debug-range-icons .ui-clear-button {
+        position: static;
+        transform: none;
+        right: auto;
+        top: auto;
+        margin: 0;
+        display: inline-flex;
+        align-items: center;
+        padding: .125rem;
+    }
+}

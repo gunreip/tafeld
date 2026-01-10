@@ -1,4 +1,4 @@
-/* resources/css/theme-tafeld.css */
+/* tafeld/resources/css/theme-tafeld.css */
 
 @layer base {
     /* ============
@@ -47,6 +47,9 @@
         /* dunkler Hintergrund */
         --color-brand-primary-strong: 255 158 64;
         /* kräftiger Akzent */
+
+        --color-table-row-hover: 0 96 100;
+        --color-mark-list-item: 255 87 34;
     }
 }
 
@@ -127,6 +130,10 @@
         color: var(--brand-orange-dark);
     }
 
+    .border-dropdown {
+        border-color: var(--brand-orange);
+    }
+
     /* Semantische Brand-Utilities */
     .text-brand-primary {
         color: rgb(var(--color-brand-primary));
@@ -140,10 +147,15 @@
         background-color: rgb(var(--color-brand-primary-strong));
     }
 
+    .bg-tr-hover {
+        @apply transition-colors;
+        background-color: rgb(var(--color-table-row-hover));
+        color: rgb(var(--color-text-inverted));
+    }
+
     /* Beispiel: Brand-Primary-Button */
     .btn-brand {
         background-color: rgb(var(--color-brand-primary));
-        color: rgb(var(--color-text-inverted));
     }
 
     .btn-brand:hover {

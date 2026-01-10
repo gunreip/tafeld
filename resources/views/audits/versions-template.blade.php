@@ -46,6 +46,50 @@
         </table>
     </details>
 
+    {{-- System --}}
+    <details class="mb-8">
+        <summary class="cursor-pointer text-lg mb-2 font-semibold">System</summary>
+
+        <table class="audit-table w-full border border-gray-300 rounded-lg shadow-sm text-sm">
+
+            {{-- PostgreSQL --}}
+            <tr class="bg-gray-100">
+                <td class="value-key p-2 font-semibold" colspan="2">PostgreSQL</td>
+            </tr>
+            <tr class="hover:bg-gray-50 odd:bg-white even:bg-gray-50/50">
+                <td class="value-key p-2">Client</td>
+                <td class="value-text p-2 font-mono">{{ $system['postgres']['client_version'] ?? '' }}</td>
+            </tr>
+            <tr class="hover:bg-gray-50 odd:bg-white even:bg-gray-50/50">
+                <td class="value-key p-2">Server</td>
+                <td class="value-text p-2 font-mono">{{ $system['postgres']['server_version'] ?? '' }}</td>
+            </tr>
+            <tr class="hover:bg-gray-50 odd:bg-white even:bg-gray-50/50">
+                <td class="value-key p-2">Ready</td>
+                <td class="value-text p-2 font-mono">{{ $system['postgres']['ready'] ?? '' }}</td>
+            </tr>
+
+            {{-- nginx --}}
+            <tr class="bg-gray-100">
+                <td class="value-key p-2 font-semibold" colspan="2">nginx</td>
+            </tr>
+            <tr class="hover:bg-gray-50 odd:bg-white even:bg-gray-50/50">
+                <td class="value-key p-2">Version</td>
+                <td class="value-text p-2 font-mono">{{ $system['nginx']['version'] ?? '' }}</td>
+            </tr>
+
+            {{-- Domains --}}
+            <tr class="bg-gray-100">
+                <td class="value-key p-2 font-semibold" colspan="2">Domains</td>
+            </tr>
+            <tr class="hover:bg-gray-50 odd:bg-white even:bg-gray-50/50">
+                <td class="value-key p-2">tafeld.test</td>
+                <td class="value-text p-2 font-mono">{{ $system['domains']['tafeld.test'] ?? '' }}</td>
+            </tr>
+
+        </table>
+    </details>
+
     {{-- Composer Packages --}}
     <details class="mb-8">
         <summary class="cursor-pointer text-lg mb-2 font-semibold">

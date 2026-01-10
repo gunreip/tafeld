@@ -1,4 +1,4 @@
-/* resources/css/theme-neutral.css */
+/* tafeld/resources/css/theme-neutral.css */
 
 @layer base {
     :root {
@@ -71,6 +71,10 @@
         /* slate-800 */
         --color-bg-active: 51 65 85;
         /* slate-700 */
+        /* --color-bg-hover-panel-list-element: 36 48 70; */
+        /* --color-bg-hover-panel-list-element: 40 52 74; */
+        --color-bg-hover-panel-list-element: 44 56 78;
+        /* between slate-800 and slate-700 */
 
         /* Text – DARK */
         --color-text-default: 241 245 249;

@@ -27,6 +27,30 @@ import fs from 'fs';
     await page.goto(loginUrl, { waitUntil: 'networkidle' });
     await page.waitForSelector('body');
 
+    // Ensure the email input is present
+    const emailSelectorCandidates = ['input[name="email"]', 'input[type="email"]', 'input[wire\\:model="email"]'];
+    let emailSelector = 'input[type="email"]';
+    for (const s of emailSelectorCandidates) {
+        if (await page.$(s)) { emailSelector = s; break; }
+    }
+
+    if (!(await page.$(emailSelector))) {
+        console.log('No email input found on login page; aborting');
+        await context.close();
+        await browser.close();
+        return;
+    }
+
+    // Fill email
+    await page.fill(emailSelector, 'e2e@example.test');
+
+    // Ensure a checkbox (remember) and submit button exist
+    const checkbox = await page.$('input[type="checkbox"], input[wire\\:model="remember"]');
+    if (!checkbox) console.log('Warning: no remember checkbox found'); else console.log('Found remember checkbox');
+
+    const submitBtn = await page.$('button[type="submit"]');
+    if (!submitBtn) console.log('Warning: no submit button found'); else console.log('Found submit button');
+
     // Ensure the password input is present
     const passwordSelectorCandidates = ['input[name="password"]', 'input[type="password"]', 'input[wire\\:model="password"]'];
     let passwordSelector = 'input[type="password"]';
@@ -61,6 +85,15 @@ import fs from 'fs';
     await toggleBtn.click();
     await page.waitForTimeout(120);
 
+    // ensure focus returned to password input
+    const focused = await page.evaluate((sel) => document.activeElement === document.querySelector(sel), passwordSelector);
+    if (!focused) {
+        console.log('Toggle did not focus password input; aborting');
+        await context.close();
+        await browser.close();
+        process.exit(1);
+    }
+
     const afterType = await page.$eval(passwordSelector, (el) => el.type);
     const afterVal = await page.$eval(passwordSelector, (el) => el.value);
     console.log('After clicking toggle -> type:', afterType, 'value len:', afterVal.length);
@@ -72,6 +105,15 @@ import fs from 'fs';
     // try to find button by aria-pressed or aria-label change
     await toggleBtn.click();
     await page.waitForTimeout(120);
+
+    // ensure focus returned to password input after hiding
+    const focused2 = await page.evaluate((sel) => document.activeElement === document.querySelector(sel), passwordSelector);
+    if (!focused2) {
+        console.log('Toggle did not focus password input after hiding; aborting');
+        await context.close();
+        await browser.close();
+        process.exit(1);
+    }
 
     const finalType = await page.$eval(passwordSelector, (el) => el.type);
     console.log('After clicking toggle again -> type:', finalType);

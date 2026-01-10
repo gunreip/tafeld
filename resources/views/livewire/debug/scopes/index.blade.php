@@ -14,7 +14,7 @@
                     Debug Scopes
                 </h1>
                 <p class="text-sm text-muted">
-                    Aktivierung einzelner Debug-Bereiche
+                    Aktivierung/Deaktivierung einzelner Debug-Bereiche. <span class="text-warning">Blacklist beachten!</span> <code>debug.*</code>, <code>ui.*</code> und <code>livewire.*</code>
                 </p>
             </div>
 

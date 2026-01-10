@@ -95,18 +95,39 @@ class Create extends Component
 
         Debug::log('smoke.global', 'Global enabled');
         Debug::log('smoke.run', 'A');
-        Debug::log('smoke.kill', 'Kill now');
+        // Debug::log('smoke.kill', 'Kill now');
         Debug::log('smoke.after', 'MUSS unterdrückt werden');
 
-        // Debug::log('smoke.discovery', 'First call');
-        // Debug::log('smoke.discovery', 'Second call');
-        // Debug::log('smoke.discovery', 'Scope enabled');
-        // Debug::log('smoke.parent.child', 'Hierarchy test');
+        Debug::log('smoke.discovery', 'First call');
+        Debug::log('smoke.discovery', 'Second call');
+        Debug::log('smoke.discovery', 'Scope enabled');
+        Debug::log('smoke.parent.child', 'Hierarchy test');
         Debug::log('smoke.run', 'B');
-        // Debug::log('smoke.run', 'C');
-        // Debug::log('smoke.run', 'D');
-        // Debug::log('smoke.run', 'E');
-        // Debug::log('smoke.fail', 'DB missing');
+        Debug::log('smoke.run', 'C');
+        Debug::log('smoke.run', 'D');
+        Debug::log('smoke.run', 'E');
+        Debug::log('smoke.fail', 'DB missing');
+
+        // neue Test/Dummy-Einträge
+        Debug::log('dingsbums.test.niveau1', 'Debug-Log-Dummy-Eintrag 1.1');
+        Debug::log('dingsbums.test.niveau2', 'Debug-Log-Dummy-Eintrag 1.2');
+        Debug::log('dingsbums.test.niveau3', 'Debug-Log-Dummy-Eintrag 1.3');
+        Debug::log('dingsbums.dummy.niveau1', 'Debug-Log-Dummy-Eintrag 2.3');
+        Debug::log('dingsbums.dummy.niveau2', 'Debug-Log-Dummy-Eintrag 2.3');
+        Debug::log('dingsbums.dummy.niveau3', 'Debug-Log-Dummy-Eintrag 3.3');
+        Debug::log('dingsbums.niveau1', 'Debug-Log-Dummy-Eintrag 3.1');
+        Debug::log('dingsbums.niveau1', 'Debug-Log-Dummy-Eintrag 3.2');
+        Debug::log('dingsbums.niveau1', 'Debug-Log-Dummy-Eintrag 3.3');
+
+        Debug::log('warning.debug.warn.test', 'Test für Scope-Auswahl-Liste', ['comment' => 'Ein Test'], 'warning');
+        Debug::log('warning.debug.warn.test1', 'Test2 für Scope-Auswahl-Liste', ['comment' => 'Ein Test Nr. 2'], 'warning');
+        Debug::log('warning.debug.warn.test2', 'Test3 für Scope-Auswahl-Liste', ['comment' => 'Ein Test Nr. 3'], 'warning');
+
+        Debug::log('info.debug.info 1', 'Debug-Info Nummer 1', ['comment' => 'Ein Test für einen Info-Eintrag'], 'info');
+
+        Debug::log('smoke.test', 'Debug::log() Test-Eintrag');
+
+        Debug::log('dingsbums.debug.blacklist.test', 'Debug Blacklist-Test.');
 
         // Standard-Staatsangehörigkeit: Deutschland
         $this->nationality_id = Country::where('iso_3166_2', 'DE')->value('id');

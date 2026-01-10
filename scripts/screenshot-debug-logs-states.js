@@ -181,17 +181,17 @@ import fs from 'fs';
     }
 
     // 2) Suggest input: type to show suggestions and clear button
-    const suggestField = await page.$('.debug-suggest-input-field');
+    const suggestField = await page.$('.debug-suggest-select-field');
     if (suggestField) {
         await suggestField.fill('a');
         await page.waitForTimeout(300);
         // wait for panel to appear
-        await page.waitForSelector('.debug-suggest-input-panel', { state: 'visible', timeout: 2000 }).catch(() => { });
+        await page.waitForSelector('.debug-suggest-select-panel', { state: 'visible', timeout: 2000 }).catch(() => { });
         await page.screenshot({ path: `${outDir}/debug-logs-suggest-open.png`, fullPage: true });
         console.log('Saved suggest open screenshot');
 
         // Hover the first suggest option
-        const sfirst = await page.$('.debug-suggest-input-panel ul li');
+        const sfirst = await page.$('.debug-suggest-select-panel ul li');
         if (sfirst) {
             const box = await sfirst.boundingBox();
             if (box) await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);

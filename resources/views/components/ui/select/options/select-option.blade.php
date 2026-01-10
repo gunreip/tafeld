@@ -13,10 +13,10 @@
 <li
     class="debug-custom-select-option"
     role="option"
-    :class="{ 'is-active': activeIndex === {{ $index }} }"
-    :aria-selected="activeIndex === {{ $index }}"
-    @mouseenter="activate({{ $index }})"
-    @click="activate({{ $index }}); closeDropdown()"
+    {{-- :class="{ 'is-active': activeIndex === {{ $index }} }" --}}
+    {{-- :aria-selected="activeIndex === {{ $index }}" --}}
+    {{-- @mouseenter="activate({{ $index }})" --}}
+    @click="$dispatch('custom-select:set', '{{ $value }}')"
     data-value="{{ $value }}"
 >
     <div class="debug-custom-select-option-inner {{ $class }}">

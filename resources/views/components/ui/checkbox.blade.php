@@ -13,9 +13,9 @@
 <label for="{{ $id }}" class="flex items-center gap-3 cursor-pointer select-none">
 
     {{-- Hidden checkbox --}}
-    <input type="checkbox" id="{{ $id }}"
+    <input type="checkbox" id="{{ $id }}" {{ $attributes->merge(['class' => 'peer sr-only']) }}
         @if ($model) wire:model="{{ $model }}" @endif @checked($checked)
-        @disabled($disabled) class="peer sr-only">
+        @disabled($disabled)>
 
     {{-- VISUAL BOX --}}
     <span

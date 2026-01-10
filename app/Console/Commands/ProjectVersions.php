@@ -7,6 +7,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\DB;
 
 class ProjectVersions extends Command
 {
@@ -222,6 +223,34 @@ class ProjectVersions extends Command
         // ---------------------------------------------------------------------
         $jsonData = [
             'summary' => $summary,
+            'system' => [
+                'postgres' => [
+                    'client_version' => trim(
+                        shell_exec('/usr/bin/psql --version 2>/dev/null') ?? ''
+                    ),
+                    'server_version' => (function () {
+                        try {
+                            $row = DB::selectOne('select version() as v');
+                            return $row->v ?? '';
+                        } catch (\Throwable $e) {
+                            return '';
+                        }
+                    })(),
+                    'ready' => trim(
+                        shell_exec('/usr/bin/pg_isready 2>/dev/null') ?? ''
+                    ),
+                ],
+                'nginx' => [
+                    'version' => trim(
+                        shell_exec('/usr/sbin/nginx -v 2>&1') ?? ''
+                    ),
+                ],
+                'domains' => [
+                    'tafeld.test' => trim(
+                        shell_exec('/usr/bin/getent hosts tafeld.test | awk \'{print $1}\'') ?? ''
+                    ),
+                ],
+            ],
             'composer' => $composerPackages,
             'npm' => $nodePackages,
         ];

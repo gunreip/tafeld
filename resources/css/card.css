@@ -1,0 +1,17 @@
+/* tafeld/resources/css/ui/card.css */
+
+.card-header {
+    @apply flex items-center justify-between;
+}
+
+.card-header-title {
+    @apply text-xl font-semibold text-default;
+}
+
+.card-header-description {
+    @apply text-sm text-muted;
+}
+
+.card-header-info {
+    @apply text-sm text-muted;
+}

@@ -4,15 +4,27 @@ export default function debugCustomSelect({ value, options }) {
     return {
         open: false,
         activeIndex: -1,
+        previewIndex: -1,
         value,
         options,
+
+        toggleDropdown() {
+            this.open = !this.open;
+        },
 
         currentOption() {
             return this.options.find(o => o.value === this.value) ?? null;
         },
 
+        displayedOption() {
+            if (this.previewIndex !== -1) {
+                return this.options[this.previewIndex] ?? null;
+            }
+            return this.currentOption();
+        },
+
         currentIcon() {
-            return this.currentOption()?.['icon-name'] ?? null;
+            return this.displayedOption()?.['icon-name'] ?? null;
         },
 
         init() {
@@ -25,18 +37,60 @@ export default function debugCustomSelect({ value, options }) {
 
         closeDropdown() {
             this.open = false;
+            this.previewIndex = -1;
         },
 
         activate(index) {
             if (index < 0 || index >= this.options.length) return;
             this.activeIndex = index;
             this.value = this.options[index].value ?? null;
+            this.previewIndex = -1;
+        },
+
+        preview(index) {
+            if (index < 0 || index >= this.options.length) return;
+            this.previewIndex = index;
+        },
+
+        handleArrowDown(e) {
+            e.preventDefault();
+
+            if (!this.open) {
+                this.openDropdown();
+                this.activeIndex = 0;
+                this.previewIndex = this.activeIndex;
+                return;
+            }
+
+            this.activeIndex = Math.min(
+                this.activeIndex + 1,
+                this.options.length - 1
+            );
+            this.previewIndex = this.activeIndex;
+        },
+
+        handleArrowUp(e) {
+            e.preventDefault();
+
+            if (!this.open) {
+                this.openDropdown();
+                this.activeIndex = this.options.length - 1;
+                this.previewIndex = this.activeIndex;
+                return;
+            }
+
+            this.activeIndex = Math.max(
+                this.activeIndex - 1,
+                0
+            );
+            this.previewIndex = this.activeIndex;
         },
 
         handleEnter(e) {
             // If closed, open the dropdown
             if (!this.open) {
                 this.openDropdown();
+                this.activeIndex = this.activeIndex === -1 ? 0 : this.activeIndex;
                 return;
             }
 
@@ -45,6 +99,7 @@ export default function debugCustomSelect({ value, options }) {
             }
 
             this.closeDropdown();
+            this.activeIndex = -1;
 
             // Default: jump to next focusable outside this component (Enter is main action)
             try {
@@ -73,36 +128,39 @@ export default function debugCustomSelect({ value, options }) {
         },
 
         handleEscape(e) {
-            // Escape: if a value is selected, clear it and keep focus on the trigger; else close the dropdown if open
+            // Escape: close dropdown and reset active index
             try {
-                if (this.selectedIndex() > 0) {
-                    this.clear();
-                    // keep focus on trigger — allow for DOM updates / Livewire re-render
-                    const focusWithRetry = () => {
-                        let attempts = 0;
-                        const id = setInterval(() => {
-                            const trigger = this.$el.querySelector('.debug-custom-select-trigger');
-                            if (trigger && typeof trigger.focus === 'function') trigger.focus();
-                            const active = document.activeElement;
-                            if (trigger === active || ++attempts >= 8) clearInterval(id);
-                        }, 75);
-                    };
-
-                    if (typeof this.$nextTick === 'function') {
-                        this.$nextTick(() => setTimeout(focusWithRetry, 100));
-                    } else {
-                        setTimeout(focusWithRetry, 100);
-                    }
-
+                if (this.open) {
+                    this.closeDropdown();
+                    this.activeIndex = -1;
                     return;
                 }
 
-                if (this.open) {
-                    this.closeDropdown();
+                if (this.selectedIndex() > 0) {
+                    this.clear();
                 }
             } catch (err) {
                 console.warn('handleEscape failed', err);
             }
+        },
+
+        previewFromEvent(e) {
+            try {
+                const li = e?.target?.closest?.('li[role="option"][data-value]');
+                if (!li) return;
+
+                const val = li.getAttribute('data-value');
+                const idx = this.options.findIndex(o => String(o?.value ?? '') === String(val ?? ''));
+                if (idx === -1) return;
+
+                this.previewIndex = idx;
+            } catch (err) {
+                console.warn('previewFromEvent failed', err);
+            }
+        },
+
+        clearPreview() {
+            this.previewIndex = -1;
         },
 
         focusClearButton() {
@@ -203,7 +261,6 @@ export default function debugCustomSelect({ value, options }) {
                 console.warn('Livewire set fallback failed', e);
             }
         },
-
 
         next() {
             this.activate(
